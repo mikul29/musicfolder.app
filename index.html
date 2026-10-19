@@ -111,13 +111,6 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .heading { font-size: var(--heading); line-height: 1.05; letter-spacing: -0.01em; }
 .heading-sm { font-size: var(--heading-sm); line-height: 1.1; letter-spacing: -0.01em; }
 .display em, .heading em { font-style: italic; color: var(--ribbon); }
-.eyebrow {
-  display: flex; align-items: center; gap: 12px;
-  font-size: 13px; font-weight: 600; line-height: 1.2;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--deep-amber); margin: 0 0 20px;
-}
-.eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--ribbon); flex: none; }
 .lede { font-size: 20px; line-height: 1.5; max-width: 560px; }
 .caption { font-size: 15px; line-height: 1.45; color: var(--graphite); }
 p { margin: 0 0 16px; }
@@ -325,21 +318,26 @@ p { margin: 0 0 16px; }
 }
 .program-sheet {
   position: absolute; left: 44px; right: 44px; top: 54px; height: 420px;
-  background: #FBFAF8; color: #1A1815; border-radius: 3px;
-  padding: 26px 26px 0;
+  background: #FDFCF9; color: #111; border-radius: 2px;
+  padding: 24px 26px 0;
   box-shadow: 0 10px 22px -10px rgba(0,0,0,0.7);
   transform: rotate(-1.6deg);
+  font-family: var(--font-text);
 }
-.program-sheet .ps-eyebrow { font: 600 9px/1 var(--font-text); letter-spacing: .14em; text-transform: uppercase; color: #A9520F; display: flex; gap: 8px; align-items: center; }
-.program-sheet .ps-eyebrow::before { content: ""; width: 16px; height: 2px; background: #F2812E; }
-.program-sheet h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; margin: 10px 0 2px; color: #141414; }
-.program-sheet .ps-sub { font-size: 11px; color: #6E6A60; margin-bottom: 14px; }
-.program-sheet ol { list-style: none; margin: 0; padding: 0; }
+.program-sheet .ps-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 8px; border-bottom: 2px solid #111;
+}
+.program-sheet h3 { font: 800 22px/1 var(--font-text); letter-spacing: -0.01em; margin: 0; color: #111; }
+.program-sheet .ps-where { font-size: 10px; color: #555; text-align: right; line-height: 1.3; }
+.program-sheet ol { list-style: none; margin: 14px 0 0; padding: 0; counter-reset: song; }
 .program-sheet li {
-  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: baseline;
-  padding: 8px 0; border-top: 1px solid #E7E1D6; font-size: 13px; line-height: 1.3;
+  counter-increment: song;
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 7px 0; font: 700 15px/1.15 var(--font-text); text-transform: uppercase; letter-spacing: 0.01em;
 }
-.program-sheet li span:first-child, .program-sheet li span:last-child { color: #6E6A60; font-variant-numeric: tabular-nums; font-size: 11.5px; }
+.program-sheet li::before { content: counter(song); width: 14px; flex: none; font-size: 10px; font-weight: 500; color: #888; }
+.program-sheet li .k { margin-left: auto; font-size: 11px; font-weight: 500; text-transform: none; color: #666; }
 .pocket {
   position: absolute; left: 0; right: 0; bottom: 0; height: 200px;
   background:
@@ -475,8 +473,6 @@ section { position: relative; }
 .sync-note i { width: 8px; height: 8px; border-radius: 50%; background: var(--ribbon); flex: none; }
 
 /* Planning Center section */
-.pco .eyebrow { color: var(--services-deep); }
-.pco .eyebrow::before { background: var(--services-green); }
 .pco-plan { background: var(--card); border-radius: var(--radius-card); padding: 28px; width: 100%; max-width: 440px; border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
 .pco-plan .pp-top { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--services-deep); font-weight: 600; margin-bottom: 8px; }
 .pco-plan .pp-top i { width: 10px; height: 10px; border-radius: 3px; background: var(--services-green); }
@@ -491,7 +487,6 @@ section { position: relative; }
   background: var(--stage-black); color: var(--stage-text);
   padding: var(--section-gap) 0; overflow: hidden;
 }
-.stage .eyebrow { color: var(--ribbon); }
 .stage .heading { color: var(--stage-text); }
 .stage-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
 .stage p { color: var(--stage-muted); }
@@ -697,17 +692,18 @@ section { position: relative; }
       </div>
       <div class="cover-inside" id="leaf">
           <div class="program-sheet">
-            <div class="ps-eyebrow">Set list</div>
-            <h3>Friday, 9:00</h3>
-            <div class="ps-sub">The Blue Room · Set one</div>
+            <div class="ps-top">
+              <h3>Set list</h3>
+              <span class="ps-where">Fri, Nov 7<br>The Blue Room</span>
+            </div>
             <ol>
-              <li><span>1</span><span>Autumn Leaves</span><span>Gm · ♩=132</span></li>
-              <li><span>2</span><span>Nocturne</span><span>E♭ · ♩=60</span></li>
-              <li><span>3</span><span>Blue Bossa</span><span>Cm · ♩=150</span></li>
-              <li><span>4</span><span>Summertime</span><span>Am · ♩=96</span></li>
-              <li><span>5</span><span>All the Things You Are</span><span>A♭ · ♩=168</span></li>
-              <li><span>6</span><span>Take the A Train</span><span>C · ♩=180</span></li>
-              <li><span>7</span><span>Body and Soul</span><span>D♭ · ♩=72</span></li>
+              <li>Autumn Leaves <span class="k">Gm</span></li>
+              <li>Nocturne <span class="k">E♭</span></li>
+              <li>Blue Bossa <span class="k">Cm</span></li>
+              <li>Summertime <span class="k">Am</span></li>
+              <li>All the Things You Are <span class="k">A♭</span></li>
+              <li>Take the A Train <span class="k">C</span></li>
+              <li>Body and Soul <span class="k">D♭</span></li>
             </ol>
           </div>
           <div class="pocket"></div>
@@ -735,7 +731,6 @@ section { position: relative; }
 <section class="section">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Why Music Folder</p>
       <h2 class="heading">Better than a folder of PDFs. <em>Lighter</em> than a binder.</h2>
     </div>
     <div class="contrast reveal">
@@ -767,7 +762,6 @@ section { position: relative; }
 
     <article class="feature reveal">
       <div class="feature-copy">
-        <p class="eyebrow">Organize</p>
         <h2 class="heading-sm">Your whole library, finally in one place.</h2>
         <p>Import PDFs from Files, AirDrop, email or any app, with <strong>bulk import</strong> for first-time setup. Sort songs into Folders by band, ensemble or instrument, add tags, and bookmark pieces inside long fake books and method books.</p>
         <p>Still on paper? The built-in scanner turns sheet music into clean PDFs.</p>
@@ -786,7 +780,6 @@ section { position: relative; }
 
     <article class="feature flip reveal">
       <div class="feature-copy">
-        <p class="eyebrow">Set lists</p>
         <h2 class="heading-sm">Your set, in order. On stage, one tap at a time.</h2>
         <p>Build a set list for every gig, service or rehearsal in exact performance order, then <strong>play straight through it</strong>. Read page by page or scroll continuously, in portrait or landscape.</p>
         <p>Turn pages hands-free with a Bluetooth page-turner pedal, and arrange the reader toolbar the way you play.</p>
@@ -812,7 +805,6 @@ section { position: relative; }
 
     <article class="feature reveal">
       <div class="feature-copy">
-        <p class="eyebrow">Annotate</p>
         <h2 class="heading-sm">Mark it up like paper. Keep it like digital.</h2>
         <p>Draw with a finger, <strong>Apple Pencil</strong> or any stylus, and add text stamps for fingerings, dynamics, cuts and reminders.</p>
         <p>Every mark saves automatically and syncs to your other devices.</p>
@@ -826,7 +818,6 @@ section { position: relative; }
 
     <article class="feature flip reveal" id="teams">
       <div class="feature-copy">
-        <p class="eyebrow">Share with your band</p>
         <h2 class="heading-sm">One set list. The whole band, in sync.</h2>
         <p>Share a folder or set list with other Music Folder users. When someone adds a chart or reorders the set, <strong>everyone's copy updates</strong>.</p>
         <p>Choose view-only or can-edit for each person. Annotations stay personal, so your pencil marks never clutter the drummer's part.</p>
@@ -848,7 +839,6 @@ section { position: relative; }
 
     <article class="feature pco reveal">
       <div class="feature-copy">
-        <p class="eyebrow">Planning Center</p>
         <h2 class="heading-sm">Your Sunday plan, already on the stand.</h2>
         <p>Link your Planning Center Services account and your team's song library appears as a folder. <strong>Upcoming service plans</strong> sit next to your set lists, and you can play through a service with the right charts and recordings, one song after another.</p>
         <p class="caption">Planning Center access is read-only: you view and play through plans; editing stays in Planning Center.</p>
@@ -876,7 +866,6 @@ section { position: relative; }
 <section class="stage" aria-labelledby="stageTitle">
   <div class="wrap stage-grid">
     <div class="reveal">
-      <p class="eyebrow">On stage</p>
       <h2 class="heading" id="stageTitle">Built for the stage.</h2>
       <ul class="stage-points">
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 14l3-8h4l3 8"/></svg><span>Bluetooth page-turner pedal<small>Hands-free page turns, both feet on the floor.</small></span></li>
@@ -898,7 +887,6 @@ section { position: relative; }
 <section class="section" id="toolkit">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">The toolkit</p>
       <h2 class="heading">Leave the extra apps at home.</h2>
       <p>Everything you reach for in rehearsal, one tap from the score.</p>
     </div>
@@ -955,7 +943,6 @@ section { position: relative; }
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Who it's for</p>
       <h2 class="heading">For anyone who plays from the page.</h2>
     </div>
     <div class="who-grid reveal">
@@ -987,7 +974,6 @@ section { position: relative; }
       <div class="device phone"><div class="screen">[Screenshot: same library on iPhone]</div></div>
     </div>
     <div class="reveal">
-      <p class="eyebrow">iPhone, iPad &amp; iCloud</p>
       <h2 class="heading-sm">The same library on every device you own.</h2>
       <ul class="facts">
         <li><strong>Designed for iPad too</strong><span>A sidebar layout, a home screen built for the big screen, and full-size tools.</span></li>
@@ -1002,7 +988,6 @@ section { position: relative; }
 <section class="section" id="pricing">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Pricing</p>
       <h2 class="heading">Start free. Go Premium when your library grows.</h2>
     </div>
     <div class="pricing-grid reveal">
@@ -1047,7 +1032,6 @@ section { position: relative; }
 <section class="section" id="support" style="padding-top:0">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Questions</p>
       <h2 class="heading">Before the downbeat.</h2>
     </div>
     <div class="faq reveal">
