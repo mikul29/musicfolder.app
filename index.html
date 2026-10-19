@@ -260,19 +260,8 @@ p { margin: 0 0 16px; }
 }
 .ipad-screen {
   width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #FFFFFF;
-  display: flex; flex-direction: column;
 }
-.reader-bar {
-  height: 30px; flex: none; display: flex; align-items: center; justify-content: space-between;
-  padding: 0 12px; border-bottom: 1px solid #ECE8E1;
-  font: 600 10px/1 var(--font-text); color: #1A1815; background: #FBFAF8;
-}
-.reader-bar .dots { display: flex; gap: 6px; }
-.reader-bar .dots i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #6E6A60; display: block; }
-.reader-bar .dots i.on { border-color: #F2812E; background: #F2812E; }
-.reader-score { flex: 1; min-height: 0; }
-.reader-score svg { width: 100%; height: 100%; display: block; }
-.reader-foot { height: 20px; flex: none; text-align: center; font: 500 9px/20px var(--font-text); color: #6E6A60; }
+.ipad-screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 
 /* the cover */
 .cover {
@@ -672,13 +661,7 @@ section { position: relative; }
         <div class="cords"><i></i><i></i><b></b><b></b></div>
         <div class="ipad">
           <div class="ipad-screen">
-            <div class="reader-bar">
-              <span>‹ Friday Set</span>
-              <span>Nocturne</span>
-              <span class="dots"><i></i><i class="on"></i><i></i></span>
-            </div>
-            <div class="reader-score" id="score"></div>
-            <div class="reader-foot tnum">2 of 7 · Page 1 / 3</div>
+            <img src="assets/hero-ipad-annotated.jpg" alt="" width="880" height="1110">
           </div>
         </div>
         <div class="pocket-right"></div>
@@ -1145,67 +1128,6 @@ section { position: relative; }
 
 <script>
 (() => {
-  /* ---------- Engraved score for the iPad in the folder ---------- */
-  const scoreEl = document.getElementById('score');
-  if (scoreEl) {
-    let seed = 7;
-    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-    const W = 300, H = 400, L = 18, R = 282, gap = 4.2;
-    let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Instrument Serif, Georgia, serif">`;
-    s += `<text x="150" y="30" text-anchor="middle" font-size="19" fill="#141414">Nocturne</text>`;
-    s += `<text x="150" y="43" text-anchor="middle" font-size="8" fill="#6E6A60" font-family="-apple-system, Inter, sans-serif">Op. 9, No. 2</text>`;
-    s += `<text x="${R}" y="54" text-anchor="end" font-size="8" fill="#1A1815">F. Chopin</text>`;
-    s += `<text x="${L}" y="54" font-size="8" fill="#1A1815" font-style="italic">Andante</text>`;
-    const staff = (y) => { let o = ''; for (let i = 0; i < 5; i++) o += `<line x1="${L}" x2="${R}" y1="${y + i * gap}" y2="${y + i * gap}" stroke="#2A2A2A" stroke-width=".45"/>`; return o; };
-    const note = (x, y, up, filled = true) => {
-      const head = `<ellipse cx="${x}" cy="${y}" rx="2.5" ry="1.75" transform="rotate(-22 ${x} ${y})" fill="${filled ? '#141414' : 'none'}" stroke="#141414" stroke-width="${filled ? 0 : .7}"/>`;
-      const stem = up ? `<line x1="${x + 2.3}" x2="${x + 2.3}" y1="${y}" y2="${y - 13}" stroke="#141414" stroke-width=".6"/>`
-                      : `<line x1="${x - 2.3}" x2="${x - 2.3}" y1="${y}" y2="${y + 13}" stroke="#141414" stroke-width=".6"/>`;
-      return head + stem;
-    };
-    let annot = '';
-    for (let sys = 0; sys < 5; sys++) {
-      const top = 70 + sys * 64, bass = top + 30;
-      s += staff(top) + staff(bass);
-      s += `<line x1="${L}" x2="${L}" y1="${top}" y2="${bass + 4 * gap}" stroke="#141414" stroke-width=".8"/>`;
-      s += `<path d="M${L - 4} ${top} q-3 ${(bass + 16.8 - top) / 4} 0 ${(bass + 16.8 - top) / 2} q3 ${(bass + 16.8 - top) / 4} 0 ${(bass + 16.8 - top) / 2}" fill="none" stroke="#141414" stroke-width="1.1"/>`;
-      // clef-like markers (stylized, small)
-      s += `<text x="${L + 3}" y="${top + 14}" font-size="17" fill="#141414">&#x1D11E;</text>`;
-      s += `<text x="${L + 3}" y="${bass + 11}" font-size="13" fill="#141414">&#x1D122;</text>`;
-      const start = L + 24, mw = (R - start) / 4;
-      for (let m = 0; m < 4; m++) {
-        const mx = start + m * mw;
-        if (m) s += `<line x1="${mx}" x2="${mx}" y1="${top}" y2="${bass + 4 * gap}" stroke="#141414" stroke-width=".5"/>`;
-        // treble: two beamed groups of three
-        for (let g = 0; g < 2; g++) {
-          const xs = [], ys = [];
-          for (let n = 0; n < 3; n++) {
-            const x = mx + 7 + g * (mw / 2) + n * (mw / 7.2);
-            const y = top + gap * Math.round(rnd() * 6 - 1) / 2 + 4;
-            xs.push(x); ys.push(y); s += note(x, y, true);
-          }
-          const by = Math.min(...ys) - 13;
-          s += `<line x1="${xs[0] + 2.3}" x2="${xs[2] + 2.3}" y1="${by}" y2="${by - 1}" stroke="#141414" stroke-width="1.6"/>`;
-        }
-        // bass: low note + chord
-        s += note(mx + 9, bass + gap * (3 + Math.round(rnd() * 2) / 2), true, true);
-        const cy = bass + gap * (1 + Math.round(rnd() * 2) / 2);
-        s += note(mx + mw / 2 + 4, cy, false, false) + `<ellipse cx="${mx + mw / 2 + 4}" cy="${cy - gap}" rx="2.5" ry="1.75" transform="rotate(-22 ${mx + mw / 2 + 4} ${cy - gap})" fill="none" stroke="#141414" stroke-width=".7"/>`;
-        if (sys === 2 && m === 2) {
-          // Apple Pencil annotation: a loose circle and a written cue
-          const cx = mx + mw / 2, cyy = top + 7;
-          annot += `<path d="M${cx - 30} ${cyy + 2} C ${cx - 31} ${cyy - 16}, ${cx + 30} ${cyy - 17}, ${cx + 31} ${cyy} S ${cx - 20} ${cyy + 19}, ${cx - 33} ${cyy - 3}" fill="none" stroke="#F2812E" stroke-width="1.5" stroke-linecap="round"/>`;
-          annot += `<text x="${cx + 18}" y="${cyy - 15}" font-size="10" font-style="italic" fill="#F2812E">breathe</text>`;
-        }
-      }
-      s += `<line x1="${R}" x2="${R}" y1="${top}" y2="${bass + 4 * gap}" stroke="#141414" stroke-width=".7"/>`;
-      if (sys === 0) s += `<text x="${L + 26}" y="${bass - 4}" font-size="9" font-style="italic" font-weight="700" fill="#141414">p</text>`;
-      if (sys === 3) s += `<text x="${L + 120}" y="${bass - 4}" font-size="8" font-style="italic" fill="#141414">espress.</text>`;
-    }
-    s += annot + `</svg>`;
-    scoreEl.innerHTML = s;
-  }
-
   /* ---------- Header state ---------- */
   const header = document.querySelector('.site-header');
   const menu = document.querySelector('.menu');
