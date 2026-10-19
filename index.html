@@ -184,7 +184,11 @@ p { margin: 0 0 16px; }
   will-change: opacity, transform;
 }
 .hero-copy .inner { max-width: min(600px, 50%); }
-.hero-copy .display { margin-bottom: 24px; }
+.hero-copy .display {
+  margin-bottom: 24px; white-space: nowrap;
+  /* "Meet Music Folder." is ~6.1em wide: shrink on small phones rather than wrap */
+  font-size: min(var(--display), calc((100vw - 32px) / 6.4));
+}
 .hero-copy .lede { margin-bottom: 32px; }
 .hero-copy .caption { margin-top: 14px; }
 @media (max-width: 860px) {
