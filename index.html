@@ -318,26 +318,19 @@ p { margin: 0 0 16px; }
 }
 .program-sheet {
   position: absolute; left: 44px; right: 44px; top: 54px; height: 420px;
-  background: #FDFCF9; color: #111; border-radius: 2px;
-  padding: 24px 26px 0;
+  background: #FBFAF8; color: #1A1815; border-radius: 3px;
+  padding: 26px 26px 0;
   box-shadow: 0 10px 22px -10px rgba(0,0,0,0.7);
   transform: rotate(-1.6deg);
-  font-family: var(--font-text);
 }
-.program-sheet .ps-top {
-  display: flex; justify-content: space-between; align-items: baseline;
-  padding-bottom: 8px; border-bottom: 2px solid #111;
-}
-.program-sheet h3 { font: 800 22px/1 var(--font-text); letter-spacing: -0.01em; margin: 0; color: #111; }
-.program-sheet .ps-where { font-size: 10px; color: #555; text-align: right; line-height: 1.3; }
-.program-sheet ol { list-style: none; margin: 14px 0 0; padding: 0; counter-reset: song; }
+.program-sheet h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; margin: 0 0 2px; color: #141414; }
+.program-sheet .ps-sub { font-size: 11px; color: #6E6A60; margin-bottom: 14px; }
+.program-sheet ol { list-style: none; margin: 0; padding: 0; }
 .program-sheet li {
-  counter-increment: song;
-  display: flex; align-items: baseline; gap: 10px;
-  padding: 7px 0; font: 700 15px/1.15 var(--font-text); text-transform: uppercase; letter-spacing: 0.01em;
+  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: baseline;
+  padding: 8px 0; border-top: 1px solid #E7E1D6; font-size: 13px; line-height: 1.3;
 }
-.program-sheet li::before { content: counter(song); width: 14px; flex: none; font-size: 10px; font-weight: 500; color: #888; }
-.program-sheet li .k { margin-left: auto; font-size: 11px; font-weight: 500; text-transform: none; color: #666; }
+.program-sheet li span:first-child, .program-sheet li span:last-child { color: #6E6A60; font-variant-numeric: tabular-nums; font-size: 11.5px; }
 .pocket {
   position: absolute; left: 0; right: 0; bottom: 0; height: 200px;
   background:
@@ -693,18 +686,16 @@ section { position: relative; }
       </div>
       <div class="cover-inside" id="leaf">
           <div class="program-sheet">
-            <div class="ps-top">
-              <h3>Set list</h3>
-              <span class="ps-where">Fri, Nov 7<br>The Blue Room</span>
-            </div>
+            <h3>Friday, 9:00</h3>
+            <div class="ps-sub">Set list · The Blue Room</div>
             <ol>
-              <li>Autumn Leaves <span class="k">Gm</span></li>
-              <li>Nocturne <span class="k">E♭</span></li>
-              <li>Blue Bossa <span class="k">Cm</span></li>
-              <li>Summertime <span class="k">Am</span></li>
-              <li>All the Things You Are <span class="k">A♭</span></li>
-              <li>Take the A Train <span class="k">C</span></li>
-              <li>Body and Soul <span class="k">D♭</span></li>
+              <li><span>1</span><span>Autumn Leaves</span><span>Gm · ♩=132</span></li>
+              <li><span>2</span><span>Nocturne</span><span>E♭ · ♩=60</span></li>
+              <li><span>3</span><span>Blue Bossa</span><span>Cm · ♩=150</span></li>
+              <li><span>4</span><span>Summertime</span><span>Am · ♩=96</span></li>
+              <li><span>5</span><span>All the Things You Are</span><span>A♭ · ♩=168</span></li>
+              <li><span>6</span><span>Take the A Train</span><span>C · ♩=180</span></li>
+              <li><span>7</span><span>Body and Soul</span><span>D♭ · ♩=72</span></li>
             </ol>
           </div>
           <div class="pocket"></div>
