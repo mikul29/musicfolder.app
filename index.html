@@ -176,13 +176,7 @@ p { margin: 0 0 16px; }
 .hero { position: relative; height: 290vh; }
 .hero-stage {
   position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
-  background-image: repeating-linear-gradient(to bottom, transparent 0 13px, var(--staff-accent) 13px 14px);
-  background-size: 100% 72px;
-  background-blend-mode: normal;
-}
-.hero-stage::before {
-  /* fade the staff-line pattern so it reads as texture, not wallpaper */
-  content: ""; position: absolute; inset: 0; background: var(--manuscript); opacity: .78; pointer-events: none;
+  background: var(--manuscript);
 }
 .hero-copy {
   position: relative; z-index: 3;
