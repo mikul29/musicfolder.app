@@ -208,7 +208,7 @@ p { margin: 0 0 16px; }
 }
 .rig > * { transform-style: preserve-3d; }
 
-/* the right-hand inside page: lining + iPad + ribbon */
+/* the right-hand inside page: lining, spine cords, iPad, pocket */
 .page {
   position: absolute; inset: 0;
   border-radius: 4px 14px 14px 4px;
@@ -221,15 +221,37 @@ p { margin: 0 0 16px; }
   content: ""; position: absolute; inset: 12px 12px 12px 6px;
   border: 1px dashed rgba(255,255,255,0.07); border-radius: 2px 8px 8px 2px; pointer-events: none;
 }
-.ribbon {
-  position: absolute; left: 404px; top: 0; width: 14px; height: 634px; z-index: 0;
-  background: linear-gradient(90deg, #D96C1E 0%, #F2812E 35%, #F79A55 55%, #F2812E 75%, #CF6619 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 9px), 0 100%);
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25));
-  transform: translateZ(0.5px);
+/* elastic cords along the spine that hold loose scores, like a real choir folder */
+.cords { position: absolute; left: 12px; top: 0; bottom: 0; width: 22px; transform: translateZ(1.5px); }
+.cords i {
+  position: absolute; top: 10px; bottom: 10px; width: 3px; border-radius: 2px;
+  background: linear-gradient(90deg, #111, #5A5A5C 50%, #111);
+  box-shadow: 1px 0 2px rgba(0,0,0,0.6);
+}
+.cords i:nth-child(1) { left: 4px; }
+.cords i:nth-child(2) { left: 14px; }
+.cords b { /* eyelets where the cords are anchored */
+  position: absolute; left: 1px; width: 20px; height: 8px; border-radius: 4px;
+  background: linear-gradient(#5A5A5C, #2A2A2C); box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 1px 1px rgba(0,0,0,0.6);
+}
+.cords b:nth-of-type(1) { top: 6px; }
+.cords b:nth-of-type(2) { bottom: 6px; }
+.pocket-right {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 120px; transform: translateZ(2px);
+  border-radius: 0 0 14px 4px;
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgba(255,255,255,0.05), transparent 60%),
+    #161617;
+  clip-path: polygon(0 0, 100% 24%, 100% 100%, 0 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.pocket-right::after {
+  content: ""; position: absolute; left: 12px; right: 18px; top: 0; height: 100%;
+  border-top: 1px dashed rgba(255,255,255,0.08);
+  transform: translateY(14%) rotate(3.6deg); transform-origin: left top;
 }
 .ipad {
-  position: absolute; left: 40px; top: 44px; width: 340px; height: 470px;
+  position: absolute; left: 58px; top: 44px; width: 340px; height: 470px;
   border-radius: 28px; padding: 14px;
   background: #0E0E0F;
   box-shadow: 0 0 0 1.5px #3A3A3C, 0 18px 30px -12px rgba(0,0,0,0.7), inset 0 0 0 1px #000;
@@ -648,7 +670,7 @@ section { position: relative; }
     <div class="rig" id="rig" aria-hidden="true">
       <div class="rig-shadow"></div>
       <div class="page">
-        <div class="ribbon"></div>
+        <div class="cords"><i></i><i></i><b></b><b></b></div>
         <div class="ipad">
           <div class="ipad-screen">
             <div class="reader-bar">
@@ -660,6 +682,7 @@ section { position: relative; }
             <div class="reader-foot tnum">2 of 7 · Page 1 / 3</div>
           </div>
         </div>
+        <div class="pocket-right"></div>
       </div>
       <div class="cover" id="cover">
         <div class="cover-face">
