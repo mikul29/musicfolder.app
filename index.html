@@ -179,22 +179,25 @@ p { margin: 0 0 16px; }
   background: var(--manuscript);
 }
 .hero-copy {
-  position: relative; z-index: 3;
-  padding-top: max(120px, 16vh);
+  position: relative; z-index: 3; height: 100%;
+  padding-top: max(112px, 15vh); padding-bottom: max(48px, 11vh);
   will-change: opacity, transform;
 }
-.hero-copy .inner { max-width: min(600px, 50%); }
+/* desktop: headline + subhead at the top, the call to action anchored low-left
+   (balances the big folder on the right, like the reference layout) */
+.hero-copy .inner { max-width: min(640px, 54%); height: 100%; display: flex; flex-direction: column; }
+.hero-copy .cta-row { margin-top: auto; }
 .hero-copy .display {
-  margin-bottom: 24px; white-space: nowrap;
-  /* "Meet Music Folder." is ~6.1em wide: shrink on small phones rather than wrap */
-  font-size: min(var(--display), calc((100vw - 32px) / 6.4));
+  margin-bottom: 32px; white-space: nowrap;
+  /* two lines: "Meet" / "Music Folder." (~4.9em wide, never broken) */
+  font-size: clamp(56px, 8.6vw, 132px); line-height: 0.98;
 }
-.hero-copy .lede { margin-bottom: 32px; }
-.hero-copy .caption { margin-top: 14px; }
+.hero-copy .lede { max-width: 500px; margin-bottom: 32px; }
 @media (max-width: 860px) {
-  .hero-copy { padding-top: 92px; }
-  .hero-copy .inner { max-width: 100%; }
-  .hero-copy .display { margin-bottom: 16px; }
+  .hero-copy { padding-top: 92px; height: auto; padding-bottom: 0; }
+  .hero-copy .inner { max-width: 100%; height: auto; }
+  .hero-copy .cta-row { margin-top: 0; }
+  .hero-copy .display { margin-bottom: 16px; font-size: min(64px, calc((100vw - 32px) / 5.1)); }
   .hero-copy .lede { font-size: 17px; margin-bottom: 22px; }
 }
 
@@ -650,7 +653,7 @@ section { position: relative; }
   <div class="hero-stage">
     <div class="hero-copy wrap" id="heroCopy">
       <div class="inner">
-        <h1 class="display">Meet <em>Music Folder.</em></h1>
+        <h1 class="display">Meet<br><em>Music Folder.</em></h1>
         <p class="lede">The sheet music app that organizes your scores and sharpens your practice, whether you play alone or with others. Metronome, tuner and piano built in.</p>
         <div class="cta-row">
           <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
@@ -1247,8 +1250,9 @@ section { position: relative; }
       ss = Math.min(0.9, (vw * 0.78) / FW);
       sx = vw * 0.64; sy = vh * 0.97; sr = -13;
     } else {
-      ss = Math.min(1.08, (vw * 0.42) / FW, (vh * 0.82) / FH);
-      sx = vw * 0.76; sy = vh * 0.62; sr = -13;
+      // big, low and tilted, running off the bottom-right edge
+      ss = Math.min(1.35, (vw * 0.46) / FW, (vh * 1.02) / FH);
+      sx = vw * 0.78; sy = vh * 0.84; sr = -17;
     }
     // middle pose (centred, closed)
     const mx = vw / 2, my = vh * (narrow ? 0.46 : 0.47);
