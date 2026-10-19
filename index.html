@@ -7,9 +7,8 @@
 <meta name="description" content="Music Folder is the sheet music app for performing musicians. Organize PDF sheet music into folders, build set lists, annotate with Apple Pencil, share with your band, and play with a built-in metronome, tuner and piano. Works with Planning Center.">
 <meta name="keywords" content="sheet music app, sheet music organizer, PDF sheet music reader, set list app, gig app, worship team app, Planning Center, page turner, Apple Pencil annotation, band app, metronome, tuner">
 <meta name="apple-itunes-app" content="app-id=1611824311">
-<meta name="theme-color" content="#FBFAF8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
-<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FBFAF8">
+<meta name="color-scheme" content="light only">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Music Folder: your sheet music, ready for the stage">
@@ -74,23 +73,6 @@
   --radius-panel: 28px;
   --shadow-card: 0 1px 2px rgba(20,20,20,0.04), 0 8px 24px rgba(20,20,20,0.06);
   --shadow-object: 0 30px 60px -20px rgba(20,20,20,0.35);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --manuscript: #0B0B0C;
-    --card: #1C1C1E;
-    --vellum: #2C2C2E;
-    --staff-line: #38383A;
-    --staff-accent: #48484A;
-    --folder-black: #F2F2F7;
-    --folder-hover: #FFFFFF;
-    --ink: #F2F2F7;
-    --graphite: #99999E;
-    --deep-amber: #F2812E;
-    --on-primary: #0B0B0C;
-    --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);
-    --shadow-object: 0 30px 60px -20px rgba(0,0,0,0.8);
-  }
 }
 @media (max-width: 640px) {
   :root { --section-gap: 96px; --gutter: 16px; }
@@ -285,13 +267,6 @@ p { margin: 0 0 16px; }
     #141414;
   box-shadow: var(--shadow-object), inset 0 0 0 1px rgba(255,255,255,0.04), inset -2px -3px 6px rgba(0,0,0,0.5);
 }
-@media (prefers-color-scheme: dark) {
-  /* black object on a black stage: a faint rim of window light keeps the silhouette */
-  .cover-face { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.09), inset 1px 1px 0 rgba(255,255,255,0.08); }
-  .page { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.08); }
-  .cover-inside { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); }
-  .rig-shadow { opacity: 0; }
-}
 .cover-face::before { /* spine */
   content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 26px;
   background: linear-gradient(90deg, #0C0C0C, #181818 70%, #101010);
@@ -479,10 +454,8 @@ section { position: relative; }
 /* Planning Center section */
 .pco .eyebrow { color: var(--services-deep); }
 .pco .eyebrow::before { background: var(--services-green); }
-@media (prefers-color-scheme: dark) { .pco .eyebrow { color: var(--services-green); } }
 .pco-plan { background: var(--card); border-radius: var(--radius-card); padding: 28px; width: 100%; max-width: 440px; border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
 .pco-plan .pp-top { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--services-deep); font-weight: 600; margin-bottom: 8px; }
-@media (prefers-color-scheme: dark) { .pco-plan .pp-top { color: var(--services-green); } }
 .pco-plan .pp-top i { width: 10px; height: 10px; border-radius: 3px; background: var(--services-green); }
 .pco-plan h3 { font-family: var(--font-display); font-size: 34px; line-height: 1.1; color: var(--folder-black); margin-bottom: 14px; }
 .pco-plan .item { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 11px 0; border-top: 1px solid var(--staff-line); font-size: 15px; }
@@ -557,7 +530,6 @@ section { position: relative; }
 .price-card.free { background: var(--card); border: 1px solid var(--staff-line); }
 .price-card.premium { background: #141414; color: #FBFAF8; }
 .price-card.premium::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ribbon); }
-@media (prefers-color-scheme: dark) { .price-card.premium { background: #1C1C1E; box-shadow: inset 0 0 0 1px #38383A; } }
 .price-card .tier { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); margin-bottom: 14px; }
 .price-card.premium .tier { color: var(--ribbon); }
 .price-card .amount { font-family: var(--font-display); font-size: 56px; line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
@@ -664,7 +636,6 @@ section { position: relative; }
         <div class="cta-row">
           <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
             <picture>
-              <source media="(prefers-color-scheme: dark)" srcset="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83">
               <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48">
             </picture>
           </a>
@@ -1018,7 +989,6 @@ section { position: relative; }
         </ul>
         <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
           <picture>
-            <source media="(prefers-color-scheme: dark)" srcset="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83">
             <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
           </picture>
         </a>
@@ -1101,7 +1071,6 @@ section { position: relative; }
     <div class="cta-row">
       <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83">
           <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
         </picture>
       </a>
