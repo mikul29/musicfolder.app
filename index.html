@@ -399,6 +399,9 @@ section { position: relative; }
 .device.tablet .screen { border-radius: 18px; }
 .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 .device .screen.shot { padding: 0; border: 0; background: #fff; }
+/* a full-screen screenshot sets the frame's shape instead of being cropped */
+.device.fit { aspect-ratio: auto; }
+.device.fit .screen, .device.fit .screen img { height: auto; display: block; }
 
 /* Program set list card */
 .program {
@@ -759,7 +762,7 @@ section { position: relative; }
       </div>
       <div class="feature-media">
         <div class="media-panel">
-          <div class="device tablet"><div class="screen shot"><img src="assets/annotate-ipad.jpg" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colours, with the pen palette open" width="880" height="1110" loading="lazy"></div></div>
+          <div class="device tablet fit"><div class="screen shot"><img src="assets/annotate-ipad.jpg" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colours, with the pen palette open" width="900" height="1305" loading="lazy"></div></div>
         </div>
       </div>
     </article>
