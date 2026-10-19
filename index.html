@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Music Folder: Sheet Music Organizer &amp; Set Lists for iPhone and iPad</title>
+<meta name="description" content="Music Folder is the sheet music app for performing musicians. Organize PDF sheet music into folders, build set lists, annotate with Apple Pencil, share with your band, and play with a built-in metronome, tuner and piano. Works with Planning Center.">
+<meta name="keywords" content="sheet music app, sheet music organizer, PDF sheet music reader, set list app, gig app, worship team app, Planning Center, page turner, Apple Pencil annotation, band app, metronome, tuner">
+<meta name="apple-itunes-app" content="app-id=1611824311">
+<meta name="theme-color" content="#FBFAF8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B0C" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Music Folder: your sheet music, ready for the stage">
+<meta property="og:description" content="Organize your PDFs, build set lists, mark them up and share them with your band, with a metronome, tuner and piano built in. iPhone and iPad.">
+<!-- TODO(owner): add a 1200×630 social image at assets/og-image.png and the final site URL -->
+<meta property="og:image" content="assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Music Folder: your sheet music, ready for the stage">
+<meta name="twitter:description" content="The sheet-music organizer built for performing musicians. iPhone and iPad.">
+<meta name="twitter:image" content="assets/og-image.png">
+
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Music Folder",
+  "operatingSystem": "iOS, iPadOS",
+  "applicationCategory": "MusicApplication",
+  "softwareVersion": "3.3",
+  "author": { "@type": "Person", "name": "Matthew Mikulich" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "downloadUrl": "https://apps.apple.com/app/id1611824311"
+}
+</script>
+
+<style>
+:root {
+  --manuscript: #FBFAF8;
+  --card: #FFFFFF;
+  --vellum: #F2EFE9;
+  --staff-line: #E7E1D6;
+  --staff-accent: #E8E3DA;
+  --folder-black: #141414;
+  --folder-hover: #2A2A2A;
+  --stage-black: #0B0B0C;
+  --ink: #1A1815;
+  --graphite: #6E6A60;
+  --ribbon: #F2812E;
+  --deep-amber: #A9520F;
+  --stage-text: #F2F2F7;
+  --stage-muted: #99999E;
+  --services-green: #6F9A40;
+  --services-deep: #3F6B26;
+  --on-primary: #FBFAF8;
+
+  --font-display: 'Instrument Serif', 'Newsreader', Georgia, serif;
+  --font-text: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+
+  --display: clamp(52px, 6.6vw, 96px);
+  --heading: clamp(38px, 4.6vw, 56px);
+  --heading-sm: clamp(32px, 3.4vw, 40px);
+  --section-gap: 144px;
+  --gutter: 24px;
+
+  --radius-card: 20px;
+  --radius-panel: 28px;
+  --shadow-card: 0 1px 2px rgba(20,20,20,0.04), 0 8px 24px rgba(20,20,20,0.06);
+  --shadow-object: 0 30px 60px -20px rgba(20,20,20,0.35);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --manuscript: #0B0B0C;
+    --card: #1C1C1E;
+    --vellum: #2C2C2E;
+    --staff-line: #38383A;
+    --staff-accent: #48484A;
+    --folder-black: #F2F2F7;
+    --folder-hover: #FFFFFF;
+    --ink: #F2F2F7;
+    --graphite: #99999E;
+    --deep-amber: #F2812E;
+    --on-primary: #0B0B0C;
+    --shadow-card: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.35);
+    --shadow-object: 0 30px 60px -20px rgba(0,0,0,0.8);
+  }
+}
+@media (max-width: 640px) {
+  :root { --section-gap: 96px; --gutter: 16px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--manuscript);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--deep-amber); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--ribbon); outline-offset: 2px; border-radius: 6px;
+}
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--gutter); }
+.tnum { font-variant-numeric: tabular-nums; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Type ---------- */
+h1, h2, h3 { margin: 0; font-weight: 400; }
+.display, .heading, .heading-sm {
+  font-family: var(--font-display);
+  color: var(--folder-black);
+  font-weight: 400;
+}
+.display { font-size: var(--display); line-height: 1.02; letter-spacing: -0.02em; }
+.heading { font-size: var(--heading); line-height: 1.05; letter-spacing: -0.01em; }
+.heading-sm { font-size: var(--heading-sm); line-height: 1.1; letter-spacing: -0.01em; }
+.display em, .heading em { font-style: italic; color: var(--ribbon); }
+.eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 13px; font-weight: 600; line-height: 1.2;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--deep-amber); margin: 0 0 20px;
+}
+.eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--ribbon); flex: none; }
+.lede { font-size: 20px; line-height: 1.5; max-width: 560px; }
+.caption { font-size: 15px; line-height: 1.45; color: var(--graphite); }
+p { margin: 0 0 16px; }
+
+/* ---------- Buttons & badge ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 999px; padding: 14px 28px;
+  font: 500 17px/1.2 var(--font-text); text-decoration: none;
+  transition: background-color .2s, color .2s;
+}
+.btn-primary { background: var(--folder-black); color: var(--on-primary); }
+.btn-primary:hover { background: var(--folder-hover); }
+.btn-secondary { border: 1px solid var(--folder-black); color: var(--folder-black); background: transparent; }
+.btn-secondary:hover { background: var(--vellum); }
+.btn-sm { padding: 8px 16px; font-size: 15px; }
+.badge-link { display: inline-block; line-height: 0; border-radius: 9px; }
+.badge-link img { height: 48px; width: auto; }
+@media (max-width: 640px) { .badge-link img { height: 44px; } }
+.cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  transition: background-color .3s, border-color .3s;
+  border-bottom: 1px solid transparent;
+}
+.site-header.scrolled {
+  background: color-mix(in srgb, var(--manuscript) 92%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom-color: var(--staff-line);
+}
+.site-header .wrap { display: flex; align-items: center; gap: 24px; height: 64px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 17px; }
+.brand img { width: 28px; height: 28px; border-radius: 7px; }
+.nav { display: flex; gap: 28px; margin-left: auto; }
+.nav a { color: var(--ink); text-decoration: none; font-size: 15px; }
+.nav a:hover { color: var(--deep-amber); }
+.menu { display: none; margin-left: auto; position: relative; }
+.menu summary { list-style: none; cursor: pointer; padding: 8px; color: var(--ink); }
+.menu summary::-webkit-details-marker { display: none; }
+.menu-panel {
+  position: absolute; right: 0; top: 44px; min-width: 200px;
+  background: var(--card); border-radius: 16px; box-shadow: var(--shadow-card), var(--shadow-object);
+  padding: 8px; display: grid;
+}
+.menu-panel a { padding: 10px 14px; color: var(--ink); text-decoration: none; border-radius: 10px; }
+.menu-panel a:hover { background: var(--vellum); }
+@media (max-width: 860px) {
+  .nav { display: none; }
+  .menu { display: block; }
+  .site-header .btn-sm { display: none; }
+}
+
+/* ---------- Hero / folder stage ---------- */
+.hero { position: relative; height: 290vh; }
+.hero-stage {
+  position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
+  background-image: repeating-linear-gradient(to bottom, transparent 0 13px, var(--staff-accent) 13px 14px);
+  background-size: 100% 72px;
+  background-blend-mode: normal;
+}
+.hero-stage::before {
+  /* fade the staff-line pattern so it reads as texture, not wallpaper */
+  content: ""; position: absolute; inset: 0; background: var(--manuscript); opacity: .78; pointer-events: none;
+}
+.hero-copy {
+  position: relative; z-index: 3;
+  padding-top: max(120px, 16vh);
+  will-change: opacity, transform;
+}
+.hero-copy .inner { max-width: min(600px, 50%); }
+.hero-copy .display { margin-bottom: 24px; }
+.hero-copy .lede { margin-bottom: 32px; }
+.hero-copy .caption { margin-top: 14px; }
+@media (max-width: 860px) {
+  .hero-copy { padding-top: 92px; }
+  .hero-copy .inner { max-width: 100%; }
+  .hero-copy .display { margin-bottom: 16px; }
+  .hero-copy .lede { font-size: 17px; margin-bottom: 22px; }
+}
+
+.rig {
+  position: absolute; left: 0; top: 0; z-index: 2;
+  width: 450px; height: 600px;
+  transform-origin: 225px 300px;
+  perspective: 2600px;
+}
+.rig > * { transform-style: preserve-3d; }
+
+/* the right-hand inside page: lining + iPad + ribbon */
+.page {
+  position: absolute; inset: 0;
+  border-radius: 4px 14px 14px 4px;
+  background:
+    radial-gradient(120% 90% at 10% 0%, rgba(255,255,255,0.05), transparent 60%),
+    #1A1A1B;
+  box-shadow: var(--shadow-object), 0 2px 0 #0a0a0a, inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+.page::after { /* stitched edge */
+  content: ""; position: absolute; inset: 12px 12px 12px 6px;
+  border: 1px dashed rgba(255,255,255,0.07); border-radius: 2px 8px 8px 2px; pointer-events: none;
+}
+.ribbon {
+  position: absolute; left: 404px; top: 0; width: 14px; height: 634px; z-index: 0;
+  background: linear-gradient(90deg, #D96C1E 0%, #F2812E 35%, #F79A55 55%, #F2812E 75%, #CF6619 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 9px), 0 100%);
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25));
+  transform: translateZ(0.5px);
+}
+.ipad {
+  position: absolute; left: 40px; top: 44px; width: 340px; height: 470px;
+  border-radius: 28px; padding: 14px;
+  background: #0E0E0F;
+  box-shadow: 0 0 0 1.5px #3A3A3C, 0 18px 30px -12px rgba(0,0,0,0.7), inset 0 0 0 1px #000;
+  transform: translateZ(1px) rotate(-1.2deg);
+}
+.ipad-screen {
+  width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #FFFFFF;
+  display: flex; flex-direction: column;
+}
+.reader-bar {
+  height: 30px; flex: none; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 12px; border-bottom: 1px solid #ECE8E1;
+  font: 600 10px/1 var(--font-text); color: #1A1815; background: #FBFAF8;
+}
+.reader-bar .dots { display: flex; gap: 6px; }
+.reader-bar .dots i { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #6E6A60; display: block; }
+.reader-bar .dots i.on { border-color: #F2812E; background: #F2812E; }
+.reader-score { flex: 1; min-height: 0; }
+.reader-score svg { width: 100%; height: 100%; display: block; }
+.reader-foot { height: 20px; flex: none; text-align: center; font: 500 9px/20px var(--font-text); color: #6E6A60; }
+
+/* the cover */
+.cover {
+  position: absolute; inset: 0; transform-origin: 0 50%;
+  transform: translateZ(2px) rotateY(0deg);
+}
+.cover-face, .cover-inside {
+  position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: 4px 14px 14px 4px; overflow: hidden;
+}
+.cover-face {
+  background:
+    radial-gradient(140% 100% at 0% 0%, rgba(255,255,255,0.075), transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    #141414;
+  box-shadow: var(--shadow-object), inset 0 0 0 1px rgba(255,255,255,0.04), inset -2px -3px 6px rgba(0,0,0,0.5);
+}
+@media (prefers-color-scheme: dark) {
+  /* black object on a black stage: a faint rim of window light keeps the silhouette */
+  .cover-face { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.09), inset 1px 1px 0 rgba(255,255,255,0.08); }
+  .page { box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.08); }
+  .cover-inside { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); }
+  .rig-shadow { opacity: 0; }
+}
+.cover-face::before { /* spine */
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 26px;
+  background: linear-gradient(90deg, #0C0C0C, #181818 70%, #101010);
+  box-shadow: 1px 0 0 rgba(255,255,255,0.035);
+}
+.cover-face::after { /* stitching */
+  content: ""; position: absolute; inset: 14px 14px 14px 38px;
+  border: 1px dashed rgba(255,255,255,0.06); border-radius: 3px 8px 8px 3px;
+}
+.deboss {
+  position: absolute; left: 26px; right: 0; top: 34%;
+  text-align: center; font: 600 17px/1 var(--font-text);
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: #1F1F1F;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.07), 0 -1px 0 rgba(0,0,0,0.85);
+  padding-left: .32em;
+}
+.deboss-rule {
+  position: absolute; left: calc(50% + 13px); top: calc(34% + 34px); width: 46px; height: 1px; transform: translateX(-50%);
+  background: #0B0B0B; box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+.cover-inside {
+  left: -450px; right: auto; width: 450px; height: 600px; top: 0;
+  transform-origin: 100% 50%; transform: rotateY(180deg);
+  border-radius: 14px 4px 4px 14px;
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.05), transparent 60%),
+    #1C1C1D;
+  box-shadow: var(--shadow-object), inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+.cover-inside::after {
+  content: ""; position: absolute; inset: 12px 6px 12px 12px;
+  border: 1px dashed rgba(255,255,255,0.07); border-radius: 8px 2px 2px 8px; pointer-events: none;
+}
+.program-sheet {
+  position: absolute; left: 44px; right: 44px; top: 54px; height: 420px;
+  background: #FBFAF8; color: #1A1815; border-radius: 3px;
+  padding: 26px 26px 0;
+  box-shadow: 0 10px 22px -10px rgba(0,0,0,0.7);
+  transform: rotate(-1.6deg);
+}
+.program-sheet .ps-eyebrow { font: 600 9px/1 var(--font-text); letter-spacing: .14em; text-transform: uppercase; color: #A9520F; display: flex; gap: 8px; align-items: center; }
+.program-sheet .ps-eyebrow::before { content: ""; width: 16px; height: 2px; background: #F2812E; }
+.program-sheet h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; margin: 10px 0 2px; color: #141414; }
+.program-sheet .ps-sub { font-size: 11px; color: #6E6A60; margin-bottom: 14px; }
+.program-sheet ol { list-style: none; margin: 0; padding: 0; }
+.program-sheet li {
+  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: baseline;
+  padding: 8px 0; border-top: 1px solid #E7E1D6; font-size: 13px; line-height: 1.3;
+}
+.program-sheet li span:first-child, .program-sheet li span:last-child { color: #6E6A60; font-variant-numeric: tabular-nums; font-size: 11.5px; }
+.pocket {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 200px;
+  background:
+    radial-gradient(120% 100% at 100% 0%, rgba(255,255,255,0.05), transparent 60%),
+    #161617;
+  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.pocket::after {
+  content: ""; position: absolute; left: 18px; right: 12px; top: 0; height: 100%;
+  border-top: 1px dashed rgba(255,255,255,0.08);
+  transform: translateY(14%) rotate(-3.2deg); transform-origin: left top;
+}
+.rig-shadow {
+  position: absolute; left: 6%; right: 6%; bottom: -26px; height: 40px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(20,20,20,0.28), transparent);
+  filter: blur(6px); transform: translateZ(-1px);
+}
+
+.open-caption {
+  position: absolute; left: 0; right: 0; z-index: 3; text-align: center;
+  opacity: 0; pointer-events: none; will-change: opacity, transform;
+}
+.open-caption .heading { margin-bottom: 10px; }
+.open-caption .caption { margin: 0; }
+.scroll-hint {
+  position: absolute; left: 50%; bottom: 22px; z-index: 3; transform: translateX(-50%);
+  font-size: 13px; color: var(--graphite); letter-spacing: .04em;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.scroll-hint::after { content: ""; width: 1px; height: 26px; background: linear-gradient(var(--graphite), transparent); }
+@media (max-width: 860px) { .scroll-hint { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero { height: auto; }
+  .hero-stage { position: relative; min-height: 100svh; }
+}
+
+/* ---------- Sections ---------- */
+section { position: relative; }
+.section { padding: var(--section-gap) 0; }
+.section-head { max-width: 680px; margin-bottom: 64px; }
+.section-head p { color: var(--graphite); margin-top: 20px; }
+
+.who-strip { border-top: 1px solid var(--staff-line); border-bottom: 1px solid var(--staff-line); }
+.who-strip .wrap { display: flex; flex-wrap: wrap; gap: 8px 40px; align-items: center; padding-top: 22px; padding-bottom: 22px; }
+.who-strip .label { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); }
+.who-strip ul { display: flex; flex-wrap: wrap; gap: 8px 32px; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-size: 24px; color: var(--folder-black); }
+
+/* Problem → solution */
+.contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.contrast .card { padding: 32px; border-radius: var(--radius-card); }
+.contrast .before { background: var(--vellum); }
+.contrast .after { background: var(--card); box-shadow: var(--shadow-card); position: relative; overflow: hidden; }
+.contrast .after::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ribbon); }
+.contrast h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; margin-bottom: 20px; color: var(--folder-black); }
+.contrast ul { margin: 0; padding: 0; list-style: none; }
+.contrast li { padding: 12px 0; border-top: 1px solid var(--staff-line); display: flex; gap: 12px; }
+.contrast .before li { color: var(--graphite); }
+.contrast li svg { flex: none; margin-top: 4px; }
+@media (max-width: 760px) { .contrast { grid-template-columns: 1fr; } }
+
+/* Feature rows */
+.feature { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.feature + .feature { margin-top: var(--section-gap); }
+.feature.flip .feature-media { order: -1; }
+.feature-copy { max-width: 480px; }
+.feature-copy .heading-sm { margin-bottom: 20px; }
+.feature-copy strong { font-weight: 600; }
+.feature-copy ul { margin: 20px 0 0; padding: 0; list-style: none; }
+.feature-copy li { padding: 10px 0; border-top: 1px solid var(--staff-line); font-size: 15px; color: var(--graphite); }
+.feature-copy li:last-child { border-bottom: 1px solid var(--staff-line); }
+@media (max-width: 860px) {
+  .feature { grid-template-columns: 1fr; gap: 40px; }
+  .feature.flip .feature-media { order: 0; }
+}
+
+.media-panel {
+  background: var(--card); border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-card);
+  padding: 48px 32px; display: flex; justify-content: center; align-items: center;
+  min-height: 520px;
+}
+.device {
+  position: relative; background: #0E0E0F; padding: 10px;
+  box-shadow: 0 0 0 1.5px #3A3A3C, var(--shadow-object);
+}
+.device.phone { width: 236px; aspect-ratio: 9 / 19.5; border-radius: 44px; }
+.device.tablet { width: 100%; max-width: 420px; aspect-ratio: 3 / 4; border-radius: 30px; padding: 14px; }
+.device.tablet.landscape { max-width: 620px; aspect-ratio: 4 / 3; }
+.device .screen {
+  width: 100%; height: 100%; border-radius: inherit; overflow: hidden;
+  background: var(--vellum);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 20px; font-size: 13px; line-height: 1.4; color: var(--graphite);
+  border: 1px dashed var(--staff-line);
+}
+.device.phone .screen { border-radius: 34px; }
+.device.tablet .screen { border-radius: 18px; }
+.device .screen img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Program set list card */
+.program {
+  background: var(--card); border-radius: var(--radius-card); padding: 32px;
+  box-shadow: var(--shadow-hairline, 0 0 0 1px var(--staff-line)), var(--shadow-card);
+  border: 1px solid var(--staff-line);
+  width: 100%; max-width: 460px;
+}
+.program .p-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.program h3 { font-family: var(--font-display); font-size: 40px; line-height: 1.1; color: var(--folder-black); }
+.program .p-meta { color: var(--graphite); font-size: 15px; margin-bottom: 18px; }
+.program ol { list-style: none; margin: 0; padding: 0; }
+.program li {
+  display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: baseline;
+  padding: 13px 0; border-top: 1px solid var(--staff-line);
+}
+.program li .n, .program li .k { color: var(--graphite); font-variant-numeric: tabular-nums; font-size: 15px; }
+.program li.now .t { font-weight: 600; }
+.program li.now .n { color: var(--deep-amber); }
+.program .p-foot { display: flex; justify-content: space-between; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--staff-line); font-size: 13px; color: var(--graphite); }
+
+/* Share card */
+.share-card { background: var(--card); border-radius: var(--radius-card); padding: 28px; width: 100%; max-width: 420px; box-shadow: var(--shadow-card); border: 1px solid var(--staff-line); }
+.share-card .sc-title { font-weight: 600; font-size: 17px; }
+.share-card .sc-sub { font-size: 13px; color: var(--graphite); margin-bottom: 16px; }
+.share-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--staff-line); }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--vellum); display: grid; place-items: center; font-size: 13px; font-weight: 600; color: var(--ink); flex: none; }
+.share-row .who { flex: 1; font-size: 15px; line-height: 1.3; }
+.share-row .who small { display: block; color: var(--graphite); font-size: 13px; }
+.chip { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--vellum); color: var(--ink); white-space: nowrap; }
+.sync-note { display: flex; gap: 10px; align-items: center; margin-top: 16px; padding: 12px 14px; border-radius: 12px; background: var(--vellum); font-size: 13px; color: var(--graphite); }
+.sync-note i { width: 8px; height: 8px; border-radius: 50%; background: var(--ribbon); flex: none; }
+
+/* Planning Center section */
+.pco .eyebrow { color: var(--services-deep); }
+.pco .eyebrow::before { background: var(--services-green); }
+@media (prefers-color-scheme: dark) { .pco .eyebrow { color: var(--services-green); } }
+.pco-plan { background: var(--card); border-radius: var(--radius-card); padding: 28px; width: 100%; max-width: 440px; border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.pco-plan .pp-top { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--services-deep); font-weight: 600; margin-bottom: 8px; }
+@media (prefers-color-scheme: dark) { .pco-plan .pp-top { color: var(--services-green); } }
+.pco-plan .pp-top i { width: 10px; height: 10px; border-radius: 3px; background: var(--services-green); }
+.pco-plan h3 { font-family: var(--font-display); font-size: 34px; line-height: 1.1; color: var(--folder-black); margin-bottom: 14px; }
+.pco-plan .item { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 11px 0; border-top: 1px solid var(--staff-line); font-size: 15px; }
+.pco-plan .item small { color: var(--graphite); font-size: 13px; font-variant-numeric: tabular-nums; }
+.pco-plan .item.header { color: var(--graphite); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+.pco-plan .ro { margin-top: 14px; font-size: 13px; color: var(--graphite); }
+
+/* Stage band */
+.stage {
+  background: var(--stage-black); color: var(--stage-text);
+  padding: var(--section-gap) 0; overflow: hidden;
+}
+.stage .eyebrow { color: var(--ribbon); }
+.stage .heading { color: var(--stage-text); }
+.stage-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
+.stage p { color: var(--stage-muted); }
+.stage-points { list-style: none; margin: 28px 0 36px; padding: 0; }
+.stage-points li { padding: 14px 0; border-top: 1px solid #2A2A2C; display: grid; grid-template-columns: 26px 1fr; gap: 12px; color: var(--stage-text); }
+.stage-points li small { display: block; color: var(--stage-muted); font-size: 15px; }
+.stage-points svg { margin-top: 4px; }
+.spot { position: relative; display: flex; justify-content: center; }
+.spot::before {
+  content: ""; position: absolute; inset: -20% -10%;
+  background: radial-gradient(closest-side, rgba(242,129,46,0.10), transparent);
+  pointer-events: none;
+}
+.stage .device .screen { background: #1C1C1E; color: var(--stage-muted); border-color: #38383A; }
+@media (max-width: 860px) { .stage-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+/* Toolkit */
+.tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.tool {
+  background: var(--card); border-radius: var(--radius-card); padding: 32px;
+  box-shadow: var(--shadow-card);
+}
+.tool svg { width: 28px; height: 28px; color: var(--folder-black); margin-bottom: 20px; }
+.tool.accent svg { color: var(--ribbon); }
+.tool h3 { font-size: 20px; font-weight: 600; line-height: 1.3; margin-bottom: 8px; color: var(--ink); }
+.tool p { color: var(--graphite); font-size: 15px; line-height: 1.5; margin: 0; }
+.tool .new { display: inline-block; margin-left: 8px; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--deep-amber); vertical-align: 2px; }
+@media (max-width: 960px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .tool-grid { grid-template-columns: 1fr; } }
+
+.also { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+.also .tool { background: var(--vellum); box-shadow: none; }
+@media (max-width: 960px) { .also { grid-template-columns: 1fr; } }
+
+/* Who it's for */
+.who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.who-card { border-top: 2px solid var(--folder-black); padding-top: 24px; }
+.who-card h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; color: var(--folder-black); margin-bottom: 12px; }
+.who-card p { color: var(--graphite); font-size: 15px; line-height: 1.55; }
+@media (max-width: 960px) { .who-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; } }
+@media (max-width: 560px) { .who-grid { grid-template-columns: 1fr; } }
+
+/* Devices + iCloud */
+.devices { background: var(--vellum); }
+.devices-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: center; }
+.devices-pair { display: flex; align-items: flex-end; justify-content: center; gap: 24px; }
+.devices-pair .tablet { max-width: 380px; }
+.devices-pair .phone { width: 160px; border-radius: 34px; padding: 8px; }
+.devices-pair .phone .screen { border-radius: 27px; font-size: 11px; padding: 10px; }
+.facts { list-style: none; margin: 32px 0 0; padding: 0; }
+.facts li { padding: 18px 0; border-top: 1px solid var(--staff-line); }
+.facts li strong { display: block; font-size: 20px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
+.facts li span { color: var(--graphite); font-size: 15px; }
+@media (max-width: 860px) { .devices-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+/* Pricing */
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 960px; }
+.price-card { border-radius: var(--radius-card); padding: 40px 32px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.price-card.free { background: var(--card); border: 1px solid var(--staff-line); }
+.price-card.premium { background: #141414; color: #FBFAF8; }
+.price-card.premium::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ribbon); }
+@media (prefers-color-scheme: dark) { .price-card.premium { background: #1C1C1E; box-shadow: inset 0 0 0 1px #38383A; } }
+.price-card .tier { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); margin-bottom: 14px; }
+.price-card.premium .tier { color: var(--ribbon); }
+.price-card .amount { font-family: var(--font-display); font-size: 56px; line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.price-card.free .amount { color: var(--folder-black); }
+.price-card .amount small { font-family: var(--font-text); font-size: 17px; color: var(--graphite); }
+.price-card.premium .amount small { color: var(--stage-muted); }
+.price-card .alt { font-size: 15px; color: var(--graphite); font-variant-numeric: tabular-nums; margin-bottom: 24px; }
+.price-card.premium .alt { color: var(--stage-muted); }
+.price-card ul { list-style: none; margin: 0 0 32px; padding: 0; flex: 1; }
+.price-card li { padding: 11px 0; border-top: 1px solid var(--staff-line); display: flex; gap: 12px; font-size: 15px; }
+.price-card.premium li { border-top-color: #2E2E30; }
+.price-card li svg { flex: none; margin-top: 3px; }
+.pricing-notes { margin-top: 32px; max-width: 960px; display: grid; gap: 6px; }
+.trial { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; padding: 5px 12px; border-radius: 999px; border: 1px solid #3A3A3C; color: #FBFAF8; margin-bottom: 18px; align-self: flex-start; }
+.trial i { width: 6px; height: 6px; border-radius: 50%; background: var(--ribbon); }
+@media (max-width: 760px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+/* FAQ */
+.faq { max-width: 820px; }
+.faq details { border-top: 1px solid var(--staff-line); }
+.faq details:last-child { border-bottom: 1px solid var(--staff-line); }
+.faq summary {
+  list-style: none; cursor: pointer; padding: 24px 0;
+  display: flex; justify-content: space-between; gap: 24px; align-items: center;
+  font-size: 20px; font-weight: 500; line-height: 1.35; color: var(--ink);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .plus { flex: none; width: 18px; height: 18px; position: relative; transition: transform .25s; }
+.faq summary .plus::before, .faq summary .plus::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1.5px; background: currentColor; }
+.faq summary .plus::after { transform: rotate(90deg); }
+.faq details[open] summary .plus { transform: rotate(45deg); }
+.faq .answer { padding: 0 48px 24px 0; }
+.faq .answer p:last-child { margin: 0; }
+
+/* Final CTA */
+.final { text-align: center; }
+.final .heading { margin: 0 auto 20px; }
+.final p { color: var(--graphite); margin: 0 auto 32px; max-width: 520px; }
+.final .cta-row { justify-content: center; }
+
+/* Footer */
+.site-footer { background: #141414; color: #FBFAF8; position: relative; overflow: hidden; padding: 72px 0 40px; }
+.site-footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ribbon); }
+.footer-mark {
+  font: 600 clamp(40px, 9.5vw, 132px)/1 var(--font-text); letter-spacing: .2em; text-transform: uppercase;
+  color: #1F1F1F; text-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 -1px 0 rgba(0,0,0,0.9);
+  white-space: nowrap; margin-bottom: 56px; user-select: none;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+.footer-grid h4 { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #99999E; }
+.footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.footer-grid a { color: #FBFAF8; text-decoration: none; font-size: 15px; }
+.footer-grid a:hover { color: var(--ribbon); }
+.footer-grid p { color: #99999E; font-size: 15px; max-width: 320px; }
+.footer-bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid #2A2A2C; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #99999E; }
+@media (max-width: 760px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-grid .f-about { grid-column: 1 / -1; } }
+
+/* Gentle reveal */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Music Folder home">
+      <img src="data:image/png;base64,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" alt="" width="28" height="28">
+      Music Folder
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#teams">For Teams</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#support">Support</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://apps.apple.com/app/id1611824311">Download</a>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
+      </summary>
+      <div class="menu-panel">
+        <a href="#features">Features</a>
+        <a href="#teams">For Teams</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#support">Support</a>
+        <a href="https://apps.apple.com/app/id1611824311">Download on the App Store</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO: the folder opens as you scroll ============ -->
+<section class="hero" id="hero" aria-label="Introduction">
+  <div class="hero-stage">
+    <div class="hero-copy wrap" id="heroCopy">
+      <div class="inner">
+        <p class="eyebrow">Sheet music, organized</p>
+        <h1 class="display">Your sheet music, <em>ready</em> for the stage.</h1>
+        <p class="lede">Organize your PDFs, build set lists, mark them up, and share them with your band, with a metronome, tuner and piano built in.</p>
+        <div class="cta-row">
+          <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83">
+              <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48">
+            </picture>
+          </a>
+          <a class="btn btn-secondary" href="#features">See features</a>
+        </div>
+        <p class="caption">Free for up to 15 songs · iPhone &amp; iPad</p>
+      </div>
+    </div>
+
+    <div class="rig" id="rig" aria-hidden="true">
+      <div class="rig-shadow"></div>
+      <div class="page">
+        <div class="ribbon"></div>
+        <div class="ipad">
+          <div class="ipad-screen">
+            <div class="reader-bar">
+              <span>‹ Friday Set</span>
+              <span>Nocturne</span>
+              <span class="dots"><i></i><i class="on"></i><i></i></span>
+            </div>
+            <div class="reader-score" id="score"></div>
+            <div class="reader-foot tnum">2 of 7 · Page 1 / 3</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover" id="cover">
+        <div class="cover-face">
+          <div class="deboss">Music Folder</div>
+          <div class="deboss-rule"></div>
+        </div>
+      </div>
+      <div class="cover-inside" id="leaf">
+          <div class="program-sheet">
+            <div class="ps-eyebrow">Set list</div>
+            <h3>Friday, 9:00</h3>
+            <div class="ps-sub">The Blue Room · Set one</div>
+            <ol>
+              <li><span>1</span><span>Autumn Leaves</span><span>Gm · ♩=132</span></li>
+              <li><span>2</span><span>Nocturne</span><span>E♭ · ♩=60</span></li>
+              <li><span>3</span><span>Blue Bossa</span><span>Cm · ♩=150</span></li>
+              <li><span>4</span><span>Summertime</span><span>Am · ♩=96</span></li>
+              <li><span>5</span><span>All the Things You Are</span><span>A♭ · ♩=168</span></li>
+              <li><span>6</span><span>Take the A Train</span><span>C · ♩=180</span></li>
+              <li><span>7</span><span>Body and Soul</span><span>D♭ · ♩=72</span></li>
+            </ol>
+          </div>
+          <div class="pocket"></div>
+        </div>
+    </div>
+
+    <div class="open-caption wrap" id="openCaption">
+      <h2 class="heading">Every chart. Every set. <em>One folder.</em></h2>
+      <p class="caption">Your library, your set lists and your markings, open on the stand in seconds.</p>
+    </div>
+    <div class="scroll-hint" id="scrollHint">Scroll to open</div>
+  </div>
+</section>
+
+<div class="who-strip">
+  <div class="wrap">
+    <span class="label">Made for</span>
+    <ul>
+      <li>Bands</li><li>Worship teams</li><li>Orchestras &amp; choirs</li><li>Jazz combos</li><li>Pit musicians</li><li>Students</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============ PROBLEM → SOLUTION ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Why Music Folder</p>
+      <h2 class="heading">Better than a folder of PDFs. <em>Lighter</em> than a binder.</h2>
+    </div>
+    <div class="contrast reveal">
+      <div class="card before">
+        <h3>Before</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>Charts scattered across email, Dropbox and paper</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>Flipping pages and losing your place on stage</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>A different set every week, and someone has the wrong version</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>A tuner, a metronome app and a PDF app, all at once</li>
+        </ul>
+      </div>
+      <div class="card after">
+        <h3>With Music Folder</h3>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>One organized library on every device</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Set lists that play straight through, with pedal page turns</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Shared folders and sets that update for the whole band</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Metronome, tuner, drones and piano, right beside the score</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features" style="padding-top:0">
+  <div class="wrap">
+
+    <article class="feature reveal">
+      <div class="feature-copy">
+        <p class="eyebrow">Organize</p>
+        <h2 class="heading-sm">Your whole library, finally in one place.</h2>
+        <p>Import PDFs from Files, AirDrop, email or any app, with <strong>bulk import</strong> for first-time setup. Sort songs into Folders by band, ensemble or instrument, add tags, and bookmark pieces inside long fake books and method books.</p>
+        <p>Still on paper? The built-in scanner turns sheet music into clean PDFs.</p>
+        <ul>
+          <li>Folders, tags and in-book bookmarks</li>
+          <li>Bulk import from Files, AirDrop and email</li>
+          <li>Document scanner for paper charts</li>
+        </ul>
+      </div>
+      <div class="feature-media">
+        <div class="media-panel">
+          <div class="device phone"><div class="screen">[Screenshot: Library with Songs &amp; Folders on iPhone]</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature flip reveal">
+      <div class="feature-copy">
+        <p class="eyebrow">Set lists</p>
+        <h2 class="heading-sm">Your set, in order. On stage, one tap at a time.</h2>
+        <p>Build a set list for every gig, service or rehearsal in exact performance order, then <strong>play straight through it</strong>. Read page by page or scroll continuously, in portrait or landscape.</p>
+        <p>Turn pages hands-free with a Bluetooth page-turner pedal, and arrange the reader toolbar the way you play.</p>
+      </div>
+      <div class="feature-media">
+        <div class="media-panel">
+          <div class="program">
+            <div class="p-head"><h3>Sunday, 10:30</h3></div>
+            <div class="p-meta">Morning service · 6 songs</div>
+            <ol>
+              <li><span class="n">1</span><span class="t">Come Thou Fount</span><span class="k">D · ♩=96</span></li>
+              <li class="now"><span class="n">2</span><span class="t">Be Thou My Vision</span><span class="k">E♭ · ♩=84</span></li>
+              <li><span class="n">3</span><span class="t">It Is Well</span><span class="k">C · ♩=66</span></li>
+              <li><span class="n">4</span><span class="t">Holy, Holy, Holy</span><span class="k">D · ♩=88</span></li>
+              <li><span class="n">5</span><span class="t">Amazing Grace</span><span class="k">G · ♩=72</span></li>
+              <li><span class="n">6</span><span class="t">Doxology</span><span class="k">G · ♩=80</span></li>
+            </ol>
+            <div class="p-foot tnum"><span>Now playing · 2 of 6</span><span>Pedal: next page ›</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature reveal">
+      <div class="feature-copy">
+        <p class="eyebrow">Annotate</p>
+        <h2 class="heading-sm">Mark it up like paper. Keep it like digital.</h2>
+        <p>Draw with a finger, <strong>Apple Pencil</strong> or any stylus, and add text stamps for fingerings, dynamics, cuts and reminders.</p>
+        <p>Every mark saves automatically and syncs to your other devices.</p>
+      </div>
+      <div class="feature-media">
+        <div class="media-panel">
+          <div class="device tablet"><div class="screen">[Screenshot: Apple Pencil annotation on a score, iPad]</div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature flip reveal" id="teams">
+      <div class="feature-copy">
+        <p class="eyebrow">Share with your band</p>
+        <h2 class="heading-sm">One set list. The whole band, in sync.</h2>
+        <p>Share a folder or set list with other Music Folder users. When someone adds a chart or reorders the set, <strong>everyone's copy updates</strong>.</p>
+        <p>Choose view-only or can-edit for each person. Annotations stay personal, so your pencil marks never clutter the drummer's part.</p>
+      </div>
+      <div class="feature-media">
+        <div class="media-panel">
+          <div class="share-card">
+            <div class="sc-title">Friday, 9:00</div>
+            <div class="sc-sub">Shared set list · 4 people</div>
+            <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Owner</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">K</span><span class="who">Keys<small>Joined</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">B</span><span class="who">Bass<small>Joined</small></span><span class="chip">View only</span></div>
+            <div class="share-row"><span class="avatar">D</span><span class="who">Drums<small>Joined</small></span><span class="chip">View only</span></div>
+            <div class="sync-note"><i></i>Keys moved “Blue Bossa” to #3 · updated for everyone</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature pco reveal">
+      <div class="feature-copy">
+        <p class="eyebrow">Planning Center</p>
+        <h2 class="heading-sm">Your Sunday plan, already on the stand.</h2>
+        <p>Link your Planning Center Services account and your team's song library appears as a folder. <strong>Upcoming service plans</strong> sit next to your set lists, and you can play through a service with the right charts and recordings, one song after another.</p>
+        <p class="caption">Planning Center access is read-only: you view and play through plans; editing stays in Planning Center.</p>
+      </div>
+      <div class="feature-media">
+        <div class="media-panel">
+          <div class="pco-plan">
+            <div class="pp-top"><i></i>Planning Center · Sunday service</div>
+            <h3>Sunday, Nov 2</h3>
+            <div class="item header"><span>Song</span><span>Key</span></div>
+            <div class="item"><span>Come Thou Fount</span><small>D</small></div>
+            <div class="item"><span>Be Thou My Vision</span><small>E♭</small></div>
+            <div class="item"><span>It Is Well</span><small>C</small></div>
+            <div class="item"><span>Doxology</span><small>G</small></div>
+            <div class="ro">Charts and recordings from your team's library</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ STAGE BAND ============ -->
+<section class="stage" aria-labelledby="stageTitle">
+  <div class="wrap stage-grid">
+    <div class="reveal">
+      <p class="eyebrow">On stage</p>
+      <h2 class="heading" id="stageTitle">Built for the stage.</h2>
+      <ul class="stage-points">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 14l3-8h4l3 8"/></svg><span>Bluetooth page-turner pedal<small>Hands-free page turns, both feet on the floor.</small></span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M9 3h6"/></svg><span>Portrait and landscape<small>Landscape suits marching and lyre charts.</small></span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8l-2-17h-4z"/><path d="M12 15l5-8"/></svg><span>Keeps time with the screen locked<small>Metronome, tones and recordings keep playing in the background. New in 3.3.</small></span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3M19 12h3M12 2v3M12 19v3"/><circle cx="12" cy="12" r="5"/></svg><span>Works fully offline<small>Bad signal at the venue doesn't matter.</small></span></li>
+      </ul>
+      <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+        <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" width="144" height="48">
+      </a>
+    </div>
+    <div class="spot reveal">
+      <div class="device tablet landscape"><div class="screen">[Screenshot: set-list playback in landscape on iPad]</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLKIT ============ -->
+<section class="section" id="toolkit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The toolkit</p>
+      <h2 class="heading">Leave the extra apps at home.</h2>
+      <p>Everything you reach for in rehearsal, one tap from the score.</p>
+    </div>
+    <div class="tool-grid reveal">
+      <div class="tool accent">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 25h10L16.5 4h-5z"/><path d="M14 18l6-10"/><path d="M8.5 20h11"/></svg>
+        <h3>Metronome</h3>
+        <p>Tempo dial, subdivisions, tap tempo and a saved tempo for every song.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a10 10 0 0 1 20 0"/><path d="M14 18l4-7"/><circle cx="14" cy="18" r="1.5"/></svg>
+        <h3>Chromatic tuner</h3>
+        <p>Plus a guitar mode with alternate tunings like Drop D and DADGAD.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14c2.5-6 5-6 7.5 0s5 6 7.5 0 5-6 7 0"/></svg>
+        <h3>Tones &amp; drones</h3>
+        <p>A tone generator with sustained instrument drones for intonation practice.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="2"/><path d="M8.5 6v16M14 6v16M19.5 6v16"/><path d="M7 6v8h3V6M12.5 6v8h3V6M18 6v8h3V6" fill="currentColor"/></svg>
+        <h3>88-key piano</h3>
+        <p>A sampled grand and other instrument voices for checking pitches and parts.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="3" width="8" height="14" rx="4"/><path d="M6 13a8 8 0 0 0 16 0M14 21v4"/></svg>
+        <h3>Recordings per song</h3>
+        <p>Record yourself or attach a file or Music track, with lock-screen controls.</p>
+      </div>
+      <div class="tool">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c1 5 6 7 6 13a6 6 0 0 1-12 0c0-3 2-5 3-7 .5 2 1.5 3 3 3-1-3 0-6 0-9z"/></svg>
+        <h3>Practice streaks</h3>
+        <p>A daily goal, minutes counted automatically, streak freezes and an optional reminder.</p>
+      </div>
+    </div>
+    <div class="also reveal">
+      <div class="tool">
+        <h3>Song Notes</h3>
+        <p>Cues, reminders and to-dos beside every score. A dated line like “@2026-11-02 take the repeat” stays highlighted until the day passes.</p>
+      </div>
+      <div class="tool">
+        <h3>Discover free sheet music</h3>
+        <p>A built-in catalog of public-domain scores. Search by title, composer or instrument and import with one tap.</p>
+      </div>
+      <div class="tool">
+        <h3>A Today screen</h3>
+        <p>Your next set list, your practice goal and your recent scores, the moment you open the app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Who it's for</p>
+      <h2 class="heading">For anyone who plays from the page.</h2>
+    </div>
+    <div class="who-grid reveal">
+      <div class="who-card">
+        <h3>Bands</h3>
+        <p>A new set every gig, built in minutes and shared with everyone. Jazz combos, cover bands and pit musicians all read from the same order.</p>
+      </div>
+      <div class="who-card">
+        <h3>Worship teams</h3>
+        <p>Connect Planning Center and Sunday's plan shows up beside your set lists, with charts and recordings ready to play through.</p>
+      </div>
+      <div class="who-card">
+        <h3>Orchestras &amp; choirs</h3>
+        <p>Keep every part, marking and bowing in one folder, and turn pages with a pedal while your hands stay on the instrument.</p>
+      </div>
+      <div class="who-card">
+        <h3>Students &amp; soloists</h3>
+        <p>Method books with bookmarks, a tuner and metronome beside the page, and a daily streak that keeps practice going.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ iPad + iCloud ============ -->
+<section class="section devices">
+  <div class="wrap devices-grid">
+    <div class="devices-pair reveal">
+      <div class="device tablet"><div class="screen">[Screenshot: iPad sidebar layout and home screen]</div></div>
+      <div class="device phone"><div class="screen">[Screenshot: same library on iPhone]</div></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">iPhone, iPad &amp; iCloud</p>
+      <h2 class="heading-sm">The same library on every device you own.</h2>
+      <ul class="facts">
+        <li><strong>Designed for iPad too</strong><span>A sidebar layout, a home screen built for the big screen, and full-size tools.</span></li>
+        <li><strong>iCloud sync, free for everyone</strong><span>Songs, set lists and annotations stay the same on every device you're signed into.</span></li>
+        <li><strong>Works offline</strong><span>Everything lives on your device, so the show goes on without Wi-Fi.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="heading">Start free. Go Premium when your library grows.</h2>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card free">
+        <div class="tier">Free</div>
+        <div class="amount">$0</div>
+        <div class="alt">Up to 15 songs, for as long as you like</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>The full reader and organizer</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Folders, set lists and annotation</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>iCloud sync across your devices</li>
+        </ul>
+        <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83">
+            <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+          </picture>
+        </a>
+      </div>
+      <div class="price-card premium">
+        <div class="tier">Premium</div>
+        <span class="trial"><i></i>7-day free trial</span>
+        <div class="amount tnum">$19.99 <small>/ year</small></div>
+        <div class="alt tnum">or $2.99 / month · $49.99 lifetime</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Unlimited songs and books</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>The complete toolkit: metronome, tuner, drones and piano</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Everything in Free, including iCloud sync</li>
+        </ul>
+        <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+        </a>
+      </div>
+    </div>
+    <div class="pricing-notes caption">
+      <span>Bought Music Folder before version 3.0? You keep full access to everything.</span>
+      <span>US App Store prices shown; prices may vary by region. Subscriptions renew until cancelled in Settings.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="support" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 class="heading">Before the downbeat.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Is Music Folder free?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Yes. The free version holds up to 15 songs with the full reader and organizer, and iCloud sync is free for everyone. Premium adds unlimited songs and books plus the complete toolkit, from $2.99/month with a 7-day free trial.</p></div>
+      </details>
+      <details>
+        <summary>Does it work offline?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Completely. Your music lives on your device, so you can read, play through set lists and use every tool with no signal at all. iCloud catches up the next time you're online.</p></div>
+      </details>
+      <details>
+        <summary>Can my band share charts?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Yes. Share a folder or set list with other Music Folder users and it stays in sync: when someone adds a chart or reorders the set, everyone's copy updates. You choose view-only or can-edit for each person, and annotations stay personal.</p></div>
+      </details>
+      <details>
+        <summary>Does it work with Planning Center?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Yes. Link your Planning Center Services account to see your team's song library as a folder and upcoming service plans beside your set lists, then play through a service song by song. Access is read-only: plans are edited in Planning Center itself.</p></div>
+      </details>
+      <details>
+        <summary>Does it support Bluetooth page turners?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Yes. Pair a Bluetooth page-turner pedal and turn pages hands-free. You can also tap or swipe, read page by page or scroll continuously.</p></div>
+      </details>
+      <details>
+        <summary>Can I use Apple Pencil?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Yes: Apple Pencil, any stylus or your finger. Add text stamps for fingerings, dynamics and cuts. Annotations save automatically and sync to your other devices.</p></div>
+      </details>
+      <details>
+        <summary>What happens to my music if I cancel Premium?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Your PDFs stay in your library. The free-tier limits apply only to adding more songs.</p></div>
+      </details>
+      <details>
+        <summary>Is there an Android, Mac or web version?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Music Folder is made for iPhone and iPad only.</p></div>
+      </details>
+      <details>
+        <summary>How do I get help?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Email <a href="mailto:musicfolder.app@gmail.com">musicfolder.app@gmail.com</a>. Music Folder is made by an independent developer, so you'll hear back from the person who builds it.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section final" style="padding-top:0">
+  <div class="wrap reveal">
+    <h2 class="heading">Walk on stage <em>ready.</em></h2>
+    <p>Made by a musician, for musicians. Free for your first 15 songs.</p>
+    <div class="cta-row">
+      <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+        </picture>
+      </a>
+    </div>
+    <p class="caption" style="margin-top:14px">iPhone &amp; iPad · Version 3.3</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-mark" aria-hidden="true">Music Folder</div>
+    <div class="footer-grid">
+      <div class="f-about">
+        <p>The sheet-music organizer for performing musicians. Made by an independent developer.</p>
+        <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+        </a>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#toolkit">Toolkit</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:musicfolder.app@gmail.com">Email support</a></li>
+          <li><a href="#support">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="https://mikul29.github.io/musicfolder-support/">Privacy Policy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Matthew Mikulich</span>
+      <span>Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  /* ---------- Engraved score for the iPad in the folder ---------- */
+  const scoreEl = document.getElementById('score');
+  if (scoreEl) {
+    let seed = 7;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const W = 300, H = 400, L = 18, R = 282, gap = 4.2;
+    let s = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" font-family="Instrument Serif, Georgia, serif">`;
+    s += `<text x="150" y="30" text-anchor="middle" font-size="19" fill="#141414">Nocturne</text>`;
+    s += `<text x="150" y="43" text-anchor="middle" font-size="8" fill="#6E6A60" font-family="-apple-system, Inter, sans-serif">Op. 9, No. 2</text>`;
+    s += `<text x="${R}" y="54" text-anchor="end" font-size="8" fill="#1A1815">F. Chopin</text>`;
+    s += `<text x="${L}" y="54" font-size="8" fill="#1A1815" font-style="italic">Andante</text>`;
+    const staff = (y) => { let o = ''; for (let i = 0; i < 5; i++) o += `<line x1="${L}" x2="${R}" y1="${y + i * gap}" y2="${y + i * gap}" stroke="#2A2A2A" stroke-width=".45"/>`; return o; };
+    const note = (x, y, up, filled = true) => {
+      const head = `<ellipse cx="${x}" cy="${y}" rx="2.5" ry="1.75" transform="rotate(-22 ${x} ${y})" fill="${filled ? '#141414' : 'none'}" stroke="#141414" stroke-width="${filled ? 0 : .7}"/>`;
+      const stem = up ? `<line x1="${x + 2.3}" x2="${x + 2.3}" y1="${y}" y2="${y - 13}" stroke="#141414" stroke-width=".6"/>`
+                      : `<line x1="${x - 2.3}" x2="${x - 2.3}" y1="${y}" y2="${y + 13}" stroke="#141414" stroke-width=".6"/>`;
+      return head + stem;
+    };
+    let annot = '';
+    for (let sys = 0; sys < 5; sys++) {
+      const top = 70 + sys * 64, bass = top + 30;
+      s += staff(top) + staff(bass);
+      s += `<line x1="${L}" x2="${L}" y1="${top}" y2="${bass + 4 * gap}" stroke="#141414" stroke-width=".8"/>`;
+      s += `<path d="M${L - 4} ${top} q-3 ${(bass + 16.8 - top) / 4} 0 ${(bass + 16.8 - top) / 2} q3 ${(bass + 16.8 - top) / 4} 0 ${(bass + 16.8 - top) / 2}" fill="none" stroke="#141414" stroke-width="1.1"/>`;
+      // clef-like markers (stylized, small)
+      s += `<text x="${L + 3}" y="${top + 14}" font-size="17" fill="#141414">&#x1D11E;</text>`;
+      s += `<text x="${L + 3}" y="${bass + 11}" font-size="13" fill="#141414">&#x1D122;</text>`;
+      const start = L + 24, mw = (R - start) / 4;
+      for (let m = 0; m < 4; m++) {
+        const mx = start + m * mw;
+        if (m) s += `<line x1="${mx}" x2="${mx}" y1="${top}" y2="${bass + 4 * gap}" stroke="#141414" stroke-width=".5"/>`;
+        // treble: two beamed groups of three
+        for (let g = 0; g < 2; g++) {
+          const xs = [], ys = [];
+          for (let n = 0; n < 3; n++) {
+            const x = mx + 7 + g * (mw / 2) + n * (mw / 7.2);
+            const y = top + gap * Math.round(rnd() * 6 - 1) / 2 + 4;
+            xs.push(x); ys.push(y); s += note(x, y, true);
+          }
+          const by = Math.min(...ys) - 13;
+          s += `<line x1="${xs[0] + 2.3}" x2="${xs[2] + 2.3}" y1="${by}" y2="${by - 1}" stroke="#141414" stroke-width="1.6"/>`;
+        }
+        // bass: low note + chord
+        s += note(mx + 9, bass + gap * (3 + Math.round(rnd() * 2) / 2), true, true);
+        const cy = bass + gap * (1 + Math.round(rnd() * 2) / 2);
+        s += note(mx + mw / 2 + 4, cy, false, false) + `<ellipse cx="${mx + mw / 2 + 4}" cy="${cy - gap}" rx="2.5" ry="1.75" transform="rotate(-22 ${mx + mw / 2 + 4} ${cy - gap})" fill="none" stroke="#141414" stroke-width=".7"/>`;
+        if (sys === 2 && m === 2) {
+          // Apple Pencil annotation: a loose circle and a written cue
+          const cx = mx + mw / 2, cyy = top + 7;
+          annot += `<path d="M${cx - 30} ${cyy + 2} C ${cx - 31} ${cyy - 16}, ${cx + 30} ${cyy - 17}, ${cx + 31} ${cyy} S ${cx - 20} ${cyy + 19}, ${cx - 33} ${cyy - 3}" fill="none" stroke="#F2812E" stroke-width="1.5" stroke-linecap="round"/>`;
+          annot += `<text x="${cx + 18}" y="${cyy - 15}" font-size="10" font-style="italic" fill="#F2812E">breathe</text>`;
+        }
+      }
+      s += `<line x1="${R}" x2="${R}" y1="${top}" y2="${bass + 4 * gap}" stroke="#141414" stroke-width=".7"/>`;
+      if (sys === 0) s += `<text x="${L + 26}" y="${bass - 4}" font-size="9" font-style="italic" font-weight="700" fill="#141414">p</text>`;
+      if (sys === 3) s += `<text x="${L + 120}" y="${bass - 4}" font-size="8" font-style="italic" fill="#141414">espress.</text>`;
+    }
+    s += annot + `</svg>`;
+    scoreEl.innerHTML = s;
+  }
+
+  /* ---------- Header state ---------- */
+  const header = document.querySelector('.site-header');
+  const menu = document.querySelector('.menu');
+  menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+
+  /* ---------- Folder: scroll-linked open ---------- */
+  const hero = document.getElementById('hero');
+  const rig = document.getElementById('rig');
+  const cover = document.getElementById('cover');
+  const leaf = document.getElementById('leaf');
+  const copy = document.getElementById('heroCopy');
+  const cap = document.getElementById('openCaption');
+  const hint = document.getElementById('scrollHint');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
+  const FW = 450, FH = 600;
+
+  function frame() {
+    const vw = document.documentElement.clientWidth;
+    const vh = hero.querySelector('.hero-stage').clientHeight;
+    const narrow = vw < 860;
+    const total = hero.offsetHeight - vh;
+    const p = reduce.matches ? 0 : clamp((window.scrollY - hero.offsetTop) / Math.max(1, total));
+
+    header.classList.toggle('scrolled', window.scrollY > 8);
+
+    const a = seg(p, 0.00, 0.30); // straighten + centre
+    const o = seg(p, 0.30, 0.74); // open the cover
+    const c = seg(p, 0.70, 0.90); // caption
+
+    // scales
+    const closedS = Math.min(1.05, (vh * 0.66) / FH, (vw - 48) / FW);
+    const openS = Math.min(closedS, (vw - 2 * (narrow ? 16 : 48)) / (FW * 2), (vh * (narrow ? 0.5 : 0.6)) / FH);
+
+    // start pose (tilted, partly off the right edge like an object on the table)
+    let sx, sy, sr, ss;
+    if (narrow) {
+      ss = Math.min(0.9, (vw * 0.78) / FW);
+      sx = vw * 0.64; sy = vh * 0.97; sr = -13;
+    } else {
+      ss = Math.min(1.08, (vw * 0.42) / FW, (vh * 0.82) / FH);
+      sx = vw * 0.76; sy = vh * 0.62; sr = -13;
+    }
+    // middle pose (centred, closed)
+    const mx = vw / 2, my = vh * (narrow ? 0.46 : 0.47);
+
+    const s = lerp(lerp(ss, closedS, a), openS, o);
+    const r = lerp(sr, 0, a);
+    let cx = lerp(sx, mx, a);
+    let cy = lerp(sy, my, a);
+    cy = lerp(cy, vh * (narrow ? 0.44 : 0.45), o);
+    // as the cover swings left, slide right so the spread stays centred
+    cx += (FW / 2) * o * s;
+
+    leaf.style.transform = o >= 1 ? 'none' : `translateZ(2px) rotateY(${180 - 180 * o}deg)`;
+  rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
+    cover.style.transform = `translateZ(2px) rotateY(${-180 * o}deg)`;
+
+    copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.14 : 0.18));
+    copy.style.transform = `translateY(${-40 * seg(p, 0, 0.2)}px)`;
+    copy.style.pointerEvents = p > 0.1 ? 'none' : '';
+    hint.style.opacity = String(1 - seg(p, 0, 0.06));
+
+    const capTop = cy + (FH * s) / 2 + (narrow ? 28 : 40);
+    cap.style.top = `${capTop}px`;
+    cap.style.opacity = String(c);
+    cap.style.transform = `translateY(${(1 - c) * 16}px)`;
+  }
+
+  let ticking = false;
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { frame(); ticking = false; }); } };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  reduce.addEventListener && reduce.addEventListener('change', onScroll);
+  frame();
+  document.fonts && document.fonts.ready.then(frame);
+
+  /* ---------- Section reveals ---------- */
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px' }) : null;
+  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
