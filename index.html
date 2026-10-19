@@ -207,13 +207,9 @@ p { margin: 0 0 16px; }
   position: absolute; inset: 0;
   border-radius: 4px 14px 14px 4px;
   background:
-    radial-gradient(120% 90% at 10% 0%, rgba(255,255,255,0.05), transparent 60%),
-    #1A1A1B;
-  box-shadow: var(--shadow-object), 0 2px 0 #0a0a0a, inset 0 0 0 1px rgba(255,255,255,0.03);
-}
-.page::after { /* stitched edge */
-  content: ""; position: absolute; inset: 12px 12px 12px 6px;
-  border: 1px dashed rgba(255,255,255,0.07); border-radius: 2px 8px 8px 2px; pointer-events: none;
+    radial-gradient(120% 90% at 0% 0%, rgba(255,255,255,0.05), transparent 60%),
+    #1B1B1C;
+  box-shadow: var(--shadow-object), inset 0 0 0 1px rgba(255,255,255,0.03);
 }
 /* elastic cords along the spine that hold loose scores, like a real choir folder */
 .cords { position: absolute; left: 12px; top: 0; bottom: 0; width: 22px; transform: translateZ(1.5px); }
@@ -230,20 +226,6 @@ p { margin: 0 0 16px; }
 }
 .cords b:nth-of-type(1) { top: 6px; }
 .cords b:nth-of-type(2) { bottom: 6px; }
-.pocket-right {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 120px; transform: translateZ(2px);
-  border-radius: 0 0 14px 4px;
-  background:
-    radial-gradient(120% 100% at 0% 0%, rgba(255,255,255,0.05), transparent 60%),
-    #161617;
-  clip-path: polygon(0 0, 100% 24%, 100% 100%, 0 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-}
-.pocket-right::after {
-  content: ""; position: absolute; left: 12px; right: 18px; top: 0; height: 100%;
-  border-top: 1px dashed rgba(255,255,255,0.08);
-  transform: translateY(14%) rotate(3.6deg); transform-origin: left top;
-}
 .ipad {
   position: absolute; left: 58px; top: 44px; width: 340px; height: 470px;
   border-radius: 28px; padding: 14px;
@@ -309,15 +291,11 @@ p { margin: 0 0 16px; }
   border-radius: 14px 4px 4px 14px;
   background:
     radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.05), transparent 60%),
-    #1C1C1D;
+    #1B1B1C;
   box-shadow: var(--shadow-object), inset 0 0 0 1px rgba(255,255,255,0.03);
 }
-.cover-inside::after {
-  content: ""; position: absolute; inset: 12px 6px 12px 12px;
-  border: 1px dashed rgba(255,255,255,0.07); border-radius: 8px 2px 2px 8px; pointer-events: none;
-}
 .program-sheet {
-  position: absolute; left: 44px; right: 44px; top: 54px; height: 420px;
+  position: absolute; left: 44px; right: 44px; top: 54px; height: 450px;
   background: #FBFAF8; color: #1A1815; border-radius: 3px;
   padding: 26px 26px 0;
   box-shadow: 0 10px 22px -10px rgba(0,0,0,0.7);
@@ -331,19 +309,17 @@ p { margin: 0 0 16px; }
   padding: 8px 0; border-top: 1px solid #E7E1D6; font-size: 13px; line-height: 1.3;
 }
 .program-sheet li span:first-child, .program-sheet li span:last-child { color: #6E6A60; font-variant-numeric: tabular-nums; font-size: 11.5px; }
-.pocket {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 200px;
-  background:
-    radial-gradient(120% 100% at 100% 0%, rgba(255,255,255,0.05), transparent 60%),
-    #161617;
-  clip-path: polygon(0 18%, 100% 0, 100% 100%, 0 100%);
+.pocket, .pocket-right {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 140px;
+  background: #161617;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
 }
-.pocket::after {
-  content: ""; position: absolute; left: 18px; right: 12px; top: 0; height: 100%;
-  border-top: 1px dashed rgba(255,255,255,0.08);
-  transform: translateY(14%) rotate(-3.2deg); transform-origin: left top;
-}
+.pocket { clip-path: polygon(0 30px, 100% 0, 100% 100%, 0 100%); border-radius: 0 0 4px 14px; }
+.pocket-right { clip-path: polygon(0 0, 100% 30px, 100% 100%, 0 100%); border-radius: 0 0 14px 4px; transform: translateZ(2px); }
+/* stitching is drawn as SVG so both halves use identical dashes */
+.stitch { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.stitch path { fill: none; stroke: rgba(255,255,255,0.13); stroke-width: 1; stroke-dasharray: 4 3; }
+.page > .stitch { transform: translateZ(2.5px); }
 .rig-shadow {
   position: absolute; left: 6%; right: 6%; bottom: -26px; height: 40px; border-radius: 50%;
   background: radial-gradient(closest-side, rgba(20,20,20,0.28), transparent);
@@ -676,7 +652,8 @@ section { position: relative; }
             <div class="reader-page"><div class="reader-score" id="score"></div></div>
           </div>
         </div>
-        <div class="pocket-right"></div>
+        <div class="pocket-right"><svg class="stitch" viewBox="0 0 450 140" aria-hidden="true"><path d="M6 10.4L438 39.2"/></svg></div>
+        <svg class="stitch" viewBox="0 0 450 600" aria-hidden="true"><path d="M6 12h422a10 10 0 0 1 10 10v556a10 10 0 0 1-10 10H6z"/></svg>
       </div>
       <div class="cover" id="cover">
         <div class="cover-face">
@@ -698,7 +675,8 @@ section { position: relative; }
               <li><span>7</span><span>Body and Soul</span><span>D♭ · ♩=72</span></li>
             </ol>
           </div>
-          <div class="pocket"></div>
+          <div class="pocket"><svg class="stitch" viewBox="0 0 450 140" aria-hidden="true"><path d="M12 39.2L444 10.4"/></svg></div>
+          <svg class="stitch" viewBox="0 0 450 600" aria-hidden="true"><path d="M444 12H22a10 10 0 0 0-10 10v556a10 10 0 0 0 10 10h422z"/></svg>
         </div>
     </div>
 
