@@ -143,6 +143,26 @@ p { margin: 0 0 16px; }
   font-size: clamp(56px, 8.6vw, 132px); line-height: 0.98;
 }
 .hero-copy .lede { max-width: 500px; margin-bottom: 32px; }
+/* real App Store reviews, one at a time, between the intro and the badge */
+.hero-reviews { margin: 8px 0 0; max-width: 470px; }
+.hr-stars { color: var(--ribbon); width: 92px; margin-bottom: 14px; line-height: 0; }
+.hr-stars svg { width: 100%; height: auto; }
+.hr-quotes { display: grid; }
+.hr-quote { grid-area: 1 / 1; margin: 0; opacity: 0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
+.hr-quote.is-active { opacity: 1; transform: none; }
+.hr-quote p { font-family: var(--font-display); font-size: 27px; line-height: 1.2; letter-spacing: -0.005em; color: var(--folder-black); margin: 0 0 10px; }
+.hr-quote cite { font-style: normal; font-size: 14px; color: var(--graphite); }
+.hr-dots { display: flex; gap: 8px; margin-top: 18px; }
+.hr-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: var(--staff-line); cursor: pointer; transition: background-color .3s, width .3s; }
+.hr-dots button.is-active { width: 20px; border-radius: 4px; background: var(--folder-black); }
+@media (prefers-reduced-motion: reduce) { .hr-quote { transition: none; } }
+@media (max-width: 860px) {
+  /* on phones the badge comes first (visible without scrolling), the review under it */
+  .hero-reviews { order: 3; margin-top: 28px; }
+  .hr-stars { width: 76px; margin-bottom: 10px; }
+  .hr-quote p { font-size: 21px; }
+  .hr-dots { margin-top: 12px; }
+}
 @media (max-width: 860px) {
   .hero-copy { padding-top: 92px; height: auto; padding-bottom: 0; }
   .hero-copy .inner { max-width: 100%; height: auto; }

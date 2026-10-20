@@ -40,7 +40,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=5">
+<link rel="stylesheet" href="assets/site.css?v=7">
 </head>
 <body>
 
@@ -81,13 +81,22 @@
       <div class="inner">
         <h1 class="display">Meet<br><em>Music Folder.</em></h1>
         <p class="lede">The sheet music app that organizes your scores and sharpens your practice, whether you play alone or with others. Metronome, tuner and piano built in.</p>
+        <figure class="hero-reviews" aria-label="Reviews from the App Store">
+          <div class="hr-stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 100 18" aria-hidden="true"><g fill="currentColor"><path id="hrs" d="M9 0l2.6 5.6 6.1.7-4.5 4.2 1.2 6L9 13.5 3.6 16.5l1.2-6L.3 6.3l6.1-.7z"/><use href="#hrs" x="20"/><use href="#hrs" x="40"/><use href="#hrs" x="60"/><use href="#hrs" x="80"/></g></svg></div>
+          <div class="hr-quotes">
+            <blockquote class="hr-quote is-active"><p>“Great to have all my music in one place and syncs between all my devices.”</p><cite>Mark@97, App Store</cite></blockquote>
+            <blockquote class="hr-quote"><p>“I was worried about the organization of the music. This app is like a blessing!”</p><cite>emcelina02, App Store</cite></blockquote>
+            <blockquote class="hr-quote"><p>“Easy to use, clean interface, and has been reliable for me the last 4 years.”</p><cite>MusicMan.7, App Store</cite></blockquote>
+            <blockquote class="hr-quote"><p>“So much easier than having to carry loads of sheet music with me.”</p><cite>Rzibby, App Store</cite></blockquote>
+          </div>
+          <div class="hr-dots" role="group" aria-label="Choose a review"><button type="button" class="is-active" aria-label="Review 1"></button><button type="button" aria-label="Review 2"></button><button type="button" aria-label="Review 3"></button><button type="button" aria-label="Review 4"></button></div>
+        </figure>
         <div class="cta-row">
           <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
             <picture>
               <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48">
             </picture>
           </a>
-          <a class="btn btn-secondary" href="#features">See features</a>
         </div>
       </div>
     </div>
@@ -441,7 +450,7 @@
     let sx, sy, sr, ss;
     if (narrow) {
       ss = Math.min(0.9, (vw * 0.78) / FW);
-      sx = vw * 0.64; sy = vh * 0.97; sr = -13;
+      sx = vw * 0.64; sy = vh * 1.06; sr = -13;
     } else {
       // big, low and tilted, running off the bottom-right edge
       ss = Math.min(1.35, (vw * 0.46) / FW, (vh * 1.02) / FH);
@@ -512,6 +521,26 @@
     window.addEventListener('scroll', onStoryScroll, { passive: true });
     window.addEventListener('resize', onStoryScroll);
     pick();
+  }
+
+
+  /* ---------- Hero reviews: one quote at a time ---------- */
+  const quotes = [...document.querySelectorAll('.hr-quote')];
+  const dots = [...document.querySelectorAll('.hr-dots button')];
+  if (quotes.length > 1) {
+    let qi = 0, timer = null;
+    const showQuote = i => {
+      qi = (i + quotes.length) % quotes.length;
+      quotes.forEach((q, k) => q.classList.toggle('is-active', k === qi));
+      dots.forEach((d, k) => d.classList.toggle('is-active', k === qi));
+    };
+    const start = () => { if (!reduce.matches && !timer) timer = setInterval(() => showQuote(qi + 1), 5500); };
+    const stop = () => { clearInterval(timer); timer = null; };
+    dots.forEach((d, k) => d.addEventListener('click', () => { showQuote(k); stop(); start(); }));
+    const box = document.querySelector('.hero-reviews');
+    box.addEventListener('mouseenter', stop); box.addEventListener('mouseleave', start);
+    box.addEventListener('focusin', stop); box.addEventListener('focusout', start);
+    start();
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
