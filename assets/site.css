@@ -495,3 +495,10 @@ section { position: relative; }
 
 /* anchored sections land below the fixed header */
 [id] { scroll-margin-top: 84px; }
+
+/* iOS screenshots leave out the Dynamic Island, so the phone frames draw it */
+.device.phone .screen { position: relative; }
+.device.phone .screen::after {
+  content: ""; position: absolute; left: 50%; top: 1.2%; transform: translateX(-50%);
+  width: 29.5%; aspect-ratio: 3.4; border-radius: 999px; background: #000; pointer-events: none;
+}
