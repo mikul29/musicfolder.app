@@ -21,6 +21,16 @@
 .support-hero .lede { margin-bottom: 32px; }
 @media (max-width: 860px) { .support-hero { padding: 112px 0 48px; } }
 
+.topics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.topic {
+  display: flex; flex-direction: column; gap: 4px; padding: 24px; text-decoration: none;
+  background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.topic:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(20,20,20,0.05), 0 14px 32px rgba(20,20,20,0.09); }
+.topic b { font-size: 17px; font-weight: 600; color: var(--ink); }
+.topic span { font-size: 14px; color: var(--graphite); }
+@media (max-width: 860px) { .topics { grid-template-columns: 1fr 1fr; gap: 12px; } .topic { padding: 18px; } }
 .faq-group { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; color: var(--folder-black); margin: 56px 0 8px; }
 .faq-group:first-child { margin-top: 0; }
 .faq summary { font-size: 18px; }
@@ -129,7 +139,18 @@
   </div>
 </section>
 
-<section class="section" id="faq" style="padding-top:24px">
+<section class="topics-wrap">
+  <div class="wrap">
+    <nav class="topics" aria-label="Help topics">
+      <a class="topic" href="#start"><b>Getting started</b><span>Devices, pricing, offline use</span></a>
+      <a class="topic" href="#sets"><b>Songs &amp; set lists</b><span>Books, bookmarks, importing</span></a>
+      <a class="topic" href="#sync"><b>Sync &amp; sharing</b><span>iCloud, your band or class</span></a>
+      <a class="topic" href="#report"><b>Contact me</b><span>Report a bug or idea</span></a>
+    </nav>
+  </div>
+</section>
+
+<section class="section" id="faq" style="padding-top:96px">
   <div class="wrap">
     <div class="section-head">
       <h2 class="heading">Common questions.</h2>
@@ -137,21 +158,29 @@
     </div>
     <div class="faq">
 
-      <h3 class="faq-group">Getting started</h3>
+      <h3 class="faq-group" id="start">Getting started</h3>
       <details>
         <summary>What is Music Folder?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>A sheet music app for iPhone and iPad. Store your PDFs, sort them into folders, build set lists, mark up scores with Apple Pencil, and practice with a built-in metronome, tuner and piano. Everything syncs through iCloud.</p></div>
       </details>
       <details>
         <summary>Which devices does it support?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="answer"><p>iPhone and iPad running iOS 13.2 or later. iPad is recommended for reading because of its larger screen, and it has its own sidebar layout on iPadOS 18 and later.</p></div>
+        <div class="answer"><p>iPhone and iPad running iOS 13.2 or later. iPad is recommended for reading because of its larger screen, and it has its own sidebar layout on iPadOS 18 and later. There is no Android, Mac or web version.</p></div>
       </details>
       <details>
         <summary>How much does it cost?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Free for up to 15 songs. Premium unlocks unlimited songs and books plus the complete toolkit: $2.99 a month or $19.99 a year, both with a 7-day free trial, or $49.99 once. If you bought Music Folder before version 3.0, you keep full access. iCloud sync is free for everyone. Prices are in US dollars and may vary by region.</p></div>
       </details>
+      <details>
+        <summary>What happens to my music if I cancel Premium?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Your PDFs stay in your library. The free limit of 15 songs only applies to adding more.</p></div>
+      </details>
+      <details>
+        <summary>Does it work offline?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Completely. Your music lives on your device, so you can read, play through set lists and use every tool with no signal. iCloud catches up the next time you're online.</p></div>
+      </details>
 
-      <h3 class="faq-group">Songs, books and set lists</h3>
+      <h3 class="faq-group" id="sets">Songs, books and set lists</h3>
       <details>
         <summary>What's the difference between a song and a book?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>A song is a single piece of music. A book is a PDF with many pieces in it, like a hymnal, fake book or method book. Books support bookmarks, so you can jump straight to a piece inside them.</p></div>
@@ -185,11 +214,15 @@
         <div class="answer"><p>Open any song and tap the metronome icon. Set the song's tempo when you add or edit it, and the metronome uses it automatically. It plays even when your device is on silent, and keeps going when the screen locks. The metronome is part of Premium.</p></div>
       </details>
       <details>
+        <summary>Does it work with Planning Center?<span class="plus" aria-hidden="true"></span></summary>
+        <div class="answer"><p>Yes. Connect your Planning Center Services account to see your team's songs as a folder and upcoming services next to your set lists, then play through a service song by song. Access is read-only: plans are still edited in Planning Center.</p></div>
+      </details>
+
+      <h3 class="faq-group" id="sync">Sync and sharing</h3>
+      <details>
         <summary>How do I share music with my band or class?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Two ways. Share a folder or set list live with other Music Folder users: changes show up for everyone, and you choose who can edit. Or send a one-time copy of a song, folder or set list as a file through AirDrop, Messages or email; the recipient taps it to import.</p></div>
       </details>
-
-      <h3 class="faq-group">iCloud sync</h3>
       <details>
         <summary>How do I sync between my iPad and iPhone?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Sign in to the same iCloud account on both devices. In Settings → [your name] → iCloud, make sure iCloud Drive is on and Music Folder is enabled. Sync then happens automatically in the background.</p></div>
@@ -200,9 +233,9 @@
       </details>
 
       <h3 class="faq-group" id="privacy">Privacy</h3>
-      <details open>
+      <details>
         <summary>What data does Music Folder collect?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="answer"><p>None. Music Folder doesn't collect any personal data. Your sheet music, folders, set lists and annotations are stored on your device and in your own iCloud account. There are no servers that hold your content.</p></div>
+        <div class="answer"><p>None. Your music and notes stay on your device and in your own iCloud account. Read the full <a href="privacy.html">privacy policy</a>.</p></div>
       </details>
 
     </div>
@@ -359,7 +392,7 @@
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
           <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
         </ul>
       </div>
