@@ -617,9 +617,12 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .nav-pop a span { display: block; font-size: 13px; line-height: 1.4; color: var(--graphite); }
 .nav-pop a[aria-current="page"] b { color: var(--deep-amber); }
 .nav-pop .nav-pop-pc { margin-top: 6px; border-top: 1px solid var(--staff-line); border-radius: 0 0 12px 12px; }
-/* Planning Center: text only, like the list above (partner logos belong on
-   the integration page, not in the menu; the logo is on /planning-center) */
+/* Planning Center: the Services product icon (a cropped view of their
+   unmodified logo file) beside the name; the line sits under the name */
 .nav-pop .nav-pop-pc { padding-top: 13px; }
+.nav-pop .nav-pop-pc b { display: flex; align-items: center; gap: 8px; }
+.nav-pop .nav-pop-pc b img { flex: none; width: 18px; height: 18px; border-radius: 4px; }
+.nav-pop .nav-pop-pc span { padding-left: 26px; }
 @media (prefers-reduced-motion: reduce) { .nav-pop, .nav-trigger svg { transition: none; } }
 
 /* phone menu: the same structure, the audiences grouped under a label */
