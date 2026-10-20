@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://musicfolder.app/</loc></url>
+  <url><loc>https://musicfolder.app/for/bands</loc></url>
+  <url><loc>https://musicfolder.app/for/worship-teams</loc></url>
+  <url><loc>https://musicfolder.app/for/orchestras-choirs</loc></url>
+  <url><loc>https://musicfolder.app/for/students</loc></url>
+  <url><loc>https://musicfolder.app/planning-center</loc></url>
+  <url><loc>https://musicfolder.app/about</loc></url>
   <url><loc>https://musicfolder.app/support</loc></url>
   <url><loc>https://musicfolder.app/contact</loc></url>
   <url><loc>https://musicfolder.app/privacy</loc></url>
