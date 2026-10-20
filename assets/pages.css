@@ -95,12 +95,20 @@ ol.how { margin: 0; padding: 0; }
 .more { border-top: 1px solid var(--staff-line); }
 .more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .more-grid.four { grid-template-columns: repeat(4, 1fr); }
-.more-card { display: block; text-decoration: none; color: inherit; border-top: 2px solid var(--folder-black); padding-top: 24px; }
-.more-card h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-family: var(--font-display); font-size: 30px; line-height: 1.1; color: var(--folder-black); margin-bottom: 10px; }
-.more-card h3 span { font-family: var(--font-text); font-size: 18px; color: var(--graphite); transition: transform .25s ease, color .25s; }
+/* soft tiles (the toolkit cards' family) so the row reads as choices, not steps */
+.more-card {
+  display: flex; flex-direction: column; text-decoration: none; color: inherit;
+  padding: 28px 28px 24px; border-radius: var(--radius-card); background: var(--card);
+  box-shadow: var(--shadow-card); transition: transform .25s ease, box-shadow .25s ease;
+}
+.more-card h3 { font-family: var(--font-display); font-size: 30px; line-height: 1.1; color: var(--folder-black); margin-bottom: 10px; }
 .more-card p { color: var(--graphite); font-size: 15px; line-height: 1.55; margin: 0; }
-.more-card:hover h3 span { transform: translateX(4px); color: var(--ribbon); }
-@media (max-width: 960px) { .more-grid, .more-grid.four { grid-template-columns: 1fr 1fr; gap: 40px 24px; } }
+.more-link { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 24px; font-size: 15px; font-weight: 500; color: var(--deep-amber); }
+.more-link::after { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-top: 1.5px solid currentColor; transform: rotate(45deg); transition: transform .25s ease; }
+.more-card:hover { transform: translateY(-2px); box-shadow: 0 1px 2px rgba(20,20,20,0.04), 0 14px 32px rgba(20,20,20,0.09); }
+.more-card:hover .more-link::after { transform: translateX(3px) rotate(45deg); }
+@media (prefers-reduced-motion: reduce) { .more-card, .more-link::after { transition: none; } }
+@media (max-width: 960px) { .more-grid, .more-grid.four { grid-template-columns: 1fr 1fr; gap: 16px; } }
 @media (max-width: 560px) { .more-grid, .more-grid.four { grid-template-columns: 1fr; } }
 
 /* ---------- Callout panel (e.g. read-only by design) ---------- */
