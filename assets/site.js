@@ -9,6 +9,8 @@
   // where a target should land: story steps are centred (that's when the
   // pinned device shows their screen); everything else sits below the header
   const targetY = el => {
+    // the fixed header (logo link, #top) means the very top of the page
+    if (el.id === 'top' || getComputedStyle(el).position === 'fixed') return 0;
     const r = el.getBoundingClientRect();
     const top = r.top + window.scrollY;
     if (el.classList.contains('step')) return top + r.height / 2 - window.innerHeight / 2;
