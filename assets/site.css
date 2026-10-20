@@ -552,24 +552,18 @@ section { position: relative; }
 .hero-qr span { font-size: 13px; line-height: 1.4; color: var(--graphite); }
 @media (max-width: 860px) { .hero-qr { display: none; } }
 
-/* brass corner protectors, like a real choir / band folder */
+/* silver corner protectors: L-shaped brackets that wrap the corners, one rivet
+   per arm, like a real choir / band folder (one drawing, rotated per corner) */
+.defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 .corner {
-  position: absolute; width: 34px; height: 34px; z-index: 3; pointer-events: none;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 38%),
-    linear-gradient(225deg, #F4DF9B 0%, #D7B25B 30%, #A67C2E 62%, #7A5719 82%, #C9A04A 100%);
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.55));
+  position: absolute; width: 40px; height: 40px; z-index: 3; pointer-events: none; overflow: visible;
+  filter: drop-shadow(0 1.5px 1.5px rgba(0,0,0,0.55)) drop-shadow(0 0 0.5px rgba(0,0,0,0.6));
 }
-.corner::after { /* the folded edge of the metal */
-  content: ""; position: absolute; inset: 0; background: linear-gradient(transparent 0 0);
-}
-.corner.tr { top: -1px; right: -1px; clip-path: polygon(0 0, 100% 0, 100% 100%); border-top-right-radius: 14px; }
-.corner.br { bottom: -1px; right: -1px; clip-path: polygon(100% 0, 100% 100%, 0 100%); border-bottom-right-radius: 14px;
-  background:
-    linear-gradient(45deg, rgba(255,255,255,0) 60%, rgba(255,255,255,0.35) 100%),
-    linear-gradient(315deg, #F0D88F 0%, #C9A04A 35%, #8C6A24 70%, #D9B866 100%); }
-.corner.tl { top: -1px; left: -1px; clip-path: polygon(0 0, 100% 0, 0 100%); border-top-left-radius: 14px; }
-.corner.bl { bottom: -1px; left: -1px; clip-path: polygon(0 0, 100% 100%, 0 100%); border-bottom-left-radius: 14px; }
-/* inside: just the part of the protector that wraps round the edge */
-.corner.in { width: 16px; height: 16px; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6)); }
-.page > .corner.in { transform: translateZ(3px); }
+.corner.br { right: 0; bottom: 0; }
+.corner.tr { right: 0; top: 0; transform: rotate(-90deg); }
+.corner.tl { left: 0; top: 0; transform: rotate(180deg); }
+.corner.bl { left: 0; bottom: 0; transform: rotate(90deg); }
+/* inside: the smaller part of each bracket that folds round the edge */
+.corner.in { width: 22px; height: 22px; }
+.page > .corner.in.br { transform: translateZ(3px); }
+.page > .corner.in.tr { transform: translateZ(3px) rotate(-90deg); }

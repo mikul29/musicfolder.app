@@ -40,9 +40,24 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=14">
+<link rel="stylesheet" href="assets/site.css?v=15">
 </head>
 <body>
+<svg class="defs" aria-hidden="true" focusable="false"><defs>
+  <linearGradient id="cornerMetal" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FBFCFD"/><stop offset=".28" stop-color="#D5D8DD"/>
+    <stop offset=".55" stop-color="#9AA0A8"/><stop offset=".78" stop-color="#C9CDD3"/><stop offset="1" stop-color="#7C828B"/>
+  </linearGradient>
+  <radialGradient id="cornerRivet" cx=".35" cy=".35" r=".7">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#B8BDC4"/><stop offset="1" stop-color="#6E747C"/>
+  </radialGradient>
+  <symbol id="cornerCap" viewBox="0 0 40 40">
+    <path d="M34 2a6 6 0 0 1 6 6v18a14 14 0 0 1-14 14H8a6 6 0 0 1-6-6 6 6 0 0 1 6-6h16a4 4 0 0 0 4-4V8a6 6 0 0 1 6-6z" fill="url(#cornerMetal)" stroke="rgba(40,44,50,0.45)" stroke-width=".6"/>
+    <path d="M38.6 9v16.8a12.6 12.6 0 0 1-12.6 12.6H9" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width=".7" stroke-linecap="round"/>
+    <circle cx="34" cy="14" r="1.9" fill="url(#cornerRivet)" stroke="rgba(40,44,50,0.5)" stroke-width=".4"/>
+    <circle cx="14" cy="34" r="1.9" fill="url(#cornerRivet)" stroke="rgba(40,44,50,0.5)" stroke-width=".4"/>
+  </symbol>
+</defs></svg>
 
 <header class="site-header" id="top">
   <div class="wrap">
@@ -108,7 +123,7 @@
     <div class="rig" id="rig" aria-hidden="true">
       <div class="rig-shadow"></div>
       <div class="page">
-        <i class="corner in tr"></i><i class="corner in br"></i>
+        <svg class="corner in tr" aria-hidden="true"><use href="#cornerCap"/></svg><svg class="corner in br" aria-hidden="true"><use href="#cornerCap"/></svg>
         <div class="cords"><i></i><i></i><b></b><b></b></div>
         <div class="ipad">
           <div class="ipad-screen">
@@ -122,11 +137,11 @@
         <div class="cover-face">
           <div class="deboss">Music Folder</div>
           <div class="deboss-rule"></div>
-          <i class="corner tr"></i><i class="corner br"></i>
+          <svg class="corner tr" aria-hidden="true"><use href="#cornerCap"/></svg><svg class="corner br" aria-hidden="true"><use href="#cornerCap"/></svg>
         </div>
       </div>
       <div class="cover-inside" id="leaf">
-        <i class="corner in tl"></i><i class="corner in bl"></i>
+        <svg class="corner in tl" aria-hidden="true"><use href="#cornerCap"/></svg><svg class="corner in bl" aria-hidden="true"><use href="#cornerCap"/></svg>
           <div class="program-sheet">
             <h3>Friday, 9:00</h3>
             <div class="ps-sub">Set list · The Blue Room</div>
