@@ -161,3 +161,10 @@ ol.how { margin: 0; padding: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-photo { position: static; order: -1; max-width: 420px; }
 }
+
+/* About: four plain facts in large type (replaces the values cards) */
+.facts-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.facts-strip li { border-top: 2px solid var(--folder-black); padding-top: 22px; }
+.facts-strip b { display: block; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 4.4vw, 60px); line-height: 1; letter-spacing: -0.01em; color: var(--folder-black); margin-bottom: 12px; }
+.facts-strip span { display: block; font-size: 15px; line-height: 1.5; color: var(--graphite); max-width: 220px; }
+@media (max-width: 860px) { .facts-strip { grid-template-columns: 1fr 1fr; gap: 36px 24px; } }
