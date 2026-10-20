@@ -161,3 +161,6 @@ ol.how { margin: 0; padding: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-photo { position: static; order: -1; max-width: 420px; }
 }
+
+/* a closing call to action with no line under the heading keeps its breathing room */
+.final .heading + .cta-row { margin-top: 32px; }
