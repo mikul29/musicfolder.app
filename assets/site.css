@@ -513,6 +513,8 @@ section { position: relative; }
   font: 600 clamp(36px, 6.5vw, 92px)/1 var(--font-text); letter-spacing: .2em; text-transform: uppercase;
   color: #1F1F1F; text-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 -1px 0 rgba(0,0,0,0.9);
   white-space: nowrap; margin-bottom: 32px; user-select: none;
+  /* the last letter's tracking would leave a gap on the right */
+  margin-right: -0.2em; display: block; width: max-content;
 }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
 .footer-grid h4 { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #99999E; }

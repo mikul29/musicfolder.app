@@ -52,4 +52,21 @@
     history.pushState(null, '', url.hash);
     scrollToY(targetY(el));
   });
+
+  /* ---------- Footer wordmark spans exactly the content width ---------- */
+  const mark = document.querySelector('.footer-mark');
+  if (mark) {
+    const fit = () => {
+      const box = mark.parentElement;
+      const cs = getComputedStyle(box);
+      const avail = box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      mark.style.fontSize = '100px';
+      // visible width = text width minus the trailing tracking (0.2em)
+      const w = mark.scrollWidth - 20;
+      if (w > 0) mark.style.fontSize = (100 * avail / w).toFixed(2) + 'px';
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts) document.fonts.ready.then(fit);
+  }
 })();
