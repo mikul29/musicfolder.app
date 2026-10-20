@@ -442,6 +442,9 @@ section { position: relative; }
 .who-card { border-top: 2px solid var(--folder-black); padding-top: 24px; }
 .who-card h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; color: var(--folder-black); margin-bottom: 12px; }
 .who-card p { color: var(--graphite); font-size: 15px; line-height: 1.55; }
+a.who-card { display: block; color: inherit; text-decoration: none; }
+a.who-card h3 { transition: color .2s; }
+a.who-card:hover h3 { color: var(--deep-amber); }
 @media (max-width: 960px) { .who-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; } }
 @media (max-width: 560px) { .who-grid { grid-template-columns: 1fr; } }
 
@@ -535,7 +538,7 @@ section { position: relative; }
   /* the last letter's tracking would leave a gap on the right */
   margin-right: -0.2em; display: block; width: max-content;
 }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 32px; }
 .footer-grid h4 { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #99999E; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .footer-grid a { color: #FBFAF8; text-decoration: none; font-size: 15px; }
