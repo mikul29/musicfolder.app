@@ -417,26 +417,6 @@ section { position: relative; }
 
 /* Planning Center section */
 
-/* Stage band */
-.stage {
-  background: var(--stage-black); color: var(--stage-text);
-  padding: var(--section-gap) 0; overflow: hidden;
-}
-.stage .heading { color: var(--stage-text); }
-.stage-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
-.stage p { color: var(--stage-muted); }
-.stage-points { list-style: none; margin: 28px 0 36px; padding: 0; }
-.stage-points li { padding: 14px 0; border-top: 1px solid #2A2A2C; display: grid; grid-template-columns: 26px 1fr; gap: 12px; color: var(--stage-text); }
-.stage-points li small { display: block; color: var(--stage-muted); font-size: 15px; }
-.stage-points svg { margin-top: 4px; }
-.spot { position: relative; display: flex; justify-content: center; }
-.spot::before {
-  content: ""; position: absolute; inset: -20% -10%;
-  background: radial-gradient(closest-side, rgba(242,129,46,0.10), transparent);
-  pointer-events: none;
-}
-.stage .device .screen { background: #1C1C1E; color: var(--stage-muted); border-color: #38383A; }
-@media (max-width: 860px) { .stage-grid { grid-template-columns: 1fr; gap: 48px; } }
 
 /* Toolkit */
 .tool-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -466,6 +446,17 @@ section { position: relative; }
 
 /* Devices + iCloud */
 .devices { background: var(--vellum); }
+/* the page's one dark band: the devices read like products on a stage */
+.dark-band { background: var(--stage-black); color: var(--stage-text); overflow: hidden; }
+.dark-band .heading-sm, .dark-band .facts li strong { color: var(--stage-text); }
+.dark-band .facts li { border-top-color: #2A2A2C; }
+.dark-band .facts li span { color: var(--stage-muted); }
+.dark-band .devices-pair { position: relative; }
+.dark-band .devices-pair::before {
+  content: ""; position: absolute; inset: -18% -12%; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(242,129,46,0.12), transparent);
+}
+.dark-band .devices-pair img { position: relative; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.6)); }
 .devices-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: center; }
 .devices-pair { display: flex; align-items: flex-end; justify-content: center; gap: 24px; }
 .devices-pair img { height: auto; display: block; filter: drop-shadow(0 24px 30px rgba(20,20,20,0.18)); }
@@ -658,7 +649,7 @@ section { position: relative; }
         </article>
         <article class="step" data-step="1">
           <h3>Your set, in order.</h3>
-          <p>Build a set for every gig or service, then play straight through it.</p>
+          <p>Build a set for every gig or service, then play straight through it, turning pages with a Bluetooth pedal.</p>
           <div class="step-visual"><div class="device phone"><div class="screen shot"><img src="assets/setlist-iphone.jpg?v=1" alt="A set list called Orchestra Concert in Music Folder on iPhone: six pieces in performance order, each with composer and tempo" width="700" height="1522" loading="lazy"></div></div></div>
         </article>
         <article class="step" data-step="2">
@@ -705,25 +696,6 @@ section { position: relative; }
   </div>
 </section>
 
-<!-- ============ STAGE BAND ============ -->
-<section class="stage" aria-labelledby="stageTitle">
-  <div class="wrap stage-grid">
-    <div class="reveal">
-      <h2 class="heading" id="stageTitle">Built for the stage.</h2>
-      <ul class="stage-points">
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 14l3-8h4l3 8"/></svg><span>Bluetooth page-turner pedal<small>Turn pages hands-free.</small></span></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M9 3h6"/></svg><span>Portrait and landscape<small>Landscape suits marching and lyre charts.</small></span></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8l-2-17h-4z"/><path d="M12 15l5-8"/></svg><span>Keeps playing with the screen locked<small>Metronome and recordings run in the background.</small></span></li>
-      </ul>
-      <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
-        <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" width="144" height="48">
-      </a>
-    </div>
-    <div class="spot reveal">
-      <div class="device tablet landscape"><div class="screen">[Screenshot: set-list playback in landscape on iPad]</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ TOOLKIT ============ -->
 <section class="section" id="toolkit">
@@ -805,7 +777,7 @@ section { position: relative; }
 </section>
 
 <!-- ============ iPad + iCloud ============ -->
-<section class="section devices">
+<section class="section devices dark-band">
   <div class="wrap devices-grid">
     <div class="devices-pair reveal">
       <img class="dp-ipad" src="assets/home-ipad.webp?v=2" alt="The Music Folder home screen on iPad: tomorrow's concert set list, a practice streak, quick tools, folders and recently opened scores" width="745" height="972" loading="lazy">
