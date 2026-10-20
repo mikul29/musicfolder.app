@@ -329,6 +329,7 @@ section { position: relative; }
 .step:first-child { min-height: 60vh; justify-content: flex-start; padding-top: 12vh; }
 .step:last-child { min-height: 70vh; }
 .step h3 { font-family: var(--font-display); font-weight: 400; font-size: var(--heading-sm); line-height: 1.08; letter-spacing: -0.01em; color: var(--folder-black); margin-bottom: 14px; }
+.step h3 em { font-style: italic; color: var(--services-deep); }
 .step p { font-size: 20px; line-height: 1.5; color: var(--graphite); max-width: 440px; margin: 0; }
 .step .step-note { font-size: 14px; margin-top: 10px; }
 .step-visual { display: none; }
