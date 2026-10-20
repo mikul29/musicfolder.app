@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=25">
+<link rel="stylesheet" href="assets/site.css?v=26">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -134,6 +134,7 @@
     <div class="rig" id="rig" aria-hidden="true">
       <div class="rig-shadow"></div>
       <div class="page">
+        <i class="edge er"></i><i class="edge et"></i><i class="edge eb"></i>
         <svg class="corner in tr" aria-hidden="true"><use href="#cornerCap"/></svg><svg class="corner in br" aria-hidden="true"><use href="#cornerCap"/></svg>
         <div class="cords"><i></i><i></i><b></b><b></b></div>
         <div class="ipad">
@@ -145,6 +146,7 @@
         <svg class="stitch" viewBox="0 0 450 600" aria-hidden="true"><path d="M6 12h428a4 4 0 0 1 4 4v568a4 4 0 0 1-4 4H6z"/></svg>
       </div>
       <div class="cover" id="cover">
+        <i class="edge er"></i><i class="edge et"></i><i class="edge eb"></i>
         <div class="cover-face">
           <div class="deboss">Music Folder</div>
           <div class="deboss-rule"></div>
@@ -460,7 +462,7 @@
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
-  const FW = 450, FH = 600;
+  const FW = 450, FH = 600, THICK = 9; // board thickness, matches .edge in site.css
 
   function frame() {
     const vw = document.documentElement.clientWidth;
@@ -505,11 +507,14 @@
     // as the cover swings left, slide right so the spread stays centred
     cx += (FW / 2) * o * s;
 
-    leaf.style.transform = o >= 1 ? 'none' : `translateZ(2px) rotateY(${180 - 180 * o}deg)`;
+    // the cover is a board THICK deep: it rests on the page when closed and
+    // sinks as it swings, so its inside lands exactly flat (z = 0) when open
+    const B = lerp(2 + THICK, -THICK, o);
+    leaf.style.transform = o >= 1 ? 'none' : `translateZ(${B}px) rotateY(${180 - 180 * o}deg) translateZ(${THICK}px)`;
     // the inside corner brackets only show once the cover has swung open
     rig.classList.toggle('is-open', o > 0.5);
   rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
-    cover.style.transform = `translateZ(2px) rotateY(${-180 * o}deg)`;
+    cover.style.transform = `translateZ(${B}px) rotateY(${-180 * o}deg)`;
 
     copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.14 : 0.18));
     copy.style.transform = `translateY(${-40 * seg(p, 0, 0.2)}px)`;
