@@ -148,8 +148,8 @@ p { margin: 0 0 16px; }
 .hr-stars { color: var(--ribbon); width: 92px; margin-bottom: 14px; line-height: 0; }
 .hr-stars svg { width: 100%; height: auto; }
 .hr-quotes { display: grid; }
-.hr-quote { grid-area: 1 / 1; margin: 0; opacity: 0; transform: translateY(6px); transition: opacity .6s ease, transform .6s ease; }
-.hr-quote.is-active { opacity: 1; transform: none; }
+.hr-quote { grid-area: 1 / 1; margin: 0; opacity: 0; transform: translateY(6px); transition: opacity .3s ease, transform .3s ease; visibility: hidden; transition-property: opacity, transform, visibility; }
+.hr-quote.is-active { opacity: 1; transform: none; visibility: visible; transition-duration: .5s; transition-delay: .3s; }
 .hr-quote p { font-family: var(--font-display); font-size: 27px; line-height: 1.2; letter-spacing: -0.005em; color: var(--folder-black); margin: 0 0 10px; }
 .hr-quote cite { font-style: normal; font-size: 14px; color: var(--graphite); }
 .hr-dots { display: flex; gap: 8px; margin-top: 18px; }

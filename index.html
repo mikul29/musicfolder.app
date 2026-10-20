@@ -11,14 +11,17 @@
 <meta name="color-scheme" content="light only">
 
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://mikul29.github.io/musicfolder.app/">
 <meta property="og:title" content="Meet Music Folder: the sheet music app for practice, rehearsal and performance">
 <meta property="og:description" content="Organize your PDFs, build set lists, mark them up and share them with your band, with a metronome, tuner and piano built in. iPhone and iPad.">
-<!-- TODO(owner): add a 1200×630 social image at assets/og-image.png and the final site URL -->
-<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image" content="https://mikul29.github.io/musicfolder.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Meet Music Folder: the sheet music app for practice, rehearsal and performance">
-<meta name="twitter:description" content="The sheet music app for every musician, from practice to performance. iPhone and iPad.">
-<meta name="twitter:image" content="assets/og-image.png">
+<meta name="twitter:description" content="Organize your PDFs, build set lists, mark them up and share them with your band, with a metronome, tuner and piano built in. iPhone and iPad.">
+<meta name="twitter:image" content="https://mikul29.github.io/musicfolder.app/assets/og-image.jpg">
 
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -40,7 +43,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=19">
+<link rel="stylesheet" href="assets/site.css?v=20">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -472,7 +475,12 @@
     let sx, sy, sr, ss;
     if (narrow) {
       ss = Math.min(0.9, (vw * 0.78) / FW);
-      sx = vw * 0.64; sy = vh * 1.06; sr = -13;
+      sx = vw * 0.64; sr = -13;
+      // start the folder below whatever the intro + review take up on this phone
+      // (the tilted cover's top corner sits about 350 units above its centre)
+      const inner = copy.querySelector('.inner');
+      const copyBottom = copy.offsetTop + inner.offsetTop + inner.offsetHeight;
+      sy = Math.max(vh * 1.06, copyBottom + 28 + ss * 350);
     } else {
       // big, low and tilted, running off the bottom-right edge
       ss = Math.min(1.35, (vw * 0.46) / FW, (vh * 1.02) / FH);
