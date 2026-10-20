@@ -556,15 +556,14 @@ section { position: relative; }
    per arm, like a real choir / band folder (one drawing, rotated per corner) */
 .defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 .corner {
-  position: absolute; width: 52px; height: 52px; z-index: 3; pointer-events: none; overflow: visible;
+  position: absolute; width: 46px; height: 46px; z-index: 3; pointer-events: none; overflow: visible;
   filter: drop-shadow(0 1.5px 1.5px rgba(0,0,0,0.55)) drop-shadow(0 0 0.5px rgba(0,0,0,0.6));
 }
 .corner.br { right: 0; bottom: 0; }
 .corner.tr { right: 0; top: 0; transform: rotate(-90deg); }
 .corner.tl { left: 0; top: 0; transform: rotate(180deg); }
 .corner.bl { left: 0; bottom: 0; transform: rotate(90deg); }
-/* inside: the smaller part of each bracket that folds round the edge */
-.corner.in { width: 28px; height: 28px; }
+/* inside: the same bracket, folded round the edge (identical size to the cover) */
 .page > .corner.in { opacity: 0; transition: opacity .25s ease; }
 .rig.is-open .page > .corner.in { opacity: 1; }
 .page > .corner.in.br { transform: translateZ(3px); }
