@@ -40,7 +40,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=13">
+<link rel="stylesheet" href="assets/site.css?v=14">
 </head>
 <body>
 
@@ -316,46 +316,50 @@
 </section>
 
 <!-- ============ PRICING ============ -->
-<section class="section" id="pricing">
+<section class="section pricing" id="pricing">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2 class="heading">Start free. Go Premium when your library grows.</h2>
+      <h2 class="heading">Start free. Upgrade when you're ready.</h2>
     </div>
     <div class="plans reveal">
-      <table class="plan-table">
-        <caption class="sr-only">Free and Premium compared</caption>
-        <thead>
-          <tr>
-            <td></td>
-            <th scope="col">
-              <span class="plan-name">Free</span>
-              <span class="plan-price tnum">$0</span>
-              <span class="plan-sub">Free forever</span>
-            </th>
-            <th scope="col" class="col-prem">
-              <span class="plan-name">Premium</span>
-              <span class="plan-price tnum">$19.99<small> / year</small></span>
-              <span class="plan-sub tnum">or $2.99 / month · $49.99 once</span>
-              <span class="plan-trial">7-day free trial</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row">Songs</th><td>15</td><td class="col-prem">Unlimited</td></tr>
-          <tr><th scope="row">Books, like fake books and method books</th><td>1</td><td class="col-prem">Unlimited</td></tr>
-          <tr><th scope="row">Folders</th><td>1</td><td class="col-prem">Unlimited</td></tr>
-          <tr><th scope="row">Set lists, reader and Apple Pencil</th><td><svg class="yes" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M3 8.5l3 3 7-7"/></svg></td><td class="col-prem"><svg class="yes" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M3 8.5l3 3 7-7"/></svg></td></tr>
-          <tr><th scope="row">iCloud sync across your devices</th><td><svg class="yes" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M3 8.5l3 3 7-7"/></svg></td><td class="col-prem"><svg class="yes" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M3 8.5l3 3 7-7"/></svg></td></tr>
-          <tr><th scope="row">Metronome, tuner, tones and piano</th><td><span class="no" aria-label="Not included">—</span></td><td class="col-prem"><svg class="yes" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M3 8.5l3 3 7-7"/></svg></td></tr>
-          <tr><th scope="row">Planning Center</th><td><span class="no" aria-label="Not included">—</span></td><td class="col-prem"><svg class="yes" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M3 8.5l3 3 7-7"/></svg></td></tr>
-        </tbody>
-      </table>
-      <div class="plans-cta">
-        <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
-          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
-        </a>
-        <p class="caption">Start free and upgrade anytime in the app.</p>
+      <div class="plan">
+        <div class="plan-head">
+          <h3 class="plan-name">Free</h3>
+          <p class="plan-price tnum">$0</p>
+          <p class="plan-sub">Free forever</p>
+        </div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>15</b> songs</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>1</b> book</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>1</b> folder</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Set lists, reader and Apple Pencil</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>iCloud sync</span></li>
+          <li class="off"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4.5 8h7"/></svg><span>Metronome, tuner, tones and piano <span class="sr-only">(not included)</span></span></li>
+          <li class="off"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4.5 8h7"/></svg><span>Planning Center <span class="sr-only">(not included)</span></span></li>
+        </ul>
       </div>
+      <div class="plan plan-prem">
+        <div class="plan-head">
+          <h3 class="plan-name">Premium <span class="plan-trial">7-day free trial</span></h3>
+          <p class="plan-price tnum">$19.99<small> / year</small></p>
+          <p class="plan-sub tnum">or $2.99 / month · $49.99 once</p>
+        </div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>Unlimited</b> songs</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>Unlimited</b> books</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span><b>Unlimited</b> folders</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Set lists, reader and Apple Pencil</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>iCloud sync</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Metronome, tuner, tones and piano</span></li>
+          <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Planning Center</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="plans-cta reveal">
+      <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+        <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+      </a>
+      <p class="caption">Start free and upgrade anytime in the app. A book is one PDF with many songs in it, like a hymnal.</p>
     </div>
   </div>
 </section>
