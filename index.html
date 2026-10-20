@@ -343,24 +343,40 @@ section { position: relative; }
 
 
 
-/* Feature rows */
-.feature { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.feature + .feature { margin-top: var(--section-gap); }
-.feature.flip .feature-media { order: -1; }
-.feature-copy { max-width: 480px; }
-.feature-copy .heading-sm { margin-bottom: 20px; }
-.feature-copy strong { font-weight: 600; }
+/* Feature bento */
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+.tile {
+  position: relative; overflow: hidden; display: flex; flex-direction: column;
+  background: var(--card); border-radius: var(--radius-panel); box-shadow: var(--shadow-card);
+  padding: 44px 44px 0; min-height: 640px;
+}
+.tile h3 { font-family: var(--font-display); font-weight: 400; font-size: 36px; line-height: 1.06; letter-spacing: -0.01em; color: var(--folder-black); margin-bottom: 12px; }
+.tile p { color: var(--graphite); font-size: 17px; line-height: 1.5; max-width: 400px; margin: 0; }
+.tile .tile-note { font-size: 13px; margin-top: 8px; }
+/* the device sits low and runs off the tile's bottom edge */
+.tile-shot { margin-top: auto; padding-top: 40px; height: 440px; display: flex; justify-content: center; align-items: flex-start; }
+.tile-shot .device, .tile-shot img { flex: none; }
+.tile-shot .device-shot { width: 270px; }
+.tile-shot .device.phone { width: 250px; }
+.tile-shot .device.tablet { width: 400px; max-width: 100%; }
+.t-lib { grid-column: span 7; }
+.t-set { grid-column: span 5; }
+.t-ann { grid-column: span 5; background: var(--vellum); box-shadow: none; }
+.t-pco { grid-column: span 7; }
+.t-team { grid-column: span 12; min-height: 0; flex-direction: row; align-items: center; gap: 56px; padding: 56px; background: var(--vellum); box-shadow: none; }
+.t-team .tile-copy { flex: 1; }
+.t-team .share-card { flex: none; width: 400px; }
 @media (max-width: 860px) {
-  .feature { grid-template-columns: 1fr; gap: 40px; }
-  .feature.flip .feature-media { order: 0; }
+  .bento { gap: 16px; }
+  .t-lib, .t-set, .t-ann, .t-pco, .t-team { grid-column: span 12; }
+  .tile { min-height: 0; padding: 32px 28px 0; }
+  .tile h3 { font-size: 30px; }
+  .tile-shot { height: 360px; padding-top: 28px; }
+  .tile-shot .device.tablet { width: 320px; }
+  .t-team { flex-direction: column; align-items: stretch; gap: 28px; padding: 32px 28px; }
+  .t-team .share-card { width: 100%; }
 }
 
-.media-panel {
-  background: var(--card); border-radius: var(--radius-panel);
-  box-shadow: var(--shadow-card);
-  padding: 48px 32px; display: flex; justify-content: center; align-items: center;
-  min-height: 520px;
-}
 .device {
   position: relative; background: #0E0E0F; padding: 10px;
   box-shadow: 0 0 0 1.5px #3A3A3C, var(--shadow-object);
@@ -626,51 +642,37 @@ section { position: relative; }
 <!-- ============ FEATURES ============ -->
 <section class="section" id="features">
   <div class="wrap">
-
-    <article class="feature reveal">
-      <div class="feature-copy">
-        <h2 class="heading-sm">Your whole library, finally in one place.</h2>
-        <p>Import PDFs from Files, AirDrop or email, sort them into <strong>folders and tags</strong>, and scan paper charts with your camera.</p>
-      </div>
-      <div class="feature-media">
-        <div class="media-panel">
-          <img class="device-shot" src="assets/library-iphone.jpg" alt="The Music Folder Library screen on iPhone: Songs, Folders and Set Lists, tags, and recently played scores" width="626" height="1226" loading="lazy">
+    <div class="section-head reveal">
+      <h2 class="heading">Everything you need, from practice to performance.</h2>
+    </div>
+    <div class="bento">
+      <article class="tile t-lib reveal">
+        <h3>Your whole library, in one place.</h3>
+        <p>Import PDFs from Files, AirDrop or email, sort them into folders and tags, and scan paper charts.</p>
+        <div class="tile-shot"><img class="device-shot" src="assets/library-iphone.jpg" alt="The Music Folder Library screen on iPhone: Songs, Folders and Set Lists, tags, and recently played scores" width="626" height="1226" loading="lazy"></div>
+      </article>
+      <article class="tile t-set reveal">
+        <h3>Your set, in order.</h3>
+        <p>Build a set for every gig or service, then play straight through it.</p>
+        <div class="tile-shot"><div class="device phone fit"><div class="screen shot"><img src="assets/setlist-iphone.jpg?v=1" alt="A set list called Orchestra Concert in Music Folder on iPhone: six pieces in performance order, each with composer and tempo" width="700" height="1522" loading="lazy"></div></div></div>
+      </article>
+      <article class="tile t-ann reveal">
+        <h3>Mark it up like paper.</h3>
+        <p>Write on the score with Apple Pencil. Every mark saves and syncs.</p>
+        <div class="tile-shot"><div class="device tablet fit"><div class="screen shot"><img src="assets/annotate-ipad.jpg?v=2" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colours, with the pen palette open" width="900" height="1305" loading="lazy"></div></div></div>
+      </article>
+      <article class="tile t-pco reveal">
+        <h3>Your Sunday plan, on the stand.</h3>
+        <p>Link Planning Center and upcoming services appear next to your set lists, ready to play.</p>
+        <p class="tile-note">Read-only: plans are still edited in Planning Center.</p>
+        <div class="tile-shot"><div class="device phone fit"><div class="screen shot"><img src="assets/planning-center-iphone.jpg?v=1" alt="A Planning Center service plan in Music Folder on iPhone: the order of service with five songs, each with its key" width="700" height="1522" loading="lazy"></div></div></div>
+      </article>
+      <article class="tile t-team reveal" id="teams">
+        <div class="tile-copy">
+          <h3>Work together as a team.</h3>
+          <p>Share a folder or set list with your band, choir or worship team. Changes show up for everyone, and you choose who can edit.</p>
         </div>
-      </div>
-    </article>
-
-    <article class="feature flip reveal">
-      <div class="feature-copy">
-        <h2 class="heading-sm">Your set, in order. On stage, one tap at a time.</h2>
-        <p>Build a set for every gig, service or rehearsal, then <strong>play straight through it</strong>.</p>
-      </div>
-      <div class="feature-media">
-        <div class="media-panel">
-          <div class="device phone fit"><div class="screen shot"><img src="assets/setlist-iphone.jpg?v=1" alt="A set list called Orchestra Concert in Music Folder on iPhone: six pieces in performance order, each with composer and tempo" width="700" height="1522" loading="lazy"></div></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="feature reveal">
-      <div class="feature-copy">
-        <h2 class="heading-sm">Mark it up like paper. Keep it like digital.</h2>
-        <p>Write on the score with <strong>Apple Pencil</strong> or your finger. Every mark saves and syncs.</p>
-      </div>
-      <div class="feature-media">
-        <div class="media-panel">
-          <div class="device tablet fit"><div class="screen shot"><img src="assets/annotate-ipad.jpg?v=2" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colours, with the pen palette open" width="900" height="1305" loading="lazy"></div></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="feature flip reveal" id="teams">
-      <div class="feature-copy">
-        <h2 class="heading-sm">Work on your music together, as a team.</h2>
-        <p>Share a folder or set list with your band, choir or worship team. Changes show up for <strong>everyone</strong>, and you choose who can edit.</p>
-      </div>
-      <div class="feature-media">
-        <div class="media-panel">
-          <div class="share-card">
+        <div class="share-card">
             <div class="sc-title">Worship Team</div>
             <div class="sc-sub">Shared folder · 4 people</div>
             <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Owner</small></span><span class="chip">Can edit</span></div>
@@ -678,23 +680,8 @@ section { position: relative; }
             <div class="share-row"><span class="avatar">B</span><span class="who">Bass<small>Member</small></span><span class="chip">View only</span></div>
             <div class="share-row"><span class="avatar">D</span><span class="who">Drums<small>Member</small></span><span class="chip">View only</span></div>
           </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="feature pco reveal">
-      <div class="feature-copy">
-        <h2 class="heading-sm">Your Sunday plan, already on the stand.</h2>
-        <p>Link Planning Center and your team's songs and <strong>upcoming services</strong> appear next to your set lists, ready to play through.</p>
-        <p class="caption">Read-only: plans are still edited in Planning Center.</p>
-      </div>
-      <div class="feature-media">
-        <div class="media-panel">
-          <div class="device phone fit"><div class="screen shot"><img src="assets/planning-center-iphone.jpg?v=1" alt="A Planning Center service plan in Music Folder on iPhone: the order of service with five songs, each with its key" width="700" height="1522" loading="lazy"></div></div>
-        </div>
-      </div>
-    </article>
-
+      </article>
+    </div>
   </div>
 </section>
 
