@@ -1,0 +1,6 @@
+# repo files that shouldn't be published as part of the site
+.git
+.assetsignore
+wrangler.jsonc
+README.md
+.nojekyll
