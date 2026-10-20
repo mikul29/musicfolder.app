@@ -157,7 +157,6 @@ ol.how { margin: 0; padding: 0; }
 .about-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: start; }
 .about-photo { margin: 0; position: sticky; top: 104px; }
 .about-photo img { width: 100%; height: auto; border-radius: var(--radius-panel); box-shadow: var(--shadow-card); }
-.signature img { object-fit: cover; border-radius: 50%; }
 @media (max-width: 860px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-photo { position: static; order: -1; max-width: 420px; }
