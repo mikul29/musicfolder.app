@@ -56,7 +56,6 @@
 .faq-sec .faq-group { margin-top: 0; }
 .faq-empty { padding: 32px 0; color: var(--graphite); }
 .faq-empty p { margin: 0 0 6px; }
-.faq-more { margin-top: 48px; color: var(--graphite); }
 @media (max-width: 860px) {
   .help-layout { display: block; }
   .help-nav { display: none; }
@@ -64,6 +63,10 @@
 .faq-group { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; color: var(--folder-black); margin: 56px 0 8px; }
 .faq summary { font-size: 18px; }
 
+.contact-cta { padding-top: 0; }
+.contact-card { display: flex; align-items: center; justify-content: space-between; gap: 24px 48px; flex-wrap: wrap; padding: 40px 44px; border-radius: var(--radius-panel); background: var(--vellum); }
+.contact-card .heading-sm { margin-bottom: 8px; }
+.contact-card p { margin: 0; color: var(--graphite); max-width: 520px; }
 .report { background: var(--vellum); }
 .report-card {
   max-width: 820px; background: var(--card); border-radius: var(--radius-panel);
@@ -157,7 +160,7 @@
 <section class="support-hero">
   <div class="wrap">
     <h1 class="display">Talk to the <em>developer.</em></h1>
-    <p class="lede">Search the answers below, or send me a message.</p>
+    <p class="lede">Search the answers below, or <a href="contact.html">send me a message</a>.</p>
     <div class="help-search" role="search">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
       <label class="sr-only" for="helpSearch">Search help</label>
@@ -176,7 +179,7 @@
         <a href="#using">Using the app</a>
         <a href="#sync">Sync and sharing</a>
         <a href="#privacy">Privacy</a>
-        <a href="#report" class="help-nav-contact">Contact me</a>
+        <a href="contact.html" class="help-nav-contact">Contact me</a>
     </nav>
     <div class="faq">
       <div class="faq-sec" id="start">
@@ -267,127 +270,20 @@
       </div>
       <div class="faq-empty" id="faqEmpty" hidden>
         <p>No answers match “<span id="faqQuery"></span>”.</p>
-        <p><a href="#report">Send me a message</a> and I'll help directly.</p>
+        <p><a href="contact.html" id="faqContact">Send me a message</a> and I'll help directly.</p>
       </div>
-      <p class="faq-more">Still stuck? <a href="#report">Send me a message</a>.</p>
     </div>
   </div>
 </section>
 
-<section class="section report" id="report">
+<section class="section contact-cta" id="contact">
   <div class="wrap">
-    <div class="section-head">
-      <h2 class="heading">Tell me what's happening.</h2>
-      <p>The more detail you share, the faster I can help. I read every report.</p>
-    </div>
-
-    <div class="report-card">
-      <form id="issueForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
-        <!-- Web3Forms: forwards submissions to musicfolder.app@gmail.com -->
-        <input type="hidden" name="access_key" value="a28732f6-63b9-400b-a62e-11fef78cc683">
-        <input type="hidden" name="from_name" value="Music Folder Support">
-        <input type="hidden" name="subject" value="New Music Folder Report">
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-
-        <fieldset>
-          <legend>About you</legend>
-          <div class="row">
-            <div class="field">
-              <label for="name">Name <span class="opt">Optional</span></label>
-              <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name">
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
-              <small>So I can reply to you.</small>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>The issue</legend>
-          <div class="field">
-            <span class="label" id="typeLabel">Type</span>
-            <div class="type-grid" role="radiogroup" aria-labelledby="typeLabel">
-              <label class="type-card">
-                <input type="radio" name="type" value="Bug" required>
-                <span class="box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="6" width="8" height="13" rx="4"/><path d="M12 10v9M5 9l3 2M19 9l-3 2M4 14h4M16 14h4M5 19l3-2M19 19l-3-2M10 4l1 2M14 4l-1 2"/></svg>
-                  <b>Bug</b><i>Something isn't working</i>
-                </span>
-              </label>
-              <label class="type-card">
-                <input type="radio" name="type" value="Feature request">
-                <span class="box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3z"/></svg>
-                  <b>Feature</b><i>Suggest an improvement</i>
-                </span>
-              </label>
-              <label class="type-card">
-                <input type="radio" name="type" value="Question">
-                <span class="box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M10 9.5a2 2 0 1 1 2.5 1.9c-.3.1-.5.4-.5.7v.4M12 14.5v.01"/></svg>
-                  <b>Question</b><i>Need help using the app</i>
-                </span>
-              </label>
-              <label class="type-card">
-                <input type="radio" name="type" value="Other">
-                <span class="box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-                  <b>Other</b><i>Something else</i>
-                </span>
-              </label>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="title">Short summary</label>
-            <input type="text" id="title" name="title" maxlength="120" required placeholder="App freezes when opening a shared book">
-          </div>
-          <div class="field">
-            <label for="description">Description</label>
-            <textarea id="description" name="description" rows="4" required placeholder="What happened? What were you trying to do?"></textarea>
-          </div>
-          <div class="row">
-            <div class="field">
-              <label for="frequency">How often? <span class="opt">Optional</span></label>
-              <select id="frequency" name="frequency">
-                <option value="">Choose…</option>
-                <option value="Always">Every time</option>
-                <option value="Sometimes">Sometimes</option>
-                <option value="Once">Just once</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="steps">Steps to reproduce <span class="opt">Optional</span></label>
-            <textarea id="steps" name="steps" rows="4" placeholder="1. Open the app&#10;2. Tap a song&#10;3. …"></textarea>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Your device <span class="opt" style="font-family:var(--font-text);font-size:15px">Optional</span></legend>
-          <div class="row three">
-            <div class="field">
-              <label for="device">Device</label>
-              <input type="text" id="device" name="device" placeholder="iPad Air">
-            </div>
-            <div class="field">
-              <label for="ios">iOS version</label>
-              <input type="text" id="ios" name="ios" placeholder="26.1">
-            </div>
-            <div class="field">
-              <label for="appVersion">App version</label>
-              <input type="text" id="appVersion" name="appVersion" placeholder="3.3">
-            </div>
-          </div>
-        </fieldset>
-
-        <div class="submit-row">
-          <button type="submit" class="btn btn-primary"><span>Send report</span></button>
-        </div>
-        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
-      </form>
+    <div class="contact-card">
+      <div>
+        <h2 class="heading-sm">Still need help?</h2>
+        <p>Report a bug, suggest a feature or ask a question. It goes straight to the developer.</p>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Contact me</a>
     </div>
   </div>
 </section>
@@ -416,7 +312,7 @@
         <h4>Support</h4>
         <ul>
           <li><a href="#faq">Help &amp; FAQ</a></li>
-          <li><a href="#report">Report an issue</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="mailto:musicfolder.app@gmail.com">Email support</a></li>
         </ul>
       </div>
@@ -456,7 +352,6 @@
   const secs = [...document.querySelectorAll('.faq-sec')];
   const navLinks = [...document.querySelectorAll('.help-nav a[href^="#"]:not(.help-nav-contact)')];
   const empty = document.getElementById('faqEmpty');
-  const more = document.querySelector('.faq-more');
   const norm = t => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   const filter = () => {
     const words = norm(q.value.trim()).split(/\s+/).filter(Boolean);
@@ -475,8 +370,9 @@
       if (link) link.classList.toggle('is-empty', inSec === 0);
     });
     empty.hidden = shown > 0;
-    more.hidden = shown === 0;
     document.getElementById('faqQuery').textContent = q.value.trim();
+    // carry the search over to the contact form's summary
+    document.getElementById('faqContact').href = 'contact.html' + (q.value.trim() ? '?q=' + encodeURIComponent(q.value.trim()) : '');
     current();
   };
   q.addEventListener('input', filter);
@@ -496,92 +392,6 @@
   window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; current(); }); } }, { passive: true });
   current();
 
-  /* ---------- Report form (Web3Forms) ---------- */
-  const form = document.getElementById('issueForm');
-  const status = document.getElementById('formStatus');
-  const typeGrid = form.querySelector('.type-grid');
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const btnText = submitBtn.querySelector('span');
-  const MAIL = '<a href="mailto:musicfolder.app@gmail.com">musicfolder.app@gmail.com</a>';
-
-  form.addEventListener('input', e => {
-    if (e.target.matches('input, select, textarea') && e.target.validity.valid) e.target.classList.remove('invalid');
-  });
-  form.addEventListener('change', e => {
-    if (e.target.matches('input[type="radio"]')) typeGrid.classList.remove('invalid');
-  });
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    status.className = 'form-status';
-    status.textContent = '';
-
-    let firstInvalid = null;
-    form.querySelectorAll('[required]').forEach(field => {
-      if (field.type === 'radio') {
-        const picked = form.querySelector(`[name="${field.name}"]:checked`);
-        if (!picked) { typeGrid.classList.add('invalid'); firstInvalid = firstInvalid || field; }
-        return;
-      }
-      if (!field.validity.valid) { field.classList.add('invalid'); firstInvalid = firstInvalid || field; }
-      else field.classList.remove('invalid');
-    });
-    if (firstInvalid) {
-      firstInvalid.focus();
-      (firstInvalid.type === 'radio' ? typeGrid : firstInvalid).scrollIntoView({ behavior: 'smooth', block: 'center' });
-      status.className = 'form-status error';
-      status.textContent = 'Please fill in the required fields first.';
-      return;
-    }
-
-    const get = id => (document.getElementById(id)?.value || '').trim();
-    const type = form.querySelector('[name="type"]:checked').value;
-    const email = get('email'), title = get('title');
-
-    // a clean, readable message body for the inbox
-    const lines = ['━━━ MUSIC FOLDER SUPPORT REQUEST ━━━', '', '— Reporter —'];
-    if (get('name')) lines.push(`Name: ${get('name')}`);
-    lines.push(`Email: ${email}`, '', '— The Issue —', `Type: ${type}`, `Summary: ${title}`);
-    if (get('frequency')) lines.push(`Frequency: ${get('frequency')}`);
-    lines.push('', 'Description:', get('description'), '');
-    if (get('steps')) lines.push('Steps to reproduce:', get('steps'), '');
-    if (get('device') || get('ios') || get('appVersion')) {
-      lines.push('— Setup —');
-      if (get('device')) lines.push(`Device: ${get('device')}`);
-      if (get('ios')) lines.push(`iOS version: ${get('ios')}`);
-      if (get('appVersion')) lines.push(`App version: ${get('appVersion')}`);
-      lines.push('');
-    }
-    lines.push('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'Sent from the Music Folder support page.');
-
-    submitBtn.disabled = true;
-    btnText.textContent = 'Sending…';
-    const reset = () => { btnText.textContent = 'Send report'; submitBtn.disabled = false; };
-    try {
-      const data = new FormData(form);
-      data.set('subject', `[${type}] ${title}`);
-      data.set('message', lines.join('\n'));
-      data.set('replyto', email);
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-      const json = await res.json();
-      if (res.ok && json.success) {
-        form.reset();
-        status.className = 'form-status success';
-        status.textContent = 'Report sent. Thanks, I\'ll be in touch soon.';
-        btnText.textContent = 'Sent';
-        setTimeout(reset, 4000);
-      } else {
-        status.className = 'form-status error';
-        status.innerHTML = `${json.message || 'Something went wrong.'} Please email ${MAIL} instead.`;
-        reset();
-      }
-    } catch (err) {
-      status.className = 'form-status error';
-      status.innerHTML = `Network error. Check your connection, or email ${MAIL} directly.`;
-      reset();
-    }
-    status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
 })();
 </script>
 <script src="assets/site.js?v=2" defer></script>

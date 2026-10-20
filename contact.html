@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact Music Folder: Report a Bug or Request a Feature</title>
+<meta name="description" content="Report a bug, request a feature or ask a question. Your message goes straight to the developer of Music Folder.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mikul29.github.io/musicfolder.app/contact.html">
+<meta property="og:title" content="Contact Music Folder">
+<meta property="og:description" content="Answers to common questions, and a direct line to the developer.">
+<meta property="og:image" content="https://mikul29.github.io/musicfolder.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Music Folder">
+<meta name="twitter:description" content="Answers to common questions, and a direct line to the developer.">
+<meta name="twitter:image" content="https://mikul29.github.io/musicfolder.app/assets/og-image.jpg">
+<meta name="apple-itunes-app" content="app-id=1611824311">
+<meta name="theme-color" content="#FBFAF8">
+<meta name="color-scheme" content="light only">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=20">
+<style>
+/* ---------- Support page ---------- */
+.support-hero { padding: 160px 0 72px; }
+.support-hero .display { font-size: clamp(52px, 7vw, 96px); margin-bottom: 24px; }
+.support-hero .lede { margin-bottom: 32px; }
+@media (max-width: 860px) { .support-hero { padding: 112px 0 48px; } }
+
+.help-search { position: relative; max-width: 560px; }
+.help-search svg { position: absolute; left: 18px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); color: var(--graphite); pointer-events: none; }
+.help-search input {
+  width: 100%; font: 400 17px/1.3 var(--font-text); color: var(--ink);
+  padding: 17px 20px 17px 50px; border-radius: 999px; border: 1px solid var(--staff-line);
+  background: var(--card); box-shadow: var(--shadow-card); -webkit-appearance: none; appearance: none;
+}
+.help-search input:focus { outline: none; border-color: var(--folder-black); box-shadow: var(--shadow-card), 0 0 0 3px rgba(242,129,46,0.25); }
+.help-search input::-webkit-search-cancel-button { cursor: pointer; }
+
+.faq-area { padding-top: 24px; }
+.help-layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 72px; align-items: start; }
+.help-nav { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 2px; }
+.help-nav-title { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); margin-bottom: 10px; }
+.help-nav a { padding: 7px 0 7px 14px; border-left: 2px solid var(--staff-line); color: var(--graphite); text-decoration: none; font-size: 15px; transition: color .2s, border-color .2s; }
+.help-nav a:hover { color: var(--ink); }
+.help-nav a.is-current { color: var(--ink); border-left-color: var(--folder-black); font-weight: 500; }
+.help-nav a.is-empty { opacity: .35; }
+.help-nav .help-nav-contact { margin-top: 14px; color: var(--deep-amber); border-left-color: transparent; }
+.faq-sec + .faq-sec { margin-top: 56px; }
+.faq-sec .faq-group { margin-top: 0; }
+.faq-empty { padding: 32px 0; color: var(--graphite); }
+.faq-empty p { margin: 0 0 6px; }
+.faq-more { margin-top: 48px; color: var(--graphite); }
+@media (max-width: 860px) {
+  .help-layout { display: block; }
+  .help-nav { display: none; }
+}
+.faq-group { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; color: var(--folder-black); margin: 56px 0 8px; }
+.faq summary { font-size: 18px; }
+
+.report { background: var(--vellum); }
+.contact-page { padding-top: 150px; min-height: 100vh; }
+.contact-page .display { font-size: clamp(48px, 6vw, 80px); margin-bottom: 20px; }
+@media (max-width: 860px) { .contact-page { padding-top: 110px; } }
+.report-card {
+  max-width: 820px; background: var(--card); border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-card); padding: 48px;
+}
+@media (max-width: 640px) { .report-card { padding: 28px 20px; } }
+.report-card fieldset { border: 0; margin: 0 0 40px; padding: 0; min-width: 0; }
+.report-card legend { font-family: var(--font-display); font-size: 28px; line-height: 1.1; color: var(--folder-black); padding: 0; margin-bottom: 20px; }
+.field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.field > label, .field > .label { font-size: 15px; font-weight: 500; color: var(--ink); }
+.field .opt { font-weight: 400; color: var(--graphite); margin-left: 6px; }
+.field small { font-size: 13px; color: var(--graphite); }
+.field input[type="text"], .field input[type="email"], .field select, .field textarea {
+  width: 100%; font: 400 17px/1.4 var(--font-text); color: var(--ink);
+  background: var(--manuscript); border: 1px solid var(--staff-line); border-radius: 12px;
+  padding: 13px 14px; transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none; appearance: none;
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%236E6A60' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px;
+}
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--folder-black); box-shadow: 0 0 0 3px rgba(242,129,46,0.25); }
+.field .invalid { border-color: var(--deep-amber); box-shadow: 0 0 0 3px rgba(169,82,15,0.12); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.row.three { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 640px) { .row, .row.three { grid-template-columns: 1fr; gap: 0; } }
+
+.type-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+@media (max-width: 640px) { .type-grid { grid-template-columns: 1fr 1fr; } }
+.type-card { position: relative; cursor: pointer; }
+.type-card input { position: absolute; opacity: 0; pointer-events: none; }
+.type-card span.box {
+  display: flex; flex-direction: column; gap: 6px; height: 100%;
+  padding: 16px; border: 1px solid var(--staff-line); border-radius: 14px; background: var(--manuscript);
+  transition: border-color .15s, background-color .15s;
+}
+.type-card svg { width: 22px; height: 22px; color: var(--folder-black); margin-bottom: 4px; }
+.type-card b { font-size: 15px; font-weight: 600; color: var(--ink); }
+.type-card i { font-style: normal; font-size: 13px; line-height: 1.35; color: var(--graphite); }
+.type-card:hover span.box { border-color: var(--graphite); }
+.type-card input:checked + span.box { border-color: var(--folder-black); background: var(--card); box-shadow: inset 0 0 0 1px var(--folder-black); }
+.type-card input:focus-visible + span.box { outline: 2px solid var(--ribbon); outline-offset: 2px; }
+.type-grid.invalid span.box { border-color: var(--deep-amber); }
+
+.submit-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; }
+.submit-row .btn { border: 0; cursor: pointer; padding: 16px 32px; }
+.submit-row .btn:disabled { opacity: .6; cursor: default; }
+.submit-row p { margin: 0; }
+.form-status { margin-top: 20px; border-radius: 12px; font-size: 15px; }
+.form-status:empty { display: none; }
+.form-status.success { padding: 14px 16px; background: #EEF3E8; color: #3F6B26; }
+.form-status.error { padding: 14px 16px; background: #FBEFE6; color: #8A4310; }
+.form-status a { color: inherit; }
+
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Music Folder home">
+      <img src="assets/app-icon.png" alt="" width="28" height="28">
+      Music Folder
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#teams">For Teams</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="https://apps.apple.com/app/id1611824311">Download</a>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
+      </summary>
+      <div class="menu-panel">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#teams">For Teams</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="support.html">Support</a>
+        <a href="https://apps.apple.com/app/id1611824311">Download on the App Store</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<section class="section report contact-page" id="report">
+  <div class="wrap">
+    <div class="section-head">
+      <h1 class="display">Tell me what's <em>happening.</em></h1>
+      <p>The more detail you share, the faster I can help. I read every report. Looking for a quick answer? <a href="support.html">Search the help</a>.</p>
+    </div>
+
+    <div class="report-card">
+      <form id="issueForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms: forwards submissions to musicfolder.app@gmail.com -->
+        <input type="hidden" name="access_key" value="a28732f6-63b9-400b-a62e-11fef78cc683">
+        <input type="hidden" name="from_name" value="Music Folder Support">
+        <input type="hidden" name="subject" value="New Music Folder Report">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <fieldset>
+          <legend>About you</legend>
+          <div class="row">
+            <div class="field">
+              <label for="name">Name <span class="opt">Optional</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+              <small>So I can reply to you.</small>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>The issue</legend>
+          <div class="field">
+            <span class="label" id="typeLabel">Type</span>
+            <div class="type-grid" role="radiogroup" aria-labelledby="typeLabel">
+              <label class="type-card">
+                <input type="radio" name="type" value="Bug" required>
+                <span class="box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="6" width="8" height="13" rx="4"/><path d="M12 10v9M5 9l3 2M19 9l-3 2M4 14h4M16 14h4M5 19l3-2M19 19l-3-2M10 4l1 2M14 4l-1 2"/></svg>
+                  <b>Bug</b><i>Something isn't working</i>
+                </span>
+              </label>
+              <label class="type-card">
+                <input type="radio" name="type" value="Feature request">
+                <span class="box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.9V16h5v-.2c0-.8.4-1.5 1-1.9A6 6 0 0 0 12 3z"/></svg>
+                  <b>Feature</b><i>Suggest an improvement</i>
+                </span>
+              </label>
+              <label class="type-card">
+                <input type="radio" name="type" value="Question">
+                <span class="box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M10 9.5a2 2 0 1 1 2.5 1.9c-.3.1-.5.4-.5.7v.4M12 14.5v.01"/></svg>
+                  <b>Question</b><i>Need help using the app</i>
+                </span>
+              </label>
+              <label class="type-card">
+                <input type="radio" name="type" value="Other">
+                <span class="box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                  <b>Other</b><i>Something else</i>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="title">Short summary</label>
+            <input type="text" id="title" name="title" maxlength="120" required placeholder="App freezes when opening a shared book">
+          </div>
+          <div class="field">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" required placeholder="What happened? What were you trying to do?"></textarea>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="frequency">How often? <span class="opt">Optional</span></label>
+              <select id="frequency" name="frequency">
+                <option value="">Choose…</option>
+                <option value="Always">Every time</option>
+                <option value="Sometimes">Sometimes</option>
+                <option value="Once">Just once</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="steps">Steps to reproduce <span class="opt">Optional</span></label>
+            <textarea id="steps" name="steps" rows="4" placeholder="1. Open the app&#10;2. Tap a song&#10;3. …"></textarea>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Your device <span class="opt" style="font-family:var(--font-text);font-size:15px">Optional</span></legend>
+          <div class="row three">
+            <div class="field">
+              <label for="device">Device</label>
+              <input type="text" id="device" name="device" placeholder="iPad Air">
+            </div>
+            <div class="field">
+              <label for="ios">iOS version</label>
+              <input type="text" id="ios" name="ios" placeholder="26.1">
+            </div>
+            <div class="field">
+              <label for="appVersion">App version</label>
+              <input type="text" id="appVersion" name="appVersion" placeholder="3.3">
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary"><span>Send report</span></button>
+        </div>
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-mark" aria-hidden="true">Music Folder</div>
+    <div class="footer-grid">
+      <div class="f-about">
+        <p>The sheet music app for every musician, from practice to performance. Made by an independent developer.</p>
+        <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+        </a>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#toolkit">Toolkit</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="support.html">Help &amp; FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="mailto:musicfolder.app@gmail.com">Email support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="credits">
+      <p>Some instrument icons are by Delapouite, Lorc, Caro Asercion and other contributors at <a href="https://game-icons.net" target="_blank" rel="noopener noreferrer">game-icons.net</a>, licensed under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>. The icons have been modified (recolored and resized).</p>
+      <p>The app's grand piano voice is the <a href="https://freepats.zenvoid.org/Piano/acoustic-grand-piano.html" target="_blank" rel="noopener noreferrer">Salamander Grand Piano</a> (Yamaha C5) by Alexander Holm, licensed under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a>, as the compact SoundFont edition by Ziya Mete Demircan (<a href="https://sites.google.com/site/soundfonts4u/" target="_blank" rel="noopener noreferrer">soundfonts4u</a>). Other instrument sounds are from <a href="https://schristiancollins.com/generaluser.php" target="_blank" rel="noopener noreferrer">GeneralUser GS</a> by S. Christian Collins.</p>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Matthew Mikulich</span>
+      <span>Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const menu = document.querySelector('.menu');
+  menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+
+
+  /* ---------- Prefill from the help search (contact.html?q=…) ---------- */
+  const pre = new URLSearchParams(location.search).get('q');
+  if (pre) { const t = document.getElementById('title'); if (t && !t.value) t.value = pre.slice(0, 120); }
+
+  /* ---------- Report form (Web3Forms) ---------- */
+  const form = document.getElementById('issueForm');
+  const status = document.getElementById('formStatus');
+  const typeGrid = form.querySelector('.type-grid');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const btnText = submitBtn.querySelector('span');
+  const MAIL = '<a href="mailto:musicfolder.app@gmail.com">musicfolder.app@gmail.com</a>';
+
+  form.addEventListener('input', e => {
+    if (e.target.matches('input, select, textarea') && e.target.validity.valid) e.target.classList.remove('invalid');
+  });
+  form.addEventListener('change', e => {
+    if (e.target.matches('input[type="radio"]')) typeGrid.classList.remove('invalid');
+  });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    status.className = 'form-status';
+    status.textContent = '';
+
+    let firstInvalid = null;
+    form.querySelectorAll('[required]').forEach(field => {
+      if (field.type === 'radio') {
+        const picked = form.querySelector(`[name="${field.name}"]:checked`);
+        if (!picked) { typeGrid.classList.add('invalid'); firstInvalid = firstInvalid || field; }
+        return;
+      }
+      if (!field.validity.valid) { field.classList.add('invalid'); firstInvalid = firstInvalid || field; }
+      else field.classList.remove('invalid');
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      (firstInvalid.type === 'radio' ? typeGrid : firstInvalid).scrollIntoView({ behavior: 'smooth', block: 'center' });
+      status.className = 'form-status error';
+      status.textContent = 'Please fill in the required fields first.';
+      return;
+    }
+
+    const get = id => (document.getElementById(id)?.value || '').trim();
+    const type = form.querySelector('[name="type"]:checked').value;
+    const email = get('email'), title = get('title');
+
+    // a clean, readable message body for the inbox
+    const lines = ['━━━ MUSIC FOLDER SUPPORT REQUEST ━━━', '', '— Reporter —'];
+    if (get('name')) lines.push(`Name: ${get('name')}`);
+    lines.push(`Email: ${email}`, '', '— The Issue —', `Type: ${type}`, `Summary: ${title}`);
+    if (get('frequency')) lines.push(`Frequency: ${get('frequency')}`);
+    lines.push('', 'Description:', get('description'), '');
+    if (get('steps')) lines.push('Steps to reproduce:', get('steps'), '');
+    if (get('device') || get('ios') || get('appVersion')) {
+      lines.push('— Setup —');
+      if (get('device')) lines.push(`Device: ${get('device')}`);
+      if (get('ios')) lines.push(`iOS version: ${get('ios')}`);
+      if (get('appVersion')) lines.push(`App version: ${get('appVersion')}`);
+      lines.push('');
+    }
+    lines.push('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'Sent from the Music Folder support page.');
+
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending…';
+    const reset = () => { btnText.textContent = 'Send report'; submitBtn.disabled = false; };
+    try {
+      const data = new FormData(form);
+      data.set('subject', `[${type}] ${title}`);
+      data.set('message', lines.join('\n'));
+      data.set('replyto', email);
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        form.reset();
+        status.className = 'form-status success';
+        status.textContent = 'Report sent. Thanks, I\'ll be in touch soon.';
+        btnText.textContent = 'Sent';
+        setTimeout(reset, 4000);
+      } else {
+        status.className = 'form-status error';
+        status.innerHTML = `${json.message || 'Something went wrong.'} Please email ${MAIL} instead.`;
+        reset();
+      }
+    } catch (err) {
+      status.className = 'form-status error';
+      status.innerHTML = `Network error. Check your connection, or email ${MAIL} directly.`;
+      reset();
+    }
+    status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+</script>
+<script src="assets/site.js?v=2" defer></script>
+</body>
+</html>
