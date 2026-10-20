@@ -476,8 +476,6 @@ section { position: relative; }
 .plan-list b { font-weight: 600; }
 .plan-list li.off { color: #A9A398; }
 .plan-list li.off svg { color: #C9C3B7; }
-.plans-cta { display: flex; flex-direction: column; align-items: center; gap: 14px; margin-top: 40px; text-align: center; }
-.plans-cta p { margin: 0; max-width: 520px; }
 @media (max-width: 760px) {
   .plans { grid-template-columns: 1fr; gap: 16px; }
   .plan { padding: 32px 24px 24px; }
