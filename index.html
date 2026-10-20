@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=26">
+<link rel="stylesheet" href="assets/site.css?v=27">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -462,7 +462,7 @@
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
-  const FW = 450, FH = 600, THICK = 9; // board thickness, matches .edge in site.css
+  const FW = 450, FH = 600, THICK = 7; // board thickness, matches .edge in site.css
 
   function frame() {
     const vw = document.documentElement.clientWidth;
