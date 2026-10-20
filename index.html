@@ -343,38 +343,42 @@ section { position: relative; }
 
 
 
-/* Feature bento */
-.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
-.tile {
-  position: relative; overflow: hidden; display: flex; flex-direction: column;
-  background: var(--card); border-radius: var(--radius-panel); box-shadow: var(--shadow-card);
-  padding: 44px 44px 0; min-height: 640px;
+/* Feature story: text scrolls, the device stays pinned and its screen changes */
+.story-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; }
+.step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; opacity: .28; transition: opacity .5s ease; }
+.step.is-active { opacity: 1; }
+.step:first-child { min-height: 60vh; justify-content: flex-start; padding-top: 12vh; }
+.step:last-child { min-height: 70vh; }
+.step h3 { font-family: var(--font-display); font-weight: 400; font-size: var(--heading-sm); line-height: 1.08; letter-spacing: -0.01em; color: var(--folder-black); margin-bottom: 14px; }
+.step p { font-size: 20px; line-height: 1.5; color: var(--graphite); max-width: 440px; margin: 0; }
+.step .step-note { font-size: 14px; margin-top: 10px; }
+.step-visual { display: none; }
+.story-stage { position: relative; }
+.stage-inner {
+  position: sticky; top: calc(50vh - min(38vh, 340px) + 32px);
+  height: min(76vh, 680px);
+  border-radius: var(--radius-panel); background: var(--vellum);
 }
-.tile h3 { font-family: var(--font-display); font-weight: 400; font-size: 36px; line-height: 1.06; letter-spacing: -0.01em; color: var(--folder-black); margin-bottom: 12px; }
-.tile p { color: var(--graphite); font-size: 17px; line-height: 1.5; max-width: 400px; margin: 0; }
-.tile .tile-note { font-size: 13px; margin-top: 8px; }
-/* the device sits low and runs off the tile's bottom edge */
-.tile-shot { margin-top: auto; padding-top: 40px; height: 440px; display: flex; justify-content: center; align-items: flex-start; }
-.tile-shot .device, .tile-shot img { flex: none; }
-.tile-shot .device-shot { width: 270px; }
-.tile-shot .device.phone { width: 250px; }
-.tile-shot .device.tablet { width: 400px; max-width: 100%; }
-.t-lib { grid-column: span 7; }
-.t-set { grid-column: span 5; }
-.t-ann { grid-column: span 5; background: var(--vellum); box-shadow: none; }
-.t-pco { grid-column: span 7; }
-.t-team { grid-column: span 12; min-height: 0; flex-direction: row; align-items: center; gap: 56px; padding: 56px; background: var(--vellum); box-shadow: none; }
-.t-team .tile-copy { flex: 1; }
-.t-team .share-card { flex: none; width: 400px; }
+.frame {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.frame.is-active { opacity: 1; transform: none; }
+.frame .device.phone { height: 88%; width: auto; aspect-ratio: 9 / 19.5; }
+.frame .device.tablet { height: 84%; width: auto; max-width: none; aspect-ratio: 0.715; }
+.frame .share-card { width: min(420px, 86%); }
+.story .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+@media (prefers-reduced-motion: reduce) { .frame, .step { transition: none; } }
 @media (max-width: 860px) {
-  .bento { gap: 16px; }
-  .t-lib, .t-set, .t-ann, .t-pco, .t-team { grid-column: span 12; }
-  .tile { min-height: 0; padding: 32px 28px 0; }
-  .tile h3 { font-size: 30px; }
-  .tile-shot { height: 360px; padding-top: 28px; }
-  .tile-shot .device.tablet { width: 320px; }
-  .t-team { flex-direction: column; align-items: stretch; gap: 28px; padding: 32px 28px; }
-  .t-team .share-card { width: 100%; }
+  .story-grid { display: block; }
+  .story-stage { display: none; }
+  .step, .step:first-child, .step:last-child { min-height: 0; opacity: 1; padding: 0 0 72px; justify-content: flex-start; }
+  .step p { font-size: 17px; }
+  .step-visual { display: flex; justify-content: center; margin-top: 28px; padding: 32px 0; border-radius: var(--radius-panel); background: var(--vellum); }
+  .step-visual .device.phone { width: 230px; }
+  .step-visual .device.tablet { width: min(340px, 86%); aspect-ratio: 0.715; }
+  .step-visual .share-card { width: calc(100% - 32px); }
 }
 
 .device {
@@ -640,47 +644,63 @@ section { position: relative; }
 
 
 <!-- ============ FEATURES ============ -->
-<section class="section" id="features">
+<section class="section story" id="features">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head">
       <h2 class="heading">Everything you need, from practice to performance.</h2>
     </div>
-    <div class="bento">
-      <article class="tile t-lib reveal">
-        <h3>Your whole library, in one place.</h3>
-        <p>Import PDFs from Files, AirDrop or email, sort them into folders and tags, and scan paper charts.</p>
-        <div class="tile-shot"><img class="device-shot" src="assets/library-iphone.jpg" alt="The Music Folder Library screen on iPhone: Songs, Folders and Set Lists, tags, and recently played scores" width="626" height="1226" loading="lazy"></div>
-      </article>
-      <article class="tile t-set reveal">
-        <h3>Your set, in order.</h3>
-        <p>Build a set for every gig or service, then play straight through it.</p>
-        <div class="tile-shot"><div class="device phone fit"><div class="screen shot"><img src="assets/setlist-iphone.jpg?v=1" alt="A set list called Orchestra Concert in Music Folder on iPhone: six pieces in performance order, each with composer and tempo" width="700" height="1522" loading="lazy"></div></div></div>
-      </article>
-      <article class="tile t-ann reveal">
-        <h3>Mark it up like paper.</h3>
-        <p>Write on the score with Apple Pencil. Every mark saves and syncs.</p>
-        <div class="tile-shot"><div class="device tablet fit"><div class="screen shot"><img src="assets/annotate-ipad.jpg?v=2" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colours, with the pen palette open" width="900" height="1305" loading="lazy"></div></div></div>
-      </article>
-      <article class="tile t-pco reveal">
-        <h3>Your Sunday plan, on the stand.</h3>
-        <p>Link Planning Center and upcoming services appear next to your set lists, ready to play.</p>
-        <p class="tile-note">Read-only: plans are still edited in Planning Center.</p>
-        <div class="tile-shot"><div class="device phone fit"><div class="screen shot"><img src="assets/planning-center-iphone.jpg?v=1" alt="A Planning Center service plan in Music Folder on iPhone: the order of service with five songs, each with its key" width="700" height="1522" loading="lazy"></div></div></div>
-      </article>
-      <article class="tile t-team reveal" id="teams">
-        <div class="tile-copy">
+    <div class="story-grid">
+      <div class="story-steps">
+        <article class="step is-active" data-step="0">
+          <h3>Your whole library, in one place.</h3>
+          <p>Import PDFs from Files, AirDrop or email, sort them into folders and tags, and scan paper charts.</p>
+          <div class="step-visual"><div class="device phone"><div class="screen shot"><img src="assets/library-screen.jpg?v=1" alt="The Music Folder Library screen on iPhone: Songs, Folders and Set Lists, tags, and recently played scores" width="700" height="1538" loading="lazy"></div></div></div>
+        </article>
+        <article class="step" data-step="1">
+          <h3>Your set, in order.</h3>
+          <p>Build a set for every gig or service, then play straight through it.</p>
+          <div class="step-visual"><div class="device phone"><div class="screen shot"><img src="assets/setlist-iphone.jpg?v=1" alt="A set list called Orchestra Concert in Music Folder on iPhone: six pieces in performance order, each with composer and tempo" width="700" height="1522" loading="lazy"></div></div></div>
+        </article>
+        <article class="step" data-step="2">
+          <h3>Mark it up like paper.</h3>
+          <p>Write on the score with Apple Pencil. Every mark saves and syncs.</p>
+          <div class="step-visual"><div class="device tablet"><div class="screen shot"><img src="assets/annotate-ipad.jpg?v=2" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colours, with the pen palette open" width="900" height="1305" loading="lazy"></div></div></div>
+        </article>
+        <article class="step" data-step="3">
+          <h3>Your Sunday plan, on the stand.</h3>
+          <p>Link Planning Center and upcoming services appear next to your set lists, ready to play.</p>
+          <p class="step-note">Read-only: plans are still edited in Planning Center.</p>
+          <div class="step-visual"><div class="device phone"><div class="screen shot"><img src="assets/planning-center-iphone.jpg?v=1" alt="A Planning Center service plan in Music Folder on iPhone: the order of service with five songs, each with its key" width="700" height="1522" loading="lazy"></div></div></div>
+        </article>
+        <article class="step" data-step="4" id="teams">
           <h3>Work together as a team.</h3>
           <p>Share a folder or set list with your band, choir or worship team. Changes show up for everyone, and you choose who can edit.</p>
-        </div>
-        <div class="share-card">
+          <div class="step-visual"><div class="share-card">
             <div class="sc-title">Worship Team</div>
             <div class="sc-sub">Shared folder · 4 people</div>
             <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Owner</small></span><span class="chip">Can edit</span></div>
             <div class="share-row"><span class="avatar">K</span><span class="who">Keys<small>Member</small></span><span class="chip">Can edit</span></div>
             <div class="share-row"><span class="avatar">B</span><span class="who">Bass<small>Member</small></span><span class="chip">View only</span></div>
             <div class="share-row"><span class="avatar">D</span><span class="who">Drums<small>Member</small></span><span class="chip">View only</span></div>
-          </div>
-      </article>
+          </div></div>
+        </article>
+      </div>
+      <div class="story-stage" aria-hidden="true">
+        <div class="stage-inner">
+          <div class="frame is-active" data-step="0"><div class="device phone"><div class="screen shot"><img src="assets/library-screen.jpg?v=1" alt="" width="700" height="1538" loading="lazy"></div></div></div>
+          <div class="frame" data-step="1"><div class="device phone"><div class="screen shot"><img src="assets/setlist-iphone.jpg?v=1" alt="" width="700" height="1522" loading="lazy"></div></div></div>
+          <div class="frame" data-step="2"><div class="device tablet"><div class="screen shot"><img src="assets/annotate-ipad.jpg?v=2" alt="" width="900" height="1305" loading="lazy"></div></div></div>
+          <div class="frame" data-step="3"><div class="device phone"><div class="screen shot"><img src="assets/planning-center-iphone.jpg?v=1" alt="" width="700" height="1522" loading="lazy"></div></div></div>
+          <div class="frame" data-step="4"><div class="share-card">
+            <div class="sc-title">Worship Team</div>
+            <div class="sc-sub">Shared folder · 4 people</div>
+            <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Owner</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">K</span><span class="who">Keys<small>Member</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">B</span><span class="who">Bass<small>Member</small></span><span class="chip">View only</span></div>
+            <div class="share-row"><span class="avatar">D</span><span class="who">Drums<small>Member</small></span><span class="chip">View only</span></div>
+          </div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1040,6 +1060,21 @@ section { position: relative; }
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -10% 0px' }) : null;
   document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+
+  /* ---------- Feature story ---------- */
+  const steps = [...document.querySelectorAll('.step')];
+  const frames = [...document.querySelectorAll('.frame')];
+  if (steps.length && 'IntersectionObserver' in window) {
+    const show = i => {
+      steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
+      frames.forEach((f, k) => f.classList.toggle('is-active', k === i));
+    };
+    const so = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) show(Number(e.target.dataset.step)); });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    steps.forEach(s => so.observe(s));
+  }
 
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
