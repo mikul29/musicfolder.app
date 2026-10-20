@@ -617,7 +617,12 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .nav-pop a span { display: block; font-size: 13px; line-height: 1.4; color: var(--graphite); }
 .nav-pop a[aria-current="page"] b { color: var(--deep-amber); }
 .nav-pop .nav-pop-pc { margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--staff-line); border-radius: 0 0 12px 12px; }
-.nav-pop .nav-pop-pc img { width: auto; height: 20px; margin-bottom: 6px; }
+/* Planning Center: the site's green "from Planning Center" dot, not their logo
+   (their guidelines forbid altering the logo, and the full lockup needs clear
+   space this row doesn't have; the logo lives on /planning-center) */
+.nav-pop .nav-pop-pc b { display: flex; align-items: center; gap: 8px; }
+.nav-pop .nav-pop-pc b::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--services-green); }
+.nav-pop .nav-pop-pc span { padding-left: 16px; }
 @media (prefers-reduced-motion: reduce) { .nav-pop, .nav-trigger svg { transition: none; } }
 
 /* phone menu: the same structure, the audiences grouped under a label */
