@@ -21,18 +21,35 @@
 .support-hero .lede { margin-bottom: 32px; }
 @media (max-width: 860px) { .support-hero { padding: 112px 0 48px; } }
 
-.topics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.topic {
-  display: flex; flex-direction: column; gap: 4px; padding: 24px; text-decoration: none;
-  background: var(--card); border-radius: var(--radius-card); box-shadow: var(--shadow-card);
-  transition: transform .2s ease, box-shadow .2s ease;
+.help-search { position: relative; max-width: 560px; }
+.help-search svg { position: absolute; left: 18px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); color: var(--graphite); pointer-events: none; }
+.help-search input {
+  width: 100%; font: 400 17px/1.3 var(--font-text); color: var(--ink);
+  padding: 17px 20px 17px 50px; border-radius: 999px; border: 1px solid var(--staff-line);
+  background: var(--card); box-shadow: var(--shadow-card); -webkit-appearance: none; appearance: none;
 }
-.topic:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(20,20,20,0.05), 0 14px 32px rgba(20,20,20,0.09); }
-.topic b { font-size: 17px; font-weight: 600; color: var(--ink); }
-.topic span { font-size: 14px; color: var(--graphite); }
-@media (max-width: 860px) { .topics { grid-template-columns: 1fr 1fr; gap: 12px; } .topic { padding: 18px; } }
+.help-search input:focus { outline: none; border-color: var(--folder-black); box-shadow: var(--shadow-card), 0 0 0 3px rgba(242,129,46,0.25); }
+.help-search input::-webkit-search-cancel-button { cursor: pointer; }
+
+.faq-area { padding-top: 24px; }
+.help-layout { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 72px; align-items: start; }
+.help-nav { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 2px; }
+.help-nav-title { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); margin-bottom: 10px; }
+.help-nav a { padding: 7px 0 7px 14px; border-left: 2px solid var(--staff-line); color: var(--graphite); text-decoration: none; font-size: 15px; transition: color .2s, border-color .2s; }
+.help-nav a:hover { color: var(--ink); }
+.help-nav a.is-current { color: var(--ink); border-left-color: var(--folder-black); font-weight: 500; }
+.help-nav a.is-empty { opacity: .35; }
+.help-nav .help-nav-contact { margin-top: 14px; color: var(--deep-amber); border-left-color: transparent; }
+.faq-sec + .faq-sec { margin-top: 56px; }
+.faq-sec .faq-group { margin-top: 0; }
+.faq-empty { padding: 32px 0; color: var(--graphite); }
+.faq-empty p { margin: 0 0 6px; }
+.faq-more { margin-top: 48px; color: var(--graphite); }
+@media (max-width: 860px) {
+  .help-layout { display: block; }
+  .help-nav { display: none; }
+}
 .faq-group { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 1.1; color: var(--folder-black); margin: 56px 0 8px; }
-.faq-group:first-child { margin-top: 0; }
 .faq summary { font-size: 18px; }
 
 .report { background: var(--vellum); }
@@ -128,34 +145,30 @@
 <section class="support-hero">
   <div class="wrap">
     <h1 class="display">Talk to the <em>developer.</em></h1>
-    <p class="lede">Found a bug or have an idea? Send it straight to me. Every report shapes the next update.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#report">Report an issue</a>
-      <a class="btn btn-secondary" href="#faq">Browse the FAQ</a>
+    <p class="lede">Search the answers below, or send me a message.</p>
+    <div class="help-search" role="search">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+      <label class="sr-only" for="helpSearch">Search help</label>
+      <input id="helpSearch" type="search" placeholder="Search help, e.g. sync, set lists, pedal" autocomplete="off" spellcheck="false">
     </div>
   </div>
 </section>
 
-<section class="topics-wrap">
-  <div class="wrap">
-    <nav class="topics" aria-label="Help topics">
-      <a class="topic" href="#start"><b>Getting started</b><span>Devices, pricing, offline use</span></a>
-      <a class="topic" href="#sets"><b>Songs &amp; set lists</b><span>Books, bookmarks, importing</span></a>
-      <a class="topic" href="#sync"><b>Sync &amp; sharing</b><span>iCloud, your band or class</span></a>
-      <a class="topic" href="#report"><b>Contact me</b><span>Report a bug or idea</span></a>
+<section class="section faq-area" id="faq">
+  <div class="wrap help-layout">
+    <nav class="help-nav" aria-label="Help topics">
+      <span class="help-nav-title">Topics</span>
+        <a href="#start">Getting started</a>
+        <a href="#sets">Songs, books and set lists</a>
+        <a href="#import">Importing your music</a>
+        <a href="#using">Using the app</a>
+        <a href="#sync">Sync and sharing</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#report" class="help-nav-contact">Contact me</a>
     </nav>
-  </div>
-</section>
-
-<section class="section" id="faq" style="padding-top:96px">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="heading">Common questions.</h2>
-      <p>Most answers are right here. If yours isn't, send me a message below.</p>
-    </div>
     <div class="faq">
-
-      <h3 class="faq-group" id="start">Getting started</h3>
+      <div class="faq-sec" id="start">
+        <h3 class="faq-group">Getting started</h3>
       <details>
         <summary>What is Music Folder?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>A sheet music app for iPhone and iPad. Store your PDFs, sort them into folders, build set lists, mark up scores with Apple Pencil, and practice with a built-in metronome, tuner and piano. Everything syncs through iCloud.</p></div>
@@ -176,8 +189,9 @@
         <summary>Does it work offline?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Completely. Your music lives on your device, so you can read, play through set lists and use every tool with no signal. iCloud catches up the next time you're online.</p></div>
       </details>
-
-      <h3 class="faq-group" id="sets">Songs, books and set lists</h3>
+      </div>
+      <div class="faq-sec" id="sets">
+        <h3 class="faq-group">Songs, books and set lists</h3>
       <details>
         <summary>What's the difference between a song and a book?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>A song is a single piece of music. A book is a PDF with many pieces in it, like a hymnal, fake book or method book. Books support bookmarks, so you can jump straight to a piece inside them.</p></div>
@@ -190,8 +204,9 @@
         <summary>Can I put a bookmark from a book in a set list?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Yes. When building a set list, add either a whole song or a bookmark from a book. The set list plays only the bookmarked pages.</p></div>
       </details>
-
-      <h3 class="faq-group">Importing your music</h3>
+      </div>
+      <div class="faq-sec" id="import">
+        <h3 class="faq-group">Importing your music</h3>
       <details>
         <summary>Can I import several PDFs at once?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Yes. In your songs list, tap +, choose Import, then select multiple PDFs in the file picker. You can also send PDFs to Music Folder from Files, Mail or AirDrop.</p></div>
@@ -200,8 +215,9 @@
         <summary>How do I import a book with many songs in one PDF?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>When adding a new item, switch the Song / Book toggle to Book. You can then add bookmarks for the individual pieces inside it.</p></div>
       </details>
-
-      <h3 class="faq-group">Using the app</h3>
+      </div>
+      <div class="faq-sec" id="using">
+        <h3 class="faq-group">Using the app</h3>
       <details>
         <summary>How do I annotate with Apple Pencil?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Open a song and tap the pencil icon in the toolbar. Draw, highlight or write with Apple Pencil or your finger, then tap the checkmark to save. Annotations sync to your other devices through iCloud.</p></div>
@@ -214,8 +230,9 @@
         <summary>Does it work with Planning Center?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Yes. Connect your Planning Center Services account to see your team's songs as a folder and upcoming services next to your set lists, then play through a service song by song. Planning Center is part of Premium, and access is read-only: plans are still edited in Planning Center.</p></div>
       </details>
-
-      <h3 class="faq-group" id="sync">Sync and sharing</h3>
+      </div>
+      <div class="faq-sec" id="sync">
+        <h3 class="faq-group">Sync and sharing</h3>
       <details>
         <summary>How do I share music with my band or class?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>Two ways. Share a folder or set list live with other Music Folder users: changes show up for everyone, and you choose who can edit. Or send a one-time copy of a song, folder or set list as a file through AirDrop, Messages or email; the recipient taps it to import.</p></div>
@@ -228,13 +245,19 @@
         <summary>My songs aren't syncing. What should I check?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>In order: the same iCloud account on both devices, iCloud Drive turned on, Music Folder enabled under iCloud, and a working internet connection. The first sync of a large library can take several minutes.</p></div>
       </details>
-
-      <h3 class="faq-group" id="privacy">Privacy</h3>
+      </div>
+      <div class="faq-sec" id="privacy">
+        <h3 class="faq-group">Privacy</h3>
       <details>
         <summary>What data does Music Folder collect?<span class="plus" aria-hidden="true"></span></summary>
         <div class="answer"><p>None. Your music and notes stay on your device and in your own iCloud account. Read the full <a href="privacy.html">privacy policy</a>.</p></div>
       </details>
-
+      </div>
+      <div class="faq-empty" id="faqEmpty" hidden>
+        <p>No answers match “<span id="faqQuery"></span>”.</p>
+        <p><a href="#report">Send me a message</a> and I'll help directly.</p>
+      </div>
+      <p class="faq-more">Still stuck? <a href="#report">Send me a message</a>.</p>
     </div>
   </div>
 </section>
@@ -414,6 +437,52 @@
   onScroll();
   const menu = document.querySelector('.menu');
   menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+
+
+  /* ---------- Help: live search and current topic ---------- */
+  const q = document.getElementById('helpSearch');
+  const secs = [...document.querySelectorAll('.faq-sec')];
+  const navLinks = [...document.querySelectorAll('.help-nav a[href^="#"]:not(.help-nav-contact)')];
+  const empty = document.getElementById('faqEmpty');
+  const more = document.querySelector('.faq-more');
+  const norm = t => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const filter = () => {
+    const words = norm(q.value.trim()).split(/\s+/).filter(Boolean);
+    let shown = 0;
+    secs.forEach(sec => {
+      let inSec = 0;
+      sec.querySelectorAll('details').forEach(d => {
+        const hit = words.every(w => norm(d.textContent).includes(w));
+        d.hidden = !hit;
+        if (hit) inSec++;
+        if (words.length) d.open = hit; else d.open = false;
+      });
+      sec.hidden = inSec === 0;
+      shown += inSec;
+      const link = navLinks.find(a => a.getAttribute('href') === '#' + sec.id);
+      if (link) link.classList.toggle('is-empty', inSec === 0);
+    });
+    empty.hidden = shown > 0;
+    more.hidden = shown === 0;
+    document.getElementById('faqQuery').textContent = q.value.trim();
+    current();
+  };
+  q.addEventListener('input', filter);
+  q.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { q.value = ''; filter(); }
+    if (e.key === 'Enter') { e.preventDefault(); const first = document.querySelector('.faq-sec:not([hidden]) details:not([hidden])'); if (first) first.scrollIntoView({ block: 'center' }); }
+  });
+  // highlight the topic currently at the top of the reading area
+  const current = () => {
+    const line = 140;
+    let cur = null;
+    secs.forEach(sec => { if (!sec.hidden && sec.getBoundingClientRect().top - line <= 0) cur = sec; });
+    if (!cur) cur = secs.find(sec => !sec.hidden) || null;
+    navLinks.forEach(a => a.classList.toggle('is-current', !!cur && a.getAttribute('href') === '#' + cur.id));
+  };
+  let ticking = false;
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; current(); }); } }, { passive: true });
+  current();
 
   /* ---------- Report form (Web3Forms) ---------- */
   const form = document.getElementById('issueForm');
