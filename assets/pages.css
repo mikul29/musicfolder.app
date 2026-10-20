@@ -136,3 +136,19 @@ ol.how { margin: 0; padding: 0; }
 /* Planning Center page: the accent is services green, as on the home page */
 .pc-rows .rf-text .heading-sm em, .callout .heading-sm em { font-style: italic; color: var(--services-deep); }
 .rf-visual .cutout { display: block; height: auto; filter: drop-shadow(0 24px 30px rgba(20,20,20,0.18)); }
+
+/* a song's reference recording, drawn like the reader's audio bar */
+.audio-card { width: 100%; max-width: 380px; padding: 24px; border-radius: var(--radius-card); background: var(--card); border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.ac-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.ac-play { position: relative; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--folder-black); }
+.ac-play::before, .ac-play::after { content: ""; position: absolute; top: 16px; width: 4px; height: 16px; border-radius: 2px; background: var(--on-primary); }
+.ac-play::before { left: 18px; } .ac-play::after { right: 18px; }
+.ac-title { font-family: var(--font-display); font-size: 26px; line-height: 1.1; color: var(--folder-black); }
+.ac-sub { font-size: 13px; color: var(--graphite); margin-top: 2px; }
+.ac-track { height: 4px; border-radius: 2px; background: var(--staff-line); overflow: hidden; }
+.ac-track span { display: block; height: 100%; background: var(--ribbon); }
+.ac-times { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--graphite); }
+.rf-text .heading-sm em.pc { color: var(--services-deep); }
+.rf-more { margin: 20px 0 0; font-size: 16px; }
+.rf-more a { font-weight: 500; text-decoration: none; }
+.rf-more a::after { content: " ›"; }
