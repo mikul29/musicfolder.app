@@ -601,7 +601,7 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .nav-trigger svg { width: 10px; height: 10px; transition: transform .25s ease; }
 .nav-trigger[aria-expanded="true"] svg { transform: rotate(180deg); }
 .nav-pop {
-  position: absolute; top: calc(100% + 16px); left: 50%; width: 360px; z-index: 60;
+  position: absolute; top: calc(100% + 16px); left: 50%; width: 280px; z-index: 60;
   padding: 8px; border-radius: 20px; background: var(--card);
   border: 1px solid var(--staff-line); box-shadow: var(--shadow-card), 0 24px 48px -16px rgba(20,20,20,0.22);
   opacity: 0; visibility: hidden; transform: translate(-50%, 6px);
@@ -611,9 +611,9 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .nav-pop::before { content: ""; position: absolute; left: 0; right: 0; top: -18px; height: 18px; }
 .nav-group.is-open .nav-pop { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition-delay: 0s; }
 .nav-pop ul { list-style: none; margin: 0; padding: 0; }
-.nav-pop a { display: block; padding: 11px 14px; border-radius: 12px; text-decoration: none; color: var(--ink); }
+.nav-pop a { display: block; padding: 10px 14px; border-radius: 12px; text-decoration: none; color: var(--ink); }
 .nav-pop a:hover, .nav-pop a:focus-visible { background: var(--vellum); outline: none; }
-.nav-pop a b { display: block; font-size: 15px; font-weight: 600; line-height: 1.35; }
+.nav-pop a b { display: block; font-size: 15px; font-weight: 500; line-height: 1.35; }
 .nav-pop a span { display: block; font-size: 13px; line-height: 1.4; color: var(--graphite); }
 .nav-pop a[aria-current="page"] b { color: var(--deep-amber); }
 .nav-pop .nav-pop-pc { margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--staff-line); border-radius: 0 0 12px 12px; }
