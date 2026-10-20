@@ -488,9 +488,9 @@ section { position: relative; }
 .devices { background: var(--vellum); }
 .devices-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: center; }
 .devices-pair { display: flex; align-items: flex-end; justify-content: center; gap: 24px; }
-.devices-pair .tablet { max-width: 380px; }
-.devices-pair .phone { width: 160px; border-radius: 34px; padding: 8px; }
-.devices-pair .phone .screen { border-radius: 27px; font-size: 11px; padding: 10px; }
+.devices-pair img { height: auto; display: block; filter: drop-shadow(0 24px 30px rgba(20,20,20,0.18)); }
+.devices-pair .dp-ipad { width: 72%; max-width: 400px; }
+.devices-pair .dp-iphone { width: 31%; max-width: 172px; margin-left: -6%; }
 .facts { list-style: none; margin: 32px 0 0; padding: 0; }
 .facts li { padding: 18px 0; border-top: 1px solid var(--staff-line); }
 .facts li strong { display: block; font-size: 20px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; }
@@ -904,8 +904,8 @@ section { position: relative; }
 <section class="section devices">
   <div class="wrap devices-grid">
     <div class="devices-pair reveal">
-      <div class="device tablet"><div class="screen">[Screenshot: iPad sidebar layout and home screen]</div></div>
-      <div class="device phone"><div class="screen">[Screenshot: same library on iPhone]</div></div>
+      <img class="dp-ipad" src="assets/home-ipad.webp?v=1" alt="The Music Folder home screen on iPad: tomorrow's concert set list, a practice streak, quick tools, folders and recently opened scores" width="745" height="972" loading="lazy">
+      <img class="dp-iphone" src="assets/home-iphone.webp?v=1" alt="The same home screen on iPhone, with the practice streak and tomorrow's set list" width="396" height="823" loading="lazy">
     </div>
     <div class="reveal">
       <h2 class="heading-sm">The same library on every device you own.</h2>
