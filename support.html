@@ -4,19 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Music Folder Support: Help, FAQ and Bug Reports</title>
+<link rel="canonical" href="https://musicfolder.app/support">
+<script>
+  // the site moved from GitHub Pages to musicfolder.app: forward old links
+  if (location.hostname.endsWith('github.io')) {
+    var p = location.pathname.replace(/^\/musicfolder\.app/, '').replace(/\.html$/, '').replace(/\/index$/, '/');
+    location.replace('https://musicfolder.app' + (p || '/') + location.search + location.hash);
+  }
+</script>
 <meta name="description" content="Get help with Music Folder for iPhone and iPad: answers to common questions, and a form to report a bug or request a feature straight to the developer.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://mikul29.github.io/musicfolder.app/support.html">
+<meta property="og:url" content="https://musicfolder.app/support">
 <meta property="og:title" content="Music Folder Support">
 <meta property="og:description" content="Answers to common questions, and a direct line to the developer.">
-<meta property="og:image" content="https://mikul29.github.io/musicfolder.app/assets/og-image.jpg">
+<meta property="og:image" content="https://musicfolder.app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Music Folder Support">
 <meta name="twitter:description" content="Answers to common questions, and a direct line to the developer.">
-<meta name="twitter:image" content="https://mikul29.github.io/musicfolder.app/assets/og-image.jpg">
+<meta name="twitter:image" content="https://musicfolder.app/assets/og-image.jpg">
 <meta name="apple-itunes-app" content="app-id=1611824311">
 <meta name="theme-color" content="#FBFAF8">
 <meta name="color-scheme" content="light only">
@@ -129,15 +137,15 @@
 
 <header class="site-header" id="top">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="Music Folder home">
+    <a class="brand" href="/" aria-label="Music Folder home">
       <img src="assets/app-icon.png" alt="" width="28" height="28">
       Music Folder
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="index.html#features">Features</a>
-      <a href="index.html#teams">For Teams</a>
-      <a href="index.html#pricing">Pricing</a>
-      <a href="support.html" aria-current="page">Support</a>
+      <a href="/#features">Features</a>
+      <a href="/#teams">For Teams</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/support" aria-current="page">Support</a>
     </nav>
     <a class="btn btn-primary btn-sm" href="https://apps.apple.com/app/id1611824311">Download</a>
     <details class="menu">
@@ -145,10 +153,10 @@
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
       </summary>
       <div class="menu-panel">
-        <a href="index.html#features">Features</a>
-        <a href="index.html#teams">For Teams</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="support.html">Support</a>
+        <a href="/#features">Features</a>
+        <a href="/#teams">For Teams</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/support">Support</a>
         <a href="https://apps.apple.com/app/id1611824311">Download on the App Store</a>
       </div>
     </details>
@@ -160,7 +168,7 @@
 <section class="support-hero">
   <div class="wrap">
     <h1 class="display">Talk to the <em>developer.</em></h1>
-    <p class="lede">Search the answers below, or <a href="contact.html">send me a message</a>.</p>
+    <p class="lede">Search the answers below, or <a href="/contact">send me a message</a>.</p>
     <div class="help-search" role="search">
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
       <label class="sr-only" for="helpSearch">Search help</label>
@@ -179,7 +187,7 @@
         <a href="#using">Using the app</a>
         <a href="#sync">Sync and sharing</a>
         <a href="#privacy">Privacy</a>
-        <a href="contact.html" class="help-nav-contact">Contact me</a>
+        <a href="/contact" class="help-nav-contact">Contact me</a>
     </nav>
     <div class="faq">
       <div class="faq-sec" id="start">
@@ -265,12 +273,12 @@
         <h3 class="faq-group">Privacy</h3>
       <details>
         <summary>What data does Music Folder collect?<span class="plus" aria-hidden="true"></span></summary>
-        <div class="answer"><p>None. Your music and notes stay on your device and in your own iCloud account. Read the full <a href="privacy.html">privacy policy</a>.</p></div>
+        <div class="answer"><p>None. Your music and notes stay on your device and in your own iCloud account. Read the full <a href="/privacy">privacy policy</a>.</p></div>
       </details>
       </div>
       <div class="faq-empty" id="faqEmpty" hidden>
         <p>No answers match “<span id="faqQuery"></span>”.</p>
-        <p><a href="contact.html" id="faqContact">Send me a message</a> and I'll help directly.</p>
+        <p><a href="/contact" id="faqContact">Send me a message</a> and I'll help directly.</p>
       </div>
     </div>
   </div>
@@ -283,7 +291,7 @@
         <h2 class="heading-sm">Still need help?</h2>
         <p>Report a bug, suggest a feature or ask a question. It goes straight to the developer.</p>
       </div>
-      <a class="btn btn-primary" href="contact.html">Contact me</a>
+      <a class="btn btn-primary" href="/contact">Contact me</a>
     </div>
   </div>
 </section>
@@ -316,23 +324,23 @@
       <div>
         <h4>Product</h4>
         <ul>
-          <li><a href="index.html#features">Features</a></li>
-          <li><a href="index.html#toolkit">Toolkit</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#toolkit">Toolkit</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
         </ul>
       </div>
       <div>
         <h4>Support</h4>
         <ul>
-          <li><a href="support.html">Help &amp; FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="/support">Help &amp; FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
           <li><a href="mailto:musicfolder.app@gmail.com">Email support</a></li>
         </ul>
       </div>
       <div>
         <h4>Legal</h4>
         <ul>
-          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="/privacy">Privacy</a></li>
           <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
         </ul>
       </div>
@@ -380,7 +388,7 @@
     empty.hidden = shown > 0;
     document.getElementById('faqQuery').textContent = q.value.trim();
     // carry the search over to the contact form's summary
-    document.getElementById('faqContact').href = 'contact.html' + (q.value.trim() ? '?q=' + encodeURIComponent(q.value.trim()) : '');
+    document.getElementById('faqContact').href = '/contact' + (q.value.trim() ? '?q=' + encodeURIComponent(q.value.trim()) : '');
     current();
   };
   q.addEventListener('input', filter);
