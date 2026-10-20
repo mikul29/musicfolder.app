@@ -40,7 +40,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=15">
+<link rel="stylesheet" href="assets/site.css?v=16">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -499,6 +499,8 @@
     cx += (FW / 2) * o * s;
 
     leaf.style.transform = o >= 1 ? 'none' : `translateZ(2px) rotateY(${180 - 180 * o}deg)`;
+    // the inside corner brackets only show once the cover has swung open
+    rig.classList.toggle('is-open', o > 0.5);
   rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
     cover.style.transform = `translateZ(2px) rotateY(${-180 * o}deg)`;
 

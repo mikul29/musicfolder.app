@@ -565,5 +565,7 @@ section { position: relative; }
 .corner.bl { left: 0; bottom: 0; transform: rotate(90deg); }
 /* inside: the smaller part of each bracket that folds round the edge */
 .corner.in { width: 22px; height: 22px; }
+.page > .corner.in { opacity: 0; transition: opacity .25s ease; }
+.rig.is-open .page > .corner.in { opacity: 1; }
 .page > .corner.in.br { transform: translateZ(3px); }
 .page > .corner.in.tr { transform: translateZ(3px) rotate(-90deg); }
