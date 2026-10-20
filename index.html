@@ -403,25 +403,6 @@ section { position: relative; }
 .device.fit { aspect-ratio: auto; }
 .device.fit .screen, .device.fit .screen img { height: auto; display: block; }
 
-/* Program set list card */
-.program {
-  background: var(--card); border-radius: var(--radius-card); padding: 32px;
-  box-shadow: var(--shadow-hairline, 0 0 0 1px var(--staff-line)), var(--shadow-card);
-  border: 1px solid var(--staff-line);
-  width: 100%; max-width: 460px;
-}
-.program .p-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 6px; }
-.program h3 { font-family: var(--font-display); font-size: 40px; line-height: 1.1; color: var(--folder-black); }
-.program .p-meta { color: var(--graphite); font-size: 15px; margin-bottom: 18px; }
-.program ol { list-style: none; margin: 0; padding: 0; }
-.program li {
-  display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: baseline;
-  padding: 13px 0; border-top: 1px solid var(--staff-line);
-}
-.program li .n, .program li .k { color: var(--graphite); font-variant-numeric: tabular-nums; font-size: 15px; }
-.program li.now .t { font-weight: 600; }
-.program li.now .n { color: var(--deep-amber); }
-.program .p-foot { display: flex; justify-content: space-between; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--staff-line); font-size: 13px; color: var(--graphite); }
 
 /* Share card */
 .share-card { background: var(--card); border-radius: var(--radius-card); padding: 28px; width: 100%; max-width: 420px; box-shadow: var(--shadow-card); border: 1px solid var(--staff-line); }
@@ -727,19 +708,7 @@ section { position: relative; }
       </div>
       <div class="feature-media">
         <div class="media-panel">
-          <div class="program">
-            <div class="p-head"><h3>Sunday, 10:30</h3></div>
-            <div class="p-meta">Morning service · 6 songs</div>
-            <ol>
-              <li><span class="n">1</span><span class="t">Come Thou Fount</span><span class="k">D · ♩=96</span></li>
-              <li class="now"><span class="n">2</span><span class="t">Be Thou My Vision</span><span class="k">E♭ · ♩=84</span></li>
-              <li><span class="n">3</span><span class="t">It Is Well</span><span class="k">C · ♩=66</span></li>
-              <li><span class="n">4</span><span class="t">Holy, Holy, Holy</span><span class="k">D · ♩=88</span></li>
-              <li><span class="n">5</span><span class="t">Amazing Grace</span><span class="k">G · ♩=72</span></li>
-              <li><span class="n">6</span><span class="t">Doxology</span><span class="k">G · ♩=80</span></li>
-            </ol>
-            <div class="p-foot tnum"><span>Now playing · 2 of 6</span><span>Pedal: next page ›</span></div>
-          </div>
+          <div class="device phone fit"><div class="screen shot"><img src="assets/setlist-iphone.jpg?v=1" alt="A set list called Orchestra Concert in Music Folder on iPhone: six pieces in performance order, each with composer and tempo" width="700" height="1522" loading="lazy"></div></div>
         </div>
       </div>
     </article>
