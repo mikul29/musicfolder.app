@@ -341,23 +341,7 @@ section { position: relative; }
 .section-head { max-width: 680px; margin-bottom: 64px; }
 .section-head p { color: var(--graphite); margin-top: 20px; }
 
-.who-strip { border-top: 1px solid var(--staff-line); border-bottom: 1px solid var(--staff-line); }
-.who-strip .wrap { display: flex; flex-wrap: wrap; gap: 8px 40px; align-items: center; padding-top: 22px; padding-bottom: 22px; }
-.who-strip .label { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); }
-.who-strip ul { display: flex; flex-wrap: wrap; gap: 8px 32px; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-size: 24px; color: var(--folder-black); }
 
-/* Problem → solution */
-.contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.contrast .card { padding: 32px; border-radius: var(--radius-card); }
-.contrast .before { background: var(--vellum); }
-.contrast .after { background: var(--card); box-shadow: var(--shadow-card); position: relative; overflow: hidden; }
-.contrast .after::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ribbon); }
-.contrast h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; margin-bottom: 20px; color: var(--folder-black); }
-.contrast ul { margin: 0; padding: 0; list-style: none; }
-.contrast li { padding: 12px 0; border-top: 1px solid var(--staff-line); display: flex; gap: 12px; }
-.contrast .before li { color: var(--graphite); }
-.contrast li svg { flex: none; margin-top: 4px; }
-@media (max-width: 760px) { .contrast { grid-template-columns: 1fr; } }
 
 /* Feature rows */
 .feature { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
@@ -366,9 +350,6 @@ section { position: relative; }
 .feature-copy { max-width: 480px; }
 .feature-copy .heading-sm { margin-bottom: 20px; }
 .feature-copy strong { font-weight: 600; }
-.feature-copy ul { margin: 20px 0 0; padding: 0; list-style: none; }
-.feature-copy li { padding: 10px 0; border-top: 1px solid var(--staff-line); font-size: 15px; color: var(--graphite); }
-.feature-copy li:last-child { border-bottom: 1px solid var(--staff-line); }
 @media (max-width: 860px) {
   .feature { grid-template-columns: 1fr; gap: 40px; }
   .feature.flip .feature-media { order: 0; }
@@ -451,7 +432,7 @@ section { position: relative; }
 @media (max-width: 960px) { .tool-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .tool-grid { grid-template-columns: 1fr; } }
 
-.also { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+.also { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 24px; }
 .also .tool { background: var(--vellum); box-shadow: none; }
 @media (max-width: 960px) { .also { grid-template-columns: 1fr; } }
 
@@ -640,58 +621,16 @@ section { position: relative; }
   </div>
 </section>
 
-<div class="who-strip">
-  <div class="wrap">
-    <span class="label">Made for</span>
-    <ul>
-      <li>Bands</li><li>Worship teams</li><li>Orchestras &amp; choirs</li><li>Jazz combos</li><li>Pit musicians</li><li>Students</li>
-    </ul>
-  </div>
-</div>
 
-<!-- ============ PROBLEM → SOLUTION ============ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2 class="heading">Better than a folder of PDFs. <em>Lighter</em> than a binder.</h2>
-    </div>
-    <div class="contrast reveal">
-      <div class="card before">
-        <h3>Before</h3>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>Charts scattered across email, Dropbox and paper</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>Flipping pages and losing your place on stage</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>A different set every week, and someone has the wrong version</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>A tuner, a metronome app and a PDF app, all at once</li>
-        </ul>
-      </div>
-      <div class="card after">
-        <h3>With Music Folder</h3>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>One organized library on every device</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Set lists that play straight through, with pedal page turns</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Shared folders and sets that update for the whole band</li>
-          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#F2812E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>Metronome, tuner, drones and piano, right beside the score</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ FEATURES ============ -->
-<section class="section" id="features" style="padding-top:0">
+<section class="section" id="features">
   <div class="wrap">
 
     <article class="feature reveal">
       <div class="feature-copy">
         <h2 class="heading-sm">Your whole library, finally in one place.</h2>
-        <p>Import PDFs from Files, AirDrop, email or any app, with <strong>bulk import</strong> for first-time setup. Sort songs into Folders by band, ensemble or instrument, add tags, and bookmark pieces inside long fake books and method books.</p>
-        <p>Still on paper? The built-in scanner turns sheet music into clean PDFs.</p>
-        <ul>
-          <li>Folders, tags and in-book bookmarks</li>
-          <li>Bulk import from Files, AirDrop and email</li>
-          <li>Document scanner for paper charts</li>
-        </ul>
+        <p>Import PDFs from Files, AirDrop or email, sort them into <strong>folders and tags</strong>, and scan paper charts with your camera.</p>
       </div>
       <div class="feature-media">
         <div class="media-panel">
@@ -703,8 +642,7 @@ section { position: relative; }
     <article class="feature flip reveal">
       <div class="feature-copy">
         <h2 class="heading-sm">Your set, in order. On stage, one tap at a time.</h2>
-        <p>Build a set list for every gig, service or rehearsal in exact performance order, then <strong>play straight through it</strong>. Read page by page or scroll continuously, in portrait or landscape.</p>
-        <p>Turn pages hands-free with a Bluetooth page-turner pedal, and arrange the reader toolbar the way you play.</p>
+        <p>Build a set for every gig, service or rehearsal, then <strong>play straight through it</strong>.</p>
       </div>
       <div class="feature-media">
         <div class="media-panel">
@@ -716,8 +654,7 @@ section { position: relative; }
     <article class="feature reveal">
       <div class="feature-copy">
         <h2 class="heading-sm">Mark it up like paper. Keep it like digital.</h2>
-        <p>Draw with a finger, <strong>Apple Pencil</strong> or any stylus, and add text stamps for fingerings, dynamics, cuts and reminders.</p>
-        <p>Every mark saves automatically and syncs to your other devices.</p>
+        <p>Write on the score with <strong>Apple Pencil</strong> or your finger. Every mark saves and syncs.</p>
       </div>
       <div class="feature-media">
         <div class="media-panel">
@@ -729,8 +666,7 @@ section { position: relative; }
     <article class="feature flip reveal" id="teams">
       <div class="feature-copy">
         <h2 class="heading-sm">Work on your music together, as a team.</h2>
-        <p>Share a folder or a set list with your band, choir or worship team. When anyone adds a chart or changes the order, <strong>everyone sees the update</strong> on their own iPhone or iPad.</p>
-        <p>Decide who can edit and who can only view. Your annotations stay yours, so each musician keeps their own markings.</p>
+        <p>Share a folder or set list with your band, choir or worship team. Changes show up for <strong>everyone</strong>, and you choose who can edit.</p>
       </div>
       <div class="feature-media">
         <div class="media-panel">
@@ -749,8 +685,8 @@ section { position: relative; }
     <article class="feature pco reveal">
       <div class="feature-copy">
         <h2 class="heading-sm">Your Sunday plan, already on the stand.</h2>
-        <p>Link your Planning Center Services account and your team's song library appears as a folder. <strong>Upcoming service plans</strong> sit next to your set lists, and you can play through a service with the right charts and recordings, one song after another.</p>
-        <p class="caption">Planning Center access is read-only: you view and play through plans; editing stays in Planning Center.</p>
+        <p>Link Planning Center and your team's songs and <strong>upcoming services</strong> appear next to your set lists, ready to play through.</p>
+        <p class="caption">Read-only: plans are still edited in Planning Center.</p>
       </div>
       <div class="feature-media">
         <div class="media-panel">
@@ -768,10 +704,9 @@ section { position: relative; }
     <div class="reveal">
       <h2 class="heading" id="stageTitle">Built for the stage.</h2>
       <ul class="stage-points">
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 14l3-8h4l3 8"/></svg><span>Bluetooth page-turner pedal<small>Hands-free page turns, both feet on the floor.</small></span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 14l3-8h4l3 8"/></svg><span>Bluetooth page-turner pedal<small>Turn pages hands-free.</small></span></li>
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M9 3h6"/></svg><span>Portrait and landscape<small>Landscape suits marching and lyre charts.</small></span></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8l-2-17h-4z"/><path d="M12 15l5-8"/></svg><span>Keeps time with the screen locked<small>Metronome, tones and recordings keep playing in the background. New in 3.3.</small></span></li>
-        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12h3M19 12h3M12 2v3M12 19v3"/><circle cx="12" cy="12" r="5"/></svg><span>Works fully offline<small>Bad signal at the venue doesn't matter.</small></span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2812E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8l-2-17h-4z"/><path d="M12 15l5-8"/></svg><span>Keeps playing with the screen locked<small>Metronome and recordings run in the background.</small></span></li>
       </ul>
       <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
         <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store" width="144" height="48">
@@ -788,52 +723,48 @@ section { position: relative; }
   <div class="wrap">
     <div class="section-head reveal">
       <h2 class="heading">Leave the extra apps at home.</h2>
-      <p>Everything you reach for in rehearsal, one tap from the score.</p>
+      <p>One tap from the score.</p>
     </div>
     <div class="tool-grid reveal">
       <div class="tool accent">
         <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 25h10L16.5 4h-5z"/><path d="M14 18l6-10"/><path d="M8.5 20h11"/></svg>
         <h3>Metronome</h3>
-        <p>Tempo dial, subdivisions, tap tempo and a saved tempo for every song.</p>
+        <p>Tap tempo, subdivisions, a tempo saved per song.</p>
       </div>
       <div class="tool">
         <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a10 10 0 0 1 20 0"/><path d="M14 18l4-7"/><circle cx="14" cy="18" r="1.5"/></svg>
         <h3>Chromatic tuner</h3>
-        <p>Plus a guitar mode with alternate tunings like Drop D and DADGAD.</p>
+        <p>Plus guitar alternate tunings.</p>
       </div>
       <div class="tool">
         <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14c2.5-6 5-6 7.5 0s5 6 7.5 0 5-6 7 0"/></svg>
         <h3>Tones &amp; drones</h3>
-        <p>A tone generator with sustained instrument drones for intonation practice.</p>
+        <p>Sustained drones for intonation.</p>
       </div>
       <div class="tool">
         <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="2"/><path d="M8.5 6v16M14 6v16M19.5 6v16"/><path d="M7 6v8h3V6M12.5 6v8h3V6M18 6v8h3V6" fill="currentColor"/></svg>
         <h3>88-key piano</h3>
-        <p>A sampled grand and other instrument voices for checking pitches and parts.</p>
+        <p>A sampled grand, right beside the score.</p>
       </div>
       <div class="tool">
         <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="3" width="8" height="14" rx="4"/><path d="M6 13a8 8 0 0 0 16 0M14 21v4"/></svg>
         <h3>Recordings per song</h3>
-        <p>Record yourself or attach a file or Music track, with lock-screen controls.</p>
+        <p>Record or attach audio to any song.</p>
       </div>
       <div class="tool">
         <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c1 5 6 7 6 13a6 6 0 0 1-12 0c0-3 2-5 3-7 .5 2 1.5 3 3 3-1-3 0-6 0-9z"/></svg>
         <h3>Practice streaks</h3>
-        <p>A daily goal, minutes counted automatically, streak freezes and an optional reminder.</p>
+        <p>A daily goal that counts your minutes.</p>
       </div>
     </div>
     <div class="also reveal">
       <div class="tool">
         <h3>Song Notes</h3>
-        <p>Cues, reminders and to-dos beside every score. A dated line like “@2026-11-02 take the repeat” stays highlighted until the day passes.</p>
+        <p>Cues and reminders beside every score.</p>
       </div>
       <div class="tool">
         <h3>Discover free sheet music</h3>
-        <p>A built-in catalog of public-domain scores. Search by title, composer or instrument and import with one tap.</p>
-      </div>
-      <div class="tool">
-        <h3>A Today screen</h3>
-        <p>Your next set list, your practice goal and your recent scores, the moment you open the app.</p>
+        <p>Public-domain scores, imported in one tap.</p>
       </div>
     </div>
   </div>
@@ -848,19 +779,19 @@ section { position: relative; }
     <div class="who-grid reveal">
       <div class="who-card">
         <h3>Bands</h3>
-        <p>A new set every gig, built in minutes and shared with everyone. Jazz combos, cover bands and pit musicians all read from the same order.</p>
+        <p>A new set every gig, shared with everyone.</p>
       </div>
       <div class="who-card">
         <h3>Worship teams</h3>
-        <p>Connect Planning Center and Sunday's plan shows up beside your set lists, with charts and recordings ready to play through.</p>
+        <p>Sunday's plan from Planning Center, ready to play.</p>
       </div>
       <div class="who-card">
         <h3>Orchestras &amp; choirs</h3>
-        <p>Keep every part, marking and bowing in one folder, and turn pages with a pedal while your hands stay on the instrument.</p>
+        <p>Every part and marking in one folder.</p>
       </div>
       <div class="who-card">
         <h3>Students &amp; soloists</h3>
-        <p>Method books with bookmarks, a tuner and metronome beside the page, and a daily streak that keeps practice going.</p>
+        <p>Daily practice with a tuner, metronome and streak.</p>
       </div>
     </div>
   </div>
@@ -876,9 +807,9 @@ section { position: relative; }
     <div class="reveal">
       <h2 class="heading-sm">The same library on every device you own.</h2>
       <ul class="facts">
-        <li><strong>Designed for iPad too</strong><span>A sidebar layout, a home screen built for the big screen, and full-size tools.</span></li>
-        <li><strong>iCloud sync, free for everyone</strong><span>Songs, set lists and annotations stay the same on every device you're signed into.</span></li>
-        <li><strong>Works offline</strong><span>Everything lives on your device, so the show goes on without Wi-Fi.</span></li>
+        <li><strong>Designed for iPad too</strong><span>Made for the big screen.</span></li>
+        <li><strong>Free iCloud sync</strong><span>Songs, set lists and markings on every device.</span></li>
+        <li><strong>Works offline</strong><span>No Wi-Fi needed at the venue.</span></li>
       </ul>
     </div>
   </div>
