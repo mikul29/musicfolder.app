@@ -674,14 +674,14 @@ section { position: relative; }
         </article>
         <article class="step" data-step="4" id="teams">
           <h3>Work together as a team.</h3>
-          <p>Share a folder or set list with your band, choir or worship team. Changes show up for everyone, and you choose who can edit.</p>
+          <p>Share a folder or set list with your band, class, choir or worship team. Changes show up for everyone, and you choose who can edit.</p>
           <div class="step-visual"><div class="share-card">
-            <div class="sc-title">Worship Team</div>
-            <div class="sc-sub">Shared folder · 4 people</div>
-            <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Owner</small></span><span class="chip">Can edit</span></div>
-            <div class="share-row"><span class="avatar">K</span><span class="who">Keys<small>Member</small></span><span class="chip">Can edit</span></div>
-            <div class="share-row"><span class="avatar">B</span><span class="who">Bass<small>Member</small></span><span class="chip">View only</span></div>
-            <div class="share-row"><span class="avatar">D</span><span class="who">Drums<small>Member</small></span><span class="chip">View only</span></div>
+            <div class="sc-title">Concert Band · Period 3</div>
+            <div class="sc-sub">Shared folder · 38 people</div>
+            <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Director</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">A</span><span class="who">Assistant director<small>Teacher</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">F</span><span class="who">Flute<small>Student</small></span><span class="chip">View only</span></div>
+            <div class="share-row"><span class="avatar">T</span><span class="who">Trumpet<small>Student</small></span><span class="chip">View only</span></div>
           </div></div>
         </article>
       </div>
@@ -692,12 +692,12 @@ section { position: relative; }
           <div class="frame" data-step="2"><div class="device tablet"><div class="screen shot"><img src="assets/annotate-ipad.jpg?v=2" alt="" width="900" height="1305" loading="lazy"></div></div></div>
           <div class="frame" data-step="3"><div class="device phone"><div class="screen shot"><img src="assets/planning-center-iphone.jpg?v=1" alt="" width="700" height="1522" loading="lazy"></div></div></div>
           <div class="frame" data-step="4"><div class="share-card">
-            <div class="sc-title">Worship Team</div>
-            <div class="sc-sub">Shared folder · 4 people</div>
-            <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Owner</small></span><span class="chip">Can edit</span></div>
-            <div class="share-row"><span class="avatar">K</span><span class="who">Keys<small>Member</small></span><span class="chip">Can edit</span></div>
-            <div class="share-row"><span class="avatar">B</span><span class="who">Bass<small>Member</small></span><span class="chip">View only</span></div>
-            <div class="share-row"><span class="avatar">D</span><span class="who">Drums<small>Member</small></span><span class="chip">View only</span></div>
+            <div class="sc-title">Concert Band · Period 3</div>
+            <div class="sc-sub">Shared folder · 38 people</div>
+            <div class="share-row"><span class="avatar">You</span><span class="who">You<small>Director</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">A</span><span class="who">Assistant director<small>Teacher</small></span><span class="chip">Can edit</span></div>
+            <div class="share-row"><span class="avatar">F</span><span class="who">Flute<small>Student</small></span><span class="chip">View only</span></div>
+            <div class="share-row"><span class="avatar">T</span><span class="who">Trumpet<small>Student</small></span><span class="chip">View only</span></div>
           </div></div>
         </div>
       </div>
@@ -1065,15 +1065,27 @@ section { position: relative; }
   /* ---------- Feature story ---------- */
   const steps = [...document.querySelectorAll('.step')];
   const frames = [...document.querySelectorAll('.frame')];
-  if (steps.length && 'IntersectionObserver' in window) {
-    const show = i => {
-      steps.forEach((s, k) => s.classList.toggle('is-active', k === i));
-      frames.forEach((f, k) => f.classList.toggle('is-active', k === i));
+  if (steps.length) {
+    let current = -1;
+    // the step whose middle is closest to the middle of the viewport is the active one
+    const pick = () => {
+      const mid = window.innerHeight / 2;
+      let best = 0, bestD = Infinity;
+      steps.forEach((s, k) => {
+        const r = s.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - mid);
+        if (d < bestD) { bestD = d; best = k; }
+      });
+      if (best === current) return;
+      current = best;
+      steps.forEach((s, k) => s.classList.toggle('is-active', k === best));
+      frames.forEach((f, k) => f.classList.toggle('is-active', k === best));
     };
-    const so = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) show(Number(e.target.dataset.step)); });
-    }, { rootMargin: '-45% 0px -45% 0px' });
-    steps.forEach(s => so.observe(s));
+    let queued = false;
+    const onStoryScroll = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; pick(); }); } };
+    window.addEventListener('scroll', onStoryScroll, { passive: true });
+    window.addEventListener('resize', onStoryScroll);
+    pick();
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
