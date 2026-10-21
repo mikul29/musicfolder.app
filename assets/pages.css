@@ -250,3 +250,6 @@ ol.how { margin: 0; padding: 0; }
 /* scroll story on feature pages: the landscape piano frame fills the stage's width instead of its height */
 .frame .device.phone.landscape { height: auto; width: 86%; aspect-ratio: auto; }
 .step-visual .device.phone.landscape { width: min(440px, 92%); }
+/* in the pinned stage the frame's height is fixed, so a portrait screenshot fills it (no gap at the bottom) */
+.frame .device.phone.fit:not(.landscape) .screen,
+.frame .device.phone.fit:not(.landscape) .screen img { height: 100%; }
