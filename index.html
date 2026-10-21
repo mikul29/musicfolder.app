@@ -780,8 +780,9 @@
     const open = o * (1 - cl);
     const B = lerp(2 + THICK, -THICK, open);
     leaf.style.transform = open >= 1 ? 'none' : `translateZ(${B}px) rotateY(${180 - 180 * open}deg) translateZ(${THICK}px)`;
-    // the inside corner brackets only show once the cover has swung open
-    rig.classList.toggle('is-open', open > 0.5);
+    // the right-hand page's corner brackets show whenever the cover is off them:
+    // from the moment it lifts until it's lying (nearly) flat over them again
+    rig.classList.toggle('is-open', open > 0.04);
     rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
     cover.style.transform = `translateZ(${B}px) rotateY(${-180 * open}deg)`;
 
