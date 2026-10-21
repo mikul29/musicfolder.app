@@ -246,3 +246,7 @@ ol.how { margin: 0; padding: 0; }
 .rf-visual .device.phone.landscape .screen { border-radius: 30px; }
 /* in landscape the camera sits at the side, outside the screenshot: no cutout over the picture */
 .device.phone.landscape .screen::after { display: none; }
+
+/* scroll story on feature pages: the landscape piano frame fills the stage's width instead of its height */
+.frame .device.phone.landscape { height: auto; width: 86%; aspect-ratio: auto; }
+.step-visual .device.phone.landscape { width: min(440px, 92%); }
