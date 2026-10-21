@@ -605,13 +605,46 @@
     });
     ipadScreen.insertBefore(d.mask, screenOff);
   });
+  // the Today screen's four tool tiles (screenshot pixels: centre; each 135 × 84).
+  // Each gets a crisp replica built at its lifted size, POP × the tile, so it
+  // never blurs when it rises; at rest it is scaled down to sit exactly on the tile.
+  const POP = 2.3, TILE_W = 135 * K * POP, TILE_H = 84 * K * POP;
+  const TOOLS = [
+    { name: 'Piano', x: 460.5, y: 277, icon:
+      `<svg viewBox="0 0 24 24" class="ti ti-piano"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path class="k k1" d="M3.8 5h4.4v14.2H3.8z"/><path class="k k2" d="M9.8 5h4.4v14.2H9.8z"/><path class="k k3" d="M15.8 5h4.4v14.2h-4.4z"/><path class="b" d="M7.3 4.6h3.2v8.6H7.3zM13.5 4.6h3.2v8.6h-3.2z"/></svg>` },
+    { name: 'Metronome', x: 605, y: 277, icon:
+      `<svg viewBox="0 0 24 24" class="ti ti-metro"><path class="body" d="M8.6 3.5h6.8l5 16.5H3.6z"/><path class="base" d="M3.6 20h16.8"/><g class="arm"><path d="M12 17.2V5.8"/><circle cx="12" cy="9" r="1.5"/></g></svg>` },
+    { name: 'Tone', x: 460.5, y: 371, icon:
+      `<svg viewBox="0 0 24 24" class="ti ti-tone">${[5, 9, 15, 20, 13, 17, 8, 11, 5].map((h, i) =>
+        `<rect class="bar" style="--i:${i}" x="${2.6 + i * 2.2}" y="${12 - h / 2}" width="1.3" height="${h}" rx=".65"/>`).join('')}</svg>` },
+    { name: 'Tuner', x: 605, y: 371, icon:
+      `<svg viewBox="0 0 24 24" class="ti ti-tuner"><g class="fork"><path d="M5 19.5l5.5-5.5M10.5 14l6-6.5M10.5 14l2.5 2.5 6-6"/><circle cx="4.6" cy="19.9" r="1.2"/></g><g class="gauge"><path class="scale" d="M4.5 16a8 8 0 0 1 15 0"/><path class="mark" d="M12 6.6v2.2"/><path class="needle" d="M12 18.5V9.5"/><circle cx="12" cy="18.5" r="1.4"/></g></svg>` },
+  ];
+  TOOLS.forEach(tool => {
+    const c = onScreen(tool.x, tool.y);
+    tool.cx = c.x; tool.cy = c.y;
+    tool.el = flyers.appendChild(document.createElement('div'));
+    tool.el.className = 'tool-pop';
+    tool.el.innerHTML = `${tool.icon}<span>${tool.name}</span>`;
+    // the recess the tile leaves in the screen while it's lifted out
+    tool.well = document.createElement('i');
+    tool.well.className = 'tool-well';
+    Object.assign(tool.well.style, {
+      left: `${(tool.x - 67.5) / SHOT_W * 100}%`, top: `${(tool.y - 42) / SHOT_H * 100}%`,
+      width: `${135 / SHOT_W * 100}%`, height: `${84 / SHOT_H * 100}%`,
+    });
+    ipadScreen.insertBefore(tool.well, screenOff);
+  });
+
   const place = (el, x, y, h, w, z, r, ry, rx, sc) => {
     el.style.transform = `translate3d(${x - w / 2}px, ${y - h / 2}px, ${z}px) rotate(${r}deg) rotateY(${ry}deg) rotateX(${rx}deg) scale(${sc})`;
   };
 
   // scroll timeline (0–1 across the hero); each item's own 0–1 runs over FLY_LEN,
   // arriving at ARRIVE and then settling into the screen
-  const FLY_FROM = 0.44, FLY_STEP = 0.017, FLY_LEN = 0.2, ARRIVE = 0.86;
+  const FLY_FROM = 0.374, FLY_STEP = 0.0145, FLY_LEN = 0.17, ARRIVE = 0.86;
+  // then the tools beat: the four tool tiles lift out of the screen one by one
+  const TOOL_FROM = 0.77, TOOL_STEP = 0.04, TOOL_LEN = 0.07;
   const smooth = t => t * t * (3 - 2 * t);
 
   function frame() {
@@ -623,10 +656,10 @@
 
     header.classList.toggle('scrolled', window.scrollY > 8);
 
-    const a = seg(p, 0.00, 0.18); // straighten + centre
-    const o = seg(p, 0.18, 0.42); // open the cover
-    const on = seg(p, 0.40, 0.47); // the iPad wakes
-    const c = seg(p, 0.86, 0.96); // caption
+    const a = seg(p, 0.00, 0.153); // straighten + centre
+    const o = seg(p, 0.153, 0.357); // open the cover
+    const on = seg(p, 0.34, 0.40); // the iPad wakes
+    const c = seg(p, 0.94, 0.99); // caption
 
     // scales
     const closedS = Math.min(1.05, (vh * 0.66) / FH, (vw - 48) / FW);
@@ -634,7 +667,7 @@
     // on a phone the open spread is tiny, so once the pocket is empty the camera
     // moves in on the right-hand page (on a desktop it already reads well)
     const pageS = Math.min((vw - 32) / FW, (vh * 0.58) / FH);
-    const zm = pageS > openS * 1.25 ? seg(p, 0.80, 0.92) : 0;
+    const zm = pageS > openS * 1.25 ? seg(p, 0.70, 0.78) : 0;
 
     // start pose (tilted, partly off the right edge like an object on the table)
     let sx, sy, sr, ss;
@@ -702,6 +735,22 @@
       // the slot fills in underneath the item as it arrives; the item then dissolves
       d.mask.style.opacity = String(1 - clamp((t - ARRIVE + 0.03) / 0.1));
     }
+
+    // the tools: each tile lifts out of the screen towards you, plays a moment of
+    // itself (keys, pendulum, drone, needle), then settles back into place
+    TOOLS.forEach((tool, i) => {
+      const q = clamp((p - TOOL_FROM - i * TOOL_STEP) / TOOL_LEN);
+      const lift = smooth(clamp(q / 0.3)) * (1 - smooth(clamp((q - 0.72) / 0.28)));
+      const shown = q > 0 && q < 1;
+      tool.el.style.visibility = shown ? 'visible' : 'hidden';
+      if (shown) {
+        place(tool.el, tool.cx, tool.cy, TILE_H, TILE_W, 1.5 + 80 * lift, IPAD.tilt, 0, 0, lerp(1 / POP, 1, lift));
+        tool.el.style.setProperty('--l', lift.toFixed(3));
+        tool.el.style.opacity = String(clamp(lift * 10));
+      }
+      tool.el.classList.toggle('is-lit', lift > 0.55);
+      tool.well.style.opacity = String(clamp(lift * 10));
+    });
 
     copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.1 : 0.12));
     copy.style.transform = `translateY(${-40 * seg(p, 0, 0.14)}px)`;

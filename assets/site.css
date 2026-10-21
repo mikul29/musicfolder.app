@@ -123,7 +123,7 @@ p { margin: 0 0 16px; }
 }
 
 /* ---------- Hero / folder stage ---------- */
-.hero { position: relative; height: 460vh; }
+.hero { position: relative; height: 540vh; }
 .hero-stage {
   position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
   background: var(--manuscript);
@@ -323,6 +323,58 @@ p { margin: 0 0 16px; }
   border-radius: 14px; background: #FFFFFF;
   box-shadow: -9px -7px 0 -1px rgba(255,255,255,0.7), 0 2px 6px rgba(0,0,0,0.12);
   opacity: calc(2 * var(--m, 0) - 1);
+}
+
+/* ---- the tools beat: replicas of the Today screen's tool tiles ----
+   built at 2.3× the on-screen tile (crisp when lifted), --l: 0 resting → 1 lifted */
+.tool-pop {
+  position: absolute; left: 0; top: 0; width: 141px; height: 88px; will-change: transform;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  background: #FFFFFF; border-radius: 15px; visibility: hidden;
+  box-shadow:
+    0 0 0 calc(1.5px * var(--l, 0)) rgba(242,129,46,0.55),
+    0 calc(4px + 22px * var(--l, 0)) calc(10px + 40px * var(--l, 0)) -12px rgba(0,0,0,calc(0.25 + 0.35 * var(--l, 0)));
+}
+.tool-pop span { font: 600 12.5px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); color: #1A1815; letter-spacing: -0.01em; }
+.tool-pop svg { width: 34px; height: 34px; overflow: visible; }
+.tool-well { position: absolute; border-radius: 6%/9%; background: #ECE9E5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.12); opacity: 0; }
+.ti { fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+/* piano: three keys pressed in turn, a rising arpeggio */
+.ti-piano { stroke: #C7865A; }
+.ti-piano .k { fill: #FFFFFF; stroke: none; }
+.ti-piano .b { fill: #C7865A; stroke: none; }
+.is-lit .ti-piano .k { animation: mf-key 1.2s ease-out infinite; }
+.is-lit .ti-piano .k2 { animation-delay: .2s; }
+.is-lit .ti-piano .k3 { animation-delay: .4s; }
+@keyframes mf-key { 0%, 30% { fill: #F2812E; } 55%, 100% { fill: #FFFFFF; } }
+/* metronome: the pendulum swings (♩ = 120) */
+.ti-metro { stroke: #E8823A; }
+.ti-metro .body { fill: rgba(232,130,58,0.10); }
+.ti-metro .arm { transform-origin: 12px 17.2px; transform: rotate(18deg); }
+.ti-metro .arm circle { fill: #E8823A; stroke: none; }
+.is-lit .ti-metro .arm { animation: mf-swing .5s cubic-bezier(.45,0,.55,1) infinite alternate; }
+@keyframes mf-swing { from { transform: rotate(-24deg); } to { transform: rotate(24deg); } }
+/* tone: a sustained drone, the bars breathing slowly */
+.ti-tone .bar { fill: #5B8FD8; stroke: none; transform-box: fill-box; transform-origin: center; }
+.is-lit .ti-tone .bar { animation: mf-drone 1.6s ease-in-out infinite; animation-delay: calc(var(--i) * -0.18s); }
+@keyframes mf-drone { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.45); } }
+/* tuner: the fork gives way to a needle that swings, settles on centre and turns green */
+.ti-tuner { stroke: #4FA585; }
+.ti-tuner .fork circle, .ti-tuner .gauge circle { fill: #4FA585; stroke: none; }
+.ti-tuner .gauge { opacity: 0; transition: opacity .25s ease; }
+.ti-tuner .fork { transition: opacity .25s ease; }
+.ti-tuner .scale { stroke: #CFCBC4; }
+.ti-tuner .mark { stroke: #4FA585; }
+.ti-tuner .needle { stroke: #E8823A; transform-origin: 12px 18.5px; transform: rotate(-38deg); }
+.is-lit .ti-tuner .fork { opacity: 0; }
+.is-lit .ti-tuner .gauge { opacity: 1; }
+.is-lit .ti-tuner .needle { animation: mf-needle 1.6s cubic-bezier(.3,.6,.3,1) forwards; }
+@keyframes mf-needle {
+  0% { transform: rotate(-38deg); stroke: #E8823A; }
+  35% { transform: rotate(16deg); }
+  55% { transform: rotate(-7deg); }
+  72% { transform: rotate(3deg); stroke: #E8823A; }
+  85%, 100% { transform: rotate(0deg); stroke: #4FA585; }
 }
 
 .pocket, .pocket-right {
