@@ -122,7 +122,7 @@
 }
 </script>
 <link rel="stylesheet" href="/assets/site.css?v=36">
-<link rel="stylesheet" href="/assets/pages.css?v=9">
+<link rel="stylesheet" href="/assets/pages.css?v=10">
 </head>
 <body>
 
@@ -222,7 +222,7 @@
       <div class="rf-visual"><div class="device-duo"><div class="device tablet"><div class="screen shot"><img src="/assets/annotate-ipad.jpg?v=2" alt="The marked-up score on iPad" width="900" height="1305" loading="lazy"></div></div><div class="device phone fit"><div class="screen shot"><img src="/assets/annotate-iphone.jpg?v=1" alt="The same score on iPhone, with the same handwritten markings and highlights synced from the iPad" width="700" height="1522" loading="lazy"></div></div></div></div>
     </div><div class="row-feature flip">
       <div class="rf-text"><h2 class="heading-sm">Print or share it <em>marked up.</em></h2><p>Send a song or set list as a PDF with your markings included, ready to print or email.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>One PDF for a whole set list</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Markings included in the PDF</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Or send a copy others can keep editing</span></li></ul></div>
-      <div class="rf-visual"><div class="file-card"><div class="fc-row"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10l5 5v15H7z"/><path d="M17 4v5h5"/></svg><div><b>Spring Concert.pdf</b><span>Set list · 8 pieces · markings included</span></div></div><div class="fc-foot">Ready to print or email</div></div></div>
+      <div class="rf-visual"><div class="print-scene" role="img" aria-label="A printer printing the marked-up score, with every handwritten note and highlight on the page"><div class="pr-tray" aria-hidden="true"></div><div class="pr-body" aria-hidden="true"><span class="pr-light"></span><span class="pr-slot"></span></div><div class="pr-out" aria-hidden="true"><img src="/assets/printed-score.webp?v=1" alt="" width="640" height="906" loading="lazy"></div></div></div>
     </div>
   </div>
 </section>
@@ -332,6 +332,22 @@
   onScroll();
   const menu = document.querySelector('.menu');
   menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+})();
+</script>
+<script>
+/* the printed page slides out of the printer once, when it scrolls into view */
+(() => {
+  const scene = document.querySelector('.print-scene');
+  if (!scene || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  scene.classList.add('is-armed');
+  const print = () => { scene.classList.add('is-printing'); window.removeEventListener('scroll', check); if (io) io.disconnect(); };
+  // a scroll-position check backs up the observer (and covers browsers without one)
+  const check = () => { const r = scene.getBoundingClientRect(); if (r.top < innerHeight * 0.75 && r.bottom > 0) print(); };
+  const io = 'IntersectionObserver' in window
+    ? new IntersectionObserver(en => { if (en.some(e => e.isIntersecting)) print(); }, { threshold: 0.45 }) : null;
+  if (io) io.observe(scene);
+  window.addEventListener('scroll', check, { passive: true });
+  check();
 })();
 </script>
 <script src="/assets/site.js?v=5" defer></script>
