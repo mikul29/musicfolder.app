@@ -340,12 +340,15 @@ p { margin: 0 0 16px; }
 .tool-well { position: absolute; border-radius: 6%/9%; background: #ECE9E5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.12); opacity: 0; }
 .ti { fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 /* piano: three keys pressed in turn, a rising arpeggio */
-.ti-piano { stroke: #C7865A; }
+.ti-piano { stroke: #1A1815; } /* the app draws this one in primary text, not a gradient */
+.ti-piano .case { stroke-width: 1.9; }
+.ti-piano .sep { stroke-width: 1.3; stroke-linecap: butt; }
 .ti-piano .k { fill: #FFFFFF; stroke: none; }
 .ti-piano .b { fill: #1A1815; stroke: none; }
-.is-lit .ti-piano .k { animation: mf-key 1.2s ease-out infinite; }
+.is-lit .ti-piano .k { animation: mf-key 1.6s ease-out infinite; }
 .is-lit .ti-piano .k2 { animation-delay: .2s; }
 .is-lit .ti-piano .k3 { animation-delay: .4s; }
+.is-lit .ti-piano .k4 { animation-delay: .6s; }
 @keyframes mf-key { 0%, 16% { fill: #F2812E; } 30%, 100% { fill: #FFFFFF; } }
 /* metronome: the pendulum swings (♩ = 120) */
 .ti-metro { stroke: #E8823A; }

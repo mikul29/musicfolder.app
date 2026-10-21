@@ -611,7 +611,7 @@
   const POP = 2.3, TILE_W = 135 * K * POP, TILE_H = 84 * K * POP;
   const TOOLS = [
     { name: 'Piano', x: 460.5, y: 277, icon:
-      `<svg viewBox="0 0 24 24" class="ti ti-piano"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path class="k k1" d="M3.8 5h4.4v14.2H3.8z"/><path class="k k2" d="M9.8 5h4.4v14.2H9.8z"/><path class="k k3" d="M15.8 5h4.4v14.2h-4.4z"/><path class="b" d="M7.3 4.6h3.2v8.6H7.3zM13.5 4.6h3.2v8.6h-3.2z"/></svg>` },
+      `<svg viewBox="0 0 24 24" class="ti ti-piano"><path class="k k1" d="M3.4 5.4h4.1v13.2H3.4z"/><path class="k k2" d="M7.5 5.4H12v13.2H7.5z"/><path class="k k3" d="M12 5.4h4.5v13.2H12z"/><path class="k k4" d="M16.5 5.4h4.1v13.2h-4.1z"/><path class="sep" d="M7.5 12v6.6M12 12v6.6M16.5 12v6.6"/><path class="b" d="M6.2 5h2.6v7.6H6.2zM10.7 5h2.6v7.6h-2.6zM15.2 5h2.6v7.6h-2.6z"/><rect class="case" x="2.6" y="4.6" width="18.8" height="14.8" rx="2.6"/></svg>` },
     { name: 'Metronome', x: 605, y: 277, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-metro"><path class="body" d="M8.6 3.5h6.8l5 16.5H3.6z"/><path class="base" d="M3.6 20h16.8"/><g class="arm"><path d="M12 17.2V5.8"/><circle cx="12" cy="9" r="1.5"/></g></svg>` },
     { name: 'Tone', x: 460.5, y: 371, icon:
@@ -741,12 +741,15 @@
     TOOLS.forEach((tool, i) => {
       const q = clamp((p - TOOL_FROM - i * TOOL_STEP) / TOOL_LEN);
       const lift = smooth(clamp(q / 0.3)) * (1 - smooth(clamp((q - 0.72) / 0.28)));
-      const shown = q > 0 && q < 1;
+      // the screenshot predates the piano icon going black, so that replica
+      // covers its tile for as long as the screen is on
+      const cover = tool.name === 'Piano' && on > 0;
+      const shown = (q > 0 && q < 1) || cover;
       tool.el.style.visibility = shown ? 'visible' : 'hidden';
       if (shown) {
         place(tool.el, tool.cx, tool.cy, TILE_H, TILE_W, 1.5 + 80 * lift, IPAD.tilt, 0, 0, lerp(1 / POP, 1, lift));
         tool.el.style.setProperty('--l', lift.toFixed(3));
-        tool.el.style.opacity = String(clamp(lift * 10));
+        tool.el.style.opacity = String(cover ? on : clamp(lift * 10));
       }
       tool.el.classList.toggle('is-lit', lift > 0.55);
       tool.well.style.opacity = String(clamp(lift * 10));
