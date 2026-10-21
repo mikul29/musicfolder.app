@@ -123,7 +123,7 @@ p { margin: 0 0 16px; }
 }
 
 /* ---------- Hero / folder stage ---------- */
-.hero { position: relative; height: 540vh; }
+.hero { position: relative; height: 620vh; }
 .hero-stage {
   position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
   background: var(--manuscript);
@@ -324,6 +324,20 @@ p { margin: 0 0 16px; }
   box-shadow: -9px -7px 0 -1px rgba(255,255,255,0.7), 0 2px 6px rgba(0,0,0,0.12);
   opacity: calc(2 * var(--m, 0) - 1);
 }
+
+/* the stage: the iPad front and centre, above the closed folder */
+.ipad-stage { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.stage-ipad {
+  left: 0; top: 0; visibility: hidden; will-change: transform;
+  /* --l: 0 at the hand-off → 1 front and centre: a deeper shadow and the app's warm light */
+  box-shadow:
+    0 0 0 1.5px #3A3A3C, inset 0 0 0 1px #000,
+    0 calc(18px + 40px * var(--l, 0)) calc(30px + 70px * var(--l, 0)) calc(-12px - 8px * var(--l, 0)) rgba(0,0,0,calc(0.7 - 0.25 * var(--l, 0))),
+    0 0 calc(70px * var(--l, 0)) calc(4px * var(--l, 0)) rgba(242,129,46,calc(0.18 * var(--l, 0)));
+}
+/* the tool tiles sit over the screen, in a layer that doesn't clip a lifted tile */
+.ipad-tools { position: absolute; left: 14px; top: 14px; width: 312px; height: 416px; }
+.ipad-tools .tool-pop { visibility: inherit; }
 
 /* ---- the tools beat: replicas of the Today screen's tool tiles ----
    built at 2.3× the on-screen tile (crisp when lifted), --l: 0 resting → 1 lifted */

@@ -178,12 +178,13 @@
         <svg class="corner in tr" aria-hidden="true"><use href="#cornerCap"/></svg><svg class="corner in br" aria-hidden="true"><use href="#cornerCap"/></svg>
         <div class="cords"><i></i><i></i><b></b><b></b></div>
         <div class="ipad-glow" id="ipadGlow"></div>
-        <div class="ipad">
+        <div class="ipad" id="pageIpad">
           <div class="ipad-screen" id="ipadScreen">
             <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
             <!-- each slot stays blank until its folder or score lands in it -->
             <div class="ipad-off" id="ipadOff"></div>
           </div>
+          <div class="ipad-tools" id="pageTools"></div>
         </div>
         <div class="pocket-right"><svg class="stitch" viewBox="0 0 450 140" aria-hidden="true"><path d="M6 10.4L438 39.2"/></svg></div>
         <svg class="stitch" viewBox="0 0 450 600" aria-hidden="true"><path d="M6 12h428a4 4 0 0 1 4 4v568a4 4 0 0 1-4 4H6z"/></svg>
@@ -207,6 +208,17 @@
         </div>
       <!-- once lifted clear of the pocket, each item flies on this layer into the iPad -->
       <div class="flyers" id="flyers"></div>
+    </div>
+
+    <!-- once the pocket is empty the iPad lifts out and comes front and centre
+         on this layer (above the folder, so the closing cover never cuts it) -->
+    <div class="ipad-stage" aria-hidden="true">
+      <div class="ipad stage-ipad" id="stageIpad">
+        <div class="ipad-screen" id="stageScreen">
+          <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
+        </div>
+        <div class="ipad-tools" id="stageTools"></div>
+      </div>
     </div>
 
     <div class="open-caption wrap" id="openCaption">
@@ -620,20 +632,35 @@
     { name: 'Tuner', x: 605, y: 371, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-tuner"><g class="fork"><path d="M5 19.5l5.5-5.5M10.5 14l6-6.5M10.5 14l2.5 2.5 6-6"/><circle cx="4.6" cy="19.9" r="1.2"/></g><g class="gauge"><path class="scale" d="M4.5 16a8 8 0 0 1 15 0"/><path class="mark" d="M12 6.6v2.2"/><path class="needle" d="M12 18.5V9.5"/><circle cx="12" cy="18.5" r="1.4"/></g></svg>` },
   ];
+  // the tiles live in a layer the size of the screen (312 × 416 inside the bezel);
+  // the screenshot predates the piano icon going black, so its replica always
+  // covers that tile in both iPads
+  const pageTools = document.getElementById('pageTools');
+  const stageTools = document.getElementById('stageTools');
+  const stageScreen = document.getElementById('stageScreen');
+  let pagePiano;
+  const tile = (layer, tool, sc) => {
+    const el = layer.appendChild(document.createElement('div'));
+    el.className = 'tool-pop';
+    el.innerHTML = `${tool.icon}<span>${tool.name}</span>`;
+    el.dataset.x = tool.x * K; el.dataset.y = tool.y * K;
+    setTile(el, sc, 0);
+    return el;
+  };
+  const setTile = (el, sc, l) => {
+    el.style.transform = `translate(${el.dataset.x - TILE_W / 2}px, ${el.dataset.y - TILE_H / 2}px) scale(${sc})`;
+    el.style.setProperty('--l', l.toFixed(3));
+  };
   TOOLS.forEach(tool => {
-    const c = onScreen(tool.x, tool.y);
-    tool.cx = c.x; tool.cy = c.y;
-    tool.el = flyers.appendChild(document.createElement('div'));
-    tool.el.className = 'tool-pop';
-    tool.el.innerHTML = `${tool.icon}<span>${tool.name}</span>`;
+    if (tool.name === 'Piano') pagePiano = tile(pageTools, tool, 1 / POP);
+    tool.el = tile(stageTools, tool, 1 / POP);
     // the recess the tile leaves in the screen while it's lifted out
-    tool.well = document.createElement('i');
+    tool.well = stageScreen.appendChild(document.createElement('i'));
     tool.well.className = 'tool-well';
     Object.assign(tool.well.style, {
       left: `${(tool.x - 67.5) / SHOT_W * 100}%`, top: `${(tool.y - 42) / SHOT_H * 100}%`,
       width: `${135 / SHOT_W * 100}%`, height: `${84 / SHOT_H * 100}%`,
     });
-    ipadScreen.insertBefore(tool.well, screenOff);
   });
 
   const place = (el, x, y, h, w, z, r, ry, rx, sc) => {
@@ -642,9 +669,15 @@
 
   // scroll timeline (0–1 across the hero); each item's own 0–1 runs over FLY_LEN,
   // arriving at ARRIVE and then settling into the screen
-  const FLY_FROM = 0.374, FLY_STEP = 0.0145, FLY_LEN = 0.17, ARRIVE = 0.86;
-  // then the tools beat: the four tool tiles lift out of the screen one by one
-  const TOOL_FROM = 0.77, TOOL_STEP = 0.04, TOOL_LEN = 0.07;
+  const FLY_FROM = 0.326, FLY_STEP = 0.0126, FLY_LEN = 0.148, ARRIVE = 0.86;
+  // then the iPad lifts out of its pocket and comes front and centre while the
+  // folder closes behind it and settles as its backdrop
+  const LIFT_PX = 46; // how far it slides up the page to clear the pocket
+  // and finally the tools: the four tool tiles lift out of the screen one by one
+  const TOOL_FROM = 0.77, TOOL_STEP = 0.045, TOOL_LEN = 0.08, TOOL_POP = 1.8;
+  const pageIpad = document.getElementById('pageIpad');
+  const stageIpad = document.getElementById('stageIpad');
+  const IPAD_RATIO = IPAD.w / IPAD.h, BACKDROP = 1.18; // the folder's height ÷ the iPad's
   const smooth = t => t * t * (3 - 2 * t);
 
   function frame() {
@@ -656,18 +689,18 @@
 
     header.classList.toggle('scrolled', window.scrollY > 8);
 
-    const a = seg(p, 0.00, 0.153); // straighten + centre
-    const o = seg(p, 0.153, 0.357); // open the cover
-    const on = seg(p, 0.34, 0.40); // the iPad wakes
-    const c = seg(p, 0.94, 0.99); // caption
+    const a = seg(p, 0.00, 0.133); // straighten + centre
+    const o = seg(p, 0.133, 0.311); // open the cover
+    const on = seg(p, 0.296, 0.348); // the iPad wakes
+    const lf = seg(p, 0.62, 0.655); // the iPad slides up out of the pocket
+    const fw = seg(p, 0.655, 0.735); // …and comes front and centre
+    const cl = seg(p, 0.665, 0.735); // the cover closes behind it
+    const bd = seg(p, 0.69, 0.765); // the closed folder settles as the backdrop
+    const c = seg(p, 0.90, 0.97); // caption
 
     // scales
     const closedS = Math.min(1.05, (vh * 0.66) / FH, (vw - 48) / FW);
     const openS = Math.min(closedS, (vw - 2 * (narrow ? 16 : 48)) / (FW * 2), (vh * (narrow ? 0.5 : 0.6)) / FH);
-    // on a phone the open spread is tiny, so once the pocket is empty the camera
-    // moves in on the right-hand page (on a desktop it already reads well)
-    const pageS = Math.min((vw - 32) / FW, (vh * 0.58) / FH);
-    const zm = pageS > openS * 1.25 ? seg(p, 0.70, 0.78) : 0;
 
     // start pose (tilted, partly off the right edge like an object on the table)
     let sx, sy, sr, ss;
@@ -687,27 +720,68 @@
     // middle pose (centred, closed)
     const mx = vw / 2, my = vh * (narrow ? 0.46 : 0.47);
 
+    // the open spread (where the folder sits until the iPad leaves)
     const spreadS = lerp(lerp(ss, closedS, a), openS, o);
-    const s = lerp(spreadS, pageS, zm);
-    const r = lerp(sr, 0, a);
-    let cx = lerp(sx, mx, a);
-    let cy = lerp(sy, my, a);
-    cy = lerp(cy, vh * (narrow ? 0.44 : 0.45), o);
+    const spreadR = lerp(sr, 0, a);
+    let spreadX = lerp(sx, mx, a);
+    let spreadY = lerp(lerp(sy, my, a), vh * (narrow ? 0.44 : 0.45), o);
     // as the cover swings left, slide right so the spread stays centred
-    cx += (FW / 2) * o * spreadS;
-    cx = lerp(cx, vw / 2, zm);
-    cy = lerp(cy, vh * 0.40, zm);
+    spreadX += (FW / 2) * o * spreadS;
+
+    // the final still life: the iPad front and centre, the closed folder a little
+    // larger behind it, tilted like an object set down on the table. Sized so
+    // the folder and the caption under it fit the viewport together.
+    const top = 76, capH = cap.offsetHeight;
+    const iH = Math.min(vh * 0.62, (vh - top - 16 - 24 - capH) / BACKDROP, (vw - 48) / IPAD_RATIO,
+      (vw - 28) / (BACKDROP * FW / FH)); // the folder behind stays on screen too
+    const fH = iH * BACKDROP;
+    const fTop = top + Math.max(0, (vh - top - 16 - 24 - capH - fH) / 2);
+    const iX = vw / 2, iY = fTop + fH / 2 + iH * 0.03;
+    const backS = fH / FH;
+    const backX = iX - iH * 0.035, backY = fTop + fH / 2, backR = -4;
+
+    const s = lerp(spreadS, backS, bd);
+    const r = lerp(spreadR, backR, bd);
+    const cx = lerp(spreadX, backX, bd);
+    const cy = lerp(spreadY, backY, bd);
 
     // the cover is a board THICK deep: it rests on the page when closed and
     // sinks as it swings, so its inside lands exactly flat (z = 0) when open
-    const B = lerp(2 + THICK, -THICK, o);
-    leaf.style.transform = o >= 1 ? 'none' : `translateZ(${B}px) rotateY(${180 - 180 * o}deg) translateZ(${THICK}px)`;
+    const open = o * (1 - cl);
+    const B = lerp(2 + THICK, -THICK, open);
+    leaf.style.transform = open >= 1 ? 'none' : `translateZ(${B}px) rotateY(${180 - 180 * open}deg) translateZ(${THICK}px)`;
     // the inside corner brackets only show once the cover has swung open
-    rig.classList.toggle('is-open', o > 0.5);
+    rig.classList.toggle('is-open', open > 0.5);
     rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
-    cover.style.transform = `translateZ(${B}px) rotateY(${-180 * o}deg)`;
+    cover.style.transform = `translateZ(${B}px) rotateY(${-180 * open}deg)`;
+
+    // the iPad: up out of the pocket on the page, then handed to the stage layer
+    // at exactly the same spot, from where it travels to the centre, turning
+    // to face you as it comes
+    // (it stays just above the page, so the pocket keeps covering it until it's out)
+    const lifted = `translate3d(0, ${-LIFT_PX * lf}px, 1px) rotate(${IPAD.tilt}deg)`;
+    pageIpad.style.transform = lifted;
+    glow.style.transform = lifted;
+    const staged = fw > 0;
+    pageIpad.style.visibility = staged ? 'hidden' : '';
+    glow.style.visibility = staged ? 'hidden' : '';
+    stageIpad.style.visibility = staged ? 'visible' : 'hidden';
+    if (staged) {
+      // where the lifted page iPad's centre sits on screen (spread pose)
+      const rr = spreadR * Math.PI / 180;
+      const lx = IPAD.x + IPAD.w / 2 - FW / 2, ly = IPAD.y + IPAD.h / 2 - LIFT_PX - FH / 2;
+      const hx = spreadX + (lx * Math.cos(rr) - ly * Math.sin(rr)) * spreadS;
+      const hy = spreadY + (lx * Math.sin(rr) + ly * Math.cos(rr)) * spreadS;
+      const arc = Math.sin(Math.PI * fw);
+      const k = Math.pow(iH / IPAD.h / spreadS, fw) * spreadS;
+      stageIpad.style.transform =
+        `translate(${lerp(hx, iX, fw) - IPAD.w / 2}px, ${lerp(hy, iY, fw) - IPAD.h / 2 - 24 * arc}px) ` +
+        `perspective(1400px) rotate(${lerp(spreadR + IPAD.tilt, 0, fw)}deg) rotateY(${-14 * arc}deg) rotateX(${6 * arc}deg) scale(${k})`;
+      stageIpad.style.setProperty('--l', fw.toFixed(3));
+    }
 
     screenOff.style.opacity = String(1 - on);
+    pagePiano.style.opacity = String(on);
     glow.style.opacity = String(on);
 
     // each item slides up out of the pocket, lifts off the page (its shadow
@@ -736,21 +810,15 @@
       d.mask.style.opacity = String(1 - clamp((t - ARRIVE + 0.03) / 0.1));
     }
 
-    // the tools: each tile lifts out of the screen towards you, plays a moment of
-    // itself (keys, pendulum, drone, needle), then settles back into place
+    // the tools: on the big iPad, each tile lifts out of the screen towards you,
+    // plays a moment of itself (keys, pendulum, drone, needle), then settles back
     TOOLS.forEach((tool, i) => {
       const q = clamp((p - TOOL_FROM - i * TOOL_STEP) / TOOL_LEN);
       const lift = smooth(clamp(q / 0.3)) * (1 - smooth(clamp((q - 0.72) / 0.28)));
-      // the screenshot predates the piano icon going black, so that replica
-      // covers its tile for as long as the screen is on
-      const cover = tool.name === 'Piano' && on > 0;
-      const shown = (q > 0 && q < 1) || cover;
-      tool.el.style.visibility = shown ? 'visible' : 'hidden';
-      if (shown) {
-        place(tool.el, tool.cx, tool.cy, TILE_H, TILE_W, 1.5 + 80 * lift, IPAD.tilt, 0, 0, lerp(1 / POP, 1, lift));
-        tool.el.style.setProperty('--l', lift.toFixed(3));
-        tool.el.style.opacity = String(cover ? on : clamp(lift * 10));
-      }
+      const shown = (q > 0 && q < 1) || tool.name === 'Piano';
+      tool.el.style.visibility = shown ? 'inherit' : 'hidden';
+      setTile(tool.el, lerp(1, TOOL_POP, lift) / POP, lift);
+      tool.el.style.zIndex = lift > 0 ? 2 : 1;
       tool.el.classList.toggle('is-lit', lift > 0.55);
       tool.well.style.opacity = String(clamp(lift * 10));
     });
@@ -760,7 +828,7 @@
     copy.style.pointerEvents = p > 0.07 ? 'none' : '';
     hint.style.opacity = String(1 - seg(p, 0, 0.04));
 
-    const capTop = cy + (FH * s) / 2 + (narrow ? 28 : 40);
+    const capTop = lerp(spreadY + (FH * spreadS) / 2 + (narrow ? 28 : 40), fTop + fH + 24, bd);
     cap.style.top = `${capTop}px`;
     cap.style.opacity = String(c);
     cap.style.transform = `translateY(${(1 - c) * 16}px)`;
