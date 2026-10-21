@@ -524,7 +524,6 @@
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-  const easeOut = t => 1 - Math.pow(1 - t, 3);
   const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
   const FW = 450, FH = 600, THICK = 7; // board thickness, matches .edge in site.css
 
@@ -538,6 +537,10 @@
     const cx = IPAD.x + IPAD.w / 2, cy = IPAD.y + IPAD.h / 2, t = IPAD.tilt * Math.PI / 180;
     const dx = IPAD.x + IPAD.bezel + sx * K - cx, dy = IPAD.y + IPAD.bezel + sy * K - cy;
     return { x: cx + dx * Math.cos(t) - dy * Math.sin(t), y: cy + dx * Math.sin(t) + dy * Math.cos(t) };
+  };
+  const bez = (q, u) => {
+    const v = 1 - u, a = v * v * v, b = 3 * v * v * u, c = 3 * v * u * u, e = u * u * u;
+    return [a * q[0] + b * q[2] + c * q[4] + e * q[6], a * q[1] + b * q[3] + c * q[5] + e * q[7]];
   };
   // the home screen's Folders row and Recently opened row, in screenshot pixels;
   // the mask also covers the title under each tile
@@ -566,7 +569,7 @@
     if (d.folder) {
       el.className = 'mf-folder';
       el.style.setProperty('--c', d.color);
-      el.innerHTML = `<i class="mf-peek"></i><span class="mf-front"><span class="mf-label">${d.folder}</span></span>`;
+      el.innerHTML = `<i class="mf-peek"></i><span class="mf-front"><span class="mf-label">${d.folder}</span><i class="mf-card"></i></span>`;
     } else {
       el.className = 'mf-sheet';
       el.innerHTML = `<img src="assets/scores/${d.sheet}.webp" alt="" width="353" height="500" decoding="async">`;
@@ -580,8 +583,17 @@
     d.lift = Math.max(0, d.y + (d.h / 2) * Math.cos(a) + (d.w / 2) * Math.sin(a) - 452);
     const end = onScreen(d.slot.x + d.slot.w / 2, d.slot.y + d.slot.h / 2);
     d.ex = end.x; d.ey = end.y;
-    d.esx = d.slot.w * K / d.w; d.esy = d.slot.h * K / d.h;
+    // folders square up into app icons on the way, so both kinds land at one uniform scale
+    d.es = d.slot.w * K / d.w;
     d.order = MESS.length - 1 - k;
+    d.drop = 90 + 30 * (d.order % 3); // how steeply it drops into its slot
+    d.bank = d.order % 2 ? 5 : -4;    // a slight lean in the air, alternating
+    // the path: straight up out of the pocket, over the spine, then down into the
+    // slot from above (one cubic Bézier, so the motion never stops halfway)
+    d.p = [d.x - FW, d.y, d.x - FW, d.y - 1.6 * d.lift - 60, d.ex, d.ey - d.drop, d.ex, d.ey];
+    // where along the path it's clear of the pocket and can leave the page
+    d.uClear = 1;
+    for (let i = 1; i <= 200; i++) if (bez(d.p, i / 200)[1] <= d.y - d.lift) { d.uClear = i / 200; break; }
     d.inPocket = mess.appendChild(build(d));
     d.inFlight = flyers.appendChild(build(d));
     d.mask = document.createElement('i');
@@ -593,12 +605,14 @@
     });
     ipadScreen.insertBefore(d.mask, screenOff);
   });
-  const place = (el, d, x, y, z, r, sx, sy) => {
-    el.style.transform = `translate3d(${x - d.w / 2}px, ${y - d.h / 2}px, ${z}px) rotate(${r}deg) scale(${sx}, ${sy})`;
+  const place = (el, x, y, h, w, z, r, ry, rx, sc) => {
+    el.style.transform = `translate3d(${x - w / 2}px, ${y - h / 2}px, ${z}px) rotate(${r}deg) rotateY(${ry}deg) rotateX(${rx}deg) scale(${sc})`;
   };
 
-  // scroll timeline (0–1 across the hero)
-  const FLY_FROM = 0.44, FLY_STEP = 0.022, FLY_LEN = 0.16, LIFT = 0.2;
+  // scroll timeline (0–1 across the hero); each item's own 0–1 runs over FLY_LEN,
+  // arriving at ARRIVE and then settling into the screen
+  const FLY_FROM = 0.44, FLY_STEP = 0.017, FLY_LEN = 0.2, ARRIVE = 0.86;
+  const smooth = t => t * t * (3 - 2 * t);
 
   function frame() {
     const vw = document.documentElement.clientWidth;
@@ -663,24 +677,30 @@
     screenOff.style.opacity = String(1 - on);
     glow.style.opacity = String(on);
 
-    // each item slides up out of the pocket, then arcs over the spine and
-    // shrinks into its place on the home screen, which fills in as it lands
+    // each item slides up out of the pocket, lifts off the page (its shadow
+    // softening with height), arcs over the spine and drops into its slot on the
+    // home screen; a folder squares up into its app icon on the way down
     for (const d of MESS) {
       const t = o >= 1 ? clamp((p - FLY_FROM - d.order * FLY_STEP) / FLY_LEN) : 0;
-      const flying = t > LIFT;
-      if (flying) {
-        const u = ease((t - LIFT) / (1 - LIFT));
-        const arc = Math.sin(Math.PI * u);
-        place(d.inFlight, d,
-          lerp(d.x - FW, d.ex, u), lerp(d.y - d.lift, d.ey, u) - 70 * arc, 6 + 220 * arc,
-          lerp(d.r, IPAD.tilt, u), Math.pow(d.esx, u), Math.pow(d.esy, u));
-        d.inFlight.style.opacity = String(1 - clamp((u - 0.8) / 0.2));
-      } else {
-        place(d.inPocket, d, d.x, d.y - d.lift * easeOut(t / LIFT), 0, d.r, 1, 1);
-      }
+      const u = ease(clamp(t / ARRIVE));
+      const [x, y] = bez(d.p, u);
+      const air = Math.sin(Math.PI * clamp((u - 0.12) / 0.88));
+      const sc = Math.pow(d.es, smooth(clamp((u - 0.18) / 0.82)));
+      const r = lerp(d.r, IPAD.tilt, smooth(clamp(u / 0.75))) + d.bank * air;
+      const m = d.folder ? smooth(clamp((u - 0.5) / 0.42)) : 0;
+      const h = lerp(d.h, d.w, m);
+      const flying = u >= d.uClear;
+      const el = flying ? d.inFlight : d.inPocket;
+      const settle = clamp((t - ARRIVE) / (1 - ARRIVE));
+      if (flying) place(el, x, y, h, d.w, 4 + 170 * air, r, -10 * air, 7 * air, sc * (1 - 0.04 * settle));
+      else place(el, x + FW, y, h, d.w, 0, r, 0, 0, 1);
+      el.style.setProperty('--l', air.toFixed(3));
+      if (d.folder) { el.style.height = `${h}px`; el.style.setProperty('--m', m.toFixed(3)); }
+      d.inFlight.style.opacity = String(1 - settle);
       d.inPocket.style.visibility = flying ? 'hidden' : '';
       d.inFlight.style.visibility = flying ? 'visible' : 'hidden';
-      d.mask.style.opacity = String(1 - clamp((t - 0.84) / 0.14));
+      // the slot fills in underneath the item as it arrives; the item then dissolves
+      d.mask.style.opacity = String(1 - clamp((t - ARRIVE + 0.03) / 0.1));
     }
 
     copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.1 : 0.12));
