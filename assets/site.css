@@ -349,7 +349,7 @@ p { margin: 0 0 16px; }
 .is-lit .ti-piano .k2 { animation-delay: .2s; }
 .is-lit .ti-piano .k3 { animation-delay: .4s; }
 .is-lit .ti-piano .k4 { animation-delay: .6s; }
-@keyframes mf-key { 0%, 16% { fill: #F2812E; } 30%, 100% { fill: #FFFFFF; } }
+@keyframes mf-key { 0%, 16% { fill: #C9C5BE; } 30%, 100% { fill: #FFFFFF; } } /* a pressed key shades grey */
 /* metronome: the pendulum swings (♩ = 120) */
 .ti-metro { stroke: #E8823A; }
 .ti-metro .body { fill: rgba(232,130,58,0.10); }
