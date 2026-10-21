@@ -501,6 +501,8 @@ p { margin: 0 0 16px; }
 section { position: relative; }
 .section { padding: var(--section-gap) 0; }
 .section-head { max-width: 680px; margin-bottom: 64px; }
+/* the features follow straight on from the hero's closing line, which introduces them */
+.section.story { padding-top: calc(var(--section-gap) / 2); }
 .section-head p { color: var(--graphite); margin-top: 20px; }
 
 
