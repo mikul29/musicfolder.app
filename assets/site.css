@@ -329,29 +329,30 @@ p { margin: 0 0 16px; }
 .ipad-stage { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
 .stage-ipad {
   left: 0; top: 0; visibility: hidden; will-change: transform;
-  /* --l: 0 at the hand-off → 1 front and centre: a deeper shadow and the app's warm light */
+  /* --l: 0 at the hand-off → 1 front and centre: a deeper shadow */
   box-shadow:
     0 0 0 1.5px #3A3A3C, inset 0 0 0 1px #000,
     0 calc(18px + 40px * var(--l, 0)) calc(30px + 70px * var(--l, 0)) calc(-12px - 8px * var(--l, 0)) rgba(0,0,0,calc(0.7 - 0.25 * var(--l, 0))),
-    0 0 calc(70px * var(--l, 0)) calc(4px * var(--l, 0)) rgba(242,129,46,calc(0.18 * var(--l, 0)));
+    0 0 70px 6px rgba(242,129,46,0.22); /* the same warm light it had on the page, so the hand-off is seamless */
 }
 /* the tool tiles sit over the screen, in a layer that doesn't clip a lifted tile */
 .ipad-tools { position: absolute; left: 14px; top: 14px; width: 312px; height: 416px; }
-.ipad-tools .tool-pop { visibility: inherit; }
 
 /* ---- the tools beat: replicas of the Today screen's tool tiles ----
    built at 2.3× the on-screen tile (crisp when lifted), --l: 0 resting → 1 lifted */
 .tool-pop {
   position: absolute; left: 0; top: 0; width: 141px; height: 88px; will-change: transform;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
-  background: #FFFFFF; border-radius: 15px; visibility: hidden;
+  background: #FFFFFF; border-radius: 15px;
   box-shadow:
     0 0 0 calc(1.5px * var(--l, 0)) rgba(242,129,46,0.55),
     0 calc(4px + 22px * var(--l, 0)) calc(10px + 40px * var(--l, 0)) -12px rgba(0,0,0,calc(0.25 + 0.35 * var(--l, 0)));
 }
-.tool-pop span { font: 600 12.5px/1 -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); color: #1A1815; letter-spacing: -0.01em; }
-.tool-pop svg { width: 34px; height: 34px; overflow: visible; }
-.tool-well { position: absolute; border-radius: 6%/9%; background: #ECE9E5; box-shadow: inset 0 1px 3px rgba(0,0,0,0.12); opacity: 0; }
+.tool-pop span {
+  position: absolute; left: 0; right: 0; top: 50.5px; text-align: center;
+  font: 600 10.9px/12px -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); color: #1A1815; letter-spacing: -0.01em;
+}
+/* icon and label sit where the app puts them (centres at 38% and 64% of the tile) */
+.tool-pop svg { position: absolute; left: 58px; top: 20.7px; width: 25px; height: 25px; overflow: visible; }
 .ti { fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 /* piano: three keys pressed in turn, a rising arpeggio */
 .ti-piano { stroke: #1A1815; } /* the app draws this one in primary text, not a gradient */
@@ -366,7 +367,8 @@ p { margin: 0 0 16px; }
 @keyframes mf-key { 0%, 16% { fill: #C9C5BE; } 30%, 100% { fill: #FFFFFF; } } /* a pressed key shades grey */
 /* metronome: the pendulum swings (♩ = 120) */
 .ti-metro { stroke: #E8823A; }
-.ti-metro .body { fill: rgba(232,130,58,0.10); }
+.ti-metro { stroke-width: 1.4; }
+.ti-metro .body { fill: none; }
 .ti-metro .arm { transform-origin: 12px 17.2px; transform: rotate(18deg); }
 .ti-metro .arm circle { fill: #E8823A; stroke: none; }
 .is-lit .ti-metro .arm { animation: mf-swing .5s cubic-bezier(.45,0,.55,1) infinite alternate; }
@@ -416,15 +418,30 @@ p { margin: 0 0 16px; }
   background: #F1822F; color: #FFFFFF; font-size: 9px; font-weight: 600; line-height: 26px; font-style: normal; text-align: center;
   opacity: var(--m, 0);
 }
-/* the practice ring on the woken screen (drawn over the screenshot's own ring) */
-.streak { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.streak circle { fill: none; }
-.streak .track { stroke: #FBE7D8; stroke-width: 7; }
-.streak .fill { stroke: #ED8335; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transform: rotate(-90deg); transform-origin: 433px 181px; }
-.streak .hide { fill: #FDFBF9; }
-.streak .day { transform-box: fill-box; transform-origin: center; transform: scale(0); }
-.streak .day circle { fill: #ED8335; }
-.streak .day text { fill: #FFFFFF; font: 700 6.5px -apple-system, BlinkMacSystemFont, sans-serif; text-anchor: middle; }
+
+/* the Today screen's practice card, rebuilt crisp in screenshot pixels (276 × 84)
+   and scaled down onto the screen; --d on a done day: 0 → 1 as it ticks in */
+.streak-card {
+  position: absolute; width: 276px; height: 84px; transform-origin: 0 0;
+  background: #FFFFFF; border-radius: 12px; color: #1A1815;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text);
+}
+.streak-card .ring { position: absolute; left: 0; top: 0; width: 84px; height: 84px; }
+.streak-card .ring circle { fill: none; stroke-width: 4.6; }
+.streak-card .track { stroke: #FCE6D6; }
+.streak-card .fill { stroke: #ED8335; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 42px 42px; }
+.streak-card .mins { position: absolute; left: 0; top: 29.5px; width: 84px; text-align: center; font-size: 14.5px; line-height: 15px; font-weight: 700; }
+.streak-card .mins small { display: block; margin-top: 1px; font-size: 6.5px; line-height: 8px; font-weight: 500; color: #8C8A85; }
+.streak-card strong { position: absolute; left: 79px; top: 16.5px; font-size: 14px; line-height: 16px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
+.streak-card strong span { font-size: 12px; }
+.streak-card p { position: absolute; left: 79px; top: 37.5px; margin: 0; font-size: 7.5px; line-height: 9px; color: #8C8A85; white-space: nowrap; }
+.streak-card ol { position: absolute; left: 78px; top: 52.5px; display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.streak-card li { width: 15px; height: 15px; border-radius: 50%; background: #EFEDE9; color: #8E8C86; font-size: 6.5px; line-height: 15px; font-weight: 700; text-align: center; }
+.streak-card li.done { position: relative; background: #EFEDE9; color: transparent; }
+.streak-card li.done::after {
+  content: attr(data-d); position: absolute; inset: 0; border-radius: 50%; background: #ED8335; color: #FFFFFF;
+  transform: scale(var(--d, 1));
+}
 
 .pocket, .pocket-right {
   position: absolute; left: 0; right: 0; bottom: 0; height: 140px;

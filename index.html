@@ -181,19 +181,9 @@
         <div class="ipad" id="pageIpad">
           <div class="ipad-screen" id="ipadScreen">
             <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
-            <!-- the practice ring fills and the week's days tick in as the screen wakes -->
-            <svg class="streak" viewBox="0 0 686 915" preserveAspectRatio="none" aria-hidden="true">
-              <circle class="track" cx="433" cy="181" r="24"/>
-              <circle class="fill" cx="433" cy="181" r="24" pathLength="100"/>
-              <g class="days"><circle class="hide" cx="479" cy="200" r="7.5"/><circle class="hide" cx="498" cy="200" r="7.5"/><circle class="hide" cx="517" cy="200" r="7.5"/>
-                <g class="day"><circle cx="479" cy="200" r="6"/><text x="479" y="202.4">S</text></g>
-                <g class="day"><circle cx="498" cy="200" r="6"/><text x="498" y="202.4">M</text></g>
-                <g class="day"><circle cx="517" cy="200" r="6"/><text x="517" y="202.4">T</text></g></g>
-            </svg>
             <!-- each slot stays blank until its folder or score lands in it -->
             <div class="ipad-off" id="ipadOff"></div>
           </div>
-          <div class="ipad-tools" id="pageTools"></div>
         </div>
         <div class="pocket-right"><svg class="stitch" viewBox="0 0 450 140" aria-hidden="true"><path d="M6 10.4L438 39.2"/></svg></div>
         <svg class="stitch" viewBox="0 0 450 600" aria-hidden="true"><path d="M6 12h428a4 4 0 0 1 4 4v568a4 4 0 0 1-4 4H6z"/></svg>
@@ -225,14 +215,6 @@
       <div class="ipad stage-ipad" id="stageIpad">
         <div class="ipad-screen" id="stageScreen">
           <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
-          <svg class="streak" viewBox="0 0 686 915" preserveAspectRatio="none" aria-hidden="true">
-              <circle class="track" cx="433" cy="181" r="24"/>
-              <circle class="fill" cx="433" cy="181" r="24" pathLength="100"/>
-              <g class="days"><circle class="hide" cx="479" cy="200" r="7.5"/><circle class="hide" cx="498" cy="200" r="7.5"/><circle class="hide" cx="517" cy="200" r="7.5"/>
-                <g class="day"><circle cx="479" cy="200" r="6"/><text x="479" y="202.4">S</text></g>
-                <g class="day"><circle cx="498" cy="200" r="6"/><text x="498" y="202.4">M</text></g>
-                <g class="day"><circle cx="517" cy="200" r="6"/><text x="517" y="202.4">T</text></g></g>
-            </svg>
         </div>
         <div class="ipad-tools" id="stageTools"></div>
       </div>
@@ -614,6 +596,17 @@
     }
     return el;
   };
+  // a blank over one home-screen slot until its item lands
+  function slotMask(slot) {
+    const el = ipadScreen.insertBefore(document.createElement('i'), screenOff);
+    el.className = 'slot-mask';
+    const [mx, my, mw, mh] = slot.mask;
+    Object.assign(el.style, {
+      left: `${(slot.x + mx) / SHOT_W * 100}%`, top: `${(slot.y + my) / SHOT_H * 100}%`,
+      width: `${mw / SHOT_W * 100}%`, height: `${mh / SHOT_H * 100}%`,
+    });
+    return el;
+  }
   MESS.forEach((d, k) => {
     [d.w, d.h] = SIZE[d.setlist ? 'setlist' : d.folder ? 'folder' : 'sheet'];
     // the height it ends at: folders square up, the set list turns into a landscape card
@@ -636,15 +629,14 @@
     for (let i = 1; i <= 200; i++) if (bez(d.p, i / 200)[1] <= d.y - d.lift) { d.uClear = i / 200; break; }
     d.inPocket = mess.appendChild(build(d));
     d.inFlight = flyers.appendChild(build(d));
-    d.mask = document.createElement('i');
-    d.mask.className = 'slot-mask';
-    const [mx, my, mw, mh] = d.slot.mask;
-    Object.assign(d.mask.style, {
-      left: `${(d.slot.x + mx) / SHOT_W * 100}%`, top: `${(d.slot.y + my) / SHOT_H * 100}%`,
-      width: `${mw / SHOT_W * 100}%`, height: `${mh / SHOT_H * 100}%`,
-    });
-    ipadScreen.insertBefore(d.mask, screenOff);
+    d.mask = slotMask(d.slot);
   });
+  // the last tile of each row runs off the screen's edge and has no paper twin:
+  // it fades in just after the tile beside it fills, as if the shelf runs on
+  const TRAIL = [
+    { mask: slotMask(folderSlot(6)), after: MESS.find(d => d.folder === 'Orchestra') },
+    { mask: slotMask(scoreSlot(6)), after: MESS.find(d => d.sheet === 'holmes') },
+  ];
   // the Today screen's four tool tiles (screenshot pixels: centre; each 135 × 84).
   // Each gets a crisp replica built at its lifted size, POP × the tile, so it
   // never blurs when it rises; at rest it is scaled down to sit exactly on the tile.
@@ -660,36 +652,46 @@
     { name: 'Tuner', x: 605, y: 371, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-tuner"><g class="fork"><path d="M5 19.5l5.5-5.5M10.5 14l6-6.5M10.5 14l2.5 2.5 6-6"/><circle cx="4.6" cy="19.9" r="1.2"/></g><g class="gauge"><path class="scale" d="M4.5 16a8 8 0 0 1 15 0"/><path class="mark" d="M12 6.6v2.2"/><path class="needle" d="M12 18.5V9.5"/><circle cx="12" cy="18.5" r="1.4"/></g></svg>` },
   ];
-  // the tiles live in a layer the size of the screen (312 × 416 inside the bezel);
-  // the screenshot predates the piano icon going black, so its replica always
-  // covers that tile in both iPads
-  const pageTools = document.getElementById('pageTools');
+  // The Today screen's live parts are rebuilt crisp over the low-res screenshot,
+  // exactly covering their originals: the four tool tiles (built at their lifted
+  // size, POP × the tile, so they stay sharp when they rise; the app's piano icon
+  // is also newer than the screenshot) and the practice card, whose ring fills.
+  // Coordinates are screen-local px (312 × 416), i.e. screenshot px × K.
   const stageTools = document.getElementById('stageTools');
   const stageScreen = document.getElementById('stageScreen');
-  let pagePiano;
-  const tile = (layer, tool, sc) => {
-    const el = layer.appendChild(document.createElement('div'));
+  const tile = (layer, tool, before) => {
+    const el = layer.insertBefore(document.createElement('div'), before || null);
     el.className = 'tool-pop';
     el.innerHTML = `${tool.icon}<span>${tool.name}</span>`;
     el.dataset.x = tool.x * K; el.dataset.y = tool.y * K;
-    setTile(el, sc, 0);
+    setTile(el, 1 / POP, 0);
     return el;
   };
   const setTile = (el, sc, l) => {
     el.style.transform = `translate(${el.dataset.x - TILE_W / 2}px, ${el.dataset.y - TILE_H / 2}px) scale(${sc})`;
     el.style.setProperty('--l', l.toFixed(3));
   };
+  // on the page iPad they sit under the dark glass, so they wake with the screen;
+  // on the stage iPad they sit in a layer that doesn't clip a lifted tile
   TOOLS.forEach(tool => {
-    if (tool.name === 'Piano') pagePiano = tile(pageTools, tool, 1 / POP);
-    tool.el = tile(stageTools, tool, 1 / POP);
-    // the recess the tile leaves in the screen while it's lifted out
-    tool.well = stageScreen.appendChild(document.createElement('i'));
-    tool.well.className = 'tool-well';
-    Object.assign(tool.well.style, {
-      left: `${(tool.x - 67.5) / SHOT_W * 100}%`, top: `${(tool.y - 42) / SHOT_H * 100}%`,
-      width: `${135 / SHOT_W * 100}%`, height: `${84 / SHOT_H * 100}%`,
-    });
+    tile(ipadScreen, tool, screenOff);
+    tool.el = tile(stageTools, tool);
   });
+  const STREAK = { x: 394, y: 140 }; // the card's top-left (it is 276 × 84)
+  const streakCard = (screen, before) => {
+    const el = screen.insertBefore(document.createElement('div'), before || null);
+    el.className = 'streak-card';
+    Object.assign(el.style, { left: `${STREAK.x * K}px`, top: `${STREAK.y * K}px`, transform: `scale(${K})` });
+    el.innerHTML = '<svg class="ring" viewBox="0 0 84 84"><circle class="track" cx="42" cy="42" r="26.2"/>' +
+      '<circle class="fill" cx="42" cy="42" r="26.2" pathLength="100"/></svg>' +
+      '<b class="mins">42<small>/ 30 min</small></b><strong>Two weeks strong <span>🔥</span></strong>' +
+      '<p>Goal complete · 42 of 30 min today</p>' +
+      `<ol>${[...'SMTWTFS'].map((d, i) => i < 3 ? `<li class="done" data-d="${d}">${d}</li>` : `<li>${d}</li>`).join('')}</ol>`;
+    return el;
+  };
+  const streaks = [streakCard(ipadScreen, screenOff), streakCard(stageScreen)];
+  const ringFills = streaks.map(el => el.querySelector('.fill'));
+  const doneDays = streaks.map(el => [...el.querySelectorAll('.done')]);
 
   const place = (el, x, y, h, w, z, r, ry, rx, sc) => {
     el.style.transform = `translate3d(${x - w / 2}px, ${y - h / 2}px, ${z}px) rotate(${r}deg) rotateY(${ry}deg) rotateX(${rx}deg) scale(${sc})`;
@@ -704,8 +706,6 @@
   // and finally the tools: the four tool tiles lift out of the screen one by one
   const TOOL_FROM = 0.785, TOOL_STEP = 0.045, TOOL_LEN = 0.08, TOOL_POP = 1.8;
   const pageIpad = document.getElementById('pageIpad');
-  const streakFills = [...document.querySelectorAll('.streak .fill')];
-  const days = [...document.querySelectorAll('.streak .day')];
   const stageIpad = document.getElementById('stageIpad');
   const IPAD_RATIO = IPAD.w / IPAD.h, BACKDROP = 1.18; // the folder's height ÷ the iPad's
   const smooth = t => t * t * (3 - 2 * t);
@@ -811,11 +811,11 @@
     }
 
     screenOff.style.opacity = String(1 - on);
-    pagePiano.style.opacity = String(on);
     // once the iPad is front and centre, the practice ring fills to its goal and
     // the week's three days tick in (the screen's first sign of life, before the tools)
-    streakFills.forEach(f => { f.style.strokeDashoffset = String(100 * (1 - seg(p, 0.748, 0.778))); });
-    days.forEach((g, i) => { const k = i % 3; g.style.transform = `scale(${seg(p, 0.772 + k * 0.006, 0.782 + k * 0.006)})`; });
+    const ring = seg(p, 0.748, 0.778);
+    ringFills.forEach(f => { f.style.strokeDashoffset = String(100 * (1 - ring)); });
+    doneDays.forEach(ds => ds.forEach((li, k) => { li.style.setProperty('--d', seg(p, 0.772 + k * 0.006, 0.782 + k * 0.006).toFixed(3)); }));
     glow.style.opacity = String(on);
 
     // each item slides up out of the pocket, lifts off the page (its shadow
@@ -842,19 +842,18 @@
       d.inFlight.style.visibility = flying ? 'visible' : 'hidden';
       // the slot fills in underneath the item as it arrives; the item then dissolves
       d.mask.style.opacity = String(1 - clamp((t - ARRIVE + 0.03) / 0.1));
+      d.t = t;
     }
+    for (const tr of TRAIL) tr.mask.style.opacity = String(1 - clamp((tr.after.t - 0.9) / 0.1));
 
     // the tools: on the big iPad, each tile lifts out of the screen towards you,
     // plays a moment of itself (keys, pendulum, drone, needle), then settles back
     TOOLS.forEach((tool, i) => {
       const q = clamp((p - TOOL_FROM - i * TOOL_STEP) / TOOL_LEN);
       const lift = smooth(clamp(q / 0.3)) * (1 - smooth(clamp((q - 0.72) / 0.28)));
-      const shown = (q > 0 && q < 1) || tool.name === 'Piano';
-      tool.el.style.visibility = shown ? 'inherit' : 'hidden';
       setTile(tool.el, lerp(1, TOOL_POP, lift) / POP, lift);
       tool.el.style.zIndex = lift > 0 ? 2 : 1;
       tool.el.classList.toggle('is-lit', lift > 0.55);
-      tool.well.style.opacity = String(clamp(lift * 10));
     });
 
     copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.1 : 0.12));
