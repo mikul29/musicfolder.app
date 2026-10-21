@@ -342,11 +342,11 @@ p { margin: 0 0 16px; }
 /* piano: three keys pressed in turn, a rising arpeggio */
 .ti-piano { stroke: #C7865A; }
 .ti-piano .k { fill: #FFFFFF; stroke: none; }
-.ti-piano .b { fill: #C7865A; stroke: none; }
+.ti-piano .b { fill: #1A1815; stroke: none; }
 .is-lit .ti-piano .k { animation: mf-key 1.2s ease-out infinite; }
 .is-lit .ti-piano .k2 { animation-delay: .2s; }
 .is-lit .ti-piano .k3 { animation-delay: .4s; }
-@keyframes mf-key { 0%, 30% { fill: #F2812E; } 55%, 100% { fill: #FFFFFF; } }
+@keyframes mf-key { 0%, 16% { fill: #F2812E; } 30%, 100% { fill: #FFFFFF; } }
 /* metronome: the pendulum swings (♩ = 120) */
 .ti-metro { stroke: #E8823A; }
 .ti-metro .body { fill: rgba(232,130,58,0.10); }
