@@ -164,3 +164,45 @@ ol.how { margin: 0; padding: 0; }
 
 /* a closing call to action with no line under the heading keeps its breathing room */
 .final .heading + .cta-row { margin-top: 32px; }
+
+/* ---------- Feature pages ---------- */
+/* keys a page-turner pedal can send */
+.keys-card { width: 100%; max-width: 400px; display: grid; gap: 22px; padding: 28px; border-radius: var(--radius-card); background: var(--card); border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.kc-head { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); margin-bottom: 12px; }
+.kc-keys { display: flex; flex-wrap: wrap; gap: 8px; }
+.keys-card kbd {
+  min-width: 44px; height: 44px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center;
+  font: 500 15px/1 var(--font-text); color: var(--ink); background: var(--manuscript);
+  border: 1px solid var(--staff-line); border-bottom-width: 3px; border-radius: 10px;
+}
+/* free sheet music: real first pages */
+.score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
+.score-card { margin: 0; }
+.sc-page { aspect-ratio: 353 / 500; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px var(--staff-line), 0 14px 28px -14px rgba(20,20,20,0.35); transition: transform .3s ease; }
+.sc-page img { width: 100%; height: 100%; object-fit: cover; }
+.score-card:hover .sc-page { transform: translateY(-3px); }
+.score-card figcaption { margin-top: 16px; display: grid; gap: 2px; }
+.score-card .sc-tag { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--deep-amber); margin-bottom: 4px; }
+.score-card b { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.15; color: var(--folder-black); }
+.score-card span { font-size: 15px; color: var(--ink); }
+.score-card small { font-size: 13px; color: var(--graphite); }
+@media (max-width: 960px) { .score-grid { grid-template-columns: repeat(2, 1fr); } }
+.score-stack { position: relative; width: min(340px, 78%); aspect-ratio: 353 / 500; }
+.score-stack img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 6px; background: #fff; box-shadow: 0 0 0 1px var(--staff-line), 0 20px 40px -18px rgba(20,20,20,0.4); }
+.score-stack img:nth-child(1) { transform: rotate(-7deg) translate(-14%, 2%); }
+.score-stack img:nth-child(2) { transform: rotate(5deg) translate(12%, -1%); }
+.score-single { width: min(300px, 80%); aspect-ratio: 353 / 500; }
+.score-single img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; background: #fff; box-shadow: 0 0 0 1px var(--staff-line), 0 20px 40px -18px rgba(20,20,20,0.4); }
+.count-card { width: 100%; max-width: 380px; padding: 28px; border-radius: var(--radius-card); background: var(--card); border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.cc-title { font-family: var(--font-display); font-size: 28px; line-height: 1.1; color: var(--folder-black); margin-bottom: 12px; }
+.count-card ul { list-style: none; margin: 0; padding: 0; }
+.count-card li { display: flex; justify-content: space-between; padding: 11px 0; border-top: 1px solid var(--staff-line); font-size: 16px; }
+.count-card li b { font-weight: 600; }
+.cc-foot { margin-top: 12px; font-size: 13px; color: var(--graphite); }
+/* files you can send */
+.file-card { width: 100%; max-width: 400px; padding: 12px 28px 24px; border-radius: var(--radius-card); background: var(--card); border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.fc-row { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--staff-line); }
+.fc-row svg { flex: none; width: 30px; height: 30px; color: var(--folder-black); }
+.fc-row b { display: block; font-weight: 600; font-size: 16px; }
+.fc-row span { display: block; font-size: 13px; color: var(--graphite); }
+.fc-foot { margin-top: 14px; font-size: 13px; color: var(--graphite); }

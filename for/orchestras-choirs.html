@@ -121,8 +121,8 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=34">
-<link rel="stylesheet" href="/assets/pages.css?v=7">
+<link rel="stylesheet" href="/assets/site.css?v=36">
+<link rel="stylesheet" href="/assets/pages.css?v=8">
 </head>
 <body>
 
@@ -133,7 +133,19 @@
       Music Folder
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="/#features">Features</a>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-features">
+          <ul>
+            <li><a href="/features/set-lists"><b>Set lists</b></a></li>
+            <li><a href="/features/page-turner"><b>Page turner</b></a></li>
+            <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/sharing"><b>Sharing</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
+          </ul>
+          <a class="nav-pop-pc" href="/#features"><b>All features</b><span>The whole app at a glance.</span></a>
+        </div>
+      </div>
       <div class="nav-group is-current">
         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-who">Who it's for <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
         <div class="nav-pop" id="nav-who">
@@ -156,7 +168,15 @@
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
       </summary>
       <div class="menu-panel">
-        <a href="/#features">Features</a>
+        <div class="menu-group" role="group" aria-labelledby="menu-features">
+          <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/set-lists">Set lists</a>
+          <a href="/features/page-turner">Page turner</a>
+          <a href="/features/annotation">Annotation</a>
+          <a href="/features/sharing">Sharing</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
+          <a href="/#features">All features</a>
+        </div>
         <div class="menu-group" role="group" aria-labelledby="menu-who">
           <span class="menu-label" id="menu-who">Who it's for</span>
           <a href="/for/bands">Bands</a>
@@ -279,6 +299,16 @@
         </ul>
       </div>
       <div>
+        <h4>Features</h4>
+        <ul>
+          <li><a href="/features/set-lists">Set lists</a></li>
+          <li><a href="/features/page-turner">Page turner</a></li>
+          <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/sharing">Sharing</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
+        </ul>
+      </div>
+      <div>
         <h4>Who it's for</h4>
         <ul>
           <li><a href="/for/bands">Bands</a></li>
@@ -321,6 +351,6 @@
   menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
 })();
 </script>
-<script src="/assets/site.js?v=4" defer></script>
+<script src="/assets/site.js?v=5" defer></script>
 </body>
 </html>

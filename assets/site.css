@@ -538,7 +538,7 @@ a.who-card:hover h3 { color: var(--deep-amber); }
   /* the last letter's tracking would leave a gap on the right */
   margin-right: -0.2em; display: block; width: max-content;
 }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 32px; }
+.footer-grid { display: grid; grid-template-columns: 2fr repeat(5, 1fr); gap: 32px; }
 .footer-grid h4 { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #99999E; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .footer-grid a { color: #FBFAF8; text-decoration: none; font-size: 15px; }
@@ -630,3 +630,7 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .menu-group { display: grid; padding: 4px 0; margin: 4px 0; border-top: 1px solid var(--staff-line); border-bottom: 1px solid var(--staff-line); }
 .menu-label { padding: 10px 14px 4px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); }
 .menu-panel a[aria-current="page"] { color: var(--deep-amber); }
+
+#nav-features .nav-pop-pc span { padding-left: 0; }
+.menu-panel > .menu-group:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+.menu-group + .menu-group { border-top: 0; margin-top: 0; }

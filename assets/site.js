@@ -71,43 +71,47 @@
   }
 })();
 
-/* ---------- Primary nav: "Who it's for" menu ---------- */
+/* ---------- Primary nav: disclosure menus (Features, Who it's for) ---------- */
 (() => {
-  const group = document.querySelector('.nav-group');
-  if (!group) return;
-  const trigger = group.querySelector('.nav-trigger');
-  const links = () => [...group.querySelectorAll('.nav-pop a')];
-  let closeTimer = 0;
   const hover = window.matchMedia('(hover: hover) and (pointer: fine)');
-  const setOpen = open => {
-    clearTimeout(closeTimer);
-    group.classList.toggle('is-open', open);
-    trigger.setAttribute('aria-expanded', String(open));
-  };
-  // a mouse click on a menu that hovering already opened keeps it open;
-  // Enter / Space (a click with no pointer detail) toggles it
-  trigger.addEventListener('click', e => {
-    const open = trigger.getAttribute('aria-expanded') === 'true';
-    setOpen(e.detail > 0 && hover.matches ? true : !open);
-  });
-  trigger.addEventListener('keydown', e => {
-    if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); links()[0].focus(); }
-  });
-  group.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && group.classList.contains('is-open')) { setOpen(false); trigger.focus(); }
-    if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && e.target !== trigger) {
-      const l = links(), i = l.indexOf(document.activeElement);
-      if (i < 0) return;
-      e.preventDefault();
-      l[(i + (e.key === 'ArrowDown' ? 1 : l.length - 1)) % l.length].focus();
-    }
-  });
-  // leaving the menu with Tab, or clicking anywhere else, closes it
-  group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setOpen(false); });
-  document.addEventListener('click', e => { if (!group.contains(e.target)) setOpen(false); });
-  // with a mouse, hovering opens it (a short grace period before closing)
-  group.addEventListener('mouseenter', () => { if (hover.matches) setOpen(true); });
-  group.addEventListener('mouseleave', () => {
-    if (hover.matches) { clearTimeout(closeTimer); closeTimer = setTimeout(() => setOpen(false), 140); }
+  const groups = [...document.querySelectorAll('.nav-group')];
+  const closeOthers = keep => groups.forEach(g => { if (g !== keep && g._setOpen) g._setOpen(false); });
+  groups.forEach(group => {
+    const trigger = group.querySelector('.nav-trigger');
+    const links = () => [...group.querySelectorAll('.nav-pop a')];
+    let closeTimer = 0;
+    const setOpen = open => {
+      clearTimeout(closeTimer);
+      if (open) closeOthers(group);
+      group.classList.toggle('is-open', open);
+      trigger.setAttribute('aria-expanded', String(open));
+    };
+    group._setOpen = setOpen;
+    // a mouse click on a menu that hovering already opened keeps it open;
+    // Enter / Space (a click with no pointer detail) toggles it
+    trigger.addEventListener('click', e => {
+      const open = trigger.getAttribute('aria-expanded') === 'true';
+      setOpen(e.detail > 0 && hover.matches ? true : !open);
+    });
+    trigger.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); links()[0].focus(); }
+    });
+    group.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && group.classList.contains('is-open')) { setOpen(false); trigger.focus(); }
+      if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && e.target !== trigger) {
+        const l = links(), i = l.indexOf(document.activeElement);
+        if (i < 0) return;
+        e.preventDefault();
+        l[(i + (e.key === 'ArrowDown' ? 1 : l.length - 1)) % l.length].focus();
+      }
+    });
+    // leaving the menu with Tab, or clicking anywhere else, closes it
+    group.addEventListener('focusout', e => { if (!group.contains(e.relatedTarget)) setOpen(false); });
+    document.addEventListener('click', e => { if (!group.contains(e.target)) setOpen(false); });
+    // with a mouse, hovering opens it (a short grace period before closing)
+    group.addEventListener('mouseenter', () => { if (hover.matches) setOpen(true); });
+    group.addEventListener('mouseleave', () => {
+      if (hover.matches) { clearTimeout(closeTimer); closeTimer = setTimeout(() => setOpen(false), 140); }
+    });
   });
 })();
