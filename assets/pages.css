@@ -253,3 +253,69 @@ ol.how { margin: 0; padding: 0; }
 /* in the pinned stage the frame's height is fixed, so a portrait screenshot fills it (no gap at the bottom) */
 .frame .device.phone.fit:not(.landscape) .screen,
 .frame .device.phone.fit:not(.landscape) .screen img { height: 100%; }
+
+/* ---------- 404 ---------- */
+.nf-code { margin: 0 0 18px; font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--deep-amber); }
+.nf-hero .cta-row .btn { padding: 13px 26px; }
+.nf-folder { position: relative; width: min(280px, 66%); aspect-ratio: 450 / 600; margin-right: 14%; }
+.nf-cover {
+  position: absolute; inset: 0; border-radius: 6px 10px 10px 6px; transform: rotate(-4deg);
+  background: radial-gradient(140% 100% at 0% 0%, rgba(255,255,255,0.08), transparent 55%), #141414;
+  box-shadow: 0 30px 60px -22px rgba(20,20,20,0.5), inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+.nf-cover::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6%; border-radius: 6px 0 0 6px; background: linear-gradient(90deg, #0b0b0b, #191919 70%, #101010); }
+.nf-cover::after { content: ""; position: absolute; inset: 4% 4% 4% 10%; border: 1px dashed rgba(255,255,255,0.07); border-radius: 3px 8px 8px 3px; }
+.nf-deboss { position: absolute; left: 6%; right: 0; top: 36%; text-align: center; font: 600 clamp(11px, 1.3vw, 14px)/1 var(--font-text); letter-spacing: .32em; text-transform: uppercase; color: #2b2b2b; text-shadow: 0 -1px 0 rgba(0,0,0,0.95), 0 1px 0 rgba(255,255,255,0.15); }
+.nf-rule { position: absolute; left: calc(53% - 18px); top: calc(36% + 28px); width: 36px; height: 1px; background: #2b2b2b; box-shadow: 0 1px 0 rgba(255,255,255,0.13); }
+.nf-corner { position: absolute; width: 13%; fill: #c9cdd3; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.5)); }
+.nf-corner.tr { right: -1%; top: -1%; transform: rotate(-90deg); }
+.nf-corner.br { right: -1%; bottom: -1%; }
+/* the one page that slipped out */
+.nf-sheet {
+  position: absolute; z-index: 2; left: 40%; top: 18%; width: 66%; aspect-ratio: 8.5 / 11; padding: 12% 11% 0;
+  background: #fbfaf8; border-radius: 3px; transform: rotate(8deg);
+  box-shadow: 0 0 0 1px rgba(20,20,20,0.06), 0 24px 40px -18px rgba(20,20,20,0.5);
+}
+.nf-sheet span { display: block; font-family: var(--font-display); font-size: clamp(40px, 5vw, 64px); line-height: 1; color: var(--folder-black); margin-bottom: 14%; }
+.nf-sheet i { display: block; height: 0; margin-bottom: 9%; border-top: 1px solid var(--staff-line); }
+.nf-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 32px; border-top: 1px solid var(--staff-line); }
+.nf-col h2 { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); }
+.nf-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.nf-col a { color: var(--ink); text-decoration: none; font-size: 17px; }
+.nf-col a:hover { color: var(--deep-amber); }
+@media (max-width: 760px) { .nf-links { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Pricing page ---------- */
+.pricing-hero { padding: 152px 0 64px; text-align: center; }
+.pricing-hero .crumb { justify-content: center; }
+.pricing-hero .display { font-size: clamp(48px, 6vw, 84px); max-width: 900px; margin: 0 auto 24px; }
+.pricing-hero .lede { margin: 0 auto; color: var(--ink); }
+@media (max-width: 860px) { .pricing-hero { padding: 112px 0 48px; } }
+.po-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 980px; }
+.po { position: relative; padding: 32px 28px 28px; border-radius: var(--radius-card); background: var(--card); box-shadow: 0 0 0 1px var(--staff-line); }
+.po.is-best { box-shadow: 0 0 0 1.5px var(--folder-black), var(--shadow-card); }
+.po-flag { position: absolute; top: 18px; right: 18px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--deep-amber); }
+.po-name { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); }
+.po-price { margin: 0 0 6px; font-family: var(--font-display); font-size: 46px; line-height: 1; color: var(--folder-black); }
+.po-price small { font-family: var(--font-text); font-size: 15px; color: var(--graphite); }
+.po-note { margin: 0; font-size: 15px; color: var(--graphite); }
+.po-trial { display: inline-block; margin: 16px 0 0; padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--ink); background: var(--vellum); }
+@media (max-width: 760px) { .po-grid { grid-template-columns: 1fr; } }
+.pt-wrap { max-width: 860px; border-radius: var(--radius-card); background: var(--card); box-shadow: 0 0 0 1px var(--staff-line); overflow: hidden; }
+.pt { width: 100%; border-collapse: collapse; font-size: 16px; }
+.pt th, .pt td { padding: 14px 24px; text-align: left; border-top: 1px solid var(--staff-line); }
+.pt thead th { border-top: 0; padding-top: 20px; padding-bottom: 16px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); }
+.pt thead th:nth-child(n+2), .pt td { width: 24%; text-align: center; }
+.pt tbody th { font-weight: 400; color: var(--ink); }
+.pt .pt-group th { padding-top: 22px; padding-bottom: 8px; background: var(--manuscript); font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--folder-black); }
+.pt td svg { width: 17px; height: 17px; display: inline-block; vertical-align: -3px; }
+.pt td.yes svg { color: var(--folder-black); }
+.pt td.no svg { color: #c9c3b7; }
+.pt td.tnum { font-weight: 600; }
+@media (max-width: 600px) { .pt th, .pt td { padding: 12px 14px; } .pt thead th:nth-child(n+2), .pt td { width: 26%; } }
+/* pricing: everything below the plans centres on the same axis */
+.pr-center { text-align: center; margin-left: auto; margin-right: auto; }
+.po-grid, .pt-wrap { margin-left: auto; margin-right: auto; }
+.po { text-align: left; }
+.pr-callout { max-width: 980px; margin: 0 auto; }
+.callout.pr-callout .heading-sm em { color: var(--ribbon); }

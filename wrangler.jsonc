@@ -1,9 +1,11 @@
 // Cloudflare Workers static-assets config: serves this folder as the site.
 // Default html handling: /support.html is served at /support (old links redirect).
+// Missing addresses get 404.html with a real 404 status.
 {
   "name": "musicfolder-app",
   "compatibility_date": "2026-10-01",
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    "not_found_handling": "404-page"
   }
 }
