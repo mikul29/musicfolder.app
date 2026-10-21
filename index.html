@@ -565,6 +565,8 @@
   const MESS = [
     // at the very back, its title peeking over the pile: the last one out
     { setlist: 'Summer Night Concert', x: 224, y: 300, r: -2, slot: setlistSlot },
+    { folder: 'Piano Class', color: '#F08C4E', x: 214, y: 326, r: 5, slot: folderSlot(6) },
+    { sheet: 'schumann', x: 240, y: 318, r: -8, slot: scoreSlot(6) },
     { folder: 'Orchestra', color: '#C49B7C', x: 232, y: 318, r: -7, slot: folderSlot(5) },
     { sheet: 'holmes', x: 196, y: 330, r: -11, slot: scoreSlot(5) },
     { folder: 'French Horn', color: '#8B8B90', x: 250, y: 322, r: 6, slot: folderSlot(4) },
@@ -630,12 +632,7 @@
     d.inFlight = flyers.appendChild(build(d));
     d.mask = slotMask(d.slot);
   });
-  // the last tile of each row runs off the screen's edge and has no paper twin:
-  // it fades in just after the tile beside it fills, as if the shelf runs on
-  const TRAIL = [
-    { mask: slotMask(folderSlot(6)), after: MESS.find(d => d.folder === 'Orchestra') },
-    { mask: slotMask(scoreSlot(6)), after: MESS.find(d => d.sheet === 'holmes') },
-  ];
+
   // the Today screen's four tool tiles (screenshot pixels: centre; each 135 × 84).
   // Each gets a crisp replica built at its lifted size, POP × the tile, so it
   // never blurs when it rises; at rest it is scaled down to sit exactly on the tile.
@@ -698,7 +695,7 @@
 
   // scroll timeline (0–1 across the hero); each item's own 0–1 runs over FLY_LEN,
   // arriving at ARRIVE and then settling into the screen
-  const FLY_FROM = 0.326, FLY_STEP = 0.0126, FLY_LEN = 0.148, ARRIVE = 0.86;
+  const FLY_FROM = 0.326, FLY_STEP = 0.0112, FLY_LEN = 0.148, ARRIVE = 0.86;
   // then the iPad lifts out of its pocket and comes front and centre while the
   // folder closes behind it and settles as its backdrop
   const LIFT_PX = 46; // how far it slides up the page to clear the pocket
@@ -842,9 +839,7 @@
       d.inFlight.style.visibility = flying ? 'visible' : 'hidden';
       // the slot fills in underneath the item as it arrives; the item then dissolves
       d.mask.style.opacity = String(1 - clamp((t - ARRIVE + 0.03) / 0.1));
-      d.t = t;
     }
-    for (const tr of TRAIL) tr.mask.style.opacity = String(1 - clamp((tr.after.t - 0.9) / 0.1));
 
     // the tools: on the big iPad, each tile lifts out of the screen towards you,
     // plays a moment of itself (keys, pendulum, drone, needle), then settles back
