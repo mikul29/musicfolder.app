@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=38">
+<link rel="stylesheet" href="assets/site.css?v=39">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -180,8 +180,12 @@
         <div class="ipad-glow" id="ipadGlow"></div>
         <div class="ipad" id="pageIpad">
           <div class="ipad-screen" id="ipadScreen">
-            <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
-            <!-- each slot stays blank until its folder or score lands in it -->
+            <!-- what the screen shows; it fades up from black as the iPad wakes (not hidden
+                 under a dark layer, whose edge would let a hairline of it show through) -->
+            <div class="screen-content" id="screenContent">
+              <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
+              <!-- each slot stays blank until its folder or score lands in it -->
+            </div>
             <div class="ipad-off" id="ipadOff"></div>
           </div>
         </div>
@@ -522,6 +526,7 @@
   const leaf = document.getElementById('leaf');
   const mess = document.getElementById('mess');
   const flyers = document.getElementById('flyers');
+  const screenContent = document.getElementById('screenContent');
   const ipadScreen = document.getElementById('ipadScreen');
   const screenOff = document.getElementById('ipadOff');
   const glow = document.getElementById('ipadGlow');
@@ -599,7 +604,7 @@
   };
   // a blank over one home-screen slot until its item lands
   function slotMask(slot) {
-    const el = ipadScreen.insertBefore(document.createElement('i'), screenOff);
+    const el = screenContent.appendChild(document.createElement('i'));
     el.className = 'slot-mask';
     const [mx, my, mw, mh] = slot.mask;
     Object.assign(el.style, {
@@ -670,7 +675,7 @@
   // on the page iPad they sit under the dark glass, so they wake with the screen;
   // on the stage iPad they sit in a layer that doesn't clip a lifted tile
   TOOLS.forEach(tool => {
-    tile(ipadScreen, tool, screenOff);
+    tile(screenContent, tool);
     tool.el = tile(stageTools, tool);
   });
   const STREAK = { x: 394, y: 140 }; // the card's top-left (it is 276 × 84)
@@ -685,7 +690,7 @@
       `<ol>${[...'SMTWTFS'].map((d, i) => i < 3 ? `<li class="done" data-d="${d}">${d}</li>` : `<li>${d}</li>`).join('')}</ol>`;
     return el;
   };
-  const streaks = [streakCard(ipadScreen, screenOff), streakCard(stageScreen)];
+  const streaks = [streakCard(screenContent), streakCard(stageScreen)];
   const ringFills = streaks.map(el => el.querySelector('.fill'));
   const doneDays = streaks.map(el => [...el.querySelectorAll('.done')]);
 
@@ -807,6 +812,7 @@
       stageIpad.style.setProperty('--l', fw.toFixed(3));
     }
 
+    screenContent.style.opacity = String(on);
     screenOff.style.opacity = String(1 - on);
     // once the iPad is front and centre, the practice ring fills to its goal and
     // the week's three days tick in (the screen's first sign of life, before the tools)
