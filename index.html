@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=37">
+<link rel="stylesheet" href="assets/site.css?v=38">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -184,7 +184,6 @@
             <!-- each slot stays blank until its folder or score lands in it -->
             <div class="ipad-off" id="ipadOff"></div>
           </div>
-          <div class="ipad-tools" id="pageTools"></div>
         </div>
         <div class="pocket-right"><svg class="stitch" viewBox="0 0 450 140" aria-hidden="true"><path d="M6 10.4L438 39.2"/></svg></div>
         <svg class="stitch" viewBox="0 0 450 600" aria-hidden="true"><path d="M6 12h428a4 4 0 0 1 4 4v568a4 4 0 0 1-4 4H6z"/></svg>
@@ -231,11 +230,10 @@
 
 
 <!-- ============ FEATURES ============ -->
-<section class="section story" id="features">
+<section class="section story" id="features" aria-labelledby="featuresTitle">
   <div class="wrap">
-    <div class="section-head">
-      <h2 class="heading">Everything you need, from practice to performance.</h2>
-    </div>
+    <!-- the hero's closing line introduces this section on screen; the outline still names it -->
+    <h2 class="sr-only" id="featuresTitle">Features</h2>
     <div class="story-grid">
       <div class="story-steps">
         <article class="step is-active" data-step="0">
@@ -560,8 +558,15 @@
 
   // what's stuffed in the left-hand pocket, bottom of the pile first (left-page
   // coordinates: centre and tilt). The pile empties from the top.
-  const SIZE = { folder: [250, 320], sheet: [240, 340] };
+  // the Today screen's "Summer Night Concert" set-list card (screenshot pixels)
+  const setlistSlot = { x: 11, y: 140, w: 360, h: 270, mask: [-4, -4, 368, 278] };
+  // a printed set list squares up into that card: 280 wide throughout, 380 → 210 tall
+  const SIZE = { folder: [250, 320], sheet: [240, 340], setlist: [280, 380] };
   const MESS = [
+    // at the very back, its title peeking over the pile: the last one out
+    { setlist: 'Summer Night Concert', x: 224, y: 300, r: -2, slot: setlistSlot },
+    { folder: 'Piano Class', color: '#F08C4E', x: 214, y: 326, r: 5, slot: folderSlot(6) },
+    { sheet: 'schumann', x: 240, y: 318, r: -8, slot: scoreSlot(6) },
     { folder: 'Orchestra', color: '#C49B7C', x: 232, y: 318, r: -7, slot: folderSlot(5) },
     { sheet: 'holmes', x: 196, y: 330, r: -11, slot: scoreSlot(5) },
     { folder: 'French Horn', color: '#8B8B90', x: 250, y: 322, r: 6, slot: folderSlot(4) },
@@ -575,9 +580,14 @@
     { folder: 'Christmas Rep.', color: '#EC5A45', x: 228, y: 356, r: 1, slot: folderSlot(0) },
     { sheet: 'dvorak', x: 220, y: 325, r: -3, slot: scoreSlot(0) },
   ];
+  const SET = ['Let It Be', 'Hallelujah', 'Yesterday', 'Hey Jude', 'Imagine'];
   const build = d => {
     const el = document.createElement('div');
-    if (d.folder) {
+    if (d.setlist) {
+      el.className = 'mf-setlist';
+      el.innerHTML = `<i class="sl-when">Tomorrow</i><b>${d.setlist}</b><small>Set list · ${SET.length} songs</small>` +
+        `<ol>${SET.map(t => `<li>${t}</li>`).join('')}</ol><i class="sl-start">Start set</i>`;
+    } else if (d.folder) {
       el.className = 'mf-folder';
       el.style.setProperty('--c', d.color);
       el.innerHTML = `<i class="mf-peek"></i><span class="mf-front"><span class="mf-label">${d.folder}</span><i class="mf-card"></i></span>`;
@@ -587,8 +597,21 @@
     }
     return el;
   };
+  // a blank over one home-screen slot until its item lands
+  function slotMask(slot) {
+    const el = ipadScreen.insertBefore(document.createElement('i'), screenOff);
+    el.className = 'slot-mask';
+    const [mx, my, mw, mh] = slot.mask;
+    Object.assign(el.style, {
+      left: `${(slot.x + mx) / SHOT_W * 100}%`, top: `${(slot.y + my) / SHOT_H * 100}%`,
+      width: `${mw / SHOT_W * 100}%`, height: `${mh / SHOT_H * 100}%`,
+    });
+    return el;
+  }
   MESS.forEach((d, k) => {
-    [d.w, d.h] = SIZE[d.folder ? 'folder' : 'sheet'];
+    [d.w, d.h] = SIZE[d.setlist ? 'setlist' : d.folder ? 'folder' : 'sheet'];
+    // the height it ends at: folders square up, the set list turns into a landscape card
+    d.endH = d.setlist ? d.w * d.slot.h / d.slot.w : d.folder ? d.w : d.h;
     const a = Math.abs(d.r) * Math.PI / 180;
     // how far it has to slide up before its lowest corner clears the pocket's mouth
     d.lift = Math.max(0, d.y + (d.h / 2) * Math.cos(a) + (d.w / 2) * Math.sin(a) - 452);
@@ -607,15 +630,9 @@
     for (let i = 1; i <= 200; i++) if (bez(d.p, i / 200)[1] <= d.y - d.lift) { d.uClear = i / 200; break; }
     d.inPocket = mess.appendChild(build(d));
     d.inFlight = flyers.appendChild(build(d));
-    d.mask = document.createElement('i');
-    d.mask.className = 'slot-mask';
-    const [mx, my, mw, mh] = d.slot.mask;
-    Object.assign(d.mask.style, {
-      left: `${(d.slot.x + mx) / SHOT_W * 100}%`, top: `${(d.slot.y + my) / SHOT_H * 100}%`,
-      width: `${mw / SHOT_W * 100}%`, height: `${mh / SHOT_H * 100}%`,
-    });
-    ipadScreen.insertBefore(d.mask, screenOff);
+    d.mask = slotMask(d.slot);
   });
+
   // the Today screen's four tool tiles (screenshot pixels: centre; each 135 × 84).
   // Each gets a crisp replica built at its lifted size, POP × the tile, so it
   // never blurs when it rises; at rest it is scaled down to sit exactly on the tile.
@@ -631,36 +648,46 @@
     { name: 'Tuner', x: 605, y: 371, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-tuner"><g class="fork"><path d="M5 19.5l5.5-5.5M10.5 14l6-6.5M10.5 14l2.5 2.5 6-6"/><circle cx="4.6" cy="19.9" r="1.2"/></g><g class="gauge"><path class="scale" d="M4.5 16a8 8 0 0 1 15 0"/><path class="mark" d="M12 6.6v2.2"/><path class="needle" d="M12 18.5V9.5"/><circle cx="12" cy="18.5" r="1.4"/></g></svg>` },
   ];
-  // the tiles live in a layer the size of the screen (312 × 416 inside the bezel);
-  // the screenshot predates the piano icon going black, so its replica always
-  // covers that tile in both iPads
-  const pageTools = document.getElementById('pageTools');
+  // The Today screen's live parts are rebuilt crisp over the low-res screenshot,
+  // exactly covering their originals: the four tool tiles (built at their lifted
+  // size, POP × the tile, so they stay sharp when they rise; the app's piano icon
+  // is also newer than the screenshot) and the practice card, whose ring fills.
+  // Coordinates are screen-local px (312 × 416), i.e. screenshot px × K.
   const stageTools = document.getElementById('stageTools');
   const stageScreen = document.getElementById('stageScreen');
-  let pagePiano;
-  const tile = (layer, tool, sc) => {
-    const el = layer.appendChild(document.createElement('div'));
+  const tile = (layer, tool, before) => {
+    const el = layer.insertBefore(document.createElement('div'), before || null);
     el.className = 'tool-pop';
     el.innerHTML = `${tool.icon}<span>${tool.name}</span>`;
     el.dataset.x = tool.x * K; el.dataset.y = tool.y * K;
-    setTile(el, sc, 0);
+    setTile(el, 1 / POP, 0);
     return el;
   };
   const setTile = (el, sc, l) => {
     el.style.transform = `translate(${el.dataset.x - TILE_W / 2}px, ${el.dataset.y - TILE_H / 2}px) scale(${sc})`;
     el.style.setProperty('--l', l.toFixed(3));
   };
+  // on the page iPad they sit under the dark glass, so they wake with the screen;
+  // on the stage iPad they sit in a layer that doesn't clip a lifted tile
   TOOLS.forEach(tool => {
-    if (tool.name === 'Piano') pagePiano = tile(pageTools, tool, 1 / POP);
-    tool.el = tile(stageTools, tool, 1 / POP);
-    // the recess the tile leaves in the screen while it's lifted out
-    tool.well = stageScreen.appendChild(document.createElement('i'));
-    tool.well.className = 'tool-well';
-    Object.assign(tool.well.style, {
-      left: `${(tool.x - 67.5) / SHOT_W * 100}%`, top: `${(tool.y - 42) / SHOT_H * 100}%`,
-      width: `${135 / SHOT_W * 100}%`, height: `${84 / SHOT_H * 100}%`,
-    });
+    tile(ipadScreen, tool, screenOff);
+    tool.el = tile(stageTools, tool);
   });
+  const STREAK = { x: 394, y: 140 }; // the card's top-left (it is 276 × 84)
+  const streakCard = (screen, before) => {
+    const el = screen.insertBefore(document.createElement('div'), before || null);
+    el.className = 'streak-card';
+    Object.assign(el.style, { left: `${STREAK.x * K}px`, top: `${STREAK.y * K}px`, transform: `scale(${K})` });
+    el.innerHTML = '<svg class="ring" viewBox="0 0 84 84"><circle class="track" cx="42" cy="42" r="26.2"/>' +
+      '<circle class="fill" cx="42" cy="42" r="26.2" pathLength="100"/></svg>' +
+      '<b class="mins">42<small>/ 30 min</small></b><strong>Two weeks strong <span>🔥</span></strong>' +
+      '<p>Goal complete · 42 of 30 min today</p>' +
+      `<ol>${[...'SMTWTFS'].map((d, i) => i < 3 ? `<li class="done" data-d="${d}">${d}</li>` : `<li>${d}</li>`).join('')}</ol>`;
+    return el;
+  };
+  const streaks = [streakCard(ipadScreen, screenOff), streakCard(stageScreen)];
+  const ringFills = streaks.map(el => el.querySelector('.fill'));
+  const doneDays = streaks.map(el => [...el.querySelectorAll('.done')]);
 
   const place = (el, x, y, h, w, z, r, ry, rx, sc) => {
     el.style.transform = `translate3d(${x - w / 2}px, ${y - h / 2}px, ${z}px) rotate(${r}deg) rotateY(${ry}deg) rotateX(${rx}deg) scale(${sc})`;
@@ -668,12 +695,12 @@
 
   // scroll timeline (0–1 across the hero); each item's own 0–1 runs over FLY_LEN,
   // arriving at ARRIVE and then settling into the screen
-  const FLY_FROM = 0.326, FLY_STEP = 0.0126, FLY_LEN = 0.148, ARRIVE = 0.86;
+  const FLY_FROM = 0.326, FLY_STEP = 0.0112, FLY_LEN = 0.148, ARRIVE = 0.86;
   // then the iPad lifts out of its pocket and comes front and centre while the
   // folder closes behind it and settles as its backdrop
   const LIFT_PX = 46; // how far it slides up the page to clear the pocket
   // and finally the tools: the four tool tiles lift out of the screen one by one
-  const TOOL_FROM = 0.77, TOOL_STEP = 0.045, TOOL_LEN = 0.08, TOOL_POP = 1.8;
+  const TOOL_FROM = 0.785, TOOL_STEP = 0.045, TOOL_LEN = 0.08, TOOL_POP = 1.8;
   const pageIpad = document.getElementById('pageIpad');
   const stageIpad = document.getElementById('stageIpad');
   const IPAD_RATIO = IPAD.w / IPAD.h, BACKDROP = 1.18; // the folder's height ÷ the iPad's
@@ -691,10 +718,10 @@
     const a = seg(p, 0.00, 0.133); // straighten + centre
     const o = seg(p, 0.133, 0.311); // open the cover
     const on = seg(p, 0.296, 0.348); // the iPad wakes
-    const lf = seg(p, 0.62, 0.655); // the iPad slides up out of the pocket
-    const fw = seg(p, 0.655, 0.735); // …and comes front and centre
-    const cl = seg(p, 0.665, 0.735); // the cover closes behind it
-    const bd = seg(p, 0.69, 0.765); // the closed folder settles as the backdrop
+    const lf = seg(p, 0.635, 0.67); // the iPad slides up out of the pocket
+    const fw = seg(p, 0.67, 0.75); // …and comes front and centre
+    const cl = seg(p, 0.68, 0.75); // the cover closes behind it
+    const bd = seg(p, 0.705, 0.78); // the closed folder settles as the backdrop
     const c = seg(p, 0.90, 0.97); // caption
 
     // scales
@@ -749,8 +776,9 @@
     const open = o * (1 - cl);
     const B = lerp(2 + THICK, -THICK, open);
     leaf.style.transform = open >= 1 ? 'none' : `translateZ(${B}px) rotateY(${180 - 180 * open}deg) translateZ(${THICK}px)`;
-    // the inside corner brackets only show once the cover has swung open
-    rig.classList.toggle('is-open', open > 0.5);
+    // the right-hand page's corner brackets show whenever the cover is off them:
+    // from the moment it lifts until it's lying (nearly) flat over them again
+    rig.classList.toggle('is-open', open > 0.04);
     rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
     cover.style.transform = `translateZ(${B}px) rotateY(${-180 * open}deg)`;
 
@@ -780,7 +808,11 @@
     }
 
     screenOff.style.opacity = String(1 - on);
-    pagePiano.style.opacity = String(on);
+    // once the iPad is front and centre, the practice ring fills to its goal and
+    // the week's three days tick in (the screen's first sign of life, before the tools)
+    const ring = seg(p, 0.748, 0.778);
+    ringFills.forEach(f => { f.style.strokeDashoffset = String(100 * (1 - ring)); });
+    doneDays.forEach(ds => ds.forEach((li, k) => { li.style.setProperty('--d', seg(p, 0.772 + k * 0.006, 0.782 + k * 0.006).toFixed(3)); }));
     glow.style.opacity = String(on);
 
     // each item slides up out of the pocket, lifts off the page (its shadow
@@ -793,15 +825,15 @@
       const air = Math.sin(Math.PI * clamp((u - 0.12) / 0.88));
       const sc = Math.pow(d.es, smooth(clamp((u - 0.18) / 0.82)));
       const r = lerp(d.r, IPAD.tilt, smooth(clamp(u / 0.75))) + d.bank * air;
-      const m = d.folder ? smooth(clamp((u - 0.5) / 0.42)) : 0;
-      const h = lerp(d.h, d.w, m);
+      const m = d.endH !== d.h ? smooth(clamp((u - 0.5) / 0.42)) : 0;
+      const h = lerp(d.h, d.endH, m);
       const flying = u >= d.uClear;
       const el = flying ? d.inFlight : d.inPocket;
       const settle = clamp((t - ARRIVE) / (1 - ARRIVE));
       if (flying) place(el, x, y, h, d.w, 4 + 170 * air, r, -10 * air, 7 * air, sc * (1 - 0.04 * settle));
       else place(el, x + FW, y, h, d.w, 0, r, 0, 0, 1);
       el.style.setProperty('--l', air.toFixed(3));
-      if (d.folder) { el.style.height = `${h}px`; el.style.setProperty('--m', m.toFixed(3)); }
+      if (d.endH !== d.h) { el.style.height = `${h}px`; el.style.setProperty('--m', m.toFixed(3)); }
       d.inFlight.style.opacity = String(1 - settle);
       d.inPocket.style.visibility = flying ? 'hidden' : '';
       d.inFlight.style.visibility = flying ? 'visible' : 'hidden';
@@ -814,12 +846,9 @@
     TOOLS.forEach((tool, i) => {
       const q = clamp((p - TOOL_FROM - i * TOOL_STEP) / TOOL_LEN);
       const lift = smooth(clamp(q / 0.3)) * (1 - smooth(clamp((q - 0.72) / 0.28)));
-      const shown = (q > 0 && q < 1) || tool.name === 'Piano';
-      tool.el.style.visibility = shown ? 'inherit' : 'hidden';
       setTile(tool.el, lerp(1, TOOL_POP, lift) / POP, lift);
       tool.el.style.zIndex = lift > 0 ? 2 : 1;
       tool.el.classList.toggle('is-lit', lift > 0.55);
-      tool.well.style.opacity = String(clamp(lift * 10));
     });
 
     copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.1 : 0.12));
