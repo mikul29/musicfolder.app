@@ -351,3 +351,12 @@ ol.how { margin: 0; padding: 0; }
 .pt thead th:first-child { width: 50%; }
 .pt thead th:nth-child(2), .pt thead th:nth-child(3) { width: 25%; }
 @media (max-width: 600px) { .pt thead th:first-child { width: 44%; } .pt thead th:nth-child(2), .pt thead th:nth-child(3) { width: 28%; } }
+/* Apple Pencil resting against the iPad (annotation hero) */
+.pencil-stage { position: relative; width: min(400px, 100%); }
+.pencil-stage .device.tablet { width: 100%; }
+.pencil-stage .pencil {
+  position: absolute; width: 72%; height: auto; left: 44%; top: 62%;
+  transform: rotate(27deg); transform-origin: 0 50%;
+  filter: drop-shadow(0 10px 9px rgba(20,20,20,0.22)) drop-shadow(0 2px 2px rgba(20,20,20,0.12));
+  pointer-events: none;
+}
