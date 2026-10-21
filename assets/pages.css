@@ -232,3 +232,9 @@ ol.how { margin: 0; padding: 0; }
 .print-scene.is-printing .pr-out img { transform: none; transition: transform 2.8s cubic-bezier(.33,.7,.2,1) .2s; }
 .print-scene.is-printing .pr-light { animation: pr-blink 1s ease-in-out 3; }
 @keyframes pr-blink { 50% { opacity: .25; } }
+
+/* iPad screenshots keep their own shape (no trimming at the sides) */
+.lp-visual .device.fit, .rf-visual .device.fit, .device-duo .device.fit { aspect-ratio: auto; }
+/* the iPhone in the iPad + iPhone pair sits further out so it covers less of the score */
+.device-duo { padding: 0 15% 9% 0; }
+.device-duo .device.phone { width: 33%; }
