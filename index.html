@@ -177,9 +177,12 @@
         <i class="edge er"></i><i class="edge et"></i><i class="edge eb"></i>
         <svg class="corner in tr" aria-hidden="true"><use href="#cornerCap"/></svg><svg class="corner in br" aria-hidden="true"><use href="#cornerCap"/></svg>
         <div class="cords"><i></i><i></i><b></b><b></b></div>
+        <div class="ipad-glow" id="ipadGlow"></div>
         <div class="ipad">
-          <div class="ipad-screen">
-            <img src="assets/hero-ipad-reader.jpg" alt="" width="900" height="1305">
+          <div class="ipad-screen" id="ipadScreen">
+            <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
+            <!-- each slot stays blank until its folder or score lands in it -->
+            <div class="ipad-off" id="ipadOff"></div>
           </div>
         </div>
         <div class="pocket-right"><svg class="stitch" viewBox="0 0 450 140" aria-hidden="true"><path d="M6 10.4L438 39.2"/></svg></div>
@@ -194,27 +197,20 @@
         </div>
       </div>
       <div class="cover-inside" id="leaf">
-          <div class="program-sheet">
-            <h3>Friday, 9:00</h3>
-            <div class="ps-sub">Set list · The Blue Room</div>
-            <ol>
-              <li><span>1</span><span>Autumn Leaves</span><span>Gm · ♩=132</span></li>
-              <li><span>2</span><span>Nocturne</span><span>E♭ · ♩=60</span></li>
-              <li><span>3</span><span>Blue Bossa</span><span>Cm · ♩=150</span></li>
-              <li><span>4</span><span>Summertime</span><span>Am · ♩=96</span></li>
-              <li><span>5</span><span>All the Things You Are</span><span>A♭ · ♩=168</span></li>
-              <li><span>6</span><span>Take the A Train</span><span>C · ♩=180</span></li>
-              <li><span>7</span><span>Body and Soul</span><span>D♭ · ♩=72</span></li>
-            </ol>
-          </div>
+          <!-- revealed once the pocket is empty -->
+          <div class="deboss deboss-inside">Music Folder</div>
+          <!-- the overstuffed pocket: old paper folders and loose scores (built in the script) -->
+          <div class="mess" id="mess"></div>
           <div class="pocket"><svg class="stitch" viewBox="0 0 450 140" aria-hidden="true"><path d="M12 39.2L444 10.4"/></svg></div>
           <svg class="stitch" viewBox="0 0 450 600" aria-hidden="true"><path d="M444 12H16a4 4 0 0 0-4 4v568a4 4 0 0 0 4 4h428z"/></svg>
           <svg class="corner in tl" aria-hidden="true"><use href="#cornerCap"/></svg><svg class="corner in bl" aria-hidden="true"><use href="#cornerCap"/></svg>
         </div>
+      <!-- once lifted clear of the pocket, each item flies on this layer into the iPad -->
+      <div class="flyers" id="flyers"></div>
     </div>
 
     <div class="open-caption wrap" id="openCaption">
-      <h2 class="heading">All your scores, organized and <em>ready to play.</em></h2>
+      <h2 class="heading">Every folder. <span style="white-space: nowrap"><em>One</em> Music Folder.</span></h2>
       <p class="caption">Import your sheet music, build set lists and annotate with Apple Pencil. Everything stays in sync across your iOS devices.</p>
     </div>
     <div class="scroll-hint" id="scrollHint">Scroll to open</div>
@@ -510,11 +506,16 @@
   const menu = document.querySelector('.menu');
   menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
 
-  /* ---------- Folder: scroll-linked open ---------- */
+  /* ---------- Folder: scroll-linked open, then every old folder flies into the iPad ---------- */
   const hero = document.getElementById('hero');
   const rig = document.getElementById('rig');
   const cover = document.getElementById('cover');
   const leaf = document.getElementById('leaf');
+  const mess = document.getElementById('mess');
+  const flyers = document.getElementById('flyers');
+  const ipadScreen = document.getElementById('ipadScreen');
+  const screenOff = document.getElementById('ipadOff');
+  const glow = document.getElementById('ipadGlow');
   const copy = document.getElementById('heroCopy');
   const cap = document.getElementById('openCaption');
   const hint = document.getElementById('scrollHint');
@@ -523,8 +524,81 @@
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, t) => a + (b - a) * t;
   const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const easeOut = t => 1 - Math.pow(1 - t, 3);
   const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
   const FW = 450, FH = 600, THICK = 7; // board thickness, matches .edge in site.css
+
+  // the iPad on the right-hand page (matches .ipad in site.css): a 340 × 444 body
+  // at (58, 44) with a 14px bezel, tilted -1.2°, showing hero-ipad-home.webp
+  const IPAD = { x: 58, y: 44, w: 340, h: 444, bezel: 14, tilt: -1.2 };
+  const SHOT_W = 686, SHOT_H = 915;
+  const K = (IPAD.w - 2 * IPAD.bezel) / SHOT_W;
+  // a point on the screenshot → rig coordinates (the right-hand page)
+  const onScreen = (sx, sy) => {
+    const cx = IPAD.x + IPAD.w / 2, cy = IPAD.y + IPAD.h / 2, t = IPAD.tilt * Math.PI / 180;
+    const dx = IPAD.x + IPAD.bezel + sx * K - cx, dy = IPAD.y + IPAD.bezel + sy * K - cy;
+    return { x: cx + dx * Math.cos(t) - dy * Math.sin(t), y: cy + dx * Math.sin(t) + dy * Math.cos(t) };
+  };
+  // the home screen's Folders row and Recently opened row, in screenshot pixels;
+  // the mask also covers the title under each tile
+  const folderSlot = i => ({ x: 12 + 98.5 * i, y: 462, w: 86, h: 86, mask: [-6, -8, 100, 134] });
+  const scoreSlot = i => ({ x: 12 + 98.5 * i, y: 629, w: 87, h: 123, mask: [-6, -6, 100, 172] });
+
+  // what's stuffed in the left-hand pocket, bottom of the pile first (left-page
+  // coordinates: centre and tilt). The pile empties from the top.
+  const SIZE = { folder: [250, 320], sheet: [240, 340] };
+  const MESS = [
+    { folder: 'Orchestra', color: '#C49B7C', x: 232, y: 318, r: -7, slot: folderSlot(5) },
+    { sheet: 'holmes', x: 196, y: 330, r: -11, slot: scoreSlot(5) },
+    { folder: 'French Horn', color: '#8B8B90', x: 250, y: 322, r: 6, slot: folderSlot(4) },
+    { sheet: 'chaminade', x: 214, y: 314, r: 4, slot: scoreSlot(4) },
+    { folder: 'Favorites', color: '#9A82E6', x: 206, y: 336, r: -4, slot: folderSlot(3) },
+    { sheet: 'debussy', x: 248, y: 330, r: 9, slot: scoreSlot(3) },
+    { folder: 'Ensemble', color: '#58C48A', x: 238, y: 345, r: 2, slot: folderSlot(2) },
+    { sheet: 'widmung', x: 200, y: 322, r: -6, slot: scoreSlot(2) },
+    { folder: 'Church Band', color: '#5B93E6', x: 215, y: 352, r: -2, slot: folderSlot(1) },
+    { sheet: 'lagrima', x: 244, y: 336, r: 5, slot: scoreSlot(1) },
+    { folder: 'Christmas Rep.', color: '#EC5A45', x: 228, y: 356, r: 1, slot: folderSlot(0) },
+    { sheet: 'dvorak', x: 220, y: 325, r: -3, slot: scoreSlot(0) },
+  ];
+  const build = d => {
+    const el = document.createElement('div');
+    if (d.folder) {
+      el.className = 'mf-folder';
+      el.style.setProperty('--c', d.color);
+      el.innerHTML = `<i class="mf-peek"></i><span class="mf-front"><span class="mf-label">${d.folder}</span></span>`;
+    } else {
+      el.className = 'mf-sheet';
+      el.innerHTML = `<img src="assets/scores/${d.sheet}.webp" alt="" width="353" height="500" decoding="async">`;
+    }
+    return el;
+  };
+  MESS.forEach((d, k) => {
+    [d.w, d.h] = SIZE[d.folder ? 'folder' : 'sheet'];
+    const a = Math.abs(d.r) * Math.PI / 180;
+    // how far it has to slide up before its lowest corner clears the pocket's mouth
+    d.lift = Math.max(0, d.y + (d.h / 2) * Math.cos(a) + (d.w / 2) * Math.sin(a) - 452);
+    const end = onScreen(d.slot.x + d.slot.w / 2, d.slot.y + d.slot.h / 2);
+    d.ex = end.x; d.ey = end.y;
+    d.esx = d.slot.w * K / d.w; d.esy = d.slot.h * K / d.h;
+    d.order = MESS.length - 1 - k;
+    d.inPocket = mess.appendChild(build(d));
+    d.inFlight = flyers.appendChild(build(d));
+    d.mask = document.createElement('i');
+    d.mask.className = 'slot-mask';
+    const [mx, my, mw, mh] = d.slot.mask;
+    Object.assign(d.mask.style, {
+      left: `${(d.slot.x + mx) / SHOT_W * 100}%`, top: `${(d.slot.y + my) / SHOT_H * 100}%`,
+      width: `${mw / SHOT_W * 100}%`, height: `${mh / SHOT_H * 100}%`,
+    });
+    ipadScreen.insertBefore(d.mask, screenOff);
+  });
+  const place = (el, d, x, y, z, r, sx, sy) => {
+    el.style.transform = `translate3d(${x - d.w / 2}px, ${y - d.h / 2}px, ${z}px) rotate(${r}deg) scale(${sx}, ${sy})`;
+  };
+
+  // scroll timeline (0–1 across the hero)
+  const FLY_FROM = 0.44, FLY_STEP = 0.022, FLY_LEN = 0.16, LIFT = 0.2;
 
   function frame() {
     const vw = document.documentElement.clientWidth;
@@ -535,13 +609,18 @@
 
     header.classList.toggle('scrolled', window.scrollY > 8);
 
-    const a = seg(p, 0.00, 0.30); // straighten + centre
-    const o = seg(p, 0.30, 0.74); // open the cover
-    const c = seg(p, 0.70, 0.90); // caption
+    const a = seg(p, 0.00, 0.18); // straighten + centre
+    const o = seg(p, 0.18, 0.42); // open the cover
+    const on = seg(p, 0.40, 0.47); // the iPad wakes
+    const c = seg(p, 0.86, 0.96); // caption
 
     // scales
     const closedS = Math.min(1.05, (vh * 0.66) / FH, (vw - 48) / FW);
     const openS = Math.min(closedS, (vw - 2 * (narrow ? 16 : 48)) / (FW * 2), (vh * (narrow ? 0.5 : 0.6)) / FH);
+    // on a phone the open spread is tiny, so once the pocket is empty the camera
+    // moves in on the right-hand page (on a desktop it already reads well)
+    const pageS = Math.min((vw - 32) / FW, (vh * 0.58) / FH);
+    const zm = pageS > openS * 1.25 ? seg(p, 0.80, 0.92) : 0;
 
     // start pose (tilted, partly off the right edge like an object on the table)
     let sx, sy, sr, ss;
@@ -561,13 +640,16 @@
     // middle pose (centred, closed)
     const mx = vw / 2, my = vh * (narrow ? 0.46 : 0.47);
 
-    const s = lerp(lerp(ss, closedS, a), openS, o);
+    const spreadS = lerp(lerp(ss, closedS, a), openS, o);
+    const s = lerp(spreadS, pageS, zm);
     const r = lerp(sr, 0, a);
     let cx = lerp(sx, mx, a);
     let cy = lerp(sy, my, a);
     cy = lerp(cy, vh * (narrow ? 0.44 : 0.45), o);
     // as the cover swings left, slide right so the spread stays centred
-    cx += (FW / 2) * o * s;
+    cx += (FW / 2) * o * spreadS;
+    cx = lerp(cx, vw / 2, zm);
+    cy = lerp(cy, vh * 0.40, zm);
 
     // the cover is a board THICK deep: it rests on the page when closed and
     // sinks as it swings, so its inside lands exactly flat (z = 0) when open
@@ -575,13 +657,36 @@
     leaf.style.transform = o >= 1 ? 'none' : `translateZ(${B}px) rotateY(${180 - 180 * o}deg) translateZ(${THICK}px)`;
     // the inside corner brackets only show once the cover has swung open
     rig.classList.toggle('is-open', o > 0.5);
-  rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
+    rig.style.transform = `translate(${cx - FW / 2}px, ${cy - FH / 2}px) rotate(${r}deg) scale(${s})`;
     cover.style.transform = `translateZ(${B}px) rotateY(${-180 * o}deg)`;
 
-    copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.14 : 0.18));
-    copy.style.transform = `translateY(${-40 * seg(p, 0, 0.2)}px)`;
-    copy.style.pointerEvents = p > 0.1 ? 'none' : '';
-    hint.style.opacity = String(1 - seg(p, 0, 0.06));
+    screenOff.style.opacity = String(1 - on);
+    glow.style.opacity = String(on);
+
+    // each item slides up out of the pocket, then arcs over the spine and
+    // shrinks into its place on the home screen, which fills in as it lands
+    for (const d of MESS) {
+      const t = o >= 1 ? clamp((p - FLY_FROM - d.order * FLY_STEP) / FLY_LEN) : 0;
+      const flying = t > LIFT;
+      if (flying) {
+        const u = ease((t - LIFT) / (1 - LIFT));
+        const arc = Math.sin(Math.PI * u);
+        place(d.inFlight, d,
+          lerp(d.x - FW, d.ex, u), lerp(d.y - d.lift, d.ey, u) - 70 * arc, 6 + 220 * arc,
+          lerp(d.r, IPAD.tilt, u), Math.pow(d.esx, u), Math.pow(d.esy, u));
+        d.inFlight.style.opacity = String(1 - clamp((u - 0.8) / 0.2));
+      } else {
+        place(d.inPocket, d, d.x, d.y - d.lift * easeOut(t / LIFT), 0, d.r, 1, 1);
+      }
+      d.inPocket.style.visibility = flying ? 'hidden' : '';
+      d.inFlight.style.visibility = flying ? 'visible' : 'hidden';
+      d.mask.style.opacity = String(1 - clamp((t - 0.84) / 0.14));
+    }
+
+    copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.1 : 0.12));
+    copy.style.transform = `translateY(${-40 * seg(p, 0, 0.14)}px)`;
+    copy.style.pointerEvents = p > 0.07 ? 'none' : '';
+    hint.style.opacity = String(1 - seg(p, 0, 0.04));
 
     const capTop = cy + (FH * s) / 2 + (narrow ? 28 : 40);
     cap.style.top = `${capTop}px`;

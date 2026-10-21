@@ -123,7 +123,7 @@ p { margin: 0 0 16px; }
 }
 
 /* ---------- Hero / folder stage ---------- */
-.hero { position: relative; height: 290vh; }
+.hero { position: relative; height: 460vh; }
 .hero-stage {
   position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
   background: var(--manuscript);
@@ -204,16 +204,30 @@ p { margin: 0 0 16px; }
 .cords b:nth-of-type(1) { top: 6px; }
 .cords b:nth-of-type(2) { bottom: 6px; }
 .ipad {
-  position: absolute; left: 58px; top: 44px; width: 340px; height: 470px;
+  position: absolute; left: 58px; top: 44px; width: 340px; height: 444px;
   border-radius: 28px; padding: 14px;
   background: #0E0E0F;
   box-shadow: 0 0 0 1.5px #3A3A3C, 0 18px 30px -12px rgba(0,0,0,0.7), inset 0 0 0 1px #000;
   transform: translateZ(1px) rotate(-1.2deg);
 }
 .ipad-screen {
-  width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #FFFFFF;
+  position: relative; width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #FCFAF8;
 }
 .ipad-screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
+/* a home-screen slot that is still waiting for its folder or score */
+.slot-mask { position: absolute; background: #FCFAF8; }
+/* the screen before it wakes: dark glass with a soft diagonal reflection */
+.ipad-off {
+  position: absolute; inset: 0;
+  background: linear-gradient(125deg, rgba(255,255,255,0.07) 0 28%, transparent 28.5%), #0D0D0E;
+}
+/* the app's warm light on the folder lining once the screen is on */
+.ipad-glow {
+  position: absolute; left: 58px; top: 44px; width: 340px; height: 444px; border-radius: 28px;
+  transform: translateZ(0.5px) rotate(-1.2deg);
+  box-shadow: 0 0 70px 6px rgba(242,129,46,0.22);
+  opacity: 0; pointer-events: none;
+}
 
 /* the cover */
 .cover {
@@ -254,6 +268,8 @@ p { margin: 0 0 16px; }
   position: absolute; left: calc(50% + 13px); top: calc(34% + 34px); width: 46px; height: 1px; transform: translateX(-50%);
   background: #2B2B2B; box-shadow: 0 -1px 0 rgba(0,0,0,0.95), 0 1px 0 rgba(255,255,255,0.13);
 }
+/* the same blind stamp on the inside lining, hidden under the pile until it empties */
+.deboss-inside { left: 0; right: 26px; top: 38%; color: #222223; }
 .cover-inside {
   left: -450px; right: auto; width: 450px; height: 600px; top: 0;
   transform-origin: 100% 50%; transform: rotateY(180deg);
@@ -263,21 +279,36 @@ p { margin: 0 0 16px; }
     #1B1B1C;
   box-shadow: var(--shadow-object), inset 0 0 0 1px rgba(255,255,255,0.03);
 }
-.program-sheet {
-  position: absolute; left: 44px; right: 44px; top: 54px; height: 450px;
-  background: #FBFAF8; color: #1A1815; border-radius: 3px;
-  padding: 26px 26px 0;
-  box-shadow: 0 10px 22px -10px rgba(0,0,0,0.7);
-  transform: rotate(-1.6deg);
+/* the overstuffed pocket: old paper folders and loose scores (index.html builds
+   them, once in the pocket and once on the flight layer above the spread) */
+.mess { position: absolute; inset: 0; }
+.flyers { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; }
+.mf-folder, .mf-sheet { position: absolute; left: 0; top: 0; will-change: transform; }
+.flyers > * { visibility: hidden; }
+.mf-sheet {
+  width: 240px; height: 340px; background: #FBFAF8; border-radius: 2px; overflow: hidden;
+  box-shadow: 0 10px 22px -10px rgba(0,0,0,0.75), 0 0 0 0.5px rgba(0,0,0,0.25);
 }
-.program-sheet h3 { font-family: var(--font-display); font-size: 32px; line-height: 1.1; margin: 0 0 2px; color: #141414; }
-.program-sheet .ps-sub { font-size: 11px; color: #6E6A60; margin-bottom: 14px; }
-.program-sheet ol { list-style: none; margin: 0; padding: 0; }
-.program-sheet li {
-  display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: baseline;
-  padding: 8px 0; border-top: 1px solid #E7E1D6; font-size: 13px; line-height: 1.3;
+.mf-sheet img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* a card-stock folder in the app's folder colour, a score peeking out of the top */
+.mf-folder { width: 250px; height: 320px; }
+.mf-peek {
+  position: absolute; left: 16px; right: 26px; top: -12px; height: 40px;
+  background: #FBFAF8; border-radius: 2px; box-shadow: 0 0 0 0.5px rgba(0,0,0,0.25);
 }
-.program-sheet li span:first-child, .program-sheet li span:last-child { color: #6E6A60; font-variant-numeric: tabular-nums; font-size: 11.5px; }
+.mf-front {
+  position: absolute; inset: 0; border-radius: 3px 4px 4px 3px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.14), transparent 40%, rgba(0,0,0,0.12)),
+    var(--c);
+  box-shadow: 0 10px 22px -10px rgba(0,0,0,0.75), inset 0 0 0 1px rgba(0,0,0,0.08);
+}
+.mf-label {
+  position: absolute; left: 50%; top: 42px; transform: translateX(-50%);
+  min-width: 132px; padding: 10px 14px; text-align: center; white-space: nowrap;
+  background: #FBFAF8; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  font: 600 15px/1.2 var(--font-text); color: #1A1815;
+}
 .pocket, .pocket-right {
   position: absolute; left: 0; right: 0; bottom: 0; height: 140px;
   background: #161617;
