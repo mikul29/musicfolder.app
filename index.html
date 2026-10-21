@@ -181,6 +181,15 @@
         <div class="ipad" id="pageIpad">
           <div class="ipad-screen" id="ipadScreen">
             <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
+            <!-- the practice ring fills and the week's days tick in as the screen wakes -->
+            <svg class="streak" viewBox="0 0 686 915" preserveAspectRatio="none" aria-hidden="true">
+              <circle class="track" cx="433" cy="181" r="24"/>
+              <circle class="fill" cx="433" cy="181" r="24" pathLength="100"/>
+              <g class="days"><circle class="hide" cx="479" cy="200" r="7.5"/><circle class="hide" cx="498" cy="200" r="7.5"/><circle class="hide" cx="517" cy="200" r="7.5"/>
+                <g class="day"><circle cx="479" cy="200" r="6"/><text x="479" y="202.4">S</text></g>
+                <g class="day"><circle cx="498" cy="200" r="6"/><text x="498" y="202.4">M</text></g>
+                <g class="day"><circle cx="517" cy="200" r="6"/><text x="517" y="202.4">T</text></g></g>
+            </svg>
             <!-- each slot stays blank until its folder or score lands in it -->
             <div class="ipad-off" id="ipadOff"></div>
           </div>
@@ -216,6 +225,14 @@
       <div class="ipad stage-ipad" id="stageIpad">
         <div class="ipad-screen" id="stageScreen">
           <img src="assets/hero-ipad-home.webp" alt="" width="686" height="915">
+          <svg class="streak" viewBox="0 0 686 915" preserveAspectRatio="none" aria-hidden="true">
+              <circle class="track" cx="433" cy="181" r="24"/>
+              <circle class="fill" cx="433" cy="181" r="24" pathLength="100"/>
+              <g class="days"><circle class="hide" cx="479" cy="200" r="7.5"/><circle class="hide" cx="498" cy="200" r="7.5"/><circle class="hide" cx="517" cy="200" r="7.5"/>
+                <g class="day"><circle cx="479" cy="200" r="6"/><text x="479" y="202.4">S</text></g>
+                <g class="day"><circle cx="498" cy="200" r="6"/><text x="498" y="202.4">M</text></g>
+                <g class="day"><circle cx="517" cy="200" r="6"/><text x="517" y="202.4">T</text></g></g>
+            </svg>
         </div>
         <div class="ipad-tools" id="stageTools"></div>
       </div>
@@ -560,8 +577,13 @@
 
   // what's stuffed in the left-hand pocket, bottom of the pile first (left-page
   // coordinates: centre and tilt). The pile empties from the top.
-  const SIZE = { folder: [250, 320], sheet: [240, 340] };
+  // the Today screen's "Summer Night Concert" set-list card (screenshot pixels)
+  const setlistSlot = { x: 11, y: 140, w: 360, h: 270, mask: [-4, -4, 368, 278] };
+  // a printed set list squares up into that card: 280 wide throughout, 380 → 210 tall
+  const SIZE = { folder: [250, 320], sheet: [240, 340], setlist: [280, 380] };
   const MESS = [
+    // at the very back, its title peeking over the pile: the last one out
+    { setlist: 'Summer Night Concert', x: 224, y: 300, r: -2, slot: setlistSlot },
     { folder: 'Orchestra', color: '#C49B7C', x: 232, y: 318, r: -7, slot: folderSlot(5) },
     { sheet: 'holmes', x: 196, y: 330, r: -11, slot: scoreSlot(5) },
     { folder: 'French Horn', color: '#8B8B90', x: 250, y: 322, r: 6, slot: folderSlot(4) },
@@ -575,9 +597,14 @@
     { folder: 'Christmas Rep.', color: '#EC5A45', x: 228, y: 356, r: 1, slot: folderSlot(0) },
     { sheet: 'dvorak', x: 220, y: 325, r: -3, slot: scoreSlot(0) },
   ];
+  const SET = ['Let It Be', 'Hallelujah', 'Yesterday', 'Hey Jude', 'Imagine'];
   const build = d => {
     const el = document.createElement('div');
-    if (d.folder) {
+    if (d.setlist) {
+      el.className = 'mf-setlist';
+      el.innerHTML = `<i class="sl-when">Tomorrow</i><b>${d.setlist}</b><small>Set list · ${SET.length} songs</small>` +
+        `<ol>${SET.map(t => `<li>${t}</li>`).join('')}</ol><i class="sl-start">Start set</i>`;
+    } else if (d.folder) {
       el.className = 'mf-folder';
       el.style.setProperty('--c', d.color);
       el.innerHTML = `<i class="mf-peek"></i><span class="mf-front"><span class="mf-label">${d.folder}</span><i class="mf-card"></i></span>`;
@@ -588,7 +615,9 @@
     return el;
   };
   MESS.forEach((d, k) => {
-    [d.w, d.h] = SIZE[d.folder ? 'folder' : 'sheet'];
+    [d.w, d.h] = SIZE[d.setlist ? 'setlist' : d.folder ? 'folder' : 'sheet'];
+    // the height it ends at: folders square up, the set list turns into a landscape card
+    d.endH = d.setlist ? d.w * d.slot.h / d.slot.w : d.folder ? d.w : d.h;
     const a = Math.abs(d.r) * Math.PI / 180;
     // how far it has to slide up before its lowest corner clears the pocket's mouth
     d.lift = Math.max(0, d.y + (d.h / 2) * Math.cos(a) + (d.w / 2) * Math.sin(a) - 452);
@@ -673,8 +702,10 @@
   // folder closes behind it and settles as its backdrop
   const LIFT_PX = 46; // how far it slides up the page to clear the pocket
   // and finally the tools: the four tool tiles lift out of the screen one by one
-  const TOOL_FROM = 0.77, TOOL_STEP = 0.045, TOOL_LEN = 0.08, TOOL_POP = 1.8;
+  const TOOL_FROM = 0.785, TOOL_STEP = 0.045, TOOL_LEN = 0.08, TOOL_POP = 1.8;
   const pageIpad = document.getElementById('pageIpad');
+  const streakFills = [...document.querySelectorAll('.streak .fill')];
+  const days = [...document.querySelectorAll('.streak .day')];
   const stageIpad = document.getElementById('stageIpad');
   const IPAD_RATIO = IPAD.w / IPAD.h, BACKDROP = 1.18; // the folder's height ÷ the iPad's
   const smooth = t => t * t * (3 - 2 * t);
@@ -691,10 +722,10 @@
     const a = seg(p, 0.00, 0.133); // straighten + centre
     const o = seg(p, 0.133, 0.311); // open the cover
     const on = seg(p, 0.296, 0.348); // the iPad wakes
-    const lf = seg(p, 0.62, 0.655); // the iPad slides up out of the pocket
-    const fw = seg(p, 0.655, 0.735); // …and comes front and centre
-    const cl = seg(p, 0.665, 0.735); // the cover closes behind it
-    const bd = seg(p, 0.69, 0.765); // the closed folder settles as the backdrop
+    const lf = seg(p, 0.635, 0.67); // the iPad slides up out of the pocket
+    const fw = seg(p, 0.67, 0.75); // …and comes front and centre
+    const cl = seg(p, 0.68, 0.75); // the cover closes behind it
+    const bd = seg(p, 0.705, 0.78); // the closed folder settles as the backdrop
     const c = seg(p, 0.90, 0.97); // caption
 
     // scales
@@ -781,6 +812,10 @@
 
     screenOff.style.opacity = String(1 - on);
     pagePiano.style.opacity = String(on);
+    // once the iPad is front and centre, the practice ring fills to its goal and
+    // the week's three days tick in (the screen's first sign of life, before the tools)
+    streakFills.forEach(f => { f.style.strokeDashoffset = String(100 * (1 - seg(p, 0.748, 0.778))); });
+    days.forEach((g, i) => { const k = i % 3; g.style.transform = `scale(${seg(p, 0.772 + k * 0.006, 0.782 + k * 0.006)})`; });
     glow.style.opacity = String(on);
 
     // each item slides up out of the pocket, lifts off the page (its shadow
@@ -793,15 +828,15 @@
       const air = Math.sin(Math.PI * clamp((u - 0.12) / 0.88));
       const sc = Math.pow(d.es, smooth(clamp((u - 0.18) / 0.82)));
       const r = lerp(d.r, IPAD.tilt, smooth(clamp(u / 0.75))) + d.bank * air;
-      const m = d.folder ? smooth(clamp((u - 0.5) / 0.42)) : 0;
-      const h = lerp(d.h, d.w, m);
+      const m = d.endH !== d.h ? smooth(clamp((u - 0.5) / 0.42)) : 0;
+      const h = lerp(d.h, d.endH, m);
       const flying = u >= d.uClear;
       const el = flying ? d.inFlight : d.inPocket;
       const settle = clamp((t - ARRIVE) / (1 - ARRIVE));
       if (flying) place(el, x, y, h, d.w, 4 + 170 * air, r, -10 * air, 7 * air, sc * (1 - 0.04 * settle));
       else place(el, x + FW, y, h, d.w, 0, r, 0, 0, 1);
       el.style.setProperty('--l', air.toFixed(3));
-      if (d.folder) { el.style.height = `${h}px`; el.style.setProperty('--m', m.toFixed(3)); }
+      if (d.endH !== d.h) { el.style.height = `${h}px`; el.style.setProperty('--m', m.toFixed(3)); }
       d.inFlight.style.opacity = String(1 - settle);
       d.inPocket.style.visibility = flying ? 'hidden' : '';
       d.inFlight.style.visibility = flying ? 'visible' : 'hidden';
