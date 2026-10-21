@@ -634,3 +634,7 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 #nav-features .nav-pop-pc span { padding-left: 0; }
 .menu-panel > .menu-group:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
 .menu-group + .menu-group { border-top: 0; margin-top: 0; }
+
+/* people on the share cards: round photos in place of initials */
+.avatar { overflow: hidden; }
+.avatar img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
