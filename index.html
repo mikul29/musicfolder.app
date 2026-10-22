@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=50">
+<link rel="stylesheet" href="assets/site.css?v=51">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -760,13 +760,23 @@
   const stageIpad = document.getElementById('stageIpad');
   const IPAD_RATIO = IPAD.w / IPAD.h, BACKDROP = 1.18; // the folder's height ÷ the iPad's
   const smooth = t => t * t * (3 - 2 * t);
+  // Scroll → timeline. The cover opening (to 0.311) and the tool tiles (from 0.785) play faster
+  // than the flights in between, so the hero doesn't feel endless; .hero's height matches (530vh).
+  const PACE = [[0, 0], [0.244, 0.311], [0.84, 0.785], [1, 1]];
+  const pace = s => {
+    for (let i = 1; i < PACE.length; i++) {
+      const [s0, p0] = PACE[i - 1], [s1, p1] = PACE[i];
+      if (s <= s1) return p0 + (p1 - p0) * (s - s0) / (s1 - s0);
+    }
+    return 1;
+  };
 
   function frame() {
     const vw = document.documentElement.clientWidth;
     const vh = hero.querySelector('.hero-stage').clientHeight;
     const narrow = vw < 860;
     const total = hero.offsetHeight - vh;
-    const p = reduce.matches ? 0 : clamp((window.scrollY - hero.offsetTop) / Math.max(1, total));
+    const p = reduce.matches ? 0 : pace(clamp((window.scrollY - hero.offsetTop) / Math.max(1, total)));
 
     header.classList.toggle('scrolled', window.scrollY > 8);
 

@@ -16,7 +16,7 @@ When `assets/site.css` changes, bump `site.css?v=N` on every page so returning v
 
 ## Home hero: the folder opens, everything flies into the iPad
 
-`.hero` is 640vh tall with a sticky 100vh stage. `frame()` maps scroll progress `p` (0–1) to the phases below; everything is scroll-linked except the tool tiles' little hints and the review dots, which run on timers.
+`.hero` is 530vh tall with a sticky 100vh stage. `frame()` maps scroll progress through `pace()` (the cover opening and the tool tiles run faster than the flights) to the timeline `p` (0–1) used by the phases below; everything is scroll-linked except the tool tiles' little hints and the review dots, which run on timers.
 
 | p | What happens |
 |---|---|
