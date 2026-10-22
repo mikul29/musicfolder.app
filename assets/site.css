@@ -473,8 +473,8 @@ p { margin: 0 0 16px; }
 }
 /* the Planning Center folder's title: a generic name, not the church's */
 .shot-pco-title { width: 300px; height: 96px; background: #FAFAF8; }
-.shot-pco-title b { position: absolute; left: 8px; top: 10px; font-size: 37px; line-height: 44px; font-weight: 600; white-space: nowrap; }
-.shot-pco-title span { position: absolute; left: 8px; top: 56px; font-size: 33px; line-height: 40px; color: #6D6A61; }
+.shot-pco-title b { position: absolute; left: 8px; top: 4px; font-size: 37px; line-height: 44px; font-weight: 600; white-space: nowrap; }
+.shot-pco-title span { position: absolute; left: 8px; top: 50px; font-size: 33px; line-height: 40px; color: #6D6A61; }
 
 .pocket, .pocket-right {
   position: absolute; left: 0; right: 0; bottom: 0; height: 140px;
