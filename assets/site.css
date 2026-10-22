@@ -733,7 +733,16 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .site-footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ribbon); }
 .footer-mark {
   font: 600 clamp(36px, 6.5vw, 92px)/1 var(--font-text); letter-spacing: .2em; text-transform: uppercase;
-  color: #1F1F1F; text-shadow: 0 1px 0 rgba(255,255,255,0.05), 0 -1px 0 rgba(0,0,0,0.9);
+  /* a silver foil stamp, in the same brushed silver as the folder's corner
+     protectors: a soft top-lit gradient with a faint diagonal sheen, pressed
+     into the black with a hairline shadow underneath */
+  color: #B9BDC3;
+  background:
+    linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.35) 48%, transparent 58%),
+    linear-gradient(180deg, #F1F3F6 0%, #D4D8DD 38%, #9CA1A8 62%, #C3C7CD 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.85)) drop-shadow(0 -1px 0 rgba(255,255,255,0.06));
+  opacity: 0.9;
   white-space: nowrap; margin-bottom: 32px; user-select: none;
   /* the last letter's tracking would leave a gap on the right */
   margin-right: -0.2em; display: block; width: max-content;
