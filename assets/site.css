@@ -749,8 +749,7 @@ a.who-card:hover h3 { color: var(--deep-amber); }
   padding: 56px 64px; border-radius: var(--radius-panel);
   background: var(--card); box-shadow: 0 0 0 1px var(--staff-line), var(--shadow-card);
 }
-.bc-copy .heading { margin: 20px 0 14px; max-width: 600px; text-wrap: balance; }
-.bc-copy p { margin: 0; color: var(--graphite); max-width: 520px; text-wrap: pretty; }
+.bc-copy .heading { margin: 20px 0 0; max-width: 600px; text-wrap: balance; }
 /* the rest of the shared folder: overlapping faces and a count */
 .bc-people { display: flex; }
 .bc-people .avatar { width: 40px; height: 40px; box-shadow: 0 0 0 3px var(--card); }
