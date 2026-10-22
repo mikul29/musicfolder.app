@@ -740,6 +740,31 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .hero-qr span { font-size: 13px; line-height: 1.4; color: var(--graphite); }
 @media (max-width: 860px) { .hero-qr { display: none; } }
 
+/* ---------- Share call to action (after the features walk-through) ----------
+   one clean card that picks up from "Work together as a team"; the story above
+   and the toolkit below already carry the section spacing */
+.section.band-cta { padding: 0; }
+.bc-panel {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 48px;
+  padding: 56px 64px; border-radius: var(--radius-panel);
+  background: var(--card); box-shadow: 0 0 0 1px var(--staff-line), var(--shadow-card);
+}
+.bc-copy .heading { margin: 20px 0 14px; max-width: 600px; text-wrap: balance; }
+.bc-copy p { margin: 0; color: var(--graphite); max-width: 520px; text-wrap: pretty; }
+/* the rest of the shared folder: overlapping faces and a count */
+.bc-people { display: flex; }
+.bc-people .avatar { width: 40px; height: 40px; box-shadow: 0 0 0 3px var(--card); }
+.bc-people .avatar + .avatar { margin-left: -10px; }
+.bc-more-people { font-size: 12px; font-weight: 600; color: var(--graphite); font-variant-numeric: tabular-nums; }
+.bc-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.bc-link { font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; }
+.bc-link span { display: inline-block; transition: transform .2s ease; }
+.bc-link:hover { color: var(--deep-amber); }
+.bc-link:hover span { transform: translateX(3px); }
+@media (max-width: 860px) {
+  .bc-panel { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; }
+}
+
 /* silver corner protectors: L-shaped brackets that wrap the corners, one rivet
    per arm, like a real choir / band folder (one drawing, rotated per corner) */
 .defs { position: absolute; width: 0; height: 0; overflow: hidden; }
