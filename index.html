@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=45">
+<link rel="stylesheet" href="assets/site.css?v=46">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -618,8 +618,9 @@
     const el = document.createElement('div');
     if (d.setlist) {
       el.className = 'mf-setlist';
-      el.innerHTML = `<i class="sl-when">Tomorrow</i><b>${d.setlist}</b><small>Set list · ${SET.length} songs</small>` +
-        `<ol>${SET.map(t => `<li>${t}</li>`).join('')}</ol><i class="sl-start">Start set</i>`;
+      el.innerHTML = `<i class="sl-when">Tomorrow</i><b>${d.setlist}</b><small>${SET.length} songs<span> · Set list</span></small>` +
+        `<ol>${SET.map(t => `<li>${t}</li>`).join('')}</ol>` +
+        '<i class="sl-more">+2 more songs ›</i><i class="sl-start">Start set</i><i class="sl-view">View</i>';
     } else if (d.folder) {
       el.className = 'mf-folder';
       el.style.setProperty('--c', d.color);
