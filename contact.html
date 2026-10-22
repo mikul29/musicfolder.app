@@ -12,18 +12,18 @@
     location.replace('https://musicfolder.app' + (p || '/') + location.search + location.hash);
   }
 </script>
-<meta name="description" content="Report a bug, request a feature or ask a question. Your message goes straight to the developer of Music Folder.">
+<meta name="description" content="Report a bug, request a feature or ask a question. Your message goes straight to the people who make Music Folder.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://musicfolder.app/contact">
 <meta property="og:title" content="Contact Music Folder">
-<meta property="og:description" content="Answers to common questions, and a direct line to the developer.">
+<meta property="og:description" content="Answers to common questions, and a direct line to the people who make Music Folder.">
 <meta property="og:image" content="https://musicfolder.app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Contact Music Folder">
-<meta name="twitter:description" content="Answers to common questions, and a direct line to the developer.">
+<meta name="twitter:description" content="Answers to common questions, and a direct line to the people who make Music Folder.">
 <meta name="twitter:image" content="https://musicfolder.app/assets/og-image.jpg">
 <meta name="apple-itunes-app" content="app-id=1611824311">
 <meta name="theme-color" content="#FBFAF8">
@@ -214,7 +214,7 @@
 <section class="section report contact-page" id="report">
   <div class="wrap">
     <div class="section-head">
-      <h1 class="display">Tell me what's <em>happening.</em></h1>
+      <h1 class="display">Tell us what's <em>happening.</em></h1>
       <p class="contact-lede">Report a problem, request a feature or ask a question. You'll get a reply by email.</p>
       <p class="contact-alt">Looking for a quick answer? <a href="/support">Browse Help</a></p>
     </div>
@@ -237,7 +237,7 @@
             <div class="field">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
-              <small>So I can reply to you.</small>
+              <small>So we can reply to you.</small>
             </div>
           </div>
         </fieldset>
@@ -478,7 +478,7 @@
       if (res.ok && json.success) {
         form.reset();
         status.className = 'form-status success';
-        status.textContent = 'Report sent. Thanks, I\'ll be in touch soon.';
+        status.textContent = 'Report sent. Thanks, we\'ll be in touch soon.';
         btnText.textContent = 'Sent';
         setTimeout(reset, 4000);
       } else {
