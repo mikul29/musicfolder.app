@@ -757,17 +757,17 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 .site-footer { background: #141414; color: #FBFAF8; position: relative; overflow: hidden; padding: 48px 0 28px; }
 .site-footer::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--ribbon); }
 .footer-mark {
-  font: 600 clamp(36px, 6.5vw, 92px)/1 var(--font-text); letter-spacing: .2em; text-transform: uppercase;
-  /* a silver foil stamp, in the same brushed silver as the folder's corner
-     protectors: a soft top-lit gradient with a faint diagonal sheen, pressed
-     into the black with a hairline shadow underneath */
-  color: #B9BDC3;
+  font: 500 clamp(36px, 6.5vw, 92px)/1 var(--font-text); letter-spacing: .2em; text-transform: uppercase;
+  /* a satin silver foil stamp, in the corner protectors' silver but kept low:
+     readable (about 4:1 on the black) yet quieter than the white links, so the
+     footer's navigation stays first. A faint sheen, pressed in with a hairline
+     shadow underneath */
+  color: #7A7F86;
   background:
-    linear-gradient(115deg, transparent 38%, rgba(255,255,255,0.35) 48%, transparent 58%),
-    linear-gradient(180deg, #F1F3F6 0%, #D4D8DD 38%, #9CA1A8 62%, #C3C7CD 100%);
+    linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.10) 50%, transparent 60%),
+    linear-gradient(180deg, #969BA2 0%, #7B8087 52%, #6A6E74 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.85)) drop-shadow(0 -1px 0 rgba(255,255,255,0.06));
-  opacity: 0.9;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.85));
   white-space: nowrap; margin-bottom: 32px; user-select: none;
   /* the last letter's tracking would leave a gap on the right */
   margin-right: -0.2em; display: block; width: max-content;
