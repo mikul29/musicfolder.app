@@ -152,10 +152,27 @@ p { margin: 0 0 16px; }
 .hr-quote.is-active { opacity: 1; transform: none; visibility: visible; transition-duration: .5s; transition-delay: .3s; }
 .hr-quote p { font-family: var(--font-display); font-size: 27px; line-height: 1.2; letter-spacing: -0.005em; color: var(--folder-black); margin: 0 0 10px; }
 .hr-quote cite { font-style: normal; font-size: 14px; color: var(--graphite); }
-.hr-dots { display: flex; gap: 8px; margin-top: 18px; }
-.hr-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: var(--staff-line); cursor: pointer; transition: background-color .3s, width .3s; }
-.hr-dots button.is-active { width: 20px; border-radius: 4px; background: var(--folder-black); }
-@media (prefers-reduced-motion: reduce) { .hr-quote { transition: none; } }
+.hr-dots { display: flex; align-items: center; gap: 8px; height: 8px; margin-top: 18px; }
+/* an endless-looking row: dots shrink and fade towards both ends */
+.hr-dots button {
+  flex: none; position: relative; overflow: hidden; padding: 0; border: 0; border-radius: 999px;
+  width: 7px; height: 7px; background: #CBC4B7; cursor: pointer;
+}
+.hr-dots button[data-off="2"] { width: 5px; height: 5px; opacity: 0.75; }
+.hr-dots button[data-off="3"] { width: 3.5px; height: 3.5px; opacity: 0.5; }
+/* the current review: a pill that fills while it's up (the 5.5s matches the script) */
+.hr-dots button[data-off="0"] { width: 28px; background: #DDD7CC; cursor: default; }
+.hr-dots button[data-off="0"]::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--folder-black);
+  transform-origin: left center; transform: scaleX(0); animation: hr-fill 5.5s linear forwards;
+}
+.hr-dots.is-paused button[data-off="0"]::after { animation-play-state: paused; }
+@keyframes hr-fill { to { transform: scaleX(1); } }
+.hr-dots button:focus-visible { outline: 2px solid var(--ribbon); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .hr-quote { transition: none; }
+  .hr-dots button[data-off="0"]::after { animation: none; transform: none; }
+}
 @media (max-width: 860px) {
   /* on phones the badge comes first (visible without scrolling), the review under it */
   .hero-reviews { order: 3; margin-top: 28px; }

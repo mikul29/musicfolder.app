@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=44">
+<link rel="stylesheet" href="assets/site.css?v=45">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -155,7 +155,7 @@
             <blockquote class="hr-quote"><p>“Easy to use, clean interface, and has been reliable for me the last 4 years.”</p><cite>MusicMan.7, App Store</cite></blockquote>
             <blockquote class="hr-quote"><p>“So much easier than having to carry loads of sheet music with me.”</p><cite>Rzibby, App Store</cite></blockquote>
           </div>
-          <div class="hr-dots" role="group" aria-label="Choose a review"><button type="button" class="is-active" aria-label="Review 1"></button><button type="button" aria-label="Review 2"></button><button type="button" aria-label="Review 3"></button><button type="button" aria-label="Review 4"></button></div>
+          <div class="hr-dots" role="group" aria-label="Choose a review"></div>
         </figure>
         <div class="cta-row">
           <a class="badge-link" href="https://apps.apple.com/app/id1611824311">
@@ -965,22 +965,52 @@
   }
 
 
-  /* ---------- Hero reviews: one quote at a time ---------- */
+  /* ---------- Hero reviews: one quote at a time ----------
+     The dots read as an endless row: seven slots centred on the current review
+     (wrapping round both ways), shrinking towards the ends. The middle one is a
+     pill that fills while its review is up; when the next one comes in, the row
+     slides a step. */
   const quotes = [...document.querySelectorAll('.hr-quote')];
-  const dots = [...document.querySelectorAll('.hr-dots button')];
-  if (quotes.length > 1) {
+  const dotRow = document.querySelector('.hr-dots');
+  if (quotes.length > 1 && dotRow) {
+    const SPAN = 3, HOLD = 5500;
     let qi = 0, timer = null;
-    const showQuote = i => {
-      qi = (i + quotes.length) % quotes.length;
-      quotes.forEach((q, k) => q.classList.toggle('is-active', k === qi));
-      dots.forEach((d, k) => d.classList.toggle('is-active', k === qi));
+    const n = quotes.length;
+    const drawDots = () => {
+      const hadFocus = dotRow.contains(document.activeElement);
+      dotRow.innerHTML = '';
+      for (let off = -SPAN; off <= SPAN; off++) {
+        const k = ((qi + off) % n + n) % n;
+        const b = dotRow.appendChild(document.createElement('button'));
+        b.type = 'button';
+        b.dataset.off = Math.abs(off);
+        b.setAttribute('aria-label', `Review ${k + 1}`);
+        if (off === 0) b.setAttribute('aria-current', 'true');
+        else b.tabIndex = Math.abs(off) === 1 ? 0 : -1;
+        b.addEventListener('click', () => { if (off) { showQuote(qi + off); restart(); } });
+      }
+      if (hadFocus) dotRow.querySelector('[data-off="0"]').focus({ preventScroll: true });
     };
-    const start = () => { if (!reduce.matches && !timer) timer = setInterval(() => showQuote(qi + 1), 5500); };
+    const showQuote = (i, slide = true) => {
+      const step = Math.sign(i - qi) || 1;
+      qi = ((i % n) + n) % n;
+      quotes.forEach((q, k) => q.classList.toggle('is-active', k === qi));
+      drawDots();
+      if (slide && !reduce.matches && dotRow.animate) {
+        dotRow.animate([{ transform: `translateX(${step * 15}px)` }, { transform: 'none' }],
+          { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
+      }
+    };
+    const start = () => { if (!reduce.matches && !timer) timer = setInterval(() => showQuote(qi + 1), HOLD); };
     const stop = () => { clearInterval(timer); timer = null; };
-    dots.forEach((d, k) => d.addEventListener('click', () => { showQuote(k); stop(); start(); }));
+    // pausing holds the pill where it is; resuming starts the current review afresh
+    const restart = () => { stop(); dotRow.classList.remove('is-paused'); drawDots(); start(); };
     const box = document.querySelector('.hero-reviews');
-    box.addEventListener('mouseenter', stop); box.addEventListener('mouseleave', start);
-    box.addEventListener('focusin', stop); box.addEventListener('focusout', start);
+    box.addEventListener('mouseenter', () => { stop(); dotRow.classList.add('is-paused'); });
+    box.addEventListener('mouseleave', restart);
+    box.addEventListener('focusin', () => { stop(); dotRow.classList.add('is-paused'); });
+    box.addEventListener('focusout', e => { if (!box.contains(e.relatedTarget)) restart(); });
+    showQuote(0, false);
     start();
   }
 
