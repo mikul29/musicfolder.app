@@ -626,6 +626,14 @@ section { position: relative; }
 .device.tablet .screen { border-radius: 18px; }
 .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 .device .screen.shot { padding: 0; border: 0; background: #fff; }
+/* an Apple Pencil resting against the iPad (same drawing and placement as the
+   Annotation page) */
+.device .pencil {
+  position: absolute; z-index: 2; width: 72%; height: auto; left: 44%; top: 62%;
+  transform: rotate(27deg); transform-origin: 0 50%;
+  filter: drop-shadow(0 10px 9px rgba(20,20,20,0.22)) drop-shadow(0 2px 2px rgba(20,20,20,0.12));
+  pointer-events: none;
+}
 /* a full-screen screenshot sets the frame's shape instead of being cropped */
 .device.fit { aspect-ratio: auto; }
 .device.fit .screen, .device.fit .screen img { height: auto; display: block; }
