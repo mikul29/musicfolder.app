@@ -233,7 +233,7 @@ p { margin: 0 0 16px; }
 }
 .ipad-screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 /* a home-screen slot that is still waiting for its folder or score */
-.slot-mask { position: absolute; background: #FAFAF8; }
+.slot-mask { position: absolute; background: #FAFBF8; }
 /* the screen before it wakes: the dark screen (its own background) with a soft
    diagonal reflection on the glass, which fades as the content fades up */
 .screen-content { position: absolute; inset: 0; opacity: 0; }
@@ -361,18 +361,18 @@ p { margin: 0 0 16px; }
 /* ---- the tools beat: replicas of the Today screen's tool tiles ----
    built at 2.3× the on-screen tile (crisp when lifted), --l: 0 resting → 1 lifted */
 .tool-pop {
-  position: absolute; left: 0; top: 0; width: 173px; height: 80px; will-change: transform;
+  position: absolute; left: 0; top: 0; width: 173px; height: 93px; will-change: transform;
   background: #FFFFFF; border-radius: 14.6px;
   box-shadow:
     0 0 0 calc(1.5px * var(--l, 0)) rgba(242,129,46,0.55),
     0 calc(4px + 22px * var(--l, 0)) calc(10px + 40px * var(--l, 0)) -12px rgba(0,0,0,calc(0.25 + 0.35 * var(--l, 0)));
 }
 .tool-pop span {
-  position: absolute; left: 0; right: 0; top: 47px; text-align: center;
-  font: 500 14.2px/16px -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); color: #1A1815; letter-spacing: -0.01em;
+  position: absolute; left: 0; right: 0; top: 54.2px; text-align: center;
+  font: 500 14.6px/16px -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); color: #1A1815; letter-spacing: -0.01em;
 }
-/* icon and label sit where the app puts them (centres at 34% and 69% of the tile) */
-.tool-pop svg { position: absolute; left: 71.5px; top: 12px; width: 30px; height: 30px; overflow: visible; }
+/* icon and label sit where the app puts them (icon centre 37 % down, label baseline 72 %) */
+.tool-pop svg { position: absolute; left: 70.5px; top: 18.3px; width: 32px; height: 32px; overflow: visible; }
 .ti { fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 /* piano: three keys pressed in turn, a rising arpeggio */
 .ti-piano { stroke: #1A1815; } /* the app draws this one in primary text, not a gradient */
@@ -417,89 +417,51 @@ p { margin: 0 0 16px; }
 }
 
 /* a printed set list that turns into the Today screen's set-list card (--m: 0 → 1).
-   Laid out as the card scaled to its 280px width (× 280/688), so the moment it
-   lands every line sits exactly on the card's line and it dissolves without a
-   ghost; as it shortens, songs 4 and 5 give way to the card's "+2 more songs",
-   and the Tomorrow label and buttons fade in */
+   Laid out as the card scaled to its 280px width (× 280/568: the card is 568 × 622 at
+   (35, 348) on the screenshot), each line on the card's own baseline, so the moment it
+   lands every line sits exactly on the card's line and it dissolves without a ghost;
+   as it shortens, songs 4 and 5 give way to the card's "+2 more songs", and the
+   Tomorrow label and buttons fade in */
 .mf-setlist {
   position: absolute; left: 0; top: 0; width: 280px; height: 380px; overflow: hidden; will-change: transform;
   background: #FFFFFF; border-radius: calc(2px + 14.3px * var(--m, 0));
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); color: #1A1815;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); color: #11120D;
   box-shadow:
     0 calc(10px + 34px * var(--l, 0)) calc(22px + 46px * var(--l, 0)) -10px rgba(0,0,0,calc(0.75 - 0.4 * var(--l, 0))),
     0 0 0 0.5px rgba(0,0,0,0.25);
 }
 .mf-setlist i { font-style: normal; }
-.mf-setlist .sl-when { position: absolute; left: 20.3px; top: 21.2px; font-size: 11.8px; line-height: 13.8px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #E38743; opacity: var(--m, 0); }
-.mf-setlist b { position: absolute; left: 20.3px; top: 44.8px; font-size: 22.4px; line-height: 26px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
-.mf-setlist small { position: absolute; left: 20.3px; top: 82.2px; font-size: 12.2px; line-height: 14.7px; color: #6D6A61; white-space: nowrap; }
+.mf-setlist .sl-when { position: absolute; left: 21.2px; top: 22.1px; font-size: 12.2px; line-height: 1; font-weight: 700; letter-spacing: 0.81px; text-transform: uppercase; color: #F38330; opacity: var(--m, 0); }
+.mf-setlist b { position: absolute; left: 21.2px; top: 48.5px; font-size: 21.1px; line-height: 1; font-weight: 700; white-space: nowrap; }
+.mf-setlist small { position: absolute; left: 21.2px; top: 85px; font-size: 12.4px; line-height: 1; letter-spacing: -0.15px; color: #62635A; white-space: nowrap; }
 .mf-setlist small span { opacity: calc(1 - 2 * var(--m, 0)); }
-.mf-setlist ol { position: absolute; left: 20.3px; right: 20.3px; top: 105px; margin: 0; padding: 0; list-style: none; counter-reset: sl; }
-.mf-setlist li { counter-increment: sl; display: flex; align-items: center; height: 26.9px; border-bottom: 0.8px solid #EFEBE5; font-size: 13px; font-weight: 500; }
-.mf-setlist li::before { content: counter(sl); width: 22.8px; flex: none; font-size: 11.4px; color: #6D6A61; }
+.mf-setlist ol { position: absolute; left: 20.2px; right: 20.2px; top: 112.2px; margin: 0; padding: 0; list-style: none; counter-reset: sl; }
+.mf-setlist li { counter-increment: sl; display: flex; align-items: center; height: 35px; border-bottom: 0.8px solid #E9EAE5; font-size: 13.8px; font-weight: 600; letter-spacing: -0.35px; }
+.mf-setlist li::before { content: counter(sl); width: 23.7px; flex: none; font-size: 12.2px; font-weight: 700; letter-spacing: 0; color: #69685F; }
 .mf-setlist li:nth-child(n+4) { opacity: calc(1 - 2 * var(--m, 0)); }
-.mf-setlist .sl-more { position: absolute; left: 20.3px; top: 192.1px; font-size: 12.2px; line-height: 14.7px; font-weight: 600; color: #E38743; opacity: calc(2 * var(--m, 0) - 1); }
+.mf-setlist .sl-more { position: absolute; left: 21.2px; top: 223.7px; font-size: 12.2px; line-height: 1; font-weight: 700; letter-spacing: -0.19px; color: #F38330; opacity: calc(2 * var(--m, 0) - 1); }
 .mf-setlist .sl-start, .mf-setlist .sl-view {
-  position: absolute; top: 219px; height: 42.3px; border-radius: 10.6px; text-align: center; line-height: 42.3px; font-size: 13px;
+  position: absolute; top: 243.5px; height: 42.9px; border-radius: 10.8px; text-align: center; line-height: 42.9px; font-size: 13.3px;
   opacity: var(--m, 0);
 }
-.mf-setlist .sl-start { left: 20.3px; width: 153.8px; background: #E38743; color: #FFFFFF; font-weight: 600; }
-.mf-setlist .sl-view { left: 184px; width: 75.7px; background: #F1EFE9; color: #6D6A61; font-weight: 500; }
+.mf-setlist .sl-start { left: 20.2px; width: 153.8px; background: #F1822F; color: #FFFFFF; font-weight: 600; }
+.mf-setlist .sl-view { left: 182.4px; width: 77.4px; background: #F0EFE9; color: #67645A; font-weight: 500; }
 
-/* ---- parts of the Today screen rebuilt crisp over the screenshot ----
-   laid out in screenshot pixels (an 11-inch iPad at 1668 × 2420) and scaled
-   onto the screen by the script */
+/* ---- the practice card, rebuilt crisp over the screenshot's own so its ring can fill
+   and the week's days tick in during the hero (--d on a done day: 0 → 1). Laid out in
+   screenshot pixels (an 11-inch iPad at 1379 × 2000, retouched to the site's content)
+   and scaled onto the screen by the script */
 .shot-part {
-  position: absolute; transform-origin: 0 0; color: #1A1815;
+  position: absolute; transform-origin: 0 0; color: #11120D;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text);
 }
-.shot-part i { font-style: normal; }
-/* a clean status bar */
-.shot-status { width: 1668px; height: 60px; background: #FAFAF8; }
-.shot-status b { position: absolute; left: 50px; top: 15px; font-size: 27px; line-height: 32px; font-weight: 600; }
-.shot-status span { position: absolute; left: 172px; top: 15px; font-size: 27px; line-height: 32px; font-weight: 500; }
-.shot-status .sb-icons { position: absolute; right: 50px; top: 14px; width: 88px; height: 30px; }
-.sb-wifi, .sb-fill { fill: #1A1815; }
-.sb-batt { fill: none; stroke: rgba(26,24,21,0.4); stroke-width: 1.2; }
-.sb-cap { fill: rgba(26,24,21,0.4); }
-/* the set-list card, with a concert in it */
-.shot-setlist { width: 688px; height: 693px; background: #FFFFFF; border-radius: 40px; }
-.shot-setlist .sc-when { position: absolute; left: 50px; top: 52px; font-size: 29px; line-height: 34px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #E38743; }
-.shot-setlist b { position: absolute; left: 50px; top: 110px; font-size: 55px; line-height: 64px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
-.shot-setlist small { position: absolute; left: 50px; top: 202px; font-size: 30px; line-height: 36px; color: #6D6A61; }
-.shot-setlist ol { position: absolute; left: 50px; right: 50px; top: 258px; margin: 0; padding: 0; list-style: none; }
-.shot-setlist li { display: flex; align-items: center; height: 66px; border-bottom: 2px solid #EFEBE5; font-size: 32px; font-weight: 500; }
-.shot-setlist li i { width: 56px; font-size: 28px; color: #6D6A61; }
-.shot-setlist .sc-more { position: absolute; left: 50px; top: 472px; font-size: 30px; line-height: 36px; font-weight: 600; color: #E38743; }
-.shot-setlist .sc-start, .shot-setlist .sc-view {
-  position: absolute; top: 538px; height: 104px; border-radius: 26px; text-align: center; line-height: 104px; font-size: 32px;
-}
-.shot-setlist .sc-start { left: 50px; width: 378px; background: #E38743; color: #FFFFFF; font-weight: 600; }
-.shot-setlist .sc-view { left: 452px; width: 186px; background: #F1EFE9; color: #6D6A61; font-weight: 500; }
-/* the practice card, two weeks into a streak; the ring fills and the week's
-   days tick in during the hero (--d on a done day: 0 → 1) */
-.streak-card { width: 836px; height: 256px; background: #FFFFFF; border-radius: 40px; }
-.streak-card .ring { position: absolute; left: 0; top: 0; width: 250px; height: 256px; }
-.streak-card .ring circle { fill: none; stroke-width: 13; }
-.streak-card .track { stroke: #F6E6D9; }
-.streak-card .fill { stroke: #E8873F; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 125px 128px; }
-.streak-card .mins { position: absolute; left: 45px; top: 88px; width: 160px; text-align: center; font-size: 44px; line-height: 46px; font-weight: 700; }
-.streak-card .mins small { display: block; margin-top: 2px; font-size: 24px; line-height: 28px; font-weight: 500; color: #6D6A61; }
-.streak-card strong { position: absolute; left: 240px; top: 50px; font-size: 45px; line-height: 52px; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; }
-.streak-card strong span { font-size: 38px; }
-.streak-card p { position: absolute; left: 240px; top: 112px; margin: 0; font-size: 25px; line-height: 30px; color: #6D6A61; white-space: nowrap; }
-.streak-card ol { position: absolute; left: 238px; top: 161px; display: flex; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.streak-card li { width: 44px; height: 44px; border-radius: 50%; background: #EFEDE9; color: #6D6A61; font-size: 21px; line-height: 44px; font-weight: 600; text-align: center; }
+.streak-card { width: 691px; height: 211px; }
+.streak-card svg { display: block; overflow: visible; }
+.streak-card text { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-text); }
+.streak-card .track { fill: none; stroke: #F0EFE9; stroke-width: 13; }
+.streak-card .fill { fill: none; stroke: #F38330; stroke-width: 13; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 105.5px 105px; }
 /* until it ticks in, a done day looks like any other day (grey, its letter showing) */
-.streak-card li.done { position: relative; }
-.streak-card li.done::after {
-  content: attr(data-d); position: absolute; inset: 0; border-radius: 50%; background: #E8873F; color: #FFFFFF;
-  transform: scale(var(--d, 1));
-}
-/* the Planning Center folder's title: a generic name, not the church's */
-.shot-pco-title { width: 300px; height: 96px; background: #FAFAF8; }
-.shot-pco-title b { position: absolute; left: 8px; top: 4px; font-size: 37px; line-height: 44px; font-weight: 600; white-space: nowrap; }
-.shot-pco-title span { position: absolute; left: 8px; top: 50px; font-size: 33px; line-height: 40px; color: #6D6A61; }
+.streak-card .done { transform-box: fill-box; transform-origin: center; transform: scale(var(--d, 1)); }
 
 .pocket, .pocket-right {
   position: absolute; left: 0; right: 0; bottom: 0; height: 140px;

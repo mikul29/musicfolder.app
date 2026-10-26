@@ -51,7 +51,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=51">
+<link rel="stylesheet" href="assets/site.css?v=52">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -183,7 +183,7 @@
             <!-- what the screen shows; it fades up from black as the iPad wakes (not hidden
                  under a dark layer, whose edge would let a hairline of it show through) -->
             <div class="screen-content" id="screenContent">
-              <img src="assets/hero-ipad-home.webp?v=2" alt="" width="1668" height="2420">
+              <img src="assets/hero-ipad-home.webp?v=3" alt="" width="1379" height="2000">
               <!-- each slot stays blank until its folder or score lands in it -->
             </div>
             <div class="ipad-off" id="ipadOff"></div>
@@ -218,7 +218,7 @@
     <div class="ipad-stage" aria-hidden="true">
       <div class="ipad stage-ipad" id="stageIpad">
         <div class="ipad-screen" id="stageScreen">
-          <img src="assets/hero-ipad-home.webp?v=2" alt="" width="1668" height="2420">
+          <img src="assets/hero-ipad-home.webp?v=3" alt="" width="1379" height="2000">
         </div>
         <div class="ipad-tools" id="stageTools"></div>
       </div>
@@ -407,8 +407,8 @@
   <div class="wrap devices-grid">
     <div class="devices-pair reveal">
       <img class="dp-mac" src="assets/home-mac.webp?v=4" alt="Music Folder on a Mac: the home screen with the sidebar of folders and set lists, the next set list, practice goal, tools and recently opened scores" width="800" height="664" loading="lazy">
-      <img class="dp-ipad" src="assets/home-ipad.webp?v=4" alt="The Music Folder home screen on iPad: tomorrow's concert set list, a practice streak, quick tools, folders and recently opened scores" width="600" height="851" loading="lazy">
-      <img class="dp-iphone" src="assets/home-iphone.webp?v=3" alt="The same home screen on iPhone, with the practice streak and tomorrow's set list" width="396" height="830" loading="lazy">
+      <img class="dp-ipad" src="assets/home-ipad.webp?v=5" alt="The Music Folder home screen on iPad: tomorrow's concert set list, a practice streak, quick tools, folders and recently opened scores" width="600" height="851" loading="lazy">
+      <img class="dp-iphone" src="assets/home-iphone.webp?v=4" alt="The same home screen on iPhone, with the practice streak and tomorrow's set list" width="396" height="830" loading="lazy">
     </div>
     <div class="reveal">
       <h2 class="heading-sm">The same library on every device you own.</h2>
@@ -572,10 +572,11 @@
 
   // the iPad on the right-hand page (matches .ipad in site.css): a 340 × 481 body
   // at (58, 20) with a 14px bezel, tilted -1.2°, showing hero-ipad-home.webp (a real
-  // 11-inch iPad screenshot); high enough on the page that the Recently opened row
-  // stays clear of the pocket
+  // 11-inch iPad Home screenshot, retouched to the site's content: Summer Night Concert,
+  // Two weeks strong, Worship Team); high enough on the page that the Recently opened
+  // row stays clear of the pocket
   const IPAD = { x: 58, y: 20, w: 340, h: 481, bezel: 14, tilt: -1.2 };
-  const SHOT_W = 1668, SHOT_H = 2420;
+  const SHOT_W = 1379, SHOT_H = 2000;
   const K = (IPAD.w - 2 * IPAD.bezel) / SHOT_W;
   // a point on the screenshot → rig coordinates (the right-hand page)
   const onScreen = (sx, sy) => {
@@ -589,14 +590,14 @@
   };
   // the home screen's Folders row and Recently opened row, in screenshot pixels;
   // the mask also covers the title under each tile
-  const folderSlot = i => ({ x: 42 + 296 * i, y: 1263, w: 260, h: 262, mask: [-12, -12, 284, 384] });
-  const scoreSlot = i => ({ x: 42 + 296 * i, y: 1765, w: 260, h: 370, mask: [-12, -10, 284, 500] });
+  const folderSlot = i => ({ x: 34.7 + 244.7 * i, y: 1092.2, w: 215, h: 216.6, mask: [-10, -10, 234.8, 317.5] });
+  const scoreSlot = i => ({ x: 34.7 + 244.7 * i, y: 1507.2, w: 215, h: 305.9, mask: [-10, -8.3, 234.8, 413.4] });
 
   // what's stuffed in the left-hand pocket, bottom of the pile first (left-page
   // coordinates: centre and tilt). The pile empties from the top.
-  // the Today screen's "Summer Night Concert" set-list card (screenshot pixels)
-  const setlistSlot = { x: 42, y: 422, w: 688, h: 693, mask: [-6, -6, 700, 705] };
-  // a printed set list squares up into that card: 280 wide throughout, 380 → 282 tall
+  // the Home screen's "Summer Night Concert" set-list card (screenshot pixels)
+  const setlistSlot = { x: 35, y: 348, w: 568, h: 622, mask: [-8, -8, 584, 638] };
+  // a printed set list squares up into that card: 280 wide throughout, 380 → 307 tall
   const SIZE = { folder: [250, 320], sheet: [240, 340], setlist: [280, 380] };
   const MESS = [
     // at the very back, its title peeking over the pile: the last one out
@@ -672,28 +673,28 @@
     d.mask = slotMask(d.slot);
   });
 
-  // the Today screen's four tool tiles (screenshot pixels: centre; each 402 × 186).
+  // the Home screen's four tool tiles (screenshot pixels: centre; each 332 × 179).
   // Each gets a crisp replica built at its lifted size, POP × the tile, so it
   // never blurs when it rises; at rest it is scaled down to sit exactly on the tile.
-  const POP = 2.3, TILE_W = 402 * K * POP, TILE_H = 186 * K * POP;
+  const POP = 2.3, TILE_W = 332 * K * POP, TILE_H = 179 * K * POP;
   const TOOLS = [
-    { name: 'Piano', x: 991, y: 803, icon:
+    { name: 'Piano', x: 819, y: 675.5, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-piano"><path class="k k1" d="M3.4 5.4h4.1v13.2H3.4z"/><path class="k k2" d="M7.5 5.4H12v13.2H7.5z"/><path class="k k3" d="M12 5.4h4.5v13.2H12z"/><path class="k k4" d="M16.5 5.4h4.1v13.2h-4.1z"/><path class="sep" d="M7.5 12v6.6M12 12v6.6M16.5 12v6.6"/><path class="b" d="M6.2 5h2.6v7.6H6.2zM10.7 5h2.6v7.6h-2.6zM15.2 5h2.6v7.6h-2.6z"/><rect class="case" x="2.6" y="4.6" width="18.8" height="14.8" rx="2.6"/></svg>` },
-    { name: 'Metronome', x: 1425, y: 803, icon:
+    { name: 'Metronome', x: 1177.5, y: 675.5, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-metro"><path class="body" d="M8.6 3.5h6.8l5 16.5H3.6z"/><path class="base" d="M3.6 20h16.8"/><g class="arm"><path d="M12 17.2V5.8"/><circle cx="12" cy="9" r="1.5"/></g></svg>` },
-    { name: 'Tone', x: 991, y: 1021, icon:
+    { name: 'Tone', x: 819, y: 880.5, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-tone">${[5, 9, 15, 20, 13, 17, 8, 11, 5].map((h, i) =>
         `<rect class="bar" style="--i:${i}" x="${2.6 + i * 2.2}" y="${12 - h / 2}" width="1.3" height="${h}" rx=".65"/>`).join('')}</svg>` },
-    { name: 'Tuner', x: 1425, y: 1021, icon:
+    { name: 'Tuner', x: 1177.5, y: 880.5, icon:
       `<svg viewBox="0 0 24 24" class="ti ti-tuner"><g class="fork"><path d="M5 19.5l5.5-5.5M10.5 14l6-6.5M10.5 14l2.5 2.5 6-6"/><circle cx="4.6" cy="19.9" r="1.2"/></g><g class="gauge"><path class="scale" d="M4.5 16a8 8 0 0 1 15 0"/><path class="mark" d="M12 6.6v2.2"/><path class="needle" d="M12 18.5V9.5"/><circle cx="12" cy="18.5" r="1.4"/></g></svg>` },
   ];
-  // Parts of the Today screen are rebuilt crisp over the screenshot, exactly
-  // covering their originals: the status bar (a clean 9:41), the set-list card
-  // and practice card (filled with a concert and a two-week streak), the Planning
-  // Center folder's title (a generic name, not the church's) and the four tool
-  // tiles, which lift during the tools beat. Each is laid out in screenshot pixels
-  // and scaled by K onto the screen; on the page iPad they sit under the slot
-  // masks and the dark glass, so they fill in and wake with everything else.
+  // Parts of the Home screen are rebuilt crisp over the screenshot, exactly covering
+  // their originals: the practice card (whose ring fills and days tick in) and the
+  // four tool tiles, which lift during the tools beat. (The clean 9:41, the concert
+  // card and the generic "Worship Team" title are in the retouched screenshot itself.)
+  // Each is laid out in screenshot pixels and scaled by K onto the screen; on the page
+  // iPad they sit under the slot masks and the dark glass, so they fill in and wake
+  // with everything else.
   const stageTools = document.getElementById('stageTools');
   const stageScreen = document.getElementById('stageScreen');
   const under = (screen, el) => screen.insertBefore(el, screen.querySelector('[data-mask]'));
@@ -714,23 +715,19 @@
     tile(screenContent, tool);
     tool.el = tile(stageTools, tool);
   });
-  const SONGS = SET.slice(0, 3).map((t, i) => `<li><i>${i + 1}</i>${t}</li>`).join('');
+  // the practice card, in its own pixels on the screenshot (691 × 211 at 653, 349):
+  // the ring and the day chips where the app draws them, its text on the app's baselines
+  const day = (d, i, done) => `<g${done ? ' class="done"' : ''}><circle cx="${214.5 + 46.3 * i}" cy="150.5" r="17.6" fill="${done ? '#F38330' : '#F0EFE7'}"/>` +
+    `<text x="${214.5 + 46.3 * i}" y="156.5" text-anchor="middle" font-size="17.4" font-weight="600" fill="${done ? '#FFFFFF' : '#69685F'}">${d}</text></g>`;
   const OVERLAYS = [
-    { cls: 'shot-status', x: 0, y: 0, html:
-      '<b>9:41 PM</b><span>Wed Oct 21</span><svg class="sb-icons" viewBox="0 0 64 22" aria-hidden="true">' +
-      '<path class="sb-wifi" d="M11 18.5l-3-3.2a4.3 4.3 0 0 1 6 0zM5.6 13a7.6 7.6 0 0 1 10.8 0l-1.9 2a4.9 4.9 0 0 0-7 0zM2.2 9.4a12.4 12.4 0 0 1 17.6 0l-1.9 2a9.7 9.7 0 0 0-13.8 0z"/>' +
-      '<rect class="sb-batt" x="28.5" y="4.5" width="29" height="13" rx="4"/><rect class="sb-fill" x="30.5" y="6.5" width="25" height="9" rx="2.5"/>' +
-      '<path class="sb-cap" d="M59.5 8.5v5a2.6 2.6 0 0 0 0-5z"/></svg>' },
-    { cls: 'shot-setlist', x: 42, y: 422, html:
-      `<i class="sc-when">Tomorrow</i><b>Summer Night Concert</b><small>5 songs</small><ol>${SONGS}</ol>` +
-      '<a class="sc-more">+2 more songs <span>›</span></a><i class="sc-start">Start set</i><i class="sc-view">View</i>' },
-    { cls: 'streak-card', x: 790, y: 422, html:
-      '<svg class="ring" viewBox="0 0 250 256"><circle class="track" cx="125" cy="128" r="80"/>' +
-      '<circle class="fill" cx="125" cy="128" r="80" pathLength="100"/></svg>' +
-      '<b class="mins">42<small>/ 30 min</small></b><strong>Two weeks strong <span>🔥</span></strong>' +
-      '<p>Goal complete · 42 of 30 min today</p>' +
-      `<ol>${[...'SMTWTFS'].map((d, i) => i < 4 ? `<li class="done" data-d="${d}">${d}</li>` : `<li>${d}</li>`).join('')}</ol>` },
-    { cls: 'shot-pco-title', x: 626, y: 1538, html: '<b>Worship Team</b><span>270 songs</span>' },
+    { cls: 'streak-card', x: 653, y: 349, html:
+      '<svg viewBox="0 0 691 211" width="691" height="211"><rect x="7" y="7" width="677" height="196" rx="26" fill="#FFFFFF"/>' +
+      '<circle class="track" cx="105.5" cy="105" r="64.25"/><circle class="fill" cx="105.5" cy="105" r="64.25" pathLength="100"/>' +
+      '<text x="105.5" y="106" text-anchor="middle" font-size="33.6" font-weight="700" fill="#11120D">42</text>' +
+      '<text x="105.5" y="132" text-anchor="middle" font-size="18.5" font-weight="500" fill="#69685F">/ 30 min</text>' +
+      '<text x="197" y="76.5" font-size="36.4" font-weight="700" letter-spacing="-0.37" fill="#11120D">Two weeks strong 🔥</text>' +
+      '<text x="197" y="111" font-size="20.3" fill="#69685F">Goal complete · 42 of 30 min today</text>' +
+      [...'SMTWTFS'].map((d, i) => day(d, i, false) + (i < 4 ? day(d, i, true) : '')).join('') + '</svg>' },
   ];
   const overlay = (screen, o) => {
     const el = under(screen, document.createElement('div'));
