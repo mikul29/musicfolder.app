@@ -183,7 +183,7 @@
             <!-- what the screen shows; it fades up from black as the iPad wakes (not hidden
                  under a dark layer, whose edge would let a hairline of it show through) -->
             <div class="screen-content" id="screenContent">
-              <img src="assets/hero-ipad-home.webp?v=3" alt="" width="1379" height="2000">
+              <img src="assets/hero-ipad-home.webp?v=4" alt="" width="1668" height="2420">
               <!-- each slot stays blank until its folder or score lands in it -->
             </div>
             <div class="ipad-off" id="ipadOff"></div>
@@ -218,7 +218,7 @@
     <div class="ipad-stage" aria-hidden="true">
       <div class="ipad stage-ipad" id="stageIpad">
         <div class="ipad-screen" id="stageScreen">
-          <img src="assets/hero-ipad-home.webp?v=3" alt="" width="1379" height="2000">
+          <img src="assets/hero-ipad-home.webp?v=4" alt="" width="1668" height="2420">
         </div>
         <div class="ipad-tools" id="stageTools"></div>
       </div>
@@ -407,8 +407,8 @@
   <div class="wrap devices-grid">
     <div class="devices-pair reveal">
       <img class="dp-mac" src="assets/home-mac.webp?v=4" alt="Music Folder on a Mac: the home screen with the sidebar of folders and set lists, the next set list, practice goal, tools and recently opened scores" width="800" height="664" loading="lazy">
-      <img class="dp-ipad" src="assets/home-ipad.webp?v=5" alt="The Music Folder home screen on iPad: tomorrow's concert set list, a practice streak, quick tools, folders and recently opened scores" width="600" height="851" loading="lazy">
-      <img class="dp-iphone" src="assets/home-iphone.webp?v=4" alt="The same home screen on iPhone, with the practice streak and tomorrow's set list" width="396" height="830" loading="lazy">
+      <img class="dp-ipad" src="assets/home-ipad.webp?v=6" alt="The Music Folder home screen on iPad: tomorrow's concert set list, a practice streak, quick tools, folders and recently opened scores" width="600" height="851" loading="lazy">
+      <img class="dp-iphone" src="assets/home-iphone.webp?v=5" alt="The same home screen on iPhone, with the practice streak and tomorrow's set list" width="396" height="830" loading="lazy">
     </div>
     <div class="reveal">
       <h2 class="heading-sm">The same library on every device you own.</h2>
@@ -576,6 +576,8 @@
   // Two weeks strong, Worship Team); high enough on the page that the Recently opened
   // row stays clear of the pocket
   const IPAD = { x: 58, y: 20, w: 340, h: 481, bezel: 14, tilt: -1.2 };
+  // positions on it are measured in a 1379 × 2000 space (the image itself is the
+  // full-resolution 1668 × 2420 screenshot, the same picture; CSS sizes it to the screen)
   const SHOT_W = 1379, SHOT_H = 2000;
   const K = (IPAD.w - 2 * IPAD.bezel) / SHOT_W;
   // a point on the screenshot → rig coordinates (the right-hand page)
