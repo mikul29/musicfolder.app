@@ -819,21 +819,22 @@
     spreadX += (FW / 2) * o * spreadS;
 
     // the final still life: the iPad front and centre, the closed folder a little
-    // larger behind it, tilted like an object set down on the table. Sized so
-    // the folder and the caption under it fit the viewport together.
+    // larger behind it, centred on it (an even frame of folder either side), tilted
+    // like an object set down on the table. Sized so the folder and the caption
+    // under it fit the viewport together.
     const top = 76, capH = cap.offsetHeight, gap = narrow ? 44 : 64, backR = -4;
     // tilted, the folder stands taller than upright: its low corner dips below the
     // upright outline, so the gap to the caption is measured from that corner
     const tilt = Math.abs(backR) * Math.PI / 180;
     const ROT = Math.cos(tilt) + (FW / FH) * Math.sin(tilt);
     const iH = Math.min(vh * 0.62, (vh - top - 16 - gap - capH) / (BACKDROP * ROT), (vw - 48) / IPAD_RATIO,
-      (vw - 28) / (BACKDROP * FW / FH)); // the folder behind stays on screen too
+      (vw - 28) / (BACKDROP * ((FW / FH) * Math.cos(tilt) + Math.sin(tilt)))); // the folder behind, tilted, stays on screen too
     const fH = iH * BACKDROP, fSpan = fH * ROT;
     const fTop = top + Math.max(0, (vh - top - 16 - gap - capH - fSpan) / 2); // the tilted outline's top
     const backS = fH / FH;
     const backY = fTop + fSpan / 2;
-    const iX = vw / 2, iY = backY + iH * 0.03;
-    const backX = iX - iH * 0.035;
+    const iX = vw / 2, iY = backY;
+    const backX = iX;
 
     const s = lerp(spreadS, backS, bd);
     const r = lerp(spreadR, backR, bd);
