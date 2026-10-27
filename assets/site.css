@@ -599,6 +599,10 @@ section { position: relative; }
 /* a full-screen screenshot sets the frame's shape instead of being cropped */
 .device.fit { aspect-ratio: auto; }
 .device.fit .screen, .device.fit .screen img { height: auto; display: block; }
+/* in the pinned stage the frame's height is fixed, so an iPad screenshot's frame takes its shape
+   (11-inch screen + the 14px bezel) instead of trimming the sides */
+.frame .device.tablet.fit { aspect-ratio: 0.703; }
+.frame .device.tablet.fit .screen, .frame .device.tablet.fit .screen img { height: 100%; }
 
 
 /* Share card */
