@@ -603,6 +603,11 @@ section { position: relative; }
    (11-inch screen + the 14px bezel) instead of trimming the sides */
 .frame .device.tablet.fit { aspect-ratio: 0.703; }
 .frame .device.tablet.fit .screen, .frame .device.tablet.fit .screen img { height: 100%; }
+/* a landscape iPad screenshot (the set list) is sized by width and keeps its own shape */
+.frame .device.tablet.landscape, .step-visual .device.tablet.landscape { aspect-ratio: auto; height: auto; max-width: none; }
+.frame .device.tablet.landscape { width: 86%; }
+.step-visual .device.tablet.landscape { width: min(520px, 92%); }
+.device.tablet.landscape .screen, .device.tablet.landscape .screen img { height: auto; display: block; }
 
 
 /* Share card */
