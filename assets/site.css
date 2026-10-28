@@ -578,6 +578,8 @@ section { position: relative; }
 /* the bezel scales with the page so a small iPad isn't framed in a thick border (real: ~2 % of the width) */
 .device.tablet { --bezel: clamp(6px, 1.9vw, 14px); width: 100%; max-width: 420px; aspect-ratio: 3 / 4; border-radius: calc(var(--bezel) + 16px); padding: var(--bezel); }
 .device.tablet.landscape { max-width: 620px; aspect-ratio: 4 / 3; }
+/* landscape iPads are shown smaller, so a thinner bezel keeps the portrait frames' proportion (~2.6 % of the long side) */
+.device.tablet.landscape { --bezel: clamp(6px, 1.5vw, 11px); }
 .device .screen {
   width: 100%; height: 100%; border-radius: inherit; overflow: hidden;
   background: var(--vellum);
