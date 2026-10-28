@@ -575,7 +575,8 @@ section { position: relative; }
 }
 .device-shot { width: 280px; height: auto; }
 .device.phone { width: 236px; aspect-ratio: 9 / 19.5; border-radius: 44px; }
-.device.tablet { width: 100%; max-width: 420px; aspect-ratio: 3 / 4; border-radius: 30px; padding: 14px; }
+/* the bezel scales with the page so a small iPad isn't framed in a thick border (real: ~2 % of the width) */
+.device.tablet { --bezel: clamp(6px, 1.9vw, 14px); width: 100%; max-width: 420px; aspect-ratio: 3 / 4; border-radius: calc(var(--bezel) + 16px); padding: var(--bezel); }
 .device.tablet.landscape { max-width: 620px; aspect-ratio: 4 / 3; }
 .device .screen {
   width: 100%; height: 100%; border-radius: inherit; overflow: hidden;
@@ -585,7 +586,7 @@ section { position: relative; }
   border: 1px dashed var(--staff-line);
 }
 .device.phone .screen { border-radius: 34px; }
-.device.tablet .screen { border-radius: 18px; }
+.device.tablet .screen { border-radius: 16px; }
 .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 .device .screen.shot { padding: 0; border: 0; background: #fff; }
 /* an Apple Pencil resting against the iPad (same drawing and placement as the
