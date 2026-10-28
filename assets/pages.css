@@ -93,6 +93,10 @@ ol.how { margin: 0; padding: 0; }
 
 /* ---------- Links to the other audiences ---------- */
 .more { border-top: 1px solid var(--staff-line); }
+/* one normal section gap (not two) above the audience cards, with the divider centred in it,
+   and the closing line right after them */
+.section.more { margin-top: calc(var(--section-gap) / -2); padding-top: calc(var(--section-gap) / 2); }
+.section.more + .section.final { padding-top: 0; }
 .more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .more-grid.four { grid-template-columns: repeat(4, 1fr); }
 /* soft tiles (the toolkit cards' family) so the row reads as choices, not steps */
