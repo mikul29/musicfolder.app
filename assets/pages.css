@@ -241,6 +241,8 @@ ol.how { margin: 0; padding: 0; }
 /* instrument list: categories only, each with a chevron like the app's browse list */
 .count-card li i { font-style: normal; font-size: 20px; line-height: 1; color: var(--graphite); }
 
+/* a landscape iPad screenshot (the set lists) fills the column's width */
+.lp-visual .device.tablet.landscape, .rf-visual .device.tablet.landscape { width: 100%; max-width: 620px; }
 /* a landscape iPhone screenshot (the piano) */
 .rf-visual .device.phone.landscape { width: min(520px, 100%); padding: 10px; border-radius: 40px; }
 .rf-visual .device.phone.landscape .screen { border-radius: 30px; }
