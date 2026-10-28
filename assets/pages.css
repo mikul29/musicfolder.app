@@ -241,6 +241,12 @@ ol.how { margin: 0; padding: 0; }
 /* instrument list: categories only, each with a chevron like the app's browse list */
 .count-card li i { font-style: normal; font-size: 20px; line-height: 1; color: var(--graphite); }
 
+/* a Mac window screenshot (transparent rounded corners) floats with the window's own shadow */
+.lp-visual .mac-window, .rf-visual .mac-window { display: block; width: 100%; max-width: 640px; height: auto;
+  filter: drop-shadow(0 22px 30px rgba(20,20,20,0.18)) drop-shadow(0 2px 4px rgba(20,20,20,0.10)); }
+/* a wide screenshot under a numbered how-to list */
+.how-visual { display: flex; justify-content: center; margin-top: 56px; }
+.how-visual .device.tablet.landscape { width: min(760px, 100%); max-width: none; }
 /* a landscape iPad screenshot (the set lists) fills the column's width */
 .lp-visual .device.tablet.landscape, .rf-visual .device.tablet.landscape { width: 100%; max-width: 620px; }
 /* a landscape iPhone screenshot (the piano) */
