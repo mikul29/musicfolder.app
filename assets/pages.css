@@ -241,9 +241,6 @@ ol.how { margin: 0; padding: 0; }
 /* instrument list: categories only, each with a chevron like the app's browse list */
 .count-card li i { font-style: normal; font-size: 20px; line-height: 1; color: var(--graphite); }
 
-/* a Mac screenshot on the iMac (rendered frame with transparent surround) */
-.lp-visual .imac-shot, .rf-visual .imac-shot { display: block; width: 100%; max-width: 560px; height: auto;
-  filter: drop-shadow(0 24px 30px rgba(20,20,20,0.16)); }
 /* a wide screenshot under a numbered how-to list */
 .how-visual { display: flex; justify-content: center; margin-top: 56px; }
 .how-visual .device.tablet.landscape { width: min(760px, 100%); max-width: none; }
