@@ -20,7 +20,7 @@
   "vars": {
     // App Store Connect → Apps → Music Folder → Analytics → Acquisition → Campaigns → "Generate
     // Campaign Link": the number after pt=. Not a secret (it's in every public campaign link).
-    // Empty = buttons go to the plain App Store link (taps are still counted).
-    "APP_STORE_PROVIDER_TOKEN": ""
+    // Empty = buttons go to the plain App Store link (taps are still counted). Set 2026-10-29.
+    "APP_STORE_PROVIDER_TOKEN": "124086599"
   }
 }
