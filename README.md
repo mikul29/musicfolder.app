@@ -55,5 +55,6 @@ With `prefers-reduced-motion`, the hero is static.
 ## Notes
 
 - App Store badges are Apple's official ones, hotlinked from Apple's marketing toolbox.
+- `BingSiteAuth.xml` (site root) proves ownership to Bing Webmaster Tools. Keep it: deleting it un-verifies the site.
 - Reviews in the hero are real App Store reviews; don't invent ratings, testimonials or user counts.
 - Score images are public domain / CC0 (OpenScore) only; credits for CC BY sounds are on the privacy page.
