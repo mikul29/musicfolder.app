@@ -39,6 +39,24 @@ def listed_placements() -> set[str]:
             for pos in re.findall(r'"([a-z-]+)"', positions)}
 
 
+def channel_drift() -> list[str]:
+    """worker/source.js CHANNELS must match the dashboard's config/channels.yaml (if that repo is here)."""
+    yaml_path = ROOT.parent / "music-folder-intelligence" / "config" / "channels.yaml"
+    if not yaml_path.exists():
+        print(f"skipped channel check ({yaml_path} not found)")
+        return []
+    text = yaml_path.read_text(encoding="utf-8")
+    dashboard = [(name.strip(), [x.strip() for x in items.replace("\n", " ").split(",") if x.strip()])
+                 for name, items in re.findall(r"- name: ([^\n]+)\n\s+match: \[(.*?)\]", text, re.S)]
+    js = (ROOT / "worker/source.js").read_text(encoding="utf-8")
+    worker = [(name, re.findall(r'"([^"]+)"', items)) for name, items in
+              re.findall(r'\["([^"]+)", "[a-z-]+", \[(.*?)\]\]', js, re.S)]
+    if dashboard != worker:
+        return ["worker/source.js CHANNELS differ from music-folder-intelligence/config/channels.yaml: copy the rules over"]
+    print(f"ok: channel rules match the dashboard ({len(worker)} channels)")
+    return []
+
+
 def main() -> int:
     release = "--release" in sys.argv
     problems: list[str] = []
@@ -64,11 +82,20 @@ def main() -> int:
         problems.append(f"worker/tap.js: {placement} is listed but no page uses it")
 
     wrangler = (ROOT / "wrangler.jsonc").read_text(encoding="utf-8")
-    for needed in ('"main": "worker/index.js"', '"run_worker_first": ["/get"]', '"binding": "TAPS"'):
+    for needed in ('"main": "worker/index.js"', '"run_worker_first": ["/get", "/hit"]', '"binding": "TAPS"',
+                   '"binding": "LANDINGS"'):
         if needed not in wrangler:
             problems.append(f"wrangler.jsonc: missing {needed}")
     if release and re.search(r'"APP_STORE_PROVIDER_TOKEN":\s*""', wrangler):
         problems.append("wrangler.jsonc: APP_STORE_PROVIDER_TOKEN is empty (no App Store campaign attribution)")
+    site_js = (ROOT / "assets/site.js").read_text(encoding="utf-8")
+    for needed in ("'/hit?'", "a[href^=\"/get?\"]", "mf-owner"):
+        if needed not in site_js:
+            problems.append(f"assets/site.js: missing {needed} (where-visits-come-from script)")
+    me = ROOT / "me.html"
+    if not me.exists() or 'content="noindex' not in me.read_text(encoding="utf-8"):
+        problems.append("me.html: the owner page must exist and carry noindex")
+    problems += channel_drift()
     if "Disallow: /get" not in (ROOT / "robots.txt").read_text(encoding="utf-8"):
         problems.append("robots.txt: crawlers should skip /get")
 

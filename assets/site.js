@@ -115,3 +115,49 @@
     });
   });
 })();
+
+/* ---------- Where visits come from (cookieless; README "Measurement") ----------
+   Nothing is stored on a visitor's device. This page reads its own address and the address of
+   the page before it (the browser's referrer) and:
+   - on a visit's first page, sends one count to the site's own /hit: the page, the referring
+     site's host name and any utm_source / utm_medium / utm_campaign in the address;
+   - adds the same source to every App Store button (/get), so a tap carries it. One page later
+     the campaign tags are still known (from the previous page's address); further in, the source
+     is "unknown".
+   The owner's own devices (opened /me once) are skipped: no landing count, taps marked o=1. */
+(() => {
+  let owner = false;
+  try { owner = localStorage.getItem('mf-owner') === '1'; } catch (e) { /* storage blocked: not the owner's flag */ }
+  let ref = null;
+  try { ref = document.referrer ? new URL(document.referrer) : null; } catch (e) { ref = null; }
+  const inside = !!ref && ref.origin === location.origin;
+  const tags = u => ['utm_source', 'utm_medium', 'utm_campaign'].map(k => (u.searchParams.get(k) || '').slice(0, 60));
+  const [us, um, uc] = tags(new URL(location.href));
+  const source = new URLSearchParams();
+  const put = (k, v) => { if (v) source.set(k, v); };
+  if (!inside) {
+    // the first page of a visit: its own tags and the site it came from
+    put('us', us); put('um', um); put('uc', uc); put('r', ref ? ref.hostname : '');
+    source.set('h', 'landing');
+  } else {
+    const [pus, pum, puc] = tags(ref);
+    if (pus || pum || puc) { put('us', pus); put('um', pum); put('uc', puc); source.set('h', 'next'); }
+    else source.set('h', 'unknown');
+  }
+  if (owner) source.set('o', '1');
+
+  document.querySelectorAll('a[href^="/get?"]').forEach(a => {
+    const url = new URL(a.getAttribute('href'), location.origin);
+    source.forEach((v, k) => url.searchParams.set(k, v));
+    a.setAttribute('href', url.pathname + url.search);
+  });
+
+  if (!inside && !owner) {
+    const hit = new URLSearchParams(source);
+    hit.set('p', location.pathname);
+    const target = '/hit?' + hit.toString();
+    if (!(navigator.sendBeacon && navigator.sendBeacon(target))) {
+      fetch(target, { method: 'POST', keepalive: true, credentials: 'omit' }).catch(() => {});
+    }
+  }
+})();

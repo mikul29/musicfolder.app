@@ -1,6 +1,8 @@
 // App Store button taps (decision D1): which button was tapped, and where the tap goes.
 // Pure functions, no Cloudflare APIs, so they can be tested anywhere (worker/tap.test.js).
 
+import { appleCampaign } from "./source.js";
+
 export const APP_ID = "1611824311";
 export const PLAIN_APP_STORE_URL = `https://apps.apple.com/app/id${APP_ID}`;
 
@@ -35,23 +37,20 @@ export const PLACEMENTS = new Map(
     positions.map((position) => [`${page}-${position}`, [page, position]])),
 );
 
-// The App Store Connect campaign name for a placement: "web-" + the placement without a leading
-// "features-" / "for-" (App Store Connect allows 30 characters: web-free-sheet-music-final, not
-// web-features-free-sheet-music-final). Still unique; tap.test.js checks both.
+// App Store Connect allows campaign names of up to 30 characters.
 export const CAMPAIGN_MAX = 30;
-export function campaignName(placement) {
-  return `web-${placement.replace(/^(features|for)-/, "")}`;
-}
 
 // The tap's placement (unknown or missing `from` → "other", never the raw input) and its
-// destination. With the App Store Connect provider token the link carries a campaign
-// (ct=campaignName(placement)), so App Analytics → Campaigns can count downloads from the site
-// (shown by Apple only at 5 or more). Without a valid token: the plain App Store link.
-export function tapRedirect(from, providerToken) {
+// destination. With the App Store Connect provider token the link carries a campaign named after
+// the visit's SOURCE (source.js appleCampaign: "c-<utm_campaign>", "web-search", "web-direct"…;
+// owner decision 2026-10-29 — 67 per-button names would never reach Apple's 5-download minimum),
+// so App Analytics → Campaigns can count downloads from the site. Without a valid token: the
+// plain App Store link. `source` is source.js sourceFrom(); missing = an unknown source.
+export function tapRedirect(from, providerToken, source = { channel: "direct", hop: "unknown" }) {
   const known = PLACEMENTS.get(from);
   const placement = known ? from : "other";
   const [page, position] = known ?? ["other", "other"];
-  const campaign = campaignName(placement);
+  const campaign = appleCampaign(source);
   const token = String(providerToken ?? "").trim();
   const location = /^\d{1,20}$/.test(token)
     ? `https://apps.apple.com/app/apple-store/id${APP_ID}?pt=${token}&ct=${campaign}&mt=8`
