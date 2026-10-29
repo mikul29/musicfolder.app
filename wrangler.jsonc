@@ -1,11 +1,26 @@
 // Cloudflare Workers static-assets config: serves this folder as the site.
 // Default html handling: /support.html is served at /support (old links redirect).
 // Missing addresses get 404.html with a real 404 status.
+// worker/index.js runs only for /get (the App Store button counter, see README).
 {
   "name": "musicfolder-app",
+  "main": "worker/index.js",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/get"]
+  },
+  // App Store button taps, one data point each (kept 3 months by Cloudflare; the
+  // intelligence platform archives them daily). Analytics Engine must be enabled on the account.
+  "analytics_engine_datasets": [
+    { "binding": "TAPS", "dataset": "musicfolder_app_store_taps" }
+  ],
+  "vars": {
+    // App Store Connect → Apps → Music Folder → Analytics → Acquisition → Campaigns → "Generate
+    // Campaign Link": the number after pt=. Not a secret (it's in every public campaign link).
+    // Empty = buttons go to the plain App Store link (taps are still counted).
+    "APP_STORE_PROVIDER_TOKEN": ""
   }
 }
