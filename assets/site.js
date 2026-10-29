@@ -124,7 +124,7 @@
    - adds the same source to every App Store button (/get), so a tap carries it. One page later
      the campaign tags are still known (from the previous page's address); further in, the source
      is "unknown".
-   The owner's own devices (opened /me once) are skipped: no landing count, taps marked o=1. */
+   The owner's own devices (mf-owner=1 in their storage; README) are skipped: no landing count, taps marked o=1. */
 (() => {
   let owner = false;
   try { owner = localStorage.getItem('mf-owner') === '1'; } catch (e) { /* storage blocked: not the owner's flag */ }

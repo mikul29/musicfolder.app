@@ -6,7 +6,7 @@
 // known), then a 302 to the App Store.
 // /hit: one point per landing (LANDINGS): the page and the same source fields. 204, nothing else.
 // No IP address, User-Agent, cookie or any other identifier is stored. Crawlers (User-Agent test)
-// and the owner's own devices (o=1, set by /me on those devices only) aren't counted.
+// and the owner's own devices (o=1: marked mf-owner in their own storage) aren't counted.
 
 import { cleanPath, sourceFrom } from "./source.js";
 import { looksAutomated, tapRedirect } from "./tap.js";
