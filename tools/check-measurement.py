@@ -8,10 +8,11 @@
   page and is listed in worker/tap.js (unlisted ones would be counted as "other");
 - no page links straight to apps.apple.com (the JSON-LD downloadUrl on the home page is data
   for search engines, not a button, and stays direct);
-- every page loads the Cloudflare Web Analytics beacon exactly once;
+- no page carries its own Cloudflare Web Analytics beacon: the site uses Cloudflare's automatic
+  setup (the beacon is added at the edge), so a snippet in the HTML would count every visit twice;
 - wrangler.jsonc runs the Worker for /get and binds the TAPS dataset;
 - worker/tap.test.js passes (macOS JavaScriptCore; skipped where it's missing).
---release also fails on the CF_WEB_ANALYTICS_TOKEN placeholder and a missing provider token.
+--release also fails on a missing App Store provider token.
 """
 
 from __future__ import annotations
@@ -23,8 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 JSC = Path("/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Helpers/jsc")
-PLACEHOLDER = "CF_WEB_ANALYTICS_TOKEN"
-BEACON = "https://static.cloudflareinsights.com/beacon.min.js"
+BEACON = "static.cloudflareinsights.com/beacon.min.js"
 
 
 def page_name(path: Path) -> str:
@@ -58,10 +58,8 @@ def main() -> int:
                 problems.append(f"{rel}: placement {placement} doesn't start with this page's name {page_name(path)}-")
             if placement not in listed:
                 problems.append(f"{rel}: placement {placement} isn't in worker/tap.js BUTTONS")
-        if text.count(BEACON) != 1:
-            problems.append(f"{rel}: Web Analytics beacon appears {text.count(BEACON)} times (want 1)")
-        if release and PLACEHOLDER in text:
-            problems.append(f"{rel}: beacon still has the {PLACEHOLDER} placeholder")
+        if BEACON in text:
+            problems.append(f"{rel}: has its own Web Analytics beacon; automatic setup already adds one (double count)")
     for placement in sorted(listed - set(used)):
         problems.append(f"worker/tap.js: {placement} is listed but no page uses it")
 
@@ -85,7 +83,7 @@ def main() -> int:
     for problem in problems:
         print("✗", problem)
     if not problems:
-        print(f"ok: {len(pages)} pages, {len(used)} App Store buttons through /get, beacon on every page"
+        print(f"ok: {len(pages)} pages, {len(used)} App Store buttons through /get, no manual beacon"
               + (" (release check)" if release else ""))
     return 1 if problems else 0
 
