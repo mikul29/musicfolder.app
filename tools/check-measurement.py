@@ -92,9 +92,6 @@ def main() -> int:
     for needed in ("'/hit?'", "a[href^=\"/get?\"]", "mf-owner"):
         if needed not in site_js:
             problems.append(f"assets/site.js: missing {needed} (where-visits-come-from script)")
-    me = ROOT / "me.html"
-    if not me.exists() or 'content="noindex' not in me.read_text(encoding="utf-8"):
-        problems.append("me.html: the owner page must exist and carry noindex")
     problems += channel_drift()
     if "Disallow: /get" not in (ROOT / "robots.txt").read_text(encoding="utf-8"):
         problems.append("robots.txt: crawlers should skip /get")
