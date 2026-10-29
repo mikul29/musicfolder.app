@@ -43,6 +43,13 @@ With `prefers-reduced-motion`, the hero is static.
   --window-size=600,851 --screenshot=out.png file:///path/to/frame.html
 ```
 
+## Measurement (decision D1: cookieless, no GA4)
+
+- **Visits:** Cloudflare Web Analytics with **automatic setup** (dashboard → Web analytics → musicfolder.app): Cloudflare adds the beacon at the edge, so the pages carry no snippet. Don't add one (it would count every visit twice; `tools/check-measurement.py` fails on it). No cookies, no identifiers.
+- **App Store taps:** every App Store button links to `/get?from=<page>-<position>` (positions: `nav`, `menu`, `hero`, `band`, `plan-free`, `plan-premium`, `final`). `worker/index.js`, the only code that runs before the static assets (`run_worker_first`), writes one Workers Analytics Engine point per tap (dataset `musicfolder_app_store_taps`: placement, page, position; never an IP or User-Agent; crawlers aren't counted) and 302s to the App Store with the campaign `ct=web-<placement>` (a leading `features-`/`for-` dropped: App Store Connect allows 30 characters) when `APP_STORE_PROVIDER_TOKEN` is set in `wrangler.jsonc`, otherwise to the plain App Store link.
+- **A new App Store button** needs its placement in `worker/tap.js` (`BUTTONS`). Check with `python3 tools/check-measurement.py` (add `--release` before merging to `main`: it also wants the App Store provider token). Locally `/get` 404s like the pretty URLs; it only works on Cloudflare.
+- The privacy page's "This website" section describes all of this; change it with any change here. The private intelligence platform archives both datasets daily (Cloudflare keeps taps 3 months, unsampled visits 7 days).
+
 ## Notes
 
 - App Store badges are Apple's official ones, hotlinked from Apple's marketing toolbox.

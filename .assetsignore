@@ -4,3 +4,5 @@
 wrangler.jsonc
 README.md
 .nojekyll
+worker/
+tools/
