@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "minLaunchesBetween": 1,
+  "minHoursBetween": 0,
+  "skipFirstLaunches": 1,
+  "includeLapsedSubscribers": true
+}
