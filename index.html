@@ -50,7 +50,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=57">
+<link rel="stylesheet" href="assets/site.css?v=58">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -182,7 +182,7 @@
             <!-- what the screen shows; it fades up from black as the iPad wakes (not hidden
                  under a dark layer, whose edge would let a hairline of it show through) -->
             <div class="screen-content" id="screenContent">
-              <img src="assets/hero-ipad-home.webp?v=4" srcset="assets/hero-ipad-home-800.webp?v=4 800w, assets/hero-ipad-home-1100.webp?v=4 1100w, assets/hero-ipad-home.webp?v=4 1668w" sizes="(max-width: 859px) calc(100vw - 48px), 50vh" alt="" width="1668" height="2420" fetchpriority="low" decoding="async">
+              <img src="assets/hero-ipad-home.webp?v=5" srcset="assets/hero-ipad-home-800.webp?v=5 800w, assets/hero-ipad-home-1100.webp?v=5 1100w, assets/hero-ipad-home.webp?v=5 1668w" sizes="(max-width: 859px) calc(100vw - 48px), 50vh" alt="" width="1668" height="2224" fetchpriority="low" decoding="async">
               <!-- each slot stays blank until its folder or score lands in it -->
             </div>
             <div class="ipad-off" id="ipadOff"></div>
@@ -217,9 +217,8 @@
     <div class="ipad-stage" aria-hidden="true">
       <div class="ipad stage-ipad" id="stageIpad">
         <div class="ipad-screen" id="stageScreen">
-          <img src="assets/hero-ipad-home.webp?v=4" srcset="assets/hero-ipad-home-800.webp?v=4 800w, assets/hero-ipad-home-1100.webp?v=4 1100w, assets/hero-ipad-home.webp?v=4 1668w" sizes="(max-width: 859px) calc(100vw - 48px), 50vh" alt="" width="1668" height="2420" fetchpriority="low" decoding="async">
+          <img src="assets/hero-ipad-home.webp?v=5" srcset="assets/hero-ipad-home-800.webp?v=5 800w, assets/hero-ipad-home-1100.webp?v=5 1100w, assets/hero-ipad-home.webp?v=5 1668w" sizes="(max-width: 859px) calc(100vw - 48px), 50vh" alt="" width="1668" height="2224" fetchpriority="low" decoding="async">
         </div>
-        <div class="ipad-tools" id="stageTools"></div>
       </div>
     </div>
 
@@ -391,9 +390,9 @@
 <section class="section devices dark-band">
   <div class="wrap devices-grid">
     <div class="devices-pair reveal">
-      <img class="dp-mac" src="assets/home-mac.webp?v=4" alt="Music Folder on a Mac: the home screen with the sidebar of folders and set lists, the next set list, practice goal, tools and recently opened scores" width="800" height="664" loading="lazy">
-      <img class="dp-ipad" src="assets/home-ipad.webp?v=6" alt="The Music Folder home screen on iPad: tomorrow's concert set list, a practice streak, quick tools, folders and recently opened scores" width="600" height="851" loading="lazy">
-      <img class="dp-iphone" src="assets/home-iphone.webp?v=5" alt="The same home screen on iPhone, with the practice streak and tomorrow's set list" width="396" height="830" loading="lazy">
+      <img class="dp-mac" src="assets/home-mac.webp?v=5" alt="Music Folder on a Mac: the home screen with the sidebar of folders and set lists, recently opened scores, the next set list and today's practice" width="800" height="664" loading="lazy">
+      <img class="dp-ipad" src="assets/home-ipad.webp?v=7" alt="The Music Folder home screen on iPad: recently opened scores, tomorrow's concert set list, a practice streak and folders" width="600" height="786" loading="lazy">
+      <img class="dp-iphone" src="assets/home-iphone.webp?v=6" alt="The same home screen on iPhone, with recently opened scores and tomorrow's set list" width="396" height="830" loading="lazy">
     </div>
     <div class="reveal">
       <h2 class="heading-sm">The same library on every device you own.</h2>
@@ -555,16 +554,17 @@
   const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
   const FW = 450, FH = 600, THICK = 7; // board thickness, matches .edge in site.css
 
-  // the iPad on the right-hand page (matches .ipad in site.css): a 340 × 481 body
-  // at (58, 20) with a 14px bezel, tilted -1.2°, showing hero-ipad-home.webp (a real
-  // 11-inch iPad Home screenshot, retouched to the site's content: Summer Night Concert,
-  // Two weeks strong, Worship Team); high enough on the page that the Recently opened
-  // row stays clear of the pocket
-  const IPAD = { x: 58, y: 20, w: 340, h: 481, bezel: 14, tilt: -1.2 };
-  // positions on it are measured in a 1379 × 2000 space (the image itself is the
-  // full-resolution 1668 × 2420 screenshot, the same picture; CSS sizes it to the screen;
-  // phones get the 800 / 1100-wide copies through srcset — same picture, so same positions)
-  const SHOT_W = 1379, SHOT_H = 2000;
+  // the iPad on the right-hand page (matches .ipad in site.css): a 340 × 444 body
+  // at (58, 20) with a 14px bezel, tilted -1.2°, showing hero-ipad-home.webp (the 4.2
+  // Home screen, captured on a 13-inch iPad simulator from a demo library seeded with
+  // the site's content: Summer Night Concert tomorrow, a 14-day practice streak, the six
+  // folders, these scores opened last — tools/hero-seed.py); high enough on the page
+  // that the Folders row stays clear of the pocket
+  const IPAD = { x: 58, y: 20, w: 340, h: 444, bezel: 14, tilt: -1.2 };
+  // positions on it are measured in the capture's own pixels, 2064 × 2752 (the image
+  // is the same picture at 1668 wide; CSS sizes it to the screen; phones get the
+  // 800 / 1100-wide copies through srcset — same picture, so same positions)
+  const SHOT_W = 2064, SHOT_H = 2752;
   const K = (IPAD.w - 2 * IPAD.bezel) / SHOT_W;
   // a point on the screenshot → rig coordinates (the right-hand page)
   const onScreen = (sx, sy) => {
@@ -576,31 +576,31 @@
     const v = 1 - u, a = v * v * v, b = 3 * v * v * u, c = 3 * v * u * u, e = u * u * u;
     return [a * q[0] + b * q[2] + c * q[4] + e * q[6], a * q[1] + b * q[3] + c * q[5] + e * q[7]];
   };
-  // the home screen's Folders row and Recently opened row, in screenshot pixels;
-  // the mask also covers the title under each tile
-  const folderSlot = i => ({ x: 34.7 + 244.7 * i, y: 1092.2, w: 215, h: 216.6, mask: [-10, -10, 234.8, 317.5] });
-  const scoreSlot = i => ({ x: 34.7 + 244.7 * i, y: 1507.2, w: 215, h: 305.9, mask: [-10, -8.3, 234.8, 413.4] });
+  // the home screen's Recently opened row (top) and Folders row of book covers
+  // (bottom), in screenshot pixels; the mask also covers the title and count under each
+  const scoreSlot = i => ({ x: 58 + 570 * i, y: 542, w: 476, h: 673, mask: [-16, -16, 508, 796] });
+  const folderSlot = i => ({ x: 56 + 384 * i, y: 2182, w: 336, h: 440, mask: [-14, -14, 364, 584] });
 
   // what's stuffed in the left-hand pocket, bottom of the pile first (left-page
   // coordinates: centre and tilt). The pile empties from the top.
   // the Home screen's "Summer Night Concert" set-list card (screenshot pixels)
-  const setlistSlot = { x: 35, y: 348, w: 568, h: 622, mask: [-8, -8, 584, 638] };
-  // a printed set list squares up into that card: 280 wide throughout, 380 → 307 tall
+  const setlistSlot = { x: 56, y: 1396, w: 952, h: 586, mask: [-8, -8, 968, 602] };
+  // a printed set list turns into that card: 280 wide throughout, 380 → 172 tall
   const SIZE = { folder: [250, 320], sheet: [240, 340], setlist: [280, 380] };
+  // folders are in their 4.2 cover colours (Cognac, Forest, Slate, Plum, Midnight,
+  // Burgundy), so each lands as the book cover it becomes
   const MESS = [
     // at the very back, its title peeking over the pile: the last one out
     { setlist: 'Summer Night Concert', x: 224, y: 300, r: -2, slot: setlistSlot },
-    { folder: 'Christmas Rep.', color: '#E26C52', x: 232, y: 318, r: -7, slot: folderSlot(5) },
-    { sheet: 'holmes', x: 196, y: 330, r: -11, slot: scoreSlot(5) },
-    { folder: 'Church Band', color: '#779FDF', x: 250, y: 322, r: 6, slot: folderSlot(4) },
-    { sheet: 'chaminade', x: 214, y: 314, r: 4, slot: scoreSlot(4) },
-    { folder: 'Favorites', color: '#9989DB', x: 206, y: 336, r: -4, slot: folderSlot(3) },
+    { folder: 'Christmas Rep.', color: '#6A2C2C', x: 232, y: 318, r: -7, slot: folderSlot(5) },
+    { folder: 'Church Band', color: '#22324A', x: 250, y: 322, r: 6, slot: folderSlot(4) },
+    { folder: 'Favorites', color: '#4B3550', x: 206, y: 336, r: -4, slot: folderSlot(3) },
     { sheet: 'debussy', x: 248, y: 330, r: 9, slot: scoreSlot(3) },
-    { folder: 'Worship Team', color: '#B5CA8E', x: 238, y: 345, r: 2, slot: folderSlot(2) },
+    { folder: 'Worship Team', color: '#56595D', x: 238, y: 345, r: 2, slot: folderSlot(2) },
     { sheet: 'widmung', x: 200, y: 322, r: -6, slot: scoreSlot(2) },
-    { folder: 'Ensemble', color: '#7CCB9E', x: 215, y: 352, r: -2, slot: folderSlot(1) },
+    { folder: 'Ensemble', color: '#2D4A3C', x: 215, y: 352, r: -2, slot: folderSlot(1) },
     { sheet: 'lagrima', x: 244, y: 336, r: 5, slot: scoreSlot(1) },
-    { folder: 'Classical Starters', color: '#E8955F', x: 228, y: 356, r: 1, slot: folderSlot(0) },
+    { folder: 'Classical Starters', color: '#9A6236', x: 228, y: 356, r: 1, slot: folderSlot(0) },
     { sheet: 'dvorak', x: 220, y: 325, r: -3, slot: scoreSlot(0) },
   ];
   const SET = ['Let it Be', 'Hallelujah', 'Yesterday', 'Hey Jude', 'Imagine'];
@@ -608,13 +608,14 @@
     const el = document.createElement('div');
     if (d.setlist) {
       el.className = 'mf-setlist';
-      el.innerHTML = `<i class="sl-when">Tomorrow</i><b>${d.setlist}</b><small>${SET.length} songs<span> · Set list</span></small>` +
+      el.innerHTML = '<i class="sl-date"><span>Nov</span>10</i>' +
+        `<b>${d.setlist}</b><small>${SET.length} pieces<span> · Set list</span></small>` +
         `<ol>${SET.map(t => `<li>${t}</li>`).join('')}</ol>` +
-        '<i class="sl-more">+2 more songs ›</i><i class="sl-start">Start set</i><i class="sl-view">View</i>';
+        '<i class="sl-more">and 2 more</i><i class="sl-start">Start Set</i><i class="sl-view">View</i>';
     } else if (d.folder) {
       el.className = 'mf-folder';
       el.style.setProperty('--c', d.color);
-      el.innerHTML = `<i class="mf-peek"></i><span class="mf-front"><span class="mf-label">${d.folder}</span><i class="mf-card"></i></span>`;
+      el.innerHTML = `<i class="mf-peek"></i><span class="mf-front"><span class="mf-label">${d.folder}</span><i class="mf-title">${d.folder}</i></span>`;
     } else {
       el.className = 'mf-sheet';
       el.innerHTML = `<img src="assets/scores/${d.sheet}.webp" alt="" width="353" height="500" decoding="async">`;
@@ -635,14 +636,15 @@
   }
   MESS.forEach((d, k) => {
     [d.w, d.h] = SIZE[d.setlist ? 'setlist' : d.folder ? 'folder' : 'sheet'];
-    // the height it ends at: folders square up, the set list turns into a landscape card
-    d.endH = d.setlist ? d.w * d.slot.h / d.slot.w : d.folder ? d.w : d.h;
+    // the height it ends at: folders take the book cover's shape, the set list turns
+    // into a landscape card
+    d.endH = d.setlist || d.folder ? d.w * d.slot.h / d.slot.w : d.h;
     const a = Math.abs(d.r) * Math.PI / 180;
     // how far it has to slide up before its lowest corner clears the pocket's mouth
     d.lift = Math.max(0, d.y + (d.h / 2) * Math.cos(a) + (d.w / 2) * Math.sin(a) - 452);
     const end = onScreen(d.slot.x + d.slot.w / 2, d.slot.y + d.slot.h / 2);
     d.ex = end.x; d.ey = end.y;
-    // folders square up into app icons on the way, so both kinds land at one uniform scale
+    // every item lands at its slot's width
     d.es = d.slot.w * K / d.w;
     // the last tile of each row runs off the screen's right edge: the share of the
     // item that ends up past it, trimmed away as it settles under the bezel
@@ -661,73 +663,53 @@
     d.mask = slotMask(d.slot);
   });
 
-  // the Home screen's four tool tiles (screenshot pixels: centre; each 332 × 179).
-  // Each gets a crisp replica built at its lifted size, POP × the tile, so it
-  // never blurs when it rises; at rest it is scaled down to sit exactly on the tile.
-  const POP = 2.3, TILE_W = 332 * K * POP, TILE_H = 179 * K * POP;
-  const TOOLS = [
-    { name: 'Piano', x: 819, y: 675.5, icon:
-      `<svg viewBox="0 0 24 24" class="ti ti-piano"><path class="k k1" d="M3.4 5.4h4.1v13.2H3.4z"/><path class="k k2" d="M7.5 5.4H12v13.2H7.5z"/><path class="k k3" d="M12 5.4h4.5v13.2H12z"/><path class="k k4" d="M16.5 5.4h4.1v13.2h-4.1z"/><path class="sep" d="M7.5 12v6.6M12 12v6.6M16.5 12v6.6"/><path class="b" d="M6.2 5h2.6v7.6H6.2zM10.7 5h2.6v7.6h-2.6zM15.2 5h2.6v7.6h-2.6z"/><rect class="case" x="2.6" y="4.6" width="18.8" height="14.8" rx="2.6"/></svg>` },
-    { name: 'Metronome', x: 1177.5, y: 675.5, icon:
-      `<svg viewBox="0 0 24 24" class="ti ti-metro"><path class="body" d="M8.6 3.5h6.8l5 16.5H3.6z"/><path class="base" d="M3.6 20h16.8"/><g class="arm"><path d="M12 17.2V5.8"/><circle cx="12" cy="9" r="1.5"/></g></svg>` },
-    { name: 'Tone', x: 819, y: 880.5, icon:
-      `<svg viewBox="0 0 24 24" class="ti ti-tone">${[5, 9, 15, 20, 13, 17, 8, 11, 5].map((h, i) =>
-        `<rect class="bar" style="--i:${i}" x="${2.6 + i * 2.2}" y="${12 - h / 2}" width="1.3" height="${h}" rx=".65"/>`).join('')}</svg>` },
-    { name: 'Tuner', x: 1177.5, y: 880.5, icon:
-      `<svg viewBox="0 0 24 24" class="ti ti-tuner"><g class="fork"><path d="M5 19.5l5.5-5.5M10.5 14l6-6.5M10.5 14l2.5 2.5 6-6"/><circle cx="4.6" cy="19.9" r="1.2"/></g><g class="gauge"><path class="scale" d="M4.5 16a8 8 0 0 1 15 0"/><path class="mark" d="M12 6.6v2.2"/><path class="needle" d="M12 18.5V9.5"/><circle cx="12" cy="18.5" r="1.4"/></g></svg>` },
-  ];
-  // Parts of the Home screen are rebuilt crisp over the screenshot, exactly covering
-  // their originals: the practice card (whose ring fills and days tick in) and the
-  // four tool tiles, which lift during the tools beat. (The clean 9:41, the concert
-  // card and the generic "Worship Team" title are in the retouched screenshot itself.)
-  // Each is laid out in screenshot pixels and scaled by K onto the screen; on the page
-  // iPad they sit under the slot masks and the dark glass, so they fill in and wake
-  // with everything else.
-  const stageTools = document.getElementById('stageTools');
+  // The practice card is rebuilt crisp over the screenshot's own, so it can fill in
+  // once the iPad is front and centre: the minutes count up to 42, the goal bar fills,
+  // "of 30 min" gives way to the screenshot's "Daily goal reached", and the week's two
+  // bars rise. Laid out in the card's own pixels (952 × 586 at 1056, 1396 on the
+  // screenshot) and scaled by K onto the screen; the static parts (title, streak,
+  // "This week", the day labels) are the screenshot's own, showing through.
   const stageScreen = document.getElementById('stageScreen');
   const under = (screen, el) => screen.insertBefore(el, screen.querySelector('[data-mask]'));
-  const tile = (layer, tool) => {
-    const el = under(layer, document.createElement('div'));
-    el.className = 'tool-pop';
-    el.innerHTML = `${tool.icon}<span>${tool.name}</span>`;
-    el.dataset.x = tool.x * K; el.dataset.y = tool.y * K;
-    setTile(el, 1 / POP, 0);
-    return el;
-  };
-  const setTile = (el, sc, l) => {
-    el.style.transform = `translate(${el.dataset.x - TILE_W / 2}px, ${el.dataset.y - TILE_H / 2}px) scale(${sc})`;
-    el.style.setProperty('--l', l.toFixed(3));
-  };
-  // on the stage iPad the tiles sit in a layer that doesn't clip a lifted one
-  TOOLS.forEach(tool => {
-    tile(screenContent, tool);
-    tool.el = tile(stageTools, tool);
-  });
-  // the practice card, in its own pixels on the screenshot (691 × 211 at 653, 349):
-  // the ring and the day chips where the app draws them, its text on the app's baselines
-  const day = (d, i, done) => `<g${done ? ' class="done"' : ''}><circle cx="${214.5 + 46.3 * i}" cy="150.5" r="17.6" fill="${done ? '#F38330' : '#F0EFE7'}"/>` +
-    `<text x="${214.5 + 46.3 * i}" y="156.5" text-anchor="middle" font-size="17.4" font-weight="600" fill="${done ? '#FFFFFF' : '#69685F'}">${d}</text></g>`;
-  const OVERLAYS = [
-    { cls: 'streak-card', x: 653, y: 349, html:
-      '<svg viewBox="0 0 691 211" width="691" height="211"><rect x="7" y="7" width="677" height="196" rx="26" fill="#FFFFFF"/>' +
-      '<circle class="track" cx="105.5" cy="105" r="64.25"/><circle class="fill" cx="105.5" cy="105" r="64.25" pathLength="100"/>' +
-      '<text x="105.5" y="106" text-anchor="middle" font-size="33.6" font-weight="700" fill="#11120D">42</text>' +
-      '<text x="105.5" y="132" text-anchor="middle" font-size="18.5" font-weight="500" fill="#69685F">/ 30 min</text>' +
-      '<text x="197" y="76.5" font-size="36.4" font-weight="700" letter-spacing="-0.37" fill="#11120D">Two weeks strong 🔥</text>' +
-      '<text x="197" y="111" font-size="20.3" fill="#69685F">Goal complete · 42 of 30 min today</text>' +
-      [...'SMTWTFS'].map((d, i) => day(d, i, false) + (i < 4 ? day(d, i, true) : '')).join('') + '</svg>' },
-  ];
-  const overlay = (screen, o) => {
+  const PRACTICE = { x: 1056, y: 1396, html:
+    '<svg viewBox="0 0 952 586" width="952" height="586">' +
+    // white over the screenshot's number, bar, goal label and bars (the card is white)
+    '<rect x="40" y="108" width="300" height="92" fill="#FFFFFF"/>' +
+    '<rect x="40" y="222" width="874" height="26" fill="#FFFFFF"/>' +
+    '<rect class="pc-goal-cover" x="600" y="150" width="314" height="52" fill="#FFFFFF"/>' +
+    // the two bars only: the dashed goal line and the baseline are drawn back over
+    // the gaps exactly as the app draws them (2 px, dashes 4 on / 6 off from x 44)
+    '<rect x="95" y="405" width="22" height="94" fill="#FFFFFF"/>' +
+    '<rect x="218" y="405" width="22" height="94" fill="#FFFFFF"/>' +
+    '<line x1="44" y1="439" x2="908" y2="439" stroke="#B9B6B1" stroke-width="2" stroke-dasharray="4 6"/>' +
+    '<rect x="95" y="496" width="22" height="2" fill="#EFEBE4"/><rect x="218" y="496" width="22" height="2" fill="#EFEBE4"/>' +
+    '<text class="pc-of" x="907" y="186" text-anchor="end" font-size="28" fill="#6E6A62">of 30 min</text>' +
+    '<text x="44" y="184"><tspan class="pc-min" font-size="86" font-weight="700" letter-spacing="-0.5" fill="#1A1815">42</tspan>' +
+    '<tspan dx="19" font-size="40" font-weight="600" fill="#1A1815">min</tspan></text>' +
+    '<rect x="44" y="229" width="864" height="12" rx="6" fill="#F0EBE4"/>' +
+    '<rect class="pc-bar" x="44" y="229" width="864" height="12" rx="6" fill="#E07230"/>' +
+    '<rect class="pc-day" x="99" y="413" width="14" height="85" rx="7" fill="#1A1815"/>' +
+    '<rect class="pc-day pc-today" x="222" y="417" width="14" height="81" rx="7" fill="#E07230"/>' +
+    '</svg>' };
+  const practiceCards = [document.getElementById('screenContent'), stageScreen].map(screen => {
     const el = under(screen, document.createElement('div'));
-    el.className = `shot-part ${o.cls}`;
-    el.innerHTML = o.html;
-    Object.assign(el.style, { left: `${o.x * K}px`, top: `${o.y * K}px`, transform: `scale(${K})` });
-    return el;
-  };
-  OVERLAYS.forEach(o => { overlay(screenContent, o); overlay(stageScreen, o); });
-  const streaks = [...document.querySelectorAll('.streak-card')];
-  const ringFills = streaks.map(el => el.querySelector('.fill'));
-  const doneDays = streaks.map(el => [...el.querySelectorAll('.done')]);
+    el.className = 'shot-part practice-card';
+    el.innerHTML = PRACTICE.html;
+    Object.assign(el.style, { left: `${PRACTICE.x * K}px`, top: `${PRACTICE.y * K}px`, transform: `scale(${K})` });
+    return {
+      min: el.querySelector('.pc-min'), bar: el.querySelector('.pc-bar'), of: el.querySelector('.pc-of'),
+      goal: el.querySelector('.pc-goal-cover'), days: [...el.querySelectorAll('.pc-day')],
+    };
+  });
+  const setPractice = (minutes, week) => practiceCards.forEach(c => {
+    const m = Math.round(minutes), reached = m >= 30;
+    c.min.textContent = String(m);
+    c.bar.setAttribute('width', String(Math.max(0.001, 864 * Math.min(1, minutes / 30))));
+    c.of.style.opacity = reached ? '0' : '1';
+    c.goal.style.opacity = reached ? '0' : '1';
+    // Sunday's bar rises first, then today's, from the baseline
+    c.days.forEach((d, k) => d.style.setProperty('--d', clamp(week * 2 - k).toFixed(3)));
+  });
 
   const place = (el, x, y, h, w, z, r, ry, rx, sc) => {
     el.style.transform = `translate3d(${x - w / 2}px, ${y - h / 2}px, ${z}px) rotate(${r}deg) rotateY(${ry}deg) rotateX(${rx}deg) scale(${sc})`;
@@ -739,15 +721,14 @@
   // then the iPad lifts out of its pocket and comes front and centre while the
   // folder closes behind it and settles as its backdrop
   const LIFT_PX = 56; // how far it slides up the page to clear the pocket
-  // and finally the tools: the four tool tiles lift out of the screen one by one
-  const TOOL_FROM = 0.785, TOOL_STEP = 0.045, TOOL_LEN = 0.08, TOOL_POP = 1.8;
   const pageIpad = document.getElementById('pageIpad');
   const stageIpad = document.getElementById('stageIpad');
   const IPAD_RATIO = IPAD.w / IPAD.h, BACKDROP = 1.18; // the folder's height ÷ the iPad's
   const smooth = t => t * t * (3 - 2 * t);
-  // Scroll → timeline. The cover opening (to 0.311) and the tool tiles (from 0.785) play faster
-  // than the flights in between, so the hero doesn't feel endless; .hero's height matches (530vh).
-  const PACE = [[0, 0], [0.244, 0.311], [0.84, 0.785], [1, 1]];
+  // Scroll → timeline. The cover opening (to 0.311) and the practice card + closing line
+  // (from 0.785) play faster than the flights in between, so the hero doesn't feel endless;
+  // .hero's height matches (516vh: the flights keep their pace from the 530vh version).
+  const PACE = [[0, 0], [0.252, 0.311], [0.868, 0.785], [1, 1]];
   const pace = s => {
     for (let i = 1; i < PACE.length; i++) {
       const [s0, p0] = PACE[i - 1], [s1, p1] = PACE[i];
@@ -772,7 +753,7 @@
     const fw = seg(p, 0.67, 0.75); // …and comes front and centre
     const cl = seg(p, 0.68, 0.75); // the cover closes behind it
     const bd = seg(p, 0.705, 0.78); // the closed folder settles as the backdrop
-    const c = seg(p, 0.90, 0.97); // caption
+    const c = seg(p, 0.88, 0.97); // caption
 
     // scales
     const closedS = Math.min(1.05, (vh * 0.66) / FH, (vw - 48) / FW);
@@ -865,16 +846,14 @@
 
     screenContent.style.opacity = String(on);
     screenOff.style.opacity = String(1 - on);
-    // once the iPad is front and centre, the practice ring fills to its goal and
-    // the week's three days tick in (the screen's first sign of life, before the tools)
-    const ring = seg(p, 0.748, 0.778);
-    ringFills.forEach(f => { f.style.strokeDashoffset = String(100 * (1 - ring)); });
-    doneDays.forEach(ds => ds.forEach((li, k) => { li.style.setProperty('--d', seg(p, 0.772 + k * 0.006, 0.782 + k * 0.006).toFixed(3)); }));
+    // once the iPad is front and centre, today's practice fills in: the minutes count
+    // up to the goal and past it, then the week's bars rise
+    setPractice(42 * seg(p, 0.75, 0.84), seg(p, 0.82, 0.88));
     glow.style.opacity = String(on);
 
     // each item slides up out of the pocket, lifts off the page (its shadow
     // softening with height), arcs over the spine and drops into its slot on the
-    // home screen; a folder squares up into its app icon on the way down
+    // home screen; a folder takes its book cover's shape on the way down
     for (const d of MESS) {
       const t = o >= 1 ? clamp((p - FLY_FROM - d.order * FLY_STEP) / FLY_LEN) : 0;
       const u = ease(clamp(t / ARRIVE));
@@ -899,16 +878,6 @@
       // the slot fills in underneath the item as it arrives; the item then dissolves
       d.mask.style.opacity = String(1 - clamp((t - ARRIVE + 0.03) / 0.1));
     }
-
-    // the tools: on the big iPad, each tile lifts out of the screen towards you,
-    // plays a moment of itself (keys, pendulum, drone, needle), then settles back
-    TOOLS.forEach((tool, i) => {
-      const q = clamp((p - TOOL_FROM - i * TOOL_STEP) / TOOL_LEN);
-      const lift = smooth(clamp(q / 0.3)) * (1 - smooth(clamp((q - 0.72) / 0.28)));
-      setTile(tool.el, lerp(1, TOOL_POP, lift) / POP, lift);
-      tool.el.style.zIndex = lift > 0 ? 2 : 1;
-      tool.el.classList.toggle('is-lit', lift > 0.55);
-    });
 
     copy.style.opacity = String(1 - seg(p, 0, narrow ? 0.1 : 0.12));
     copy.style.transform = `translateY(${-40 * seg(p, 0, 0.14)}px)`;
