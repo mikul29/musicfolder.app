@@ -35,5 +35,14 @@ for f, name, comp, key, tempo, ts, src in SCORES:
         seed['songs'].append(dict(file=f, name=name, composer=comp, key=key, tempo=tempo,
                                   timeSignature=ts, folders=[]))
 seed['recents'] = [s[1] for s in SCORES]   # first = most recent = the first slot
+# tags, as the old Library screenshot showed them (#difficult #easy #hymn #pop; the seed has no jazz)
+TAGS = {'pop': ['Let it Be', 'Hallelujah', 'Yesterday', 'Hey Jude', 'Imagine'],
+        'easy': ['Let it Be', 'Silent Night', 'Lágrima', 'Cradle Song'],
+        'difficult': ['String Quartet No. 12 "American"', 'Quartettsatz', 'Widmung', 'Harmonie du Soir'],
+        'hymn': [c['name'] for c in seed['charts'] if 'Worship Team' in c['folders']]}
+tags = {}
+for t, names in TAGS.items():
+    for n in names: tags.setdefault(n, []).append(t)
+seed['tags'] = tags
 json.dump(seed, open(out / 'seed.json', 'w'), ensure_ascii=False, indent=1)
 print(len(seed['songs']), 'pdfs,', len(seed['charts']), 'charts,', 'recents:', seed['recents'], '→', out)
