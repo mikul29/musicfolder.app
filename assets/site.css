@@ -273,15 +273,16 @@ p { margin: 0 0 16px; }
 .cords b:nth-of-type(1) { top: 6px; }
 .cords b:nth-of-type(2) { bottom: 6px; }
 .ipad {
-  position: absolute; left: 58px; top: 20px; width: 340px; height: 444px;
-  border-radius: 28px; padding: 14px;
-  background: #0E0E0F;
-  box-shadow: 0 0 0 1.5px #3A3A3C, 0 18px 30px -12px rgba(0,0,0,0.7), inset 0 0 0 1px #000;
+  /* the App Store frame spec (iPad Pro): a 318 × 424 (3 : 4) screen, border 3.4 % of its width, corners 2.4 % */
+  position: absolute; left: 58px; top: 20px; width: 340px; height: 446px;
+  border-radius: 18.6px; padding: 11px;
+  background: #060606;
+  box-shadow: 0 0 0 1px #34312C, 0 0 0 1.5px #1A1815, 0 18px 30px -12px rgba(0,0,0,0.7);
   transform: translateZ(1px) rotate(-1.2deg);
 }
 .ipad-screen {
   /* dark behind everything: the smoothed edge of the rounded clip would otherwise show a light hairline */
-  position: relative; width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #0D0D0E;
+  position: relative; width: 100%; height: 100%; border-radius: 7.6px; overflow: hidden; background: #0D0D0E;
 }
 .ipad-screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 /* a home-screen slot that is still waiting for its folder or score */
@@ -295,7 +296,7 @@ p { margin: 0 0 16px; }
 }
 /* the app's warm light on the folder lining once the screen is on */
 .ipad-glow {
-  position: absolute; left: 58px; top: 20px; width: 340px; height: 444px; border-radius: 28px;
+  position: absolute; left: 58px; top: 20px; width: 340px; height: 446px; border-radius: 18.6px;
   transform: translateZ(0.5px) rotate(-1.2deg);
   box-shadow: 0 0 70px 6px rgba(242,129,46,0.22);
   opacity: 0; pointer-events: none;
@@ -407,7 +408,7 @@ p { margin: 0 0 16px; }
   left: 0; top: 0; visibility: hidden; will-change: transform;
   /* --l: 0 at the hand-off → 1 front and centre: a deeper shadow */
   box-shadow:
-    0 0 0 1.5px #3A3A3C, inset 0 0 0 1px #000,
+    0 0 0 1px #34312C, 0 0 0 1.5px #1A1815,
     0 calc(18px + 40px * var(--l, 0)) calc(30px + 70px * var(--l, 0)) calc(-12px - 8px * var(--l, 0)) rgba(0,0,0,calc(0.7 - 0.25 * var(--l, 0))),
     0 0 70px 6px rgba(242,129,46,0.22); /* the same warm light it had on the page, so the hand-off is seamless */
 }
@@ -551,10 +552,10 @@ section { position: relative; }
   transition: opacity .55s ease, transform .55s ease;
 }
 .frame.is-active { opacity: 1; transform: none; }
-.frame .device.phone { height: 88%; width: auto; aspect-ratio: 9 / 19.5; }
-.frame .device.tablet { height: 84%; width: auto; max-width: none; aspect-ratio: 0.715; }
+.frame .device.phone { height: 88%; width: auto; aspect-ratio: 0.4697; }
+.frame .device.tablet { height: 84%; width: auto; max-width: none; aspect-ratio: 0.7029; }
 /* a 13-inch capture (3 : 4) keeps its own shape, so neither the toolbar nor the pen palette is trimmed */
-.frame .device.tablet.s13 { aspect-ratio: 0.75; }
+.frame .device.tablet.s13 { aspect-ratio: 0.7621; }
 .frame .share-card { width: min(420px, 86%); }
 .story .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 @media (prefers-reduced-motion: reduce) { .frame, .step { transition: none; } }
@@ -565,31 +566,39 @@ section { position: relative; }
   .step p { font-size: 17px; }
   .step-visual { display: flex; justify-content: center; margin-top: 28px; padding: 32px 0; border-radius: var(--radius-panel); background: var(--vellum); }
   .step-visual .device.phone { width: 230px; }
-  .step-visual .device.tablet { width: min(340px, 86%); aspect-ratio: 0.715; }
-  .step-visual .device.tablet.s13 { aspect-ratio: 0.75; }
+  .step-visual .device.tablet { width: min(340px, 86%); aspect-ratio: 0.7029; }
+  .step-visual .device.tablet.s13 { aspect-ratio: 0.7621; }
   .step-visual .share-card { width: calc(100% - 32px); }
 }
 
+/* Device frames: the App Store studio's spec (marketing/app-store/docs/design-system.md › Device framing).
+   iPhone 17 Pro: glass border 2 % of the screen's short side, display corners 15.5 %, Dynamic Island 31.1 % ×
+   4.2 % at 1.3 % from the top; iPad Pro: border 3.4 %, corners 2.4 %; a near-black glass border inside a thin
+   warm metal band. Everything is a fraction of the frame's own width (container units), so a frame looks the
+   same at every size. The border is the screen's own spread shadow (outer corner = screen corner + border). */
 .device {
-  position: relative; background: #0E0E0F; padding: 10px;
-  box-shadow: 0 0 0 1.5px #3A3A3C, var(--shadow-object);
+  position: relative; container-type: inline-size; padding: 0; background: none;
+  --bz: 3.18cqw; --r: 2.25cqw;
+}
+.device > .screen {
+  margin: var(--bz); width: auto; height: calc(100% - 2 * var(--bz)); border-radius: var(--r);
+  box-shadow: 0 0 0 var(--bz) #060606, 0 0 0 calc(var(--bz) + 1px) #34312C, 0 0 0 calc(var(--bz) + 1.5px) #1A1815,
+    0 calc(30px + var(--bz)) 60px -20px rgba(20,20,20,0.35);
 }
 .device-shot { width: 280px; height: auto; }
-.device.phone { width: 236px; aspect-ratio: 9 / 19.5; border-radius: 44px; }
-/* the bezel scales with the page so a small iPad isn't framed in a thick border (real: ~2 % of the width) */
-.device.tablet { --bezel: clamp(6px, 1.9vw, 14px); width: 100%; max-width: 420px; aspect-ratio: 3 / 4; border-radius: calc(var(--bezel) + 16px); padding: var(--bezel); }
-.device.tablet.landscape { max-width: 620px; aspect-ratio: 4 / 3; }
-/* landscape iPads are shown smaller, so a thinner bezel keeps the portrait frames' proportion (~2.6 % of the long side) */
-.device.tablet.landscape { --bezel: clamp(6px, 1.5vw, 11px); }
+/* iPhone: border 2 % and corners 15.5 % of the screen width (÷ 1.04, the frame width); 0.4697 = a 1206 × 2622 screen in its frame */
+.device.phone { width: 236px; aspect-ratio: 0.4697; --bz: 1.923cqw; --r: 14.9cqw; }
+.device.phone.landscape { --bz: 0.903cqw; --r: 7cqw; }
+/* iPad: border 3.4 % and corners 2.4 % of the screen's short side; portrait 0.7621 = a 3 : 4 (13-inch) screen in its frame */
+.device.tablet { width: 100%; max-width: 420px; aspect-ratio: 0.7621; --bz: 3.18cqw; --r: 2.25cqw; }
+.device.tablet.landscape { max-width: 620px; aspect-ratio: 1.3121; --bz: 2.43cqw; --r: 1.71cqw; }
 .device .screen {
-  width: 100%; height: 100%; border-radius: inherit; overflow: hidden;
+  overflow: hidden;
   background: var(--vellum);
   display: flex; align-items: center; justify-content: center; text-align: center;
   padding: 20px; font-size: 13px; line-height: 1.4; color: var(--graphite);
   border: 1px dashed var(--staff-line);
 }
-.device.phone .screen { border-radius: 34px; }
-.device.tablet .screen { border-radius: 16px; }
 .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 .device .screen.shot { padding: 0; border: 0; background: #fff; }
 /* an Apple Pencil resting against the iPad (same drawing and placement as the
@@ -603,10 +612,11 @@ section { position: relative; }
 /* a full-screen screenshot sets the frame's shape instead of being cropped */
 .device.fit { aspect-ratio: auto; }
 .device.fit .screen, .device.fit .screen img { height: auto; display: block; }
-/* in the pinned stage the frame's height is fixed, so an iPad screenshot's frame takes its shape
-   (11-inch screen + the 14px bezel) instead of trimming the sides */
-.frame .device.tablet.fit { aspect-ratio: 0.703; }
-.frame .device.tablet.fit .screen, .frame .device.tablet.fit .screen img { height: 100%; }
+/* in the pinned stage the frame's height is fixed, so it takes the screenshot's shape plus its border instead of
+   trimming the sides: 0.7029 = an 11-inch screen (0.689), 0.7621 = a 13-inch one (.s13) */
+.frame .device.tablet.fit { aspect-ratio: 0.7029; }
+.frame .device.tablet.fit .screen { height: calc(100% - 2 * var(--bz)); }
+.frame .device.tablet.fit .screen img { height: 100%; }
 /* a landscape iPad screenshot (the set list) is sized by width and keeps its own shape */
 .frame .device.tablet.landscape, .step-visual .device.tablet.landscape { aspect-ratio: auto; height: auto; max-width: none; }
 .frame .device.tablet.landscape { width: 86%; }
@@ -778,8 +788,8 @@ a.who-card:hover h3 { color: var(--deep-amber); }
 /* iOS screenshots leave out the Dynamic Island, so the phone frames draw it */
 .device.phone .screen { position: relative; }
 .device.phone .screen::after {
-  content: ""; position: absolute; left: 50%; top: 1.2%; transform: translateX(-50%);
-  width: 29.5%; aspect-ratio: 3.4; border-radius: 999px; background: #000; pointer-events: none;
+  content: ""; position: absolute; left: 50%; top: 1.3%; transform: translateX(-50%);
+  width: 31.1%; aspect-ratio: 3.41; border-radius: 999px; background: #000; pointer-events: none;
 }
 
 

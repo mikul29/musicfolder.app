@@ -32,23 +32,29 @@ def render(name, html, W, H):
     Image.open(png).convert('RGBA').save(SITE / 'assets' / f'{name}.webp', quality=90, method=6)
     print('wrote assets/%s.webp' % name, Image.open(png).size)
 
-# iPad / iPhone: a #0C0B0E body with a thin light rim, the screen inset, rounded (as before);
-# the iPad frame now has the 13-inch screen's proportions (3 : 4)
-def device(name, W, H, body_r, inset, screen_r, shot, island=None):
-    isl = ''
-    if island:
-        x, y, w, h = island
-        isl = f'<i style="position:absolute;left:{x}px;top:{y}px;width:{w}px;height:{h}px;border-radius:{h / 2}px;background:#000"></i>'
+# iPad / iPhone: the App Store frame spec (marketing/app-store/docs/design-system.md › Device framing): a #060606
+# glass border of 3.4 % (iPad Pro) / 2 % (iPhone 17 Pro) of the screen's width, display corners 2.4 % / 15.5 %,
+# the iPhone's Dynamic Island 31.1 % × 4.2 % at 1.3 %, inside a thin warm metal band. The screen keeps the
+# capture's own shape; the image is the frame's size.
+def device(name, W, shot, bezel, radius, island=False, band=3):
+    cap = Image.open(CAP / shot); sw = W - 2 * band
+    s_w = sw / (1 + 2 * bezel); bz = s_w * bezel; s_h = s_w * cap.height / cap.width
+    H = round(s_h + 2 * bz + 2 * band); r = s_w * radius
+    isl = (f'<i style="position:absolute;left:50%;top:1.3%;width:31.1%;height:4.2%;transform:translateX(-50%);'
+           f'border-radius:999px;background:#000"></i>') if island else ''
     render(name, f'''<!doctype html><meta charset="utf-8"><style>
 html,body{{margin:0;background:transparent}}
-.body{{position:absolute;left:0;top:0;width:{W}px;height:{H}px;box-sizing:border-box;border-radius:{body_r}px;
-  background:#0C0B0E;box-shadow:inset 0 0 0 1px #AAAAAC,inset 0 0 0 2px #2A2A2C}}
-.screen{{position:absolute;left:{inset}px;top:{inset}px;width:{W - 2 * inset}px;height:{H - 2 * inset}px;border-radius:{screen_r}px;overflow:hidden;background:#000}}
-.screen img{{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0}}
-</style><div class="body"><div class="screen"><img src="{(CAP / shot).as_uri()}"></div>{isl}</div>''', W, H)
+.screen{{position:absolute;left:{band + bz:.2f}px;top:{band + bz:.2f}px;width:{s_w:.2f}px;height:{s_h:.2f}px;border-radius:{r:.2f}px;overflow:hidden;background:#000;
+  box-shadow:0 0 0 {bz:.2f}px #060606,0 0 0 {bz + band - 1:.2f}px #34312C,0 0 0 {bz + band:.2f}px #1A1815}}
+.screen img{{display:block;width:100%;height:100%}}
+</style><div class="screen"><img src="{(CAP / shot).as_uri()}">{isl}</div>''', W, H)
 
-device('home-ipad', 1200, 1571, 86, 44, 46, 'ipad-home-portrait.png')          # screen 1112 × 1483 = 3 : 4
-device('home-iphone', 792, 1660, 121, 26, 97, 'iphone-home-top.png', (280, 46, 232, 68))
+device('home-ipad', 1200, 'ipad-home-portrait.png', 0.034, 0.024)
+device('home-iphone', 792, 'iphone-home-top.png', 0.02, 0.155, island=True, band=2)
+# Planning Center page: Home with tomorrow's Sunday Service (the plan's songs, seeded as a set list —
+# Home draws a plan and a set list with the same card), if that capture is present
+if (CAP / 'iphone-home-pco.png').exists():
+    device('home-pco-iphone', 792, 'iphone-home-pco.png', 0.02, 0.155, island=True, band=2)
 
 # iMac: screen area x 28–1572, menu bar y 28–58, desktop below it to y 896
 land = Image.open(CAP / 'ipad-home-landscape-sidebar.png').convert('RGB')

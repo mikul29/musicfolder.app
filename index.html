@@ -50,7 +50,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="assets/site.css?v=59">
+<link rel="stylesheet" href="assets/site.css?v=60">
 </head>
 <body>
 <svg class="defs" aria-hidden="true" focusable="false"><defs>
@@ -391,8 +391,8 @@
   <div class="wrap devices-grid">
     <div class="devices-pair reveal">
       <img class="dp-mac" src="assets/home-mac.webp?v=5" alt="Music Folder on a Mac: the home screen with the sidebar of folders and set lists, recently opened scores, the next set list and today's practice" width="800" height="664" loading="lazy">
-      <img class="dp-ipad" src="assets/home-ipad.webp?v=7" alt="The Music Folder home screen on iPad: recently opened scores, tomorrow's concert set list, a practice streak and folders" width="600" height="786" loading="lazy">
-      <img class="dp-iphone" src="assets/home-iphone.webp?v=6" alt="The same home screen on iPhone, with recently opened scores and tomorrow's set list" width="396" height="830" loading="lazy">
+      <img class="dp-ipad" src="assets/home-ipad.webp?v=8" alt="The Music Folder home screen on iPad: recently opened scores, tomorrow's concert set list, a practice streak and folders" width="600" height="787" loading="lazy">
+      <img class="dp-iphone" src="assets/home-iphone.webp?v=7" alt="The same home screen on iPhone, with recently opened scores and tomorrow's set list" width="396" height="841" loading="lazy">
     </div>
     <div class="reveal">
       <h2 class="heading-sm">The same library on every device you own.</h2>
@@ -554,13 +554,13 @@
   const seg = (p, a, b) => ease(clamp((p - a) / (b - a)));
   const FW = 450, FH = 600, THICK = 7; // board thickness, matches .edge in site.css
 
-  // the iPad on the right-hand page (matches .ipad in site.css): a 340 × 444 body
-  // at (58, 20) with a 14px bezel, tilted -1.2°, showing hero-ipad-home.webp (the 4.2
+  // the iPad on the right-hand page (matches .ipad in site.css): a 340 × 446 body
+  // at (58, 20) with an 11px border (the App Store frame spec), tilted -1.2°, showing hero-ipad-home.webp (the 4.2
   // Home screen, captured on a 13-inch iPad simulator from a demo library seeded with
   // the site's content: Summer Night Concert tomorrow, a 14-day practice streak, the six
   // folders, these scores opened last — tools/hero-seed.py); high enough on the page
   // that the Folders row stays clear of the pocket
-  const IPAD = { x: 58, y: 20, w: 340, h: 444, bezel: 14, tilt: -1.2 };
+  const IPAD = { x: 58, y: 20, w: 340, h: 446, bezel: 11, tilt: -1.2 };
   // positions on it are measured in the capture's own pixels, 2064 × 2752 (the image
   // is the same picture at 1668 wide; CSS sizes it to the screen; phones get the
   // 800 / 1100-wide copies through srcset — same picture, so same positions)
