@@ -553,6 +553,8 @@ section { position: relative; }
 .frame.is-active { opacity: 1; transform: none; }
 .frame .device.phone { height: 88%; width: auto; aspect-ratio: 9 / 19.5; }
 .frame .device.tablet { height: 84%; width: auto; max-width: none; aspect-ratio: 0.715; }
+/* a 13-inch capture (3 : 4) keeps its own shape, so neither the toolbar nor the pen palette is trimmed */
+.frame .device.tablet.s13 { aspect-ratio: 0.75; }
 .frame .share-card { width: min(420px, 86%); }
 .story .device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; }
 @media (prefers-reduced-motion: reduce) { .frame, .step { transition: none; } }
@@ -564,6 +566,7 @@ section { position: relative; }
   .step-visual { display: flex; justify-content: center; margin-top: 28px; padding: 32px 0; border-radius: var(--radius-panel); background: var(--vellum); }
   .step-visual .device.phone { width: 230px; }
   .step-visual .device.tablet { width: min(340px, 86%); aspect-ratio: 0.715; }
+  .step-visual .device.tablet.s13 { aspect-ratio: 0.75; }
   .step-visual .share-card { width: calc(100% - 32px); }
 }
 
@@ -592,7 +595,7 @@ section { position: relative; }
 /* an Apple Pencil resting against the iPad (same drawing and placement as the
    Annotation page) */
 .device .pencil {
-  position: absolute; z-index: 2; width: 72%; height: auto; left: 44%; top: 62%;
+  position: absolute; z-index: 2; width: 72%; height: auto; left: 45.5%; top: 66.8%;
   transform: rotate(27deg); transform-origin: 0 50%;
   filter: drop-shadow(0 10px 9px rgba(20,20,20,0.22)) drop-shadow(0 2px 2px rgba(20,20,20,0.12));
   pointer-events: none;
