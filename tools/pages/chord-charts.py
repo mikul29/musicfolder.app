@@ -7,9 +7,9 @@ def _dev(src, alt, kind="tablet"):
 
 CONVERT = ('<div class="shot-stack">'
            '<figure>' + _dev("chart-pdf-original-ipad.jpg?v=1", "Holy, Holy, Holy as a PDF chord sheet in Music Folder on iPad: chords in blue over the lyrics, in a typewriter font", "landscape") +
-           '<figcaption><b>Before: the PDF</b>A chord sheet exactly as it arrived.</figcaption></figure>'
+           '<figcaption><b>Original PDF</b></figcaption></figure>'
            '<figure>' + _dev("chart-convert-ipad.jpg?v=1", "Reviewing the converted chart of Holy, Holy, Holy in Music Folder on iPad: the editable text on the left and the finished chart in D on the right", "landscape") +
-           '<figcaption><b>After: an editable chart</b>Checked against the original before you save.</figcaption></figure>'
+           '<figcaption><b>Editable chord chart</b></figcaption></figure>'
            '</div>')
 
 KEYS = ('<div class="shot-stack">'
@@ -33,13 +33,13 @@ PAGE = {
     "og_description": "Write, import or convert chord charts, then play them in any key.",
     "h1": "Chord charts you can <em>make your own.</em>",
     "lede": "Write a chart, import a ChordPro file or turn a PDF chord sheet into a chart you can edit. Then play it in the singer's key, with a capo, or as Nashville numbers.",
-    "hero_img": {"src": "chart-hero-ipad.jpg?v=1", "device": "tablet",
-                 "alt": "Blessed Assurance as a chord chart in Music Folder on iPad: key D, 72 BPM and 9/8 at the top, the order V1 and C, then the verse and chorus with chords over the lyrics"},
+    "hero_img": {"src": "chart-hero-key-ipad.jpg?v=1", "device": "tablet",
+                 "alt": "Blessed Assurance as a chord chart in Music Folder on iPad with the Key control open: every key from Ab to G#, the original key D selected, Capo and Chords, Numbers or Lyrics, beside the verse and chorus with chords over the lyrics"},
     "how_heading": "From a lyric sheet to the stand.",
     "how": [
         ("Write or import", "Type the chords in the lyrics, paste a chart, import a ChordPro file or convert a PDF chord sheet."),
         ("Make it yours", "Put the sections in the order you play them, choose one column or two, and set the page size."),
-        ("Play it your way", "Show chords, Nashville numbers or just the lyrics, free. Changing the key or playing with a capo is part of Premium, and your original stays as written."),
+        ("Play it your way", "Show chords, Nashville numbers, or lyrics. Change keys and capo with Premium—without changing your original chart."),
     ],
     "rows": [
         {"h2": "Write it, or <em>bring it in.</em>",
@@ -54,9 +54,9 @@ PAGE = {
          "visual_html": CONVERT},
         {"h2": "Any key, <em>any capo.</em>",
          "p": "The same chart, two keys. Pick the singer's key, or a capo position to keep the chord shapes you know, and every chord on the chart changes with it. Your original stays as written.",
-         "points": ["Changing key or capo is part of Premium", "Chords, Nashville numbers or lyrics only, free", "One chart for every key, no extra copies"],
+         "points": ["Changing key or capo is part of Premium", "Chords, Nashville numbers or lyrics only, free", "Change keys without duplicating your chart."],
          "visual_html": KEYS},
-        {"h2": "Verses, choruses and <em>the order you play them.</em>",
+        {"h2": "Every verse and chorus, <em>in the right order.</em>",
          "p": "Label each verse, chorus and bridge as you write. Then set the performance order in Edit Sequence: tap a section to add it, repeat a chorus, drag to reorder. The order shows at the top of the chart, and Follow Sequence writes the song out in that order.",
          "points": ["Intro, verse, chorus, bridge, tag and more", "Repeat a section without retyping it", "Formatting too: columns, fonts and page size"],
          "visual_html": SEQUENCE},
@@ -64,7 +64,6 @@ PAGE = {
          "p": "Charts sit in the same library as your PDFs, so one set can mix chord charts, lead sheets and full scores.",
          "points": ["Charts and PDFs in one set", "Each piece keeps its own key and tempo", "Share charts with your band (Premium)"],
          "more": '<a href="/features/set-lists">How set lists work</a>',
-         "visual_class": "bleed",
          "img": {"src": "setlist-worship-portrait-ipad.jpg?v=1", "device": "tablet",
                  "alt": "A set list called Sunday Service in Music Folder on iPad: six hymns in order, each with author, key and tempo"}},
     ],

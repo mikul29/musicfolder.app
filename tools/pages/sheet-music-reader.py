@@ -119,7 +119,7 @@ PAGE = {
     ],
     "extra_section": MORE_WAYS,
     "band_cta": {"h2": "Your next performance, <em>on one screen.</em>",
-                 "p": "Performance Mode, Page Links, Half-Page Turns, Two-Page View, cropping and Dark Background are all in the free version.",
+                 "p": "Your music, ready when you are. Turn pages with confidence, follow every repeat, and stay focused on playing. Get started free.",
                  "link_href": "/pricing", "link_text": "Compare Free and Premium"},
     "faq_heading": "Questions about the reader",
     "faq": [

@@ -551,3 +551,7 @@ ol.fd-how { margin-top: 64px; }
 }
 /* Set lists › "One book": the sections picker beside the set, a little larger, whole device */
 .rf-visual.sections-demo .device.tablet { width: min(460px, 100%); max-width: 460px; }
+/* Organizer hero: the iPad at the panel's width, the whole device shown (owner, 2026-11-10) */
+.lp-visual.large { padding: 40px 28px; }
+.lp-visual.large .device.tablet { width: 100%; max-width: 470px; }
+@media (max-width: 960px) { .lp-visual.large { padding: 28px 18px; } }

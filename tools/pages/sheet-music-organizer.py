@@ -10,7 +10,7 @@ PAGE = {
     "lede": "Bring in your PDFs, scans and method books, keep them in folders, and jump straight to any piece inside a book. Your whole library, on every device you play from.",
     "hero_img": {"src": "folders-band-ipad.jpg?v=2", "device": "tablet",
                  "alt": "Folders in Music Folder on iPad, one for each band: Big Band, Blues Night, Brass Quintet, Function Band, Jazz Combo and Wedding Band, each with its piece count"},
-    "hero_class": "bleed",
+    "hero_class": "large",
     "how_heading": "From a pile of PDFs to a library.",
     "how": [
         ("Bring it all in", "Import PDFs from Files, Mail or AirDrop, many at once, or scan paper music with your camera."),
