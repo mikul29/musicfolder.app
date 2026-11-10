@@ -538,6 +538,10 @@ section { position: relative; }
 .partner-logo { display: block; width: 160px; height: auto; margin: 0 0 34px; }
 .step h3 em { font-style: italic; color: var(--services-deep); }
 .step p { font-size: 20px; line-height: 1.5; color: var(--graphite); max-width: 440px; margin: 0; }
+.step p.step-more { margin-top: 14px; font-size: 16px; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.step-more a { font-weight: 500; text-decoration: none; color: var(--deep-amber); }
+.step-more a::after { content: " ›"; }
+.step-more a:hover { text-decoration: underline; }
 .step .step-note { font-size: 14px; margin-top: 10px; }
 .step-visual { display: none; }
 .story-stage { position: relative; }
