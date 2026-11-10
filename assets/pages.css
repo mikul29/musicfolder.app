@@ -364,3 +364,8 @@ ol.how { margin: 0; padding: 0; }
   filter: drop-shadow(0 10px 9px rgba(20,20,20,0.22)) drop-shadow(0 2px 2px rgba(20,20,20,0.12));
   pointer-events: none;
 }
+/* pricing table footnotes (4.2) */
+.pt th sup { font-size: 11px; color: var(--graphite); margin-left: 2px; }
+.pt-notes { max-width: 860px; margin: 14px auto 0; padding: 0 4px 0 22px; box-sizing: border-box; font-size: 13px; line-height: 1.5; color: var(--graphite); }
+.pt-notes li + li { margin-top: 2px; }
+@media (max-width: 600px) { .pt tfoot td { padding: 18px 6px 22px; } .pt-cta { white-space: normal; text-align: center; line-height: 1.25; padding: 8px 12px; border-radius: 18px; } }
