@@ -27,6 +27,7 @@
    the panel's bottom edge (the device is never scaled out of proportion). */
 .lp-visual.bleed { align-items: flex-start; min-height: 0; padding: 40px 32px 0; overflow: hidden; }
 .lp-visual.bleed .device.tablet { width: 100%; max-width: 470px; margin-bottom: calc(min(470px, 100%) * -0.37); }
+@media (max-width: 960px) { .lp-visual.bleed { padding: 32px 20px 0; } }
 @media (max-width: 960px) {
   .lp-hero { padding: 112px 0 var(--section-gap); }
   .lp-hero-grid { grid-template-columns: 1fr; gap: 48px; }
