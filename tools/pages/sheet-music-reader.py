@@ -22,11 +22,11 @@ HALF_PAGE = _pair(
 )
 
 LIGHT_DARK = _pair(
-    ("reader-perform-ipad.jpg?v=1",
-     "Fauré's Sicilienne in Music Folder on iPad on a white page",
+    ("reader-pm-light-ipad.jpg?v=1",
+     "Fauré's Sicilienne in Music Folder on iPad in Performance Mode on a white page",
      "Light page", "Black notes on white, as printed."),
-    ("reader-stage-ipad.jpg?v=1",
-     "The same Sicilienne with Dark Background: light notation on a dark page",
+    ("reader-pm-dark-ipad.jpg?v=1",
+     "The same Sicilienne, same view and zoom, with Dark Background: light notation on a dark page",
      "Dark Background", "Light notes on a dark page."),
 )
 
@@ -76,7 +76,7 @@ PAGE = {
         {"h2": "Stay focused on <em>the music.</em>",
          "p": "Performance Mode clears the screen down to your score. The toolbars step aside and the whole page becomes a page-turn area, so a stray touch never opens a menu, zooms in or starts a marking in the middle of a piece.",
          "points": ["Tap the right side to go on, the left to go back", "Start a whole set list with Perform Set", "Optional protection against accidental double turns"],
-         "img": {"src": "reader-perform-ipad.jpg?v=1", "device": "tablet",
+         "img": {"src": "reader-pm-light-ipad.jpg?v=1", "device": "tablet",
                  "alt": "Fauré's Sicilienne in Music Folder on iPad in Performance Mode: the full page of music, with only a small metronome, play and Done control above it"}},
         {"h2": "From D.S. to coda, <em>in one tap.</em>",
          "p": "Signs like D.S. (go back to the sign) and To Coda (skip ahead to the ending) usually mean hunting for the right page mid-performance. Link each sign to where it goes once, and from then on one tap takes you there.",
