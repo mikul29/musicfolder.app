@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chord Chart App: Edit &amp; Transpose Charts | Music Folder</title>
+<link rel="canonical" href="https://musicfolder.app/features/chord-charts">
+<meta name="description" content="Write chord charts or import ChordPro, convert PDF chord sheets into editable charts, and play them in any key or with a capo. Writing and reading charts is free; changing key is Premium.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://musicfolder.app/features/chord-charts">
+<meta property="og:title" content="Chord charts you can make your own">
+<meta property="og:description" content="Write, import or convert chord charts, then play them in any key.">
+<meta property="og:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chord charts you can make your own">
+<meta name="twitter:description" content="Write, import or convert chord charts, then play them in any key.">
+<meta name="twitter:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta name="apple-itunes-app" content="app-id=1611824311">
+<meta name="theme-color" content="#FBFAF8">
+<meta name="color-scheme" content="light only">
+<link rel="icon" type="image/png" href="/assets/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://musicfolder.app/features/chord-charts",
+  "name": "Chord Chart App: Edit & Transpose Charts | Music Folder",
+  "description": "Write chord charts or import ChordPro, convert PDF chord sheets into editable charts, and play them in any key or with a capo. Writing and reading charts is free; changing key is Premium.",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Music Folder",
+    "url": "https://musicfolder.app/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Music Folder",
+    "operatingSystem": "iOS, iPadOS, macOS",
+    "applicationCategory": "MusicApplication",
+    "url": "https://musicfolder.app/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Music Folder",
+      "item": "https://musicfolder.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Chord charts",
+      "item": "https://musicfolder.app/features/chord-charts"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the chord chart editor free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Writing, importing, converting and reading charts is free, and so is switching between Chords, Numbers and Lyrics. Changing a chart's key or capo is part of Premium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I import ChordPro files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Music Folder opens ChordPro files ending in .cho, .chordpro, .pro or .crd, and plain .txt chord sheets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which PDFs can it convert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PDF chord sheets: chords written over lyrics, with readable text or a clear scan. After converting, you check any flagged lines against the original. Sheet music written on staves isn't converted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does changing the key change my chart?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The chart keeps the key it was written in, and the key or capo you choose is how you see it. You can go back to the original at any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I show Nashville numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Choose Numbers to show every chord as a number in the key, or Lyrics to hide the chords."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work with Planning Center?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. With Planning Center connected (Premium), your team's charts open in the plan's key, and you can save one to your own library. See Planning Center."
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=60">
+<link rel="stylesheet" href="/assets/pages.css?v=42">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Music Folder home">
+      <img src="/assets/app-icon.png" alt="" width="28" height="28">
+      Music Folder
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-group is-current">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-features">
+          <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
+            <li><a href="/features/set-lists"><b>Set lists</b></a></li>
+            <li><a href="/features/page-turner"><b>Page turner</b></a></li>
+            <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts" aria-current="page"><b>Chord charts</b></a></li>
+            <li><a href="/features/sharing"><b>Sharing</b></a></li>
+            <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
+            <li><a href="/planning-center"><b>Planning Center</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-who">Who it's for <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-who">
+          <ul>
+            <li><a href="/for/bands"><b>Bands</b></a></li>
+            <li><a href="/for/worship-teams"><b>Worship teams</b></a></li>
+            <li><a href="/for/orchestras-choirs"><b>Orchestras &amp; choirs</b></a></li>
+            <li><a href="/for/students"><b>Students &amp; soloists</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="/support">Support</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="/get?from=features-chord-charts-nav">Download</a>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
+      </summary>
+      <div class="menu-panel">
+        <div class="menu-group" role="group" aria-labelledby="menu-features">
+          <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
+          <a href="/features/set-lists">Set lists</a>
+          <a href="/features/page-turner">Page turner</a>
+          <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts" aria-current="page">Chord charts</a>
+          <a href="/features/sharing">Sharing</a>
+          <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
+          <a href="/planning-center">Planning Center</a>
+        </div>
+        <div class="menu-group" role="group" aria-labelledby="menu-who">
+          <span class="menu-label" id="menu-who">Who it's for</span>
+          <a href="/for/bands">Bands</a>
+          <a href="/for/worship-teams">Worship teams</a>
+          <a href="/for/orchestras-choirs">Orchestras &amp; choirs</a>
+          <a href="/for/students">Students &amp; soloists</a>
+        </div>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About</a>
+        <a href="/support">Support</a>
+        <a href="/get?from=features-chord-charts-menu">Download on the App Store</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<section class="lp-hero">
+  <div class="wrap lp-hero-grid">
+    <div>
+      <ol class="crumb" aria-label="Breadcrumb"><li><a href="/">Music Folder</a></li><li aria-current="page">Chord charts</li></ol>
+      <h1 class="display">Chord charts you can <em>make your own.</em></h1>
+      <p class="lede">Write a chart, import a ChordPro file or turn a PDF chord sheet into a chart you can edit. Then play it in the singer's key, with a capo, or as Nashville numbers.</p>
+      <div class="cta-row"><a class="badge-link" href="/get?from=features-chord-charts-hero"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48"></picture></a></div>
+    </div>
+    <div class="lp-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/chart-key-ipad.jpg?v=1" alt="Amazing Grace as a chord chart in Music Folder on iPad, with the Key control open showing the original key G, a capo setting and Chords, Numbers and Lyrics" width="900" height="1200"></div></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><h2 class="heading">From a lyric sheet to the stand.</h2></div>
+    <ol class="how"><li><h3>Write or import</h3><p>Type the chords in the lyrics, paste a chart, import a ChordPro file or convert a PDF chord sheet.</p></li><li><h3>Make it yours</h3><p>Put the sections in the order you play them, choose one column or two, and set the page size.</p></li><li><h3>Play it in any key</h3><p>Pick the singer's key or a capo, and the whole chart follows. Your original stays as written.</p></li></ol>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap rows">
+    <div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">Write it, or <em>bring it in.</em></h2><p>The editor shows the chart beside a live preview of the printed page. Type chords inline or paste chords written above the lyrics, and Music Folder lines them up for you.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>ChordPro files (.cho, .chordpro, .pro, .crd, .txt)</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Title, artist, key, tempo and time at the top</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>One editable chart instead of a PDF per key</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/chart-editor-ipad.jpg?v=2" alt="Editing a chord chart in Music Folder on iPad: the ChordPro text on the left and the formatted chart preview on the right" width="1306" height="980" loading="lazy"></div></div></div>
+    </div><div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">Turn a PDF chord sheet into <em>a chart.</em></h2><p>Convert a PDF chord sheet into an editable chart. Music Folder reads the chords and lyrics, sets out the sections, and marks any line it isn't sure about so you can check it against the original.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Compare the chart with the original PDF</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Flagged lines to review before you save</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Works on chord sheets, not staff notation</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/chart-convert-ipad.jpg?v=1" alt="Reviewing a converted chord chart of Holy, Holy, Holy in Music Folder on iPad: the editable text on the left and the finished chart in D on the right" width="1306" height="980" loading="lazy"></div></div></div>
+    </div><div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">Any key, <em>any capo.</em></h2><p>Change the key for the singer or play with a capo, and every chord on the chart follows. Switch to Nashville numbers, or hide the chords for a lyric sheet.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Changing key or capo is part of Premium</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Chords, Numbers or Lyrics</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Your original key is kept as written</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/chart-transposed-ipad.jpg?v=1" alt="Amazing Grace in Music Folder on iPad transposed from G to A, with the Key control showing A selected and the original key G" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">Sections in the order <em>you play them.</em></h2><p>Label verses, choruses and bridges, then set the order once. The order strip sits at the top of the chart, and Follow Sequence spells the song out in the order you play it.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>One or two columns, fonts and text size</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Page sizes from Letter and A4 to 16:9 screens</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Sections numbered the way Planning Center numbers them</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-band-chart-ipad.jpg?v=1" alt="A chord chart of St. Louis Blues in Music Folder on iPad: key, tempo and time at the top, the song order, and the intro, verses, bridge and chorus in two columns" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">Straight into <em>the set list.</em></h2><p>Charts live in the same library as your PDFs, so a set can mix chord charts, lead sheets and full scores, each with its own key and tempo.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Charts and PDFs in one set</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Share charts with your band (Premium)</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Works with Planning Center charts too</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/setlist-worship-ipad.jpg?v=3" alt="A set list called Sunday Service in Music Folder on iPad: six hymns in order, each with author, key and tempo" width="1306" height="980" loading="lazy"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap lp-faq-grid">
+    <h2 class="heading-sm">Questions about chord charts</h2>
+    <div class="faq"><details><summary>Is the chord chart editor free?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Writing, importing, converting and reading charts is free, and so is switching between Chords, Numbers and Lyrics. Changing a chart's key or capo is part of Premium.</p></div></details>
+<details><summary>Can I import ChordPro files?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Music Folder opens ChordPro files ending in .cho, .chordpro, .pro or .crd, and plain .txt chord sheets.</p></div></details>
+<details><summary>Which PDFs can it convert?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>PDF chord sheets: chords written over lyrics, with readable text or a clear scan. After converting, you check any flagged lines against the original. Sheet music written on staves isn't converted.</p></div></details>
+<details><summary>Does changing the key change my chart?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>No. The chart keeps the key it was written in, and the key or capo you choose is how you see it. You can go back to the original at any time.</p></div></details>
+<details><summary>Can I show Nashville numbers?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Choose Numbers to show every chord as a number in the key, or Lyrics to hide the chords.</p></div></details>
+<details><summary>Does it work with Planning Center?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. With Planning Center connected (Premium), your team's charts open in the plan's key, and you can save one to your own library. See <a href="/planning-center">Planning Center</a>.</p></div></details></div>
+  </div>
+</section>
+
+<section class="section more">
+  <div class="wrap">
+    <div class="section-head"><h2 class="heading-sm">More from Music Folder.</h2></div>
+    <div class="more-grid four"><a class="more-card" href="/for/worship-teams"><h3>Worship teams</h3><p>Charts, lyric sheets and Sunday's set for the whole team.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/for/bands"><h3>Bands</h3><p>Charts and set lists for every gig.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/set-lists"><h3>Set lists</h3><p>Mix charts and scores in one set.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sheet-music-reader"><h3>Sheet music reader</h3><p>Read and perform with confidence.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section final">
+  <div class="wrap">
+    <h2 class="heading">A better <em>home</em> for your sheet music.</h2>
+    <p>Made by musicians, for musicians.</p>
+    <div class="cta-row">
+      <a class="badge-link" href="/get?from=features-chord-charts-final"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy"></picture></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-mark" aria-hidden="true">Music Folder</div>
+    <div class="footer-grid">
+      <div class="f-about">
+        <p>Keep your sheet music, set lists, and practice tools together in one app.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#toolkit">Toolkit</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Features</h4>
+        <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
+          <li><a href="/features/set-lists">Set lists</a></li>
+          <li><a href="/features/page-turner">Page turner</a></li>
+          <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
+          <li><a href="/features/sharing">Sharing</a></li>
+          <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
+          <li><a href="/planning-center">Planning Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Who it's for</h4>
+        <ul>
+          <li><a href="/for/bands">Bands</a></li>
+          <li><a href="/for/worship-teams">Worship teams</a></li>
+          <li><a href="/for/orchestras-choirs">Orchestras &amp; choirs</a></li>
+          <li><a href="/for/students">Students &amp; soloists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support">Help &amp; FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="mailto:support@musicfolder.app">Email support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Music Folder</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const menu = document.querySelector('.menu');
+  menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+})();
+</script>
+<script src="/assets/site.js?v=6" defer></script>
+</body>
+</html>

@@ -52,7 +52,8 @@ check("unknown placement → other", tapRedirect("<script>", "123456").placement
 check("unknown keeps no input", tapRedirect("evil-value", "123456").location.includes("evil"), false);
 check("a crafted campaign can't inject", tapRedirect("home-hero", "1", sourceFrom(params({ uc: "x&ct=evil" }))).location.includes("evil"), false);
 check("missing from → other", tapRedirect(null, "1").page, "other");
-check("67 buttons", PLACEMENTS.size, 67);
+check("79 buttons", PLACEMENTS.size, 79);
+check("new feature pages are known", ["features-sheet-music-organizer-hero", "features-sheet-music-reader-final", "features-chord-charts-nav"].every((p) => PLACEMENTS.has(p)), true);
 check("Safari counts", looksAutomated("Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Mobile/15E148 Safari/604.1"), false);
 check("Googlebot doesn't", looksAutomated("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"), true);
 check("empty UA doesn't", looksAutomated(""), true);
