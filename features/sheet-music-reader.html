@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sheet Music Reader for iPad &amp; iPhone | Music Folder</title>
+<link rel="canonical" href="https://musicfolder.app/features/sheet-music-reader">
+<meta name="description" content="A PDF sheet music reader built for performing: Performance Mode, links for repeats and codas, half-page turns, a dark background and margins cropped for bigger notes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://musicfolder.app/features/sheet-music-reader">
+<meta property="og:title" content="A sheet music reader built for the moment you perform">
+<meta property="og:description" content="Performance Mode, Page Links, half-page turns and a dark background, on iPad and iPhone.">
+<meta property="og:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A sheet music reader built for the moment you perform">
+<meta name="twitter:description" content="Performance Mode, Page Links, half-page turns and a dark background, on iPad and iPhone.">
+<meta name="twitter:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta name="apple-itunes-app" content="app-id=1611824311">
+<meta name="theme-color" content="#FBFAF8">
+<meta name="color-scheme" content="light only">
+<link rel="icon" type="image/png" href="/assets/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://musicfolder.app/features/sheet-music-reader",
+  "name": "Sheet Music Reader for iPad & iPhone | Music Folder",
+  "description": "A PDF sheet music reader built for performing: Performance Mode, links for repeats and codas, half-page turns, a dark background and margins cropped for bigger notes.",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Music Folder",
+    "url": "https://musicfolder.app/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Music Folder",
+    "operatingSystem": "iOS, iPadOS, macOS",
+    "applicationCategory": "MusicApplication",
+    "url": "https://musicfolder.app/",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Music Folder",
+      "item": "https://musicfolder.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Sheet music reader",
+      "item": "https://musicfolder.app/features/sheet-music-reader"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the reader free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Performance Mode, Page Links, Half-Page Turns, Two-Page View, Dark Background and cropping are all part of the free version. Metronome playback and Face Gestures in the reader are part of Premium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I touch the page in Performance Mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only page turns. A tap on the right of the page goes forward and a tap on the left goes back, so nothing else opens, zooms or draws. Hold Done to leave."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do Page Links work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In a piece, open ⋯ › Page Links and a short guided setup asks for the sign and the place it jumps to. While you play, tap the link to jump and tap Back to return."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I turn pages with a pedal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Bluetooth page turners work in every reader, including Performance Mode and half-page turns. See the Page turner page for pedals and hands-free Face Gestures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I read on my iPhone too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The reader works on iPhone and iPad with iOS 15 or later, and on Macs with Apple silicon. Two-Page View needs the width of an iPad or Mac, and Dark Background needs iOS 16 or later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I write on the score while I read?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tap the pencil to mark up the page with Apple Pencil or your finger. See Annotation."
+      }
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="stylesheet" href="/assets/pages.css?v=50">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Music Folder home">
+      <img src="/assets/app-icon.png" alt="" width="28" height="28">
+      Music Folder
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-group is-current">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-features">
+          <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader" aria-current="page"><b>Reader</b></a></li>
+            <li><a href="/features/set-lists"><b>Set lists</b></a></li>
+            <li><a href="/features/page-turner"><b>Page turner</b></a></li>
+            <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
+            <li><a href="/features/sharing"><b>Sharing</b></a></li>
+            <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
+            <li><a href="/planning-center"><b>Planning Center</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-who">Who it's for <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-who">
+          <ul>
+            <li><a href="/for/bands"><b>Bands</b></a></li>
+            <li><a href="/for/worship-teams"><b>Worship teams</b></a></li>
+            <li><a href="/for/orchestras-choirs"><b>Orchestras &amp; choirs</b></a></li>
+            <li><a href="/for/students"><b>Students &amp; soloists</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="/support">Support</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="/get?from=features-sheet-music-reader-nav">Download</a>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
+      </summary>
+      <div class="menu-panel">
+        <div class="menu-group" role="group" aria-labelledby="menu-features">
+          <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader" aria-current="page">Reader</a>
+          <a href="/features/set-lists">Set lists</a>
+          <a href="/features/page-turner">Page turner</a>
+          <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
+          <a href="/features/sharing">Sharing</a>
+          <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
+          <a href="/planning-center">Planning Center</a>
+        </div>
+        <div class="menu-group" role="group" aria-labelledby="menu-who">
+          <span class="menu-label" id="menu-who">Who it's for</span>
+          <a href="/for/bands">Bands</a>
+          <a href="/for/worship-teams">Worship teams</a>
+          <a href="/for/orchestras-choirs">Orchestras &amp; choirs</a>
+          <a href="/for/students">Students &amp; soloists</a>
+        </div>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About</a>
+        <a href="/support">Support</a>
+        <a href="/get?from=features-sheet-music-reader-menu">Download on the App Store</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main>
+
+<section class="lp-hero">
+  <div class="wrap lp-hero-grid">
+    <div>
+      <ol class="crumb" aria-label="Breadcrumb"><li><a href="/">Music Folder</a></li><li aria-current="page">Sheet music reader</li></ol>
+      <h1 class="display">A sheet music reader built for <em>the moment you perform.</em></h1>
+      <p class="lede">Open any PDF and perform with confidence. Keep your music front and center, navigate repeats with a tap, and turn pages without losing your place.</p>
+      <div class="cta-row"><a class="badge-link" href="/get?from=features-sheet-music-reader-hero"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48"></picture></a></div>
+    </div>
+    <div class="lp-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-light-ipad.jpg?v=1" alt="Fauré&#x27;s Après un rêve open in the Music Folder reader on iPad: the first page of the song for voice and piano, with the reader&#x27;s tools above it" width="900" height="1200"></div></div></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><h2 class="heading">From score to stage, without the fuss.</h2></div>
+    <ol class="how"><li><h3>Open your music</h3><p>Open any PDF, scan or chord chart in your library, or go straight to one piece inside a book.</p></li><li><h3>Make it yours</h3><p>If you like, crop the margins, turn on half-page turns or link the repeats. It's all optional, and remembered for next time.</p></li><li><h3>Perform with confidence</h3><p>Turn on Performance Mode and play. Turn pages with a tap, a swipe or a Bluetooth pedal.</p></li></ol>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap rows">
+    <div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">Stay focused on <em>the music.</em></h2><p>Performance Mode clears the screen down to your score. The toolbars step aside and the whole page becomes a page-turn area, so a stray touch never opens a menu, zooms in or starts a marking in the middle of a piece.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Tap the right side to go on, the left to go back</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Start a whole set list with Perform Set</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Optional protection against accidental double turns</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-pm-light-ipad.jpg?v=1" alt="Fauré&#x27;s Sicilienne in Music Folder on iPad in Performance Mode: the full page of music, with only a small metronome, play and Done control above it" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">From D.S. to coda, <em>in one tap.</em></h2><p>Signs like D.S. (go back to the sign) and To Coda (skip ahead to the ending) usually mean hunting for the right page mid-performance. Link each sign to where it goes once, and from then on one tap takes you there.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Set up once per piece, in a short guided flow</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Tap Back to return to exactly where you were</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Links stay in place when you edit the pages</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit link-demo"><div class="screen shot"><img src="/assets/reader-page-links-before-ipad.jpg?v=1" alt="Fauré's Sicilienne in Music Folder on iPad: a tap on the orange Page Link beside the To Coda sign jumps to the coda, which is circled, and a Back to p. 1 button appears at the bottom; a tap on Back returns" width="900" height="1200" loading="lazy"><img class="ld-after" src="/assets/reader-page-links-ipad.jpg?v=1" alt="" aria-hidden="true" width="900" height="1200" loading="lazy"><span class="ld-land" aria-hidden="true"></span><span class="ld-tap" aria-hidden="true"></span></div></div></div>
+    </div><div class="row-feature wide-visual">
+      <div class="rf-text"><h2 class="heading-sm">Read across <em>the page break.</em></h2><p>With Half-Page Turns, the first press brings in the top of the next page while the end of the current one stays in view, so you can keep reading through the turn. The second press finishes it.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Works with a tap, a swipe or a pedal</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Back works the same way, one step at a time</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>For pianists, accompanists and long parts</span></li></ul></div>
+      <div class="rf-visual"><div class="shot-pair"><figure><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-half-before-ipad.jpg?v=1" alt="Fauré's Pavane in Music Folder on iPad, page 1 shown in full" width="900" height="1200" loading="lazy"></div></div><figcaption><b>Playing page 1</b>The whole page, as usual.</figcaption></figure><figure><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-half-split-ipad.jpg?v=1" alt="The same Pavane halfway through a turn: the top of page 2 above, the end of page 1 below a thin edge" width="900" height="1200" loading="lazy"></div></div><figcaption><b>After one press</b>Page 2 begins above; the end of page 1 stays below.</figcaption></figure></div></div>
+    </div><div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">Two pages, <em>side by side.</em></h2><p>Turn your iPad sideways or widen the window on a Mac and see two pages at once, the way the music sits on a piano stand.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Two-Page View on iPad and Mac</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Landscape and portrait on every device</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Or scroll through the score continuously</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/reader-two-page-ipad.jpg?v=1" alt="Fauré&#x27;s Après un rêve in Music Folder on iPad in landscape, showing pages 1 and 2 side by side" width="1306" height="980" loading="lazy"></div></div></div>
+    </div><div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">More music. <em>Less margin.</em></h2><p>Many PDFs carry wide white margins. Crop them away and the notation grows to fill the screen, easier to read from the stand. Cropping only changes how the page is shown; your PDF itself is never modified.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Auto finds the music; the handles fine-tune it</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Crop one page or every page at once</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Reset always brings back the whole page</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-crop-ipad.jpg?v=1" alt="Crop All Pages in Music Folder on iPad: the Sicilienne page with orange crop handles, This Page and All Pages, Auto and Reset" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">One PDF, many pieces, <em>instantly accessible.</em></h2><p>Keep a hymnal, a method book or a multi-movement work as one PDF. The Sections button lists every piece inside; tap one and you're on its first page. Each section keeps its own key and tempo, and the metronome follows the tempo of the section you're in.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>A checkmark shows the piece you're in</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Add a section while you read</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Metronome playback is part of Premium</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-sections-hymn-ipad.jpg?v=1" alt="A Hymnal open in Music Folder on iPad at Be Thou My Vision, with the Sections list beside it: Abide With Me, Be Still My Soul, Be Thou My Vision (checked), Blessed Assurance and more, each with its page" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">Your reader, <em>your way.</em></h2><p>Read a page at a time, scroll continuously or see two pages side by side. Put the tools you reach for on the toolbar, in the order you like, and leave the rest in the menu, so the score keeps the space.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Add, remove and reorder toolbar tools</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Single pages, vertical scrolling or Two-Page View</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Portrait or landscape, on iPhone, iPad and Mac</span></li></ul></div>
+      <div class="rf-visual"><figure class="shot-crop"><img src="/assets/reader-toolbar-edit.jpg?v=2" alt="The top of the reader in Music Folder on iPad while customizing the toolbar: each tool shows a minus to remove it and a green plus adds more" width="1000" height="864" loading="lazy"></figure></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="display-options">
+      <div class="rf-text"><h2 class="heading-sm">A page that suits <em>the room.</em></h2><p>On a dim stage or late at night, switch on Dark Background for light notation on a dark page. It changes only how the page looks on screen: your PDF, thumbnails and exports stay as they are.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>On or off from the reader's menu, in every reader</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Works with Performance Mode, crops and your markings</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Needs iOS 16 or later</span></li></ul></div>
+      <div class="rf-visual"><div class="shot-pair"><figure><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-pm-light-ipad.jpg?v=1" alt="Fauré's Sicilienne in Music Folder on iPad in Performance Mode on a white page" width="900" height="1200" loading="lazy"></div></div><figcaption><b>Light page</b>Black notes on white, as printed.</figcaption></figure><figure><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-pm-dark-ipad.jpg?v=1" alt="The same Sicilienne, same view and zoom, with Dark Background: light notation on a dark page" width="900" height="1200" loading="lazy"></div></div><figcaption><b>Dark Background</b>Light notes on a dark page.</figcaption></figure></div></div>
+    </div>
+    <div class="section-head"><h2 class="heading-sm">Everything else <em>within reach.</em></h2></div>
+    <ul class="mini-grid">
+      <li><h3>Notes beside the score</h3><p>Keep reminders for each piece in a notes panel next to the music, there whenever you open it.</p></li>
+      <li><h3>Hands-free page turns</h3><p>Use a Bluetooth pedal, or Face Gestures with Premium. <a href="/features/page-turner">Page turner</a></p></li>
+      <li><h3>Write on the page</h3><p>Mark up any score with Apple Pencil or your finger, in layers you can hide. <a href="/features/annotation">Annotation</a></p></li>
+      <li><h3>Play along with a recording</h3><p>Attach a recording to a piece and play it from the reader, slowed down or in another key.</p></li>
+      <li><h3>Tuner, metronome and piano</h3><p>The practice tools open over the score, without leaving it. Part of Premium. <a href="/features/toolkit">Toolkit</a></p></li>
+      <li><h3>Chord charts in any key</h3><p>Charts open in the same reader; changing key or capo is part of Premium. <a href="/features/chord-charts">Chord charts</a></p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section band-cta mid" aria-labelledby="bandCtaTitle">
+  <div class="wrap">
+    <div class="bc-panel">
+      <div class="bc-copy"><h2 class="heading" id="bandCtaTitle">Your next performance, <em>on one screen.</em></h2><p class="bc-sub">Your music, ready when you are. Turn pages with confidence, follow every repeat, and stay focused on playing. Get started free.</p></div>
+      <div class="bc-actions">
+        <div class="cta-row"><a class="badge-link" href="/get?from=features-sheet-music-reader-band"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy"></picture></a></div>
+        <a class="bc-link" href="/pricing">Compare Free and Premium <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap lp-faq-grid">
+    <h2 class="heading-sm">Questions about the reader</h2>
+    <div class="faq"><details><summary>Is the reader free?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Performance Mode, Page Links, Half-Page Turns, Two-Page View, Dark Background and cropping are all part of the free version. Metronome playback and Face Gestures in the reader are part of Premium.</p></div></details>
+<details><summary>What happens if I touch the page in Performance Mode?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Only page turns. A tap on the right of the page goes forward and a tap on the left goes back, so nothing else opens, zooms or draws. Hold Done to leave.</p></div></details>
+<details><summary>How do Page Links work?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>In a piece, open ⋯ › Page Links and a short guided setup asks for the sign and the place it jumps to. While you play, tap the link to jump and tap Back to return.</p></div></details>
+<details><summary>Can I turn pages with a pedal?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Bluetooth page turners work in every reader, including Performance Mode and half-page turns. See the <a href="/features/page-turner">Page turner</a> page for pedals and hands-free Face Gestures.</p></div></details>
+<details><summary>Can I read on my iPhone too?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. The reader works on iPhone and iPad with iOS 15 or later, and on Macs with Apple silicon. Two-Page View needs the width of an iPad or Mac, and Dark Background needs iOS 16 or later.</p></div></details>
+<details><summary>Can I write on the score while I read?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Tap the pencil to mark up the page with Apple Pencil or your finger. See <a href="/features/annotation">Annotation</a>.</p></div></details></div>
+  </div>
+</section>
+
+<section class="section more">
+  <div class="wrap">
+    <div class="section-head"><h2 class="heading-sm">More from Music Folder.</h2></div>
+    <div class="more-grid four"><a class="more-card" href="/features/page-turner"><h3>Page turner</h3><p>Turn pages hands-free with a pedal or your face.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/annotation"><h3>Annotation</h3><p>Write on any score with Apple Pencil or your finger.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sheet-music-organizer"><h3>Sheet music organizer</h3><p>Folders, sections and a library you can search.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/set-lists"><h3>Set lists</h3><p>Play the whole set straight through.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section final">
+  <div class="wrap">
+    <h2 class="heading">A better <em>home</em> for your sheet music.</h2>
+    <p>Made by musicians, for musicians.</p>
+    <div class="cta-row">
+      <a class="badge-link" href="/get?from=features-sheet-music-reader-final"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy"></picture></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-mark" aria-hidden="true">Music Folder</div>
+    <div class="footer-grid">
+      <div class="f-about">
+        <p>Keep your sheet music, set lists, and practice tools together in one app.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#toolkit">Toolkit</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Features</h4>
+        <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
+          <li><a href="/features/set-lists">Set lists</a></li>
+          <li><a href="/features/page-turner">Page turner</a></li>
+          <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
+          <li><a href="/features/sharing">Sharing</a></li>
+          <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
+          <li><a href="/planning-center">Planning Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Who it's for</h4>
+        <ul>
+          <li><a href="/for/bands">Bands</a></li>
+          <li><a href="/for/worship-teams">Worship teams</a></li>
+          <li><a href="/for/orchestras-choirs">Orchestras &amp; choirs</a></li>
+          <li><a href="/for/students">Students &amp; soloists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/support">Help &amp; FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="mailto:support@musicfolder.app">Email support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Music Folder</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const menu = document.querySelector('.menu');
+  menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+})();
+</script>
+<script src="/assets/site.js?v=6" defer></script>
+</body>
+</html>

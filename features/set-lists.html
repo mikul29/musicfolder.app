@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Set List App with Your Sheet Music | Music Folder</title>
 <link rel="canonical" href="https://musicfolder.app/features/set-lists">
-<meta name="description" content="Build set lists for gigs, services and concerts from your own sheet music, share them with the band and play straight through on iPhone, iPad and Mac.">
+<meta name="description" content="Build set lists from your own sheet music: whole pieces or single movements, intermissions and timings. Share them with the band and perform straight through.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://musicfolder.app/features/set-lists">
 <meta property="og:title" content="The set list app that holds your music">
@@ -31,7 +31,7 @@
   "@type": "WebPage",
   "url": "https://musicfolder.app/features/set-lists",
   "name": "Set List App with Your Sheet Music | Music Folder",
-  "description": "Build set lists for gigs, services and concerts from your own sheet music, share them with the band and play straight through on iPhone, iPad and Mac.",
+  "description": "Build set lists from your own sheet music: whole pieces or single movements, intermissions and timings. Share them with the band and perform straight through.",
   "inLanguage": "en",
   "isPartOf": {
     "@type": "WebSite",
@@ -87,10 +87,26 @@
     },
     {
       "@type": "Question",
-      "name": "Can I use a song from inside a songbook?",
+      "name": "Can I add one movement or song from a book?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Import the book as one PDF, add a bookmark for each song, then add the bookmarks to your set. Playback shows only the bookmarked pages."
+        "text": "Yes. Keep the book as one PDF and mark a section where each piece starts. In a set list, open the book’s sections and add only the ones you need. Playback shows just those pages, at each section’s own tempo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add an intermission or an announcement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. On the Pages tab, add an Intermission, Announcement, Note or Blank Page, in white or black. Give it a length and a countdown shows on stage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it add up how long the set is?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Give each piece a length, or let a recording fill it in, and the set list shows the total time."
       }
     },
     {
@@ -98,7 +114,7 @@
       "name": "Can I share a set list with my band?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Share it live with people who use Music Folder and choose who can edit, or send it as one PDF with your markings included."
+        "text": "Yes. Share it live with people who use Music Folder and choose who can edit (Premium for everyone taking part), or send it as one PDF with your markings included."
       }
     },
     {
@@ -114,14 +130,14 @@
       "name": "How much does it cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Set lists are included in the free version. Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
+        "text": "Set lists are included in the free version. Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
       }
     }
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=57">
-<link rel="stylesheet" href="/assets/pages.css?v=31">
+<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="stylesheet" href="/assets/pages.css?v=50">
 </head>
 <body>
 
@@ -136,12 +152,15 @@
         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
         <div class="nav-pop" id="nav-features">
           <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
             <li><a href="/features/set-lists" aria-current="page"><b>Set lists</b></a></li>
             <li><a href="/features/page-turner"><b>Page turner</b></a></li>
             <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
             <li><a href="/features/sharing"><b>Sharing</b></a></li>
-            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/planning-center"><b>Planning Center</b></a></li>
           </ul>
         </div>
@@ -169,12 +188,15 @@
       <div class="menu-panel">
         <div class="menu-group" role="group" aria-labelledby="menu-features">
           <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
           <a href="/features/set-lists" aria-current="page">Set lists</a>
           <a href="/features/page-turner">Page turner</a>
           <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
           <a href="/features/sharing">Sharing</a>
-          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/planning-center">Planning Center</a>
         </div>
         <div class="menu-group" role="group" aria-labelledby="menu-who">
@@ -200,31 +222,34 @@
     <div>
       <ol class="crumb" aria-label="Breadcrumb"><li><a href="/">Music Folder</a></li><li aria-current="page">Set lists</li></ol>
       <h1 class="display">The set list app that <em>holds your music.</em></h1>
-      <p class="lede">Build the set from your own charts and scores, share it with everyone, and play the whole thing straight through, one page after another.</p>
+      <p class="lede">Build an entire performance from your own music: whole scores or single movements, with breaks and timings. Then play directly from the set list, one piece after another.</p>
       <div class="cta-row"><a class="badge-link" href="/get?from=features-set-lists-hero"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48"></picture></a></div>
     </div>
-    <div class="lp-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/setlist-band-ipad.jpg?v=2" alt="A set list called Friday Night Gig in Music Folder on iPad: six jazz standards in playing order, each with composer, key and tempo, beside Start Set, Share and Collaborate" width="1306" height="900"></div></div></div>
+    <div class="lp-visual bleed"><div class="device tablet fit"><div class="screen shot"><img src="/assets/setlist-band-portrait-ipad.jpg?v=1" alt="A set list called Friday Night Gig in Music Folder on iPad: six jazz standards in playing order, each with composer, key, tempo and length, a black Set Break page with a 15-minute timer after the third song, and the set’s total time beside Perform Set, Share and Collaborate" width="900" height="1200"></div></div></div>
   </div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="section-head"><h2 class="heading">Build a set in a minute.</h2></div>
-    <ol class="how"><li><h3>Pick the songs</h3><p>Choose songs from your library, or a single piece from inside a songbook. Playing one twice? Add it twice.</p></li><li><h3>Put them in order</h3><p>Drag to reorder. Give the set a date, and it waits on your Home screen when it’s next.</p></li><li><h3>Play it through</h3><p>The whole set opens as one score, with what’s up next. Turn pages with a swipe or a Bluetooth pedal.</p></li></ol>
+    <div class="section-head"><h2 class="heading">From your library to the stage.</h2></div>
+    <ol class="how"><li><h3>Choose your music</h3><p>Pick pieces from your library: whole scores, or just the Sections you need, like one movement or one hymn from a book.</p></li><li><h3>Shape your set</h3><p>Put the pieces in order, add breaks and announcements, and give each piece its length to see how long the set runs.</p></li><li><h3>Perform</h3><p>Tap Perform Set and play through the whole set in order, turning pages with a tap, a swipe or a pedal.</p></li></ol>
   </div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="wrap rows">
     <div class="row-feature">
-      <div class="rf-text"><h2 class="heading-sm">For every kind <em>of set.</em></h2><p>A gig on Friday, a service on Sunday, a concert next month. Every set list keeps its own songs, order and date.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>A date for every set list</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>The next one on Home, marked Today or Tomorrow</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Tempo and composer on every row</span></li></ul></div>
-      <div class="rf-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/setlist-worship-ipad.jpg?v=2" alt="A set list called Sunday Service in Music Folder on iPad: six hymns in order, each with author, key and tempo, beside Start Set, Share and Collaborate" width="1306" height="900" loading="lazy"></div></div></div>
-    </div><div class="row-feature flip">
-      <div class="rf-text"><h2 class="heading-sm">Songs from your books, <em>too.</em></h2><p>Keep a hymnal or songbook as one PDF and bookmark each song. Add the bookmarks to your set, and playback shows only those pages.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Bookmarks show the book and pages</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Mix whole songs and bookmarks in one set</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>No splitting PDFs by hand</span></li></ul></div>
-      <div class="rf-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/setlist-bookmark-ipad.jpg?v=1" alt="Adding hymns from a hymnal to a set list in Music Folder on iPad: the Hymnal's bookmarks, each with its page, with Abide With Me and Blessed Assurance selected" width="1306" height="900" loading="lazy"></div></div></div>
+      <div class="rf-text"><h2 class="heading-sm">For every kind <em>of set.</em></h2><p>A concert next month, a gig on Friday, a service on Sunday: each set list keeps its own music, order and date. Give every piece its length to see how long the set runs, and put an intermission, an announcement or a note between pieces.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Lengths for every piece, and the set’s total</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Intermission, Announcement, Note and Blank pages, in white or black</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>A countdown on timed pages while you perform</span></li></ul></div>
+      <div class="rf-visual bleed"><div class="device tablet fit"><div class="screen shot"><img src="/assets/setlist-concert-portrait-ipad.jpg?v=1" alt="A set list called Spring Concert in Music Folder on iPad: six pieces with composer, key, tempo and length, a black Intermission page with a 15-minute timer, and the set’s total time" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature flip wide-visual">
+      <div class="rf-text"><h2 class="heading-sm">One book. <em>Just the pieces you need.</em></h2><p>Keep an entire hymnal, fake book, or multi-movement score as one PDF. Pick only the songs or movements you need for your set list—without splitting the original file.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Add whole scores or individual Sections</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Keep the original PDF intact</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Each Section keeps its own tempo and time signature</span></li></ul><p class="rf-more"><a href="/features/sheet-music-organizer">How sections work</a></p></div>
+      <div class="rf-visual sections-demo"><div class="device tablet fit"><div class="screen shot"><img src="/assets/setlist-sections-all-ipad.jpg?v=1" alt="Adding to a set list called Sunday Morning in Music Folder on iPad: the Hymnal, one PDF, open to all eight of its sections. It Is Well With My Soul, Rock of Ages and When I Survey the Wondrous Cross are ticked, and the set list beside it holds those three as Hymnal entries with their page numbers, between Amazing Grace and Doxology" width="900" height="1200" loading="lazy"></div></div></div>
     </div><div class="row-feature">
-      <div class="rf-text"><h2 class="heading-sm">Everyone on the <em>same page.</em></h2><p>Share the set with your band or team. Swap a song or change the order, and everyone’s copy updates.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Choose who can edit and who can only view</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Send it as one PDF, markings included</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Or send a copy for others to import</span></li></ul><p class="rf-more"><a href="/features/sharing">How sharing works</a></p></div>
-      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/collab-ipad.jpg?v=1" alt="A shared Church Band folder in Music Folder on iPad, with its four participants: the owner, a co-owner, one who can edit and one who can view and download" width="900" height="1306" loading="lazy"></div></div></div>
+      <div class="rf-text"><h2 class="heading-sm">Perform it <em>straight through.</em></h2><p>Start performing straight from your set list. Move through every piece in order, with page turns and performance controls designed to keep you focused.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Perform Set opens the set in Performance Mode</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Turn with a tap, a swipe or a Bluetooth pedal</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Breaks and announcement pages appear in their place</span></li></ul><p class="rf-more"><a href="/features/sheet-music-reader">More about the reader</a></p></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-pm-light-ipad.jpg?v=1" alt="A piece in Music Folder on iPad in Performance Mode: the full page of music, with only a small metronome, play and Done control above it" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">Everyone on the <em>same page.</em></h2><p>Collaborate on a set list and everyone works from the same live set: change the order or swap a piece, and it updates on every device. Live collaboration is part of Premium for every participant. Or share a standalone copy, a file others import and keep as their own, free.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Choose who can edit and who can only view</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Live updates through iCloud, Premium for everyone taking part</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Or send a copy, or one PDF with your markings</span></li></ul><p class="rf-more"><a href="/features/sharing">How sharing works</a></p></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/collab-ipad.jpg?v=2" alt="A shared Church Band folder in Music Folder on iPad, with its four participants: the owner, a co-owner, one who can edit and one who can view and download" width="900" height="1306" loading="lazy"></div></div></div>
     </div>
   </div>
 </section>
@@ -233,17 +258,19 @@
   <div class="wrap lp-faq-grid">
     <h2 class="heading-sm">Questions about set lists</h2>
     <div class="faq"><details><summary>Can the same song be in a set list twice?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Add it as many times as you play it.</p></div></details>
-<details><summary>Can I use a song from inside a songbook?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Import the book as one PDF, add a bookmark for each song, then add the bookmarks to your set. Playback shows only the bookmarked pages.</p></div></details>
-<details><summary>Can I share a set list with my band?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Share it live with people who use Music Folder and choose who can edit, or send it as one PDF with your markings included.</p></div></details>
+<details><summary>Can I add one movement or song from a book?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Keep the book as one PDF and mark a section where each piece starts. In a set list, open the book’s sections and add only the ones you need. Playback shows just those pages, at each section’s own tempo.</p></div></details>
+<details><summary>Can I add an intermission or an announcement?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. On the Pages tab, add an Intermission, Announcement, Note or Blank Page, in white or black. Give it a length and a countdown shows on stage.</p></div></details>
+<details><summary>Does it add up how long the set is?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Give each piece a length, or let a recording fill it in, and the set list shows the total time.</p></div></details>
+<details><summary>Can I share a set list with my band?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Share it live with people who use Music Folder and choose who can edit (Premium for everyone taking part), or send it as one PDF with your markings included.</p></div></details>
 <details><summary>Can I add Planning Center songs to a set list?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. With Planning Center connected, you can mix your team’s songs with your own charts in one set. Planning Center is part of Premium.</p></div></details>
-<details><summary>How much does it cost?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Set lists are included in the free version. Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
+<details><summary>How much does it cost?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Set lists are included in the free version. Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
   </div>
 </section>
 
 <section class="section more">
   <div class="wrap">
     <div class="section-head"><h2 class="heading-sm">More from Music Folder.</h2></div>
-    <div class="more-grid four"><a class="more-card" href="/features/page-turner"><h3>Page turner</h3><p>Turn pages hands-free with a Bluetooth pedal.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/annotation"><h3>Annotation</h3><p>Write on any score with Apple Pencil or your finger.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sharing"><h3>Sharing</h3><p>Share folders and set lists with the whole group.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/free-sheet-music"><h3>Free sheet music</h3><p>More than 2,000 classical scores, one tap away.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
+    <div class="more-grid four"><a class="more-card" href="/features/sheet-music-reader"><h3>Sheet music reader</h3><p>Performance Mode, Page Links and half-page turns.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sheet-music-organizer"><h3>Sheet music organizer</h3><p>Folders and sections for every book.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/page-turner"><h3>Page turner</h3><p>Turn pages hands-free with a pedal or your face.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/chord-charts"><h3>Chord charts</h3><p>Charts you can play in any key.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
   </div>
 </section>
 
@@ -279,12 +306,15 @@
       <div>
         <h4>Features</h4>
         <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
           <li><a href="/features/set-lists">Set lists</a></li>
           <li><a href="/features/page-turner">Page turner</a></li>
           <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
           <li><a href="/features/sharing">Sharing</a></li>
-          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/planning-center">Planning Center</a></li>
         </ul>
       </div>

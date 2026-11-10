@@ -18,26 +18,26 @@ Fonts are served from `assets/fonts/` (Latin + Latin Extended subsets of the Goo
 
 ## Home hero: the folder opens, everything flies into the iPad
 
-`.hero` is 530vh tall with a sticky 100vh stage. `frame()` maps scroll progress through `pace()` (the cover opening and the tool tiles run faster than the flights) to the timeline `p` (0–1) used by the phases below; everything is scroll-linked except the tool tiles' little hints and the review dots, which run on timers.
+`.hero` is 516vh tall with a sticky 100vh stage. `frame()` maps scroll progress through `pace()` (the cover opening and the practice card + closing line run faster than the flights) to the timeline `p` (0–1) used by the phases below; everything is scroll-linked except the review dots, which run on a timer.
 
 | p | What happens |
 |---|---|
 | 0 – 0.13 | the tilted folder straightens and centres; hero copy fades |
-| 0.13 – 0.31 | the cover swings open on an overstuffed pocket (6 paper folders, 6 scores, a printed set list) |
+| 0.13 – 0.31 | the cover swings open on an overstuffed pocket (6 paper folders, 4 scores, a printed set list) |
 | 0.30 – 0.35 | the iPad on the right page wakes (screen content fades up from black) |
-| 0.33 – 0.63 | the 13 items fly, top of the pile first: straight up out of the pocket, over the spine, down into their slot on the screen (one cubic Bézier each). Folders square up into app icons, the set list turns into its card; each slot's mask fades as its item lands |
+| 0.33 – 0.60 | the 11 items fly, top of the pile first: straight up out of the pocket, over the spine, down into their slot on the screen (one cubic Bézier each). Scores land in Recently opened, folders (already in their cover colours) become the Folders row's book covers, the set list turns into its card; each slot's mask fades as its item lands |
 | 0.64 – 0.78 | the iPad slides out of the pocket and is handed to a stage layer (`.ipad-stage`) above the folder, travels front and centre; the cover closes and the folder settles behind as a tilted backdrop |
-| 0.75 – 0.79 | the practice ring fills and Sun–Wed tick in |
-| 0.79 – 0.99 | the four tool tiles lift one by one with live hints (piano keys, pendulum, drone bars, tuner needle) |
-| 0.90 – 0.97 | "The last folder you'll ever need." fades in |
+| 0.75 – 0.84 | today's practice fills in: the minutes count up to 42, the goal bar fills, "of 30 min" gives way to "Daily goal reached" |
+| 0.82 – 0.88 | the week's bars rise (Sunday, then today) |
+| 0.88 – 0.97 | "The last folder you'll ever need." fades in |
 
-The folder is laid out at a fixed 450×600 (rig coordinates) and scaled as a whole. The iPad screen is the owner's real 11-inch iPad Home screenshot (October 2026 layout, + button top right), `assets/hero-ipad-home.webp` (1668×2420; positions are measured in a 1379×2000 space, `SHOT_W`/`SHOT_H`), retouched to the site's content: a clean 9:41, the "Summer Night Concert" card for tomorrow, the "Two weeks strong" practice card, a generic "Worship Team" title over the church's Planning Center folder, and the folders and scores the items fly into (the retouch is reproducible: `screens/` in the onboarding-video workspace, `~/Documents/Me/Music_Folder/Onboarding-Video-Preview`). Positions on it are in screenshot pixels (`folderSlot`, `scoreSlot`, `setlistSlot`, `TOOLS`, `OVERLAYS`) and scaled by `K`. Two parts are rebuilt crisp in HTML over the screenshot because they animate: the practice card (its ring fills and the days tick in) and the tool tiles (built at their lifted size so they stay sharp). The printed set list (`.mf-setlist`) is laid out as the card scaled to its 280 px width, so it lands line for line. If the screenshot is ever replaced, re-measure those coordinates, and regenerate the phone copies `hero-ipad-home-800.webp` / `-1100.webp` (same picture resized, WebP quality 90; the `srcset` on both hero images picks them).
+The folder is laid out at a fixed 450×600 (rig coordinates) and scaled as a whole. The iPad screen (a 340 × 444 body, 13-inch proportions) is a real 4.2 Home screen captured on the MF iPad Pro 13 27.2 simulator from a demo library seeded with the site's content (`tools/hero-seed.py` writes the seed for the app's DEBUG marketing seed: Summer Night Concert tomorrow, a 14-day streak with 42 minutes today, the six folders and their counts, and exactly the scores that fly in, opened last). `assets/hero-ipad-home.webp` is that capture at 1668 × 2224; positions are measured in the capture's own 2064 × 2752 pixels (`SHOT_W`/`SHOT_H`: `scoreSlot`, `folderSlot`, `setlistSlot`, `PRACTICE`) and scaled by `K`. The practice card is rebuilt crisp over the screenshot (its number, goal bar, goal label and week bars animate; the rest of the card is the screenshot's own), checked against the capture to within a pixel by rendering it at 1:1 in headless Chrome. The printed set list (`.mf-setlist`) is laid out as the card scaled to its 280 px width (× 280/952), so it lands line for line. If the screenshot is ever replaced, re-seed and recapture, re-measure those coordinates, and regenerate the phone copies `hero-ipad-home-800.webp` / `-1100.webp` (same picture resized, WebP quality 90; the `srcset` on both hero images picks them).
 
 With `prefers-reduced-motion`, the hero is static.
 
 ## Device images
 
-`assets/home-ipad.webp` and `assets/home-iphone.webp` (home dark band, Students page) are framed renders of the owner's real Home screenshots, retouched to the same content as the hero (`screens/frame.py` in the onboarding-video workspace draws the bezel). The general recipe: an HTML page with the bezel and the screenshot, rendered with headless Chrome at 2×:
+`assets/home-ipad.webp`, `assets/home-iphone.webp` and `assets/home-mac.webp` (home dark band; iPad and iPhone also on Students) are rendered by `tools/home-band.py` from the same seeded 4.2 captures as the hero (iPad portrait, iPhone top of Home, and iPad landscape with the sidebar for the Mac, which runs this same iPad UI). The iMac is `tools/imac-base.png` (the iMac, its wallpaper and an empty menu bar) with the 4.2 menu bar set in the system font and an app window: the real Mac title bar (`tools/mac-titlebar@2x.png`, cut from the owner's 4.2 Mac screenshot) over the landscape capture below its status bar, with iPadOS's window-resize handle patched out. The general recipe: an HTML page with the bezel and the screenshot, rendered with headless Chrome at 2×:
 
 ```sh
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \

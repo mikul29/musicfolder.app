@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sheet Music App for Students &amp; Soloists | Music Folder</title>
 <link rel="canonical" href="https://musicfolder.app/for/students">
-<meta name="description" content="Practice and perform from your sheet music, with a tuner, metronome, drones and piano built in and a daily streak that counts your minutes. For iPhone, iPad and Mac.">
+<meta name="description" content="Practice and perform from your sheet music, with a tuner, metronome and piano, recordings you can slow down, and a daily goal that tracks your minutes. For iPhone, iPad and Mac.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://musicfolder.app/for/students">
 <meta property="og:title" content="Music Folder for students and soloists">
@@ -31,7 +31,7 @@
   "@type": "WebPage",
   "url": "https://musicfolder.app/for/students",
   "name": "Sheet Music App for Students & Soloists | Music Folder",
-  "description": "Practice and perform from your sheet music, with a tuner, metronome, drones and piano built in and a daily streak that counts your minutes. For iPhone, iPad and Mac.",
+  "description": "Practice and perform from your sheet music, with a tuner, metronome and piano, recordings you can slow down, and a daily goal that tracks your minutes. For iPhone, iPad and Mac.",
   "inLanguage": "en",
   "isPartOf": {
     "@type": "WebSite",
@@ -82,7 +82,23 @@
       "name": "Is there a free version?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, for up to 15 songs, 1 book and 1 folder, with set lists, the reader, Apple Pencil and iCloud sync. Premium adds unlimited music and the full toolkit."
+        "text": "Yes, for up to 15 pieces, 5 sections and 1 folder, with set lists, the reader, chord charts, Apple Pencil and iCloud sync. Premium adds unlimited music, the full toolkit, chord transposition and collaboration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I see how much I practiced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Set a daily goal and Music Folder counts your minutes while you play. The Practice screen shows today, your week, month and year, and the pieces you practiced most. A daily reminder is optional. Practice tracking is free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I slow down a recording?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Open a piece’s recording in the reader and use Tempo & Key to play it slower or faster without changing the pitch, or in another key without changing the speed. It’s free."
       }
     },
     {
@@ -90,7 +106,7 @@
       "name": "Which practice tools are included?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A metronome with tap tempo and subdivisions, a chromatic tuner, tones and drones for intonation, an 88-key sampled piano, recordings for every song and a daily practice streak. The tools are part of Premium."
+        "text": "A metronome with tap tempo and subdivisions, a chromatic tuner, tones and drones for intonation and an 88-key sampled piano are part of Premium. Recordings, Tempo & Key and practice tracking are free."
       }
     },
     {
@@ -98,7 +114,7 @@
       "name": "Can a teacher or accompanist share music with me?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. When they share a folder or set list with you, it appears in your library. Joining is free, and shared music doesn't count toward the free version's 15-song limit."
+        "text": "Yes. When they share a folder or set list with you, it appears in your library. Sharing live is part of Premium, for the person who shares and for you. If they only need to send the music once, they can send a copy, which is free."
       }
     },
     {
@@ -122,14 +138,14 @@
       "name": "How much does it cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
+        "text": "Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
       }
     }
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=57">
-<link rel="stylesheet" href="/assets/pages.css?v=31">
+<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="stylesheet" href="/assets/pages.css?v=50">
 </head>
 <body>
 
@@ -144,12 +160,15 @@
         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
         <div class="nav-pop" id="nav-features">
           <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
             <li><a href="/features/set-lists"><b>Set lists</b></a></li>
             <li><a href="/features/page-turner"><b>Page turner</b></a></li>
             <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
             <li><a href="/features/sharing"><b>Sharing</b></a></li>
-            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/planning-center"><b>Planning Center</b></a></li>
           </ul>
         </div>
@@ -177,12 +196,15 @@
       <div class="menu-panel">
         <div class="menu-group" role="group" aria-labelledby="menu-features">
           <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
           <a href="/features/set-lists">Set lists</a>
           <a href="/features/page-turner">Page turner</a>
           <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
           <a href="/features/sharing">Sharing</a>
-          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/planning-center">Planning Center</a>
         </div>
         <div class="menu-group" role="group" aria-labelledby="menu-who">
@@ -209,10 +231,10 @@
       <ol class="crumb" aria-label="Breadcrumb"><li><a href="/">Music Folder</a></li><li aria-current="page">Students &amp; soloists</li></ol>
       
       <h1 class="display">The sheet music app for <em>students and soloists.</em></h1>
-      <p class="lede">Practice with a tuner, metronome and daily streak, then perform from the same page.</p>
+      <p class="lede">Practice with a tuner, metronome and daily goal, slow a recording down to learn a hard passage, then perform from the same page.</p>
       <div class="cta-row"><a class="badge-link" href="/get?from=for-students-hero"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48"></picture></a></div>
     </div>
-    <div class="lp-visual"><img class="cutout" src="/assets/home-iphone.webp?v=5" alt="The Music Folder home screen on iPhone, with the practice streak and the next set list" width="396" height="830"></div>
+    <div class="lp-visual"><img class="cutout" src="/assets/home-iphone.webp?v=7" alt="The Music Folder home screen on iPhone, with recently opened scores and the next set list" width="396" height="841"></div>
   </div>
 </section>
 
@@ -226,11 +248,15 @@
 <section class="section" style="padding-top:0">
   <div class="wrap rows">
     <div class="row-feature">
-      <div class="rf-text"><h2 class="heading-sm">A streak that keeps you <em>coming back.</em></h2><p>Set a daily goal and Music Folder counts your practice minutes. Your streak waits on the home screen every time you open the app.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>A daily goal in minutes</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Your streak on the home screen</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Every piece one tap away</span></li></ul></div>
-      <div class="rf-visual"><img class="cutout" src="/assets/home-ipad.webp?v=6" alt="The Music Folder home screen on iPad: a practice streak, quick tools, folders and recently opened scores" width="600" height="851" loading="lazy" style="width:min(300px,80%)"></div>
-    </div><div class="row-feature flip">
-      <div class="rf-text"><h2 class="heading-sm">Mark it up <em>your way.</em></h2><p>Pencil in fingerings, breaths, cues and lesson notes with Apple Pencil or your finger. Your markings stay on your score and sync across your devices.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Pens, highlighters and text in several colors</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Song notes for what to work on next</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Record yourself and listen back</span></li></ul></div>
-      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-ipad.jpg?v=2" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colors, with the pen palette open" width="900" height="1305" loading="lazy"></div></div></div>
+      <div class="rf-text"><h2 class="heading-sm">See your practice <em>add up.</em></h2><p>Set a daily goal, build your streak, and see how your practice adds up. Track your time across the week, month, and year, and discover which pieces you’ve practiced most.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Set daily goals and build your streak</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>See your progress over time</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Discover your most-practiced pieces</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/practice-month-ipad.jpg?v=1" alt="The Practice screen in Music Folder on iPad: 36 minutes today against a 30-minute goal and a 14-day streak; this month 6 h 8 m with a bar for every day, 37 minutes per practice day and the goal reached on 10 days; Most Practiced lists Sicilienne, Pavane, Ave Maria, Après un rêve and Wiegenlied with their time and sessions" width="900" height="1200" loading="lazy"></div></div></div>
+    </div>
+    <div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">Practice along <em>at your tempo.</em></h2><p>Learning a fast passage? Play the piece’s recording slower without the pitch dropping, or move it into your key without changing the speed. Then record yourself straight from the score and listen back.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Slow down or speed up without the chipmunk effect</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Change the key of a recording</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Record from the page, with a 3-2-1 count-in</span></li></ul><p class="rf-more"><a href="/features/toolkit">The whole practice toolkit</a></p></div>
+      <div class="rf-visual"><div class="device phone fit"><div class="screen shot"><img src="/assets/tempo-key-iphone.jpg?v=1" alt="The Tempo and Key sheet in Music Folder on iPhone for a recording of Come Thou Fount: slowed from 88 to 72 BPM and moved from C up to D" width="700" height="1522" loading="lazy"></div></div></div>
+    </div><div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">Mark it up <em>your way.</em></h2><p>Pencil in fingerings, breaths, cues and lesson notes with Apple Pencil or your finger. Your markings stay on your score and sync across your devices.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Pens, highlighters and text in several colors</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Lesson notes on their own layer, ready to hide</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Notes for what to work on next</span></li></ul><p class="rf-more"><a href="/features/annotation">More about annotation</a></p></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-ipad.jpg?v=3" alt="A score in Music Folder on iPad, marked up with circles, highlights, handwritten notes and music symbols, with the pen palette and the Symbols panel open" width="900" height="1200" loading="lazy"></div><svg class="pencil" viewBox="0 0 380 22" aria-hidden="true" focusable="false"><defs><linearGradient id="pcBodyMS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".38" stop-color="#F7F7F5"/><stop offset=".8" stop-color="#DEDEDA"/><stop offset="1" stop-color="#C9C9C5"/></linearGradient><linearGradient id="pcTipMS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FAFAF8"/><stop offset="1" stop-color="#CFCFCB"/></linearGradient></defs><path d="M34 1H369a10 10 0 0 1 0 20H34Z" fill="url(#pcBodyMS)"/><path d="M34 4.2H369" stroke="#fff" stroke-width="1.6" opacity=".9"/><path d="M34 15.6H372" stroke="#000" stroke-opacity=".05" stroke-width="1"/><path d="M34 1L7 9.2v3.6L34 21Z" fill="url(#pcTipMS)"/><path d="M8.2 8.8L1 10.4a.7.7 0 0 0 0 1.2L8.2 13.2Z" fill="#8E8E8A"/><path d="M34 1v20" stroke="#000" stroke-opacity=".06"/></svg></div></div>
     </div>
   </div>
 </section>
@@ -238,7 +264,7 @@
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="section-head"><h2 class="heading">Your practice room, in your pocket.</h2><p>One tap from the score.</p></div>
-    <div class="tool-grid"><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.3 3.5h5.4a1.2 1.2 0 0 1 1.16.9L22.6 22.5H5.4l4.74-18.1a1.2 1.2 0 0 1 1.16-.9z"/><path d="M4.5 22.5h19v1.8a1.2 1.2 0 0 1-1.2 1.2H5.7a1.2 1.2 0 0 1-1.2-1.2z"/><path d="M14 18.5 21.2 7"/><rect x="15.3" y="12.6" width="3.6" height="2.4" rx=".7" transform="rotate(-58 17.1 13.8)" fill="currentColor" stroke="none"/><circle cx="14" cy="18.5" r="1.1" fill="currentColor" stroke="none"/></svg><h3>Metronome</h3><p>Tap tempo, subdivisions, a tempo saved per piece.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a10 10 0 0 1 20 0"/><path d="M14 18l4-7"/><circle cx="14" cy="18" r="1.5"/></svg><h3>Chromatic tuner</h3><p>Plus alternate guitar tunings.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14c2.5-6 5-6 7.5 0s5 6 7.5 0 5-6 7 0"/></svg><h3>Tones &amp; drones</h3><p>Sustained drones for intonation.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="2"/><path d="M8.5 6v16M14 6v16M19.5 6v16"/><path d="M7 6v8h3V6M12.5 6v8h3V6M18 6v8h3V6" fill="currentColor"/></svg><h3>88-key piano</h3><p>A sampled grand, right beside the score.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="3" width="8" height="14" rx="4"/><path d="M6 13a8 8 0 0 0 16 0M14 21v4"/></svg><h3>Recordings per song</h3><p>Record yourself and hear what to fix.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c1 5 6 7 6 13a6 6 0 0 1-12 0c0-3 2-5 3-7 .5 2 1.5 3 3 3-1-3 0-6 0-9z"/></svg><h3>Practice streaks</h3><p>A daily goal that counts your minutes.</p></div></div>
+    <div class="tool-grid"><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.3 3.5h5.4a1.2 1.2 0 0 1 1.16.9L22.6 22.5H5.4l4.74-18.1a1.2 1.2 0 0 1 1.16-.9z"/><path d="M4.5 22.5h19v1.8a1.2 1.2 0 0 1-1.2 1.2H5.7a1.2 1.2 0 0 1-1.2-1.2z"/><path d="M14 18.5 21.2 7"/><rect x="15.3" y="12.6" width="3.6" height="2.4" rx=".7" transform="rotate(-58 17.1 13.8)" fill="currentColor" stroke="none"/><circle cx="14" cy="18.5" r="1.1" fill="currentColor" stroke="none"/></svg><h3>Metronome</h3><p>Tap tempo, subdivisions, a tempo saved per piece.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a10 10 0 0 1 20 0"/><path d="M14 18l4-7"/><circle cx="14" cy="18" r="1.5"/></svg><h3>Chromatic tuner</h3><p>Plus alternate guitar tunings.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14c2.5-6 5-6 7.5 0s5 6 7.5 0 5-6 7 0"/></svg><h3>Tones &amp; drones</h3><p>Sustained drones for intonation.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="22" height="16" rx="2"/><path d="M8.5 6v16M14 6v16M19.5 6v16"/><path d="M7 6v8h3V6M12.5 6v8h3V6M18 6v8h3V6" fill="currentColor"/></svg><h3>88-key piano</h3><p>A sampled grand, right beside the score.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="3" width="8" height="14" rx="4"/><path d="M6 13a8 8 0 0 0 16 0M14 21v4"/></svg><h3>Recordings per piece</h3><p>Record yourself, then slow it down or change the key.</p></div><div class="tool"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c1 5 6 7 6 13a6 6 0 0 1-12 0c0-3 2-5 3-7 .5 2 1.5 3 3 3-1-3 0-6 0-9z"/></svg><h3>Practice tracking</h3><p>A daily goal, your streak and your year in practice.</p></div></div>
   </div>
 </section>
 
@@ -255,12 +281,14 @@
 <section class="section" style="padding-top:0">
   <div class="wrap lp-faq-grid">
     <h2 class="heading-sm">Questions from students and soloists</h2>
-    <div class="faq"><details><summary>Is there a free version?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes, for up to 15 songs, 1 book and 1 folder, with set lists, the reader, Apple Pencil and iCloud sync. Premium adds unlimited music and the full toolkit.</p></div></details>
-<details><summary>Which practice tools are included?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>A metronome with tap tempo and subdivisions, a chromatic tuner, tones and drones for intonation, an 88-key sampled piano, recordings for every song and a daily practice streak. The tools are part of Premium.</p></div></details>
-<details><summary>Can a teacher or accompanist share music with me?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. When they share a folder or set list with you, it appears in your library. Joining is free, and shared music doesn't count toward the free version's 15-song limit.</p></div></details>
+    <div class="faq"><details><summary>Is there a free version?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes, for up to 15 pieces, 5 sections and 1 folder, with set lists, the reader, chord charts, Apple Pencil and iCloud sync. Premium adds unlimited music, the full toolkit, chord transposition and collaboration.</p></div></details>
+<details><summary>Can I see how much I practiced?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Set a daily goal and Music Folder counts your minutes while you play. The Practice screen shows today, your week, month and year, and the pieces you practiced most. A daily reminder is optional. Practice tracking is free.</p></div></details>
+<details><summary>Can I slow down a recording?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Open a piece’s recording in the reader and use Tempo & Key to play it slower or faster without changing the pitch, or in another key without changing the speed. It’s free.</p></div></details>
+<details><summary>Which practice tools are included?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>A metronome with tap tempo and subdivisions, a chromatic tuner, tones and drones for intonation and an 88-key sampled piano are part of Premium. Recordings, Tempo & Key and practice tracking are free.</p></div></details>
+<details><summary>Can a teacher or accompanist share music with me?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. When they share a folder or set list with you, it appears in your library. Sharing live is part of Premium, for the person who shares and for you. If they only need to send the music once, they can send a copy, which is free.</p></div></details>
 <details><summary>Where can I find music to practice?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Import your own PDFs, or use Discover to bring in free public-domain scores in one tap.</p></div></details>
 <details><summary>Does it work on iPhone?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. iPad is best for reading full pages, and iPhone keeps the same library and tools in your pocket.</p></div></details>
-<details><summary>How much does it cost?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
+<details><summary>How much does it cost?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
   </div>
 </section>
 
@@ -303,12 +331,15 @@
       <div>
         <h4>Features</h4>
         <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
           <li><a href="/features/set-lists">Set lists</a></li>
           <li><a href="/features/page-turner">Page turner</a></li>
           <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
           <li><a href="/features/sharing">Sharing</a></li>
-          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/planning-center">Planning Center</a></li>
         </ul>
       </div>

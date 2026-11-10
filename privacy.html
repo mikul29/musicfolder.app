@@ -32,7 +32,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css?v=57">
+<link rel="stylesheet" href="assets/site.css?v=61">
 <style>
 .policy { padding: 160px 0 120px; }
 @media (max-width: 860px) { .policy { padding: 112px 0 80px; } }
@@ -60,12 +60,15 @@
         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
         <div class="nav-pop" id="nav-features">
           <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
             <li><a href="/features/set-lists"><b>Set lists</b></a></li>
             <li><a href="/features/page-turner"><b>Page turner</b></a></li>
             <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
             <li><a href="/features/sharing"><b>Sharing</b></a></li>
-            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/planning-center"><b>Planning Center</b></a></li>
           </ul>
         </div>
@@ -93,12 +96,15 @@
       <div class="menu-panel">
         <div class="menu-group" role="group" aria-labelledby="menu-features">
           <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
           <a href="/features/set-lists">Set lists</a>
           <a href="/features/page-turner">Page turner</a>
           <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
           <a href="/features/sharing">Sharing</a>
-          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/planning-center">Planning Center</a>
         </div>
         <div class="menu-group" role="group" aria-labelledby="menu-who">
@@ -120,9 +126,9 @@
 <main class="policy">
   <div class="wrap">
     <h1 class="display">Privacy <em>policy.</em></h1>
-    <p class="updated">Last updated October 29, 2026</p>
+    <p class="updated">Last updated November 10, 2026</p>
 
-    <div class="summary"><p>The Music Folder app doesn't collect any personal data. The app has no accounts, ads, analytics or trackers. Your music stays on your device and in your own iCloud account. This website counts visits and App Store button taps without cookies or personal data (<a href="#website">details</a>).</p></div>
+    <div class="summary"><p>The Music Folder app doesn't collect any personal data. The app has no Music Folder accounts, ads, analytics or trackers; signing in with Apple is optional and stays between your devices. Your music stays on your device and in your own iCloud account.</p></div>
 
     <section>
       <h2>Your music and notes</h2>
@@ -130,13 +136,24 @@
     </section>
 
     <section>
+      <h2>Sign in with Apple</h2>
+      <p>Signing in is optional and only personalizes the app, for example with your name on the Home screen. If you sign in, the app keeps the name and email Apple shares with it (you can choose to hide your email) on your device and in your own iCloud account, so your other devices show them too. A profile photo you pick stays on that device. None of this is sent to the developer.</p>
+    </section>
+
+    <section>
       <h2>Sharing with others</h2>
-      <p>When you share a folder or set list, it's shared through iCloud only with the people you invite. You choose whether each person can edit or only view, and you can stop sharing at any time. Your annotations are never shared.</p>
+      <p>When you share a folder or set list, it's shared through iCloud only with the people you invite. You choose whether each person can edit or only view, and you can stop sharing at any time. If you've signed in with Apple, the people you invite see your name, and your email unless you chose to hide it. Your annotations are never shared.</p>
     </section>
 
     <section>
       <h2>Microphone</h2>
       <p>The tuner and the recorder use the microphone only while you're using them. Sound for the tuner is analyzed on your device and isn't saved or sent anywhere. Recordings are saved to your library.</p>
+    </section>
+
+    <section>
+      <h2>Camera</h2>
+      <p>Music Folder uses the camera only when you ask it to. Scanning sheet music uses it to capture pages, which are saved to your library.</p>
+      <p>If you turn on Face Gestures, the front camera follows your head, eyes and mouth so a head turn, wink or mouth movement can turn the page. Face tracking runs on your device with Apple's ARKit, and only while Face Gestures is on or you're setting it up. No photos or video are recorded, saved or sent anywhere. Setup keeps only a few measurements of how far you move, on that device.</p>
     </section>
 
     <section>
@@ -160,12 +177,6 @@
       <p>If you send a report through the <a href="/contact">support form</a>, your name (if you give it), email address and message are delivered to the developer's inbox through Web3Forms, and used only to reply to you. You can also email <a href="mailto:support@musicfolder.app">support@musicfolder.app</a> directly.</p>
     </section>
 
-    <section id="website">
-      <h2>This website</h2>
-      <p>musicfolder.app uses Cloudflare Web Analytics to count page visits. It sets no cookies, stores nothing on your device and doesn't fingerprint you. The developer sees totals only: which pages were visited, which site linked to them, the country, the type of device and browser, and how quickly pages loaded.</p>
-      <p>When you tap a Download button, the site counts which button it was, then sends you to the App Store. Nothing about you is stored with that count, not even your IP address. The App Store link carries a campaign name, such as &ldquo;web-home-hero&rdquo;, so Apple's App Store Connect can show the developer how many downloads came from the website, as totals only.</p>
-      <p>Like any website, the site's host, Cloudflare, sees your IP address to deliver the pages. It isn't used for these counts.</p>
-    </section>
 
     <section>
       <h2>Children</h2>
@@ -204,12 +215,15 @@
       <div>
         <h4>Features</h4>
         <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
           <li><a href="/features/set-lists">Set lists</a></li>
           <li><a href="/features/page-turner">Page turner</a></li>
           <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
           <li><a href="/features/sharing">Sharing</a></li>
-          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/planning-center">Planning Center</a></li>
         </ul>
       </div>

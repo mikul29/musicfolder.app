@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Annotate Sheet Music on iPad with Apple Pencil | Music Folder</title>
 <link rel="canonical" href="https://musicfolder.app/features/annotation">
-<meta name="description" content="Write on your sheet music with Apple Pencil or your finger: pens, highlighters, text and an eraser, saved on the score and synced across your devices.">
+<meta name="description" content="Mark up sheet music with Apple Pencil or your finger: pens, highlighters, text, engraved music symbols, hairpins and layers, synced across your devices.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://musicfolder.app/features/annotation">
 <meta property="og:title" content="Annotate sheet music with Music Folder">
@@ -31,7 +31,7 @@
   "@type": "WebPage",
   "url": "https://musicfolder.app/features/annotation",
   "name": "Annotate Sheet Music on iPad with Apple Pencil | Music Folder",
-  "description": "Write on your sheet music with Apple Pencil or your finger: pens, highlighters, text and an eraser, saved on the score and synced across your devices.",
+  "description": "Mark up sheet music with Apple Pencil or your finger: pens, highlighters, text, engraved music symbols, hairpins and layers, synced across your devices.",
   "inLanguage": "en",
   "isPartOf": {
     "@type": "WebSite",
@@ -87,6 +87,22 @@
     },
     {
       "@type": "Question",
+      "name": "Can I add dynamics and other music symbols?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tap + and choose Add Symbol for engraved dynamics, articulations, clefs and more, or Add Shape for hairpins, slurs, brackets, a staff and cover-ups. Placing symbols and shapes needs iOS 18 or later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are annotation layers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Separate sets of markings on the same piece, such as your own, a teacher’s lesson notes or a recital edition. Show or hide each one; you draw on the active layer only."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Can I type on the score?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -106,7 +122,7 @@
       "name": "Can I share a marked-up copy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Share a song or set list as a PDF with your markings included."
+        "text": "Yes. Share a piece or set list as a PDF with the layers you have showing included."
       }
     },
     {
@@ -114,14 +130,14 @@
       "name": "Is annotation free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Annotation is part of the free version. Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
+        "text": "Yes. Annotation is part of the free version. Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
       }
     }
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=57">
-<link rel="stylesheet" href="/assets/pages.css?v=31">
+<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="stylesheet" href="/assets/pages.css?v=50">
 </head>
 <body>
 
@@ -136,12 +152,15 @@
         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
         <div class="nav-pop" id="nav-features">
           <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
             <li><a href="/features/set-lists"><b>Set lists</b></a></li>
             <li><a href="/features/page-turner"><b>Page turner</b></a></li>
             <li><a href="/features/annotation" aria-current="page"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
             <li><a href="/features/sharing"><b>Sharing</b></a></li>
-            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/planning-center"><b>Planning Center</b></a></li>
           </ul>
         </div>
@@ -169,12 +188,15 @@
       <div class="menu-panel">
         <div class="menu-group" role="group" aria-labelledby="menu-features">
           <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
           <a href="/features/set-lists">Set lists</a>
           <a href="/features/page-turner">Page turner</a>
           <a href="/features/annotation" aria-current="page">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
           <a href="/features/sharing">Sharing</a>
-          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/planning-center">Planning Center</a>
         </div>
         <div class="menu-group" role="group" aria-labelledby="menu-who">
@@ -200,17 +222,17 @@
     <div>
       <ol class="crumb" aria-label="Breadcrumb"><li><a href="/">Music Folder</a></li><li aria-current="page">Annotation</li></ol>
       <h1 class="display">Mark it up <em>like paper.</em></h1>
-      <p class="lede">Write fingerings, cues and cuts on any score with Apple Pencil or your finger. Every marking saves on the page and syncs across your devices.</p>
+      <p class="lede">Write fingerings, cues and cuts with Apple Pencil or your finger, add engraved music symbols, and keep each set of markings on its own layer. Everything syncs across your devices.</p>
       <div class="cta-row"><a class="badge-link" href="/get?from=features-annotation-hero"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48"></picture></a></div>
     </div>
-    <div class="lp-visual"><div class="pencil-stage"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-ipad.jpg?v=2" alt="A score in Music Folder on iPad, marked up with handwritten notes and highlights in several colors, with the pen palette open" width="900" height="1305"></div></div><svg class="pencil" viewBox="0 0 380 22" aria-hidden="true" focusable="false"><defs><linearGradient id="pcBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".38" stop-color="#F7F7F5"/><stop offset=".8" stop-color="#DEDEDA"/><stop offset="1" stop-color="#C9C9C5"/></linearGradient><linearGradient id="pcTip" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FAFAF8"/><stop offset="1" stop-color="#CFCFCB"/></linearGradient></defs><path d="M34 1H369a10 10 0 0 1 0 20H34Z" fill="url(#pcBody)"/><path d="M34 4.2H369" stroke="#fff" stroke-width="1.6" opacity=".9"/><path d="M34 15.6H372" stroke="#000" stroke-opacity=".05" stroke-width="1"/><path d="M34 1L7 9.2v3.6L34 21Z" fill="url(#pcTip)"/><path d="M8.2 8.8L1 10.4a.7.7 0 0 0 0 1.2L8.2 13.2Z" fill="#8E8E8A"/><path d="M34 1v20" stroke="#000" stroke-opacity=".06"/></svg></div></div>
+    <div class="lp-visual"><div class="pencil-stage"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-ipad.jpg?v=3" alt="A score in Music Folder on iPad, marked up with circles, highlights, handwritten notes and music symbols, with the pen palette and the Symbols panel open" width="900" height="1200"></div></div><svg class="pencil" viewBox="0 0 380 22" aria-hidden="true" focusable="false"><defs><linearGradient id="pcBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".38" stop-color="#F7F7F5"/><stop offset=".8" stop-color="#DEDEDA"/><stop offset="1" stop-color="#C9C9C5"/></linearGradient><linearGradient id="pcTip" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FAFAF8"/><stop offset="1" stop-color="#CFCFCB"/></linearGradient></defs><path d="M34 1H369a10 10 0 0 1 0 20H34Z" fill="url(#pcBody)"/><path d="M34 4.2H369" stroke="#fff" stroke-width="1.6" opacity=".9"/><path d="M34 15.6H372" stroke="#000" stroke-opacity=".05" stroke-width="1"/><path d="M34 1L7 9.2v3.6L34 21Z" fill="url(#pcTip)"/><path d="M8.2 8.8L1 10.4a.7.7 0 0 0 0 1.2L8.2 13.2Z" fill="#8E8E8A"/><path d="M34 1v20" stroke="#000" stroke-opacity=".06"/></svg></div></div>
   </div>
 </section>
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="section-head"><h2 class="heading">Your first marking in seconds.</h2></div>
-    <ol class="how"><li><h3>Open a score</h3><p>Any song, book or chart in your library, or a Planning Center chart.</p></li><li><h3>Tap the pencil</h3><p>The pen palette opens beside the music.</p></li><li><h3>Write, then save</h3><p>Mark it up, tap the checkmark, and it’s saved on the score.</p></li></ol>
+    <ol class="how"><li><h3>Open a score</h3><p>Any piece, book or chart in your library, or a Planning Center chart.</p></li><li><h3>Tap the pencil</h3><p>The pen palette opens beside the music.</p></li><li><h3>Write, then save</h3><p>Mark it up, tap the checkmark, and it’s saved on the score.</p></li></ol>
   </div>
 </section>
 
@@ -218,10 +240,16 @@
   <div class="wrap rows">
     <div class="row-feature">
       <div class="rf-text"><h2 class="heading-sm">Saved on the score, <em>synced everywhere.</em></h2><p>Your markings are saved right on the page, so they’re there on your iPad, your iPhone and every time you open the piece.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Synced across your devices with iCloud</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Planning Center charts keep their markings too</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Erase or change anything later</span></li></ul></div>
-      <div class="rf-visual"><div class="device-duo"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-ipad.jpg?v=2" alt="The marked-up score on iPad" width="900" height="1305" loading="lazy"></div></div><div class="device phone fit"><div class="screen shot"><img src="/assets/annotate-iphone.jpg?v=1" alt="The same score on iPhone, with the same handwritten markings and highlights synced from the iPad" width="700" height="1522" loading="lazy"></div></div></div></div>
+      <div class="rf-visual"><div class="device-duo"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-ipad.jpg?v=3" alt="The marked-up score on iPad" width="900" height="1200" loading="lazy"></div></div><div class="device phone fit"><div class="screen shot"><img src="/assets/annotate-iphone.jpg?v=2" alt="The same marked-up score on iPhone, with the Symbols panel and the pen tools" width="700" height="1522" loading="lazy"></div></div></div></div>
+    </div><div class="row-feature flip">
+      <div class="rf-text"><h2 class="heading-sm">Music symbols, <em>not just ink.</em></h2><p>Stamp engraved dynamics, articulations and clefs in one tap, and stretch hairpins, slurs and brackets to fit the bars. Your markings look like the printed part, so they read at a glance on stage.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Dynamics, accents, fermatas, breath marks and more</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Hairpins, slurs, ties, brackets and a staff you can resize</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Cover-ups to white out a passage you’re changing</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-shapes-ipad.jpg?v=1" alt="Brahms’s Wiegenlied in Music Folder on iPad with the Shapes panel open: hairpins, slurs and ties ready to place, above a part marked with dynamics, hairpins and circled notes" width="900" height="1200" loading="lazy"></div></div></div>
+    </div><div class="row-feature">
+      <div class="rf-text"><h2 class="heading-sm">Layers you can <em>hide.</em></h2><p>Keep your own markings, a teacher’s lesson notes and a recital edition on separate layers of the same piece. Show only what you need today, and draw on one layer without touching the others.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Show or hide each layer with one tap</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>The pen and eraser only touch the active layer</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Clean pages for printing, full notes for practice</span></li></ul></div>
+      <div class="rf-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/annotate-layers-ipad.jpg?v=1" alt="Brahms’s Wiegenlied in Music Folder on iPad with the Layers panel open: Annotations, Lesson Notes and Recital, each with a show or hide button" width="900" height="1200" loading="lazy"></div></div></div>
     </div><div class="row-feature flip">
       <div class="rf-text"><h2 class="heading-sm">Print or share it <em>marked up.</em></h2><p>Send a song or set list as a PDF with your markings included, ready to print or email.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>One PDF for a whole set list</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Markings included in the PDF</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Or send a copy others can keep editing</span></li></ul></div>
-      <div class="rf-visual"><div class="print-scene" role="img" aria-label="A printer printing the marked-up score, with every handwritten note and highlight on the page"><div class="pr-body" aria-hidden="true"><span class="pr-light"></span><span class="pr-slot"></span></div><div class="pr-out" aria-hidden="true"><img src="/assets/printed-score.webp?v=1" alt="" width="640" height="906" loading="lazy"></div></div></div>
+      <div class="rf-visual"><div class="print-scene" role="img" aria-label="A printer printing the marked-up score, with every handwritten note and highlight on the page"><div class="pr-body" aria-hidden="true"><span class="pr-light"></span><span class="pr-slot"></span></div><div class="pr-out" aria-hidden="true"><img src="/assets/printed-score.webp?v=2" alt="" width="640" height="906" loading="lazy"></div></div></div>
     </div>
   </div>
 </section>
@@ -237,17 +265,19 @@
   <div class="wrap lp-faq-grid">
     <h2 class="heading-sm">Questions about annotation</h2>
     <div class="faq"><details><summary>Do I need an Apple Pencil?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>No. You can write with your finger on iPhone and iPad. Apple Pencil gives you finer control on iPad.</p></div></details>
+<details><summary>Can I add dynamics and other music symbols?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Tap + and choose Add Symbol for engraved dynamics, articulations, clefs and more, or Add Shape for hairpins, slurs, brackets, a staff and cover-ups. Placing symbols and shapes needs iOS 18 or later.</p></div></details>
+<details><summary>What are annotation layers?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Separate sets of markings on the same piece, such as your own, a teacher’s lesson notes or a recital edition. Show or hide each one; you draw on the active layer only.</p></div></details>
 <details><summary>Can I type on the score?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Add text boxes for cues and reminders, in several fonts.</p></div></details>
 <details><summary>Do my markings sync to my other devices?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes, for your own music and Planning Center charts. On music someone has shared with you, your markings stay on the device you wrote them on.</p></div></details>
-<details><summary>Can I share a marked-up copy?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Share a song or set list as a PDF with your markings included.</p></div></details>
-<details><summary>Is annotation free?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Annotation is part of the free version. Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
+<details><summary>Can I share a marked-up copy?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Share a piece or set list as a PDF with the layers you have showing included.</p></div></details>
+<details><summary>Is annotation free?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Annotation is part of the free version. Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
   </div>
 </section>
 
 <section class="section more">
   <div class="wrap">
     <div class="section-head"><h2 class="heading-sm">More from Music Folder.</h2></div>
-    <div class="more-grid four"><a class="more-card" href="/features/set-lists"><h3>Set lists</h3><p>Build the set from your own music and play it straight through.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/page-turner"><h3>Page turner</h3><p>Turn pages hands-free with a Bluetooth pedal.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sharing"><h3>Sharing</h3><p>Share folders and set lists with the whole group.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/free-sheet-music"><h3>Free sheet music</h3><p>More than 2,000 classical scores, one tap away.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
+    <div class="more-grid four"><a class="more-card" href="/features/sheet-music-reader"><h3>Sheet music reader</h3><p>Performance Mode, Page Links and half-page turns.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/set-lists"><h3>Set lists</h3><p>Build the set from your own music and play it straight through.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sheet-music-organizer"><h3>Sheet music organizer</h3><p>Folders and sections for every book.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sharing"><h3>Sharing</h3><p>Share folders and set lists with the whole group.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
   </div>
 </section>
 
@@ -283,12 +313,15 @@
       <div>
         <h4>Features</h4>
         <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
           <li><a href="/features/set-lists">Set lists</a></li>
           <li><a href="/features/page-turner">Page turner</a></li>
           <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
           <li><a href="/features/sharing">Sharing</a></li>
-          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/planning-center">Planning Center</a></li>
         </ul>
       </div>

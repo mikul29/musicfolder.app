@@ -106,7 +106,7 @@
       "name": "Can I turn half a page?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not yet. Pages turn one at a time, side by side, or you can scroll continuously through the score."
+        "text": "Yes. Turn on Half-Page Turns in ⋯ › Page Display & Layout. The first press shows the top of the next page above the bottom of the one you’re playing, and the second press finishes the turn. Back works the same way. It works when pages turn one at a time, not with Vertical Scrolling or Two-Page View."
       }
     },
     {
@@ -122,14 +122,30 @@
       "name": "Is page turning free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Turning pages with a pedal works in the free version. Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
+        "text": "Yes. Turning pages with a pedal works in the free version. Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I turn pages without a pedal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. On an iPhone or iPad with Face ID, Face Gestures turns the page when you hold a head turn, a wink or a mouth movement for a moment. Setup and practice are free; using it with your own music is part of Premium."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Face Gestures record me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Face tracking happens on your device, and only while Face Gestures is on or you’re setting it up. Nothing is recorded or sent."
       }
     }
   ]
 }
 </script>
-<link rel="stylesheet" href="/assets/site.css?v=57">
-<link rel="stylesheet" href="/assets/pages.css?v=31">
+<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="stylesheet" href="/assets/pages.css?v=50">
 </head>
 <body>
 
@@ -144,12 +160,15 @@
         <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
         <div class="nav-pop" id="nav-features">
           <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
             <li><a href="/features/set-lists"><b>Set lists</b></a></li>
             <li><a href="/features/page-turner" aria-current="page"><b>Page turner</b></a></li>
             <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
             <li><a href="/features/sharing"><b>Sharing</b></a></li>
-            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
             <li><a href="/planning-center"><b>Planning Center</b></a></li>
           </ul>
         </div>
@@ -177,12 +196,15 @@
       <div class="menu-panel">
         <div class="menu-group" role="group" aria-labelledby="menu-features">
           <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
           <a href="/features/set-lists">Set lists</a>
           <a href="/features/page-turner" aria-current="page">Page turner</a>
           <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
           <a href="/features/sharing">Sharing</a>
-          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
           <a href="/planning-center">Planning Center</a>
         </div>
         <div class="menu-group" role="group" aria-labelledby="menu-who">
@@ -211,7 +233,7 @@
       <p class="lede">Pair a Bluetooth page-turner pedal and keep both hands on your instrument. Pages turn in every score, and straight through your whole set list.</p>
       <div class="cta-row"><a class="badge-link" href="/get?from=features-page-turner-hero"><picture><img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48"></picture></a></div>
     </div>
-    <div class="lp-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/hero-ipad-reader.jpg" alt="A horn part open in Music Folder on iPad, ready to turn with a pedal" width="900" height="1305"></div></div></div>
+    <div class="lp-visual"><div class="device tablet fit"><div class="screen shot"><img src="/assets/reader-ave-maria-ipad.jpg?v=1" alt="Schubert's Ave Maria open in Music Folder on iPad, ready to turn with a pedal" width="900" height="1200"></div></div></div>
   </div>
 </section>
 
@@ -222,14 +244,35 @@
   </div>
 </section>
 
+<section class="section" style="padding-top:0" id="face-gestures">
+  <div class="wrap">
+    <div class="section-head fd-head"><h2 class="heading">Turn pages with your <em>face.</em></h2><p>No pedal? Hold a head turn, a wink or a mouth movement for a moment and the page turns.</p></div>
+    <div class="fd-card" data-face-demo>
+      <div class="fd-tabs" role="group" aria-label="Choose a gesture">
+        <button class="fd-tab" type="button" data-kind="headTurn" aria-pressed="true"><span class="fd-tab-name">Head Turn</span></button>
+        <button class="fd-tab" type="button" data-kind="wink" aria-pressed="false"><span class="fd-tab-name">Wink</span></button>
+        <button class="fd-tab" type="button" data-kind="mouth" aria-pressed="false"><span class="fd-tab-name">Mouth Movement</span></button>
+      </div>
+      <p class="fd-detail" aria-live="polite">Turn your head right for the next page, left to go back.</p>
+      <div class="fd-stage" role="img" aria-label="A face turns right and holds for a moment, and the page turns.">
+        <div class="fd-facewrap"><svg class="fd-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="fd-track" cx="50" cy="50" r="48.8"/><circle class="fd-ready" cx="50" cy="50" r="48.8"/><circle class="fd-bloom" cx="50" cy="50" r="48.8"/><circle class="fd-arc" cx="50" cy="50" r="48.8" pathLength="1" transform="rotate(-90 50 50)"/></svg><canvas class="fd-face"></canvas></div>
+        <div class="fd-score"><div class="fd-back fd-back2"></div><div class="fd-back fd-back1"></div><div class="fd-page fd-under"><canvas></canvas><div class="fd-shade"></div></div><div class="fd-page fd-top"><canvas></canvas><div class="fd-shade"></div></div></div>
+      </div>
+      <div class="fd-steps"><button class="fd-step" type="button" data-step="prev" aria-label="Previous step"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg></button><p class="fd-caption" aria-hidden="true">Relax — Face Gestures are ready.</p><button class="fd-step" type="button" data-step="next" aria-label="Next step"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg></button></div>
+    </div>
+    <ol class="how fd-how"><li><h3>Set it up once</h3><p>A short guided setup learns your movement, then lets you practice turning a few pages. Setup and practice are free.</p></li><li><h3>Switch it on</h3><p>Turn on Face Gestures from ⋯ in any piece, set list or Planning Center plan.</p></li><li><h3>Play</h3><p>Hold right for the next page, left to go back. Relax between turns: each movement turns one page.</p></li></ol>
+    <p class="fd-note">Face Gestures needs an iPhone or iPad with Face ID. Using it with your own music is part of Premium. Face tracking happens on your device; nothing is recorded or sent.</p>
+  </div>
+</section>
+
 <section class="section" style="padding-top:0">
   <div class="wrap rows">
     <div class="row-feature">
-      <div class="rf-text"><h2 class="heading-sm">Straight through <em>the set.</em></h2><p>In a set list, a page turn on the last page carries straight into the next song, so the whole set plays like one score.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Works in every reader, Planning Center services included</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Turn page by page, or scroll continuously</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>The screen stays awake while you play</span></li></ul></div>
-      <div class="rf-visual"><div class="device tablet landscape fit"><div class="screen shot"><img src="/assets/setlist-band-ipad.jpg?v=2" alt="A set list called Friday Night Gig in Music Folder on iPad: six jazz standards in playing order, each with composer, key and tempo, beside Start Set, Share and Collaborate" width="1306" height="900" loading="lazy"></div></div></div>
+      <div class="rf-text"><h2 class="heading-sm">Straight through <em>the set.</em></h2><p>In a set list, a page turn on the last page carries straight into the next song, so the whole set plays like one score.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Works in every reader, Planning Center services included</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Turn page by page, or scroll continuously</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>The screen stays awake while you play</span></li></ul><p class="rf-more"><a href="/features/sheet-music-reader">Half-page turns, Page Links and more in the reader</a></p></div>
+      <div class="rf-visual bleed"><div class="device tablet fit"><div class="screen shot"><img src="/assets/setlist-band-portrait-ipad.jpg?v=1" alt="A set list called Friday Night Gig in Music Folder on iPad: six jazz standards in playing order, each with composer, key, tempo and length, a black Set Break page with a 15-minute timer after the third song, and the set’s total time beside Perform Set, Share and Collaborate" width="900" height="1200" loading="lazy"></div></div></div>
     </div><div class="row-feature flip">
-      <div class="rf-text"><h2 class="heading-sm">Every key a pedal <em>might send.</em></h2><p>Music Folder listens for all the keys page turners use, so most pedals work the moment they’re paired.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Bluetooth keyboards work too</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Turns pause while you annotate or type a note</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Landscape for charts printed sideways</span></li></ul></div>
-      <div class="rf-visual"><div class="keys-card"><div class="kc-col"><div class="kc-head">Next page</div><div class="kc-keys"><kbd aria-label="Right arrow">→</kbd><kbd aria-label="Down arrow">↓</kbd><kbd>Page Down</kbd><kbd>Space</kbd></div></div><div class="kc-col"><div class="kc-head">Previous page</div><div class="kc-keys"><kbd aria-label="Left arrow">←</kbd><kbd aria-label="Up arrow">↑</kbd><kbd>Page Up</kbd><kbd>Return</kbd></div></div></div></div>
+      <div class="rf-text"><h2 class="heading-sm">Works with almost <em>any pedal.</em></h2><p>A Bluetooth page turner talks to your iPad like a small keyboard: each press sends a key, such as an arrow, Page Down or Space. Music Folder understands every key pedals use, so most turn pages as soon as they’re paired, with no setup. You can test yours, and swap its sides, in Account › Preferences › Page Turner.</p><ul class="rf-points"><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Bluetooth keyboards work too</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Turns pause while you annotate or type a note</span></li><li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg><span>Landscape for charts printed sideways</span></li></ul></div>
+      <div class="rf-visual"><div class="pedal-card"><svg class="pedal-art" viewBox="0 0 400 240" aria-hidden="true" focusable="false"><defs><linearGradient id="paBase" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E2E31"/><stop offset="1" stop-color="#1F1F21"/></linearGradient><linearGradient id="paPad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#303033"/><stop offset=".55" stop-color="#232325"/><stop offset="1" stop-color="#1A1A1C"/></linearGradient><pattern id="paGrip" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="2.5" cy="2.5" r=".7" fill="rgba(255,255,255,0.06)"/></pattern><radialGradient id="paLed"><stop offset="0" stop-color="#F7A46A"/><stop offset="1" stop-color="#E0712F" stop-opacity="0"/></radialGradient></defs><rect x="12" y="38" width="376" height="196" rx="30" fill="#0E0E0F"/><rect x="12" y="28" width="376" height="196" rx="30" fill="url(#paBase)"/><rect x="12.75" y="28.75" width="374.5" height="194.5" rx="29.25" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/><g class="pa-pad pa-l"><rect x="26" y="49" width="160" height="168" rx="20" fill="#0B0B0C"/><g class="pa-top"><rect x="26" y="42" width="160" height="168" rx="20" fill="url(#paPad)"/><rect x="26" y="42" width="160" height="168" rx="20" fill="url(#paGrip)"/><rect x="26.75" y="42.75" width="158.5" height="166.5" rx="19.25" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1.5"/><rect class="pa-glow" x="27.5" y="43.5" width="157" height="165" rx="18.5" fill="none" stroke="#E0712F" stroke-width="2"/></g></g><g class="pa-pad pa-r"><rect x="214" y="49" width="160" height="168" rx="20" fill="#0B0B0C"/><g class="pa-top"><rect x="214" y="42" width="160" height="168" rx="20" fill="url(#paPad)"/><rect x="214" y="42" width="160" height="168" rx="20" fill="url(#paGrip)"/><rect x="214.75" y="42.75" width="158.5" height="166.5" rx="19.25" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="1.5"/><rect class="pa-glow" x="215.5" y="43.5" width="157" height="165" rx="18.5" fill="none" stroke="#E0712F" stroke-width="2"/></g></g><circle cx="200" cy="34.5" r="2.6" fill="#3A3A3D"/><circle class="pa-led" cx="200" cy="34.5" r="7" fill="url(#paLed)"/><circle class="pa-led" cx="200" cy="34.5" r="2.6" fill="#E0712F"/></svg><div class="pc-cols"><div class="kc-col pc-prev"><div class="kc-head">Previous page</div><div class="kc-keys"><kbd aria-label="Left arrow">←</kbd><kbd aria-label="Up arrow">↑</kbd><kbd>Page Up</kbd><kbd>Return</kbd></div></div><div class="kc-col pc-next"><div class="kc-head">Next page</div><div class="kc-keys"><kbd aria-label="Right arrow">→</kbd><kbd aria-label="Down arrow">↓</kbd><kbd>Page Down</kbd><kbd>Space</kbd></div></div></div></div></div>
     </div>
   </div>
 </section>
@@ -240,16 +283,18 @@
     <div class="faq"><details><summary>Which page-turner pedals work with Music Folder?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Bluetooth pedals that send arrow keys, Page Up and Page Down, Space or Return. That’s how most page turners work, including keyboard modes on popular pedals. Bluetooth keyboards work too.</p></div></details>
 <details><summary>Do I need to set anything up in the app?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>No. Pair the pedal in your device’s Bluetooth settings and open a score. If pages don’t turn, switch the pedal to its arrow-key or Page Up and Page Down mode.</p></div></details>
 <details><summary>Does it work in set lists?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. In a set list, turning past the last page of a song goes straight to the first page of the next one.</p></div></details>
-<details><summary>Can I turn half a page?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Not yet. Pages turn one at a time, side by side, or you can scroll continuously through the score.</p></div></details>
+<details><summary>Can I turn half a page?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Turn on Half-Page Turns in ⋯ › Page Display &amp; Layout. The first press shows the top of the next page above the bottom of the one you’re playing, and the second press finishes the turn. Back works the same way. It works when pages turn one at a time, not with Vertical Scrolling or Two-Page View.</p></div></details>
 <details><summary>Why does the on-screen keyboard disappear?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>iPhone and iPad hide the on-screen keyboard while a keyboard-type pedal is connected. Turn the pedal off to type, then turn it back on.</p></div></details>
-<details><summary>Is page turning free?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Turning pages with a pedal works in the free version. Free for up to 15 songs, 1 book and 1 folder, with iCloud sync. Premium unlocks unlimited music, the complete toolkit and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
+<details><summary>Is page turning free?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Turning pages with a pedal works in the free version. Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details>
+<details><summary>Can I turn pages without a pedal?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. On an iPhone or iPad with Face ID, Face Gestures turns the page when you hold a head turn, a wink or a mouth movement for a moment. Setup and practice are free; using it with your own music is part of Premium.</p></div></details>
+<details><summary>Does Face Gestures record me?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>No. Face tracking happens on your device, and only while Face Gestures is on or you’re setting it up. Nothing is recorded or sent.</p></div></details></div>
   </div>
 </section>
 
 <section class="section more">
   <div class="wrap">
     <div class="section-head"><h2 class="heading-sm">More from Music Folder.</h2></div>
-    <div class="more-grid four"><a class="more-card" href="/features/set-lists"><h3>Set lists</h3><p>Build the set from your own music and play it straight through.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/annotation"><h3>Annotation</h3><p>Write on any score with Apple Pencil or your finger.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sharing"><h3>Sharing</h3><p>Share folders and set lists with the whole group.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/free-sheet-music"><h3>Free sheet music</h3><p>More than 2,000 classical scores, one tap away.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
+    <div class="more-grid four"><a class="more-card" href="/features/sheet-music-reader"><h3>Sheet music reader</h3><p>Performance Mode, Page Links and half-page turns.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/set-lists"><h3>Set lists</h3><p>Build the set from your own music and play it straight through.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/annotation"><h3>Annotation</h3><p>Write on any score with Apple Pencil or your finger.</p><span class="more-link" aria-hidden="true">Explore</span></a><a class="more-card" href="/features/sharing"><h3>Sharing</h3><p>Share folders and set lists with the whole group.</p><span class="more-link" aria-hidden="true">Explore</span></a></div>
   </div>
 </section>
 
@@ -285,12 +330,15 @@
       <div>
         <h4>Features</h4>
         <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
           <li><a href="/features/set-lists">Set lists</a></li>
           <li><a href="/features/page-turner">Page turner</a></li>
           <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
           <li><a href="/features/sharing">Sharing</a></li>
-          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
           <li><a href="/planning-center">Planning Center</a></li>
         </ul>
       </div>
@@ -337,5 +385,6 @@
 })();
 </script>
 <script src="/assets/site.js?v=6" defer></script>
+<script src="/assets/face-gestures.js?v=2" defer></script>
 </body>
 </html>

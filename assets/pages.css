@@ -20,9 +20,14 @@
   min-height: 600px; padding: 48px 32px; border-radius: var(--radius-panel); background: var(--vellum);
 }
 .lp-visual .device.phone { width: 252px; }
-.lp-visual .device.tablet { width: min(400px, 100%); aspect-ratio: 0.715; }
+.lp-visual .device.tablet { width: min(400px, 100%); aspect-ratio: 0.7029; }
 .lp-visual .cutout { width: min(250px, 70%); height: auto; filter: drop-shadow(0 24px 30px rgba(20,20,20,0.18)); }
 .lp-visual .share-card { max-width: 400px; }
+/* A deliberate crop: the iPad grows to the panel's width and its empty lower part runs off
+   the panel's bottom edge (the device is never scaled out of proportion). */
+.lp-visual.bleed { align-items: flex-start; min-height: 0; padding: 40px 32px 0; overflow: hidden; }
+.lp-visual.bleed .device.tablet { width: 100%; max-width: 470px; margin-bottom: calc(min(470px, 100%) * -0.37); }
+@media (max-width: 960px) { .lp-visual.bleed { padding: 32px 20px 0; } }
 @media (max-width: 960px) {
   .lp-hero { padding: 112px 0 var(--section-gap); }
   .lp-hero-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -58,7 +63,7 @@ ol.how { margin: 0; padding: 0; }
   min-height: 520px; padding: 48px 32px; border-radius: var(--radius-panel); background: var(--vellum);
 }
 .rf-visual .device.phone { width: 236px; }
-.rf-visual .device.tablet { width: min(380px, 100%); aspect-ratio: 0.715; }
+.rf-visual .device.tablet { width: min(380px, 100%); aspect-ratio: 0.7029; }
 .rf-visual .share-card { max-width: 400px; }
 @media (max-width: 860px) {
   .row-feature { grid-template-columns: 1fr; gap: 32px; }
@@ -213,9 +218,8 @@ ol.how { margin: 0; padding: 0; }
 
 /* the same score on iPad and iPhone, overlapping, to show markings in sync */
 .device-duo { position: relative; width: min(400px, 100%); padding: 0 12% 6% 0; }
-.device-duo .device.tablet { width: 100%; max-width: none; aspect-ratio: 0.715; }
-.device-duo .device.phone { position: absolute; right: 0; bottom: 0; width: 38%; padding: 6px; border-radius: 28px; }
-.device-duo .device.phone .screen { border-radius: 22px; }
+.device-duo .device.tablet { width: 100%; max-width: none; aspect-ratio: 0.7029; }
+.device-duo .device.phone { position: absolute; right: 0; bottom: 0; width: 38%; }
 @media (max-width: 860px) { .device-duo { width: min(340px, 100%); } }
 
 /* a clean, minimal printer with the marked-up page coming out of it */
@@ -248,8 +252,7 @@ ol.how { margin: 0; padding: 0; }
 /* a landscape iPad screenshot (the set lists) fills the column's width */
 .lp-visual .device.tablet.landscape, .rf-visual .device.tablet.landscape { width: 100%; max-width: 620px; }
 /* a landscape iPhone screenshot (the piano) */
-.rf-visual .device.phone.landscape { width: min(520px, 100%); padding: 10px; border-radius: 40px; }
-.rf-visual .device.phone.landscape .screen { border-radius: 30px; }
+.rf-visual .device.phone.landscape { width: min(520px, 100%); }
 /* in landscape the camera sits at the side, outside the screenshot: no cutout over the picture */
 .device.phone.landscape .screen::after { display: none; }
 
@@ -257,7 +260,7 @@ ol.how { margin: 0; padding: 0; }
 .frame .device.phone.landscape { height: auto; width: 86%; aspect-ratio: auto; }
 .step-visual .device.phone.landscape { width: min(440px, 92%); }
 /* in the pinned stage the frame's height is fixed, so a portrait screenshot fills it (no gap at the bottom) */
-.frame .device.phone.fit:not(.landscape) .screen,
+.frame .device.phone.fit:not(.landscape) .screen { height: calc(100% - 2 * var(--bz)); }
 .frame .device.phone.fit:not(.landscape) .screen img { height: 100%; }
 
 /* ---------- 404 ---------- */
@@ -361,8 +364,194 @@ ol.how { margin: 0; padding: 0; }
 .pencil-stage { position: relative; width: min(400px, 100%); }
 .pencil-stage .device.tablet { width: 100%; }
 .pencil-stage .pencil {
-  position: absolute; width: 72%; height: auto; left: 44%; top: 62%;
+  position: absolute; width: 72%; height: auto; left: 45.5%; top: 66.8%;
   transform: rotate(27deg); transform-origin: 0 50%;
   filter: drop-shadow(0 10px 9px rgba(20,20,20,0.22)) drop-shadow(0 2px 2px rgba(20,20,20,0.12));
   pointer-events: none;
 }
+/* pricing table footnotes (4.2) */
+.pt th sup { font-size: 11px; color: var(--graphite); margin-left: 2px; }
+.pt-notes { max-width: 860px; margin: 14px auto 0; padding: 0 4px 0 22px; box-sizing: border-box; font-size: 13px; line-height: 1.5; color: var(--graphite); }
+.pt-notes li + li { margin-top: 2px; }
+@media (max-width: 600px) { .pt tfoot td { padding: 18px 6px 22px; } .pt-cta { white-space: normal; text-align: center; line-height: 1.25; padding: 8px 12px; border-radius: 18px; } }
+/* Face Gestures demo (Page Turner) — a port of the app's teaching loop, assets/face-gestures.js */
+.fd-head { margin-left: auto; margin-right: auto; text-align: center; }
+.fd-card { max-width: 760px; margin: 0 auto; padding: 32px 32px 28px; border-radius: var(--radius-panel); background: var(--card); border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.fd-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: 16px; background: var(--vellum); }
+.fd-tab { appearance: none; border: 0; background: transparent; border-radius: 12px; padding: 11px 6px 12px; cursor: pointer; font: inherit; color: var(--graphite); text-align: center; transition: background .2s, color .2s, box-shadow .2s; }
+.fd-tab:hover { color: var(--ink); }
+.fd-tab[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 2px rgba(20,20,20,0.06), 0 2px 8px rgba(20,20,20,0.06); }
+.fd-tab:focus-visible { outline: 2px solid var(--deep-amber); outline-offset: 2px; }
+.fd-tab-name { display: block; font-size: 15px; font-weight: 600; line-height: 1.3; }
+.fd-detail { margin: 18px auto 0; max-width: 520px; text-align: center; font-size: 15px; line-height: 1.5; color: var(--graphite); min-height: 3em; }
+.fd-stage { --ring: clamp(118px, calc((100vw - 76px) / 1.98), 250px); display: flex; align-items: center; justify-content: center; gap: calc(var(--ring) * 0.1375); margin: 22px auto 0; padding-right: calc(var(--ring) * 0.05); }
+.fd-facewrap { position: relative; flex: none; width: var(--ring); height: var(--ring); }
+.fd-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.fd-ring circle { fill: none; stroke-width: 2.4; }
+.fd-track { stroke: rgba(118,118,128,0.12); }
+.fd-ready { stroke: rgba(224,113,47,0.16); transition: opacity .15s; }
+.fd-arc { stroke: #E0712F; stroke-linecap: round; stroke-dasharray: 0.0001 1; }
+.fd-bloom { stroke: #E0712F; stroke-width: 5.3 !important; filter: blur(calc(var(--ring) * 0.029)); transform-origin: 50% 50%; opacity: 0; }
+.fd-face { position: absolute; inset: calc(var(--ring) * 0.075); width: calc(var(--ring) * 0.85); height: calc(var(--ring) * 0.85); }
+.fd-score { position: relative; flex: none; width: calc(var(--ring) * 0.773); height: var(--ring); }
+.fd-back, .fd-page { position: absolute; inset: 0; border-radius: calc(var(--ring) * 0.0375); }
+.fd-back { box-shadow: inset 0 0 0 0.5px rgba(0,0,0,0.12); }
+.fd-back2 { background: #E9E8E5; transform: translate(calc(var(--ring) * 0.05), calc(var(--ring) * 0.05)); }
+.fd-back1 { background: #F4F2F0; transform: translate(calc(var(--ring) * 0.025), calc(var(--ring) * 0.025)); }
+.fd-page canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.fd-top { transform-origin: 0 50%; will-change: transform; }
+.fd-shade { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+.fd-steps { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 22px; }
+.fd-caption { margin: 0; min-height: 1.3em; font-family: var(--font-display); font-size: clamp(21px, 2.2vw, 26px); line-height: 1.3; color: var(--ink); text-align: center; }
+.fd-step { display: none; appearance: none; width: 44px; height: 44px; border: 0; border-radius: 22px; background: transparent; color: var(--ink); cursor: pointer; }
+.fd-step:disabled { opacity: .3; cursor: default; }
+.fd-step svg { width: 18px; height: 18px; vertical-align: middle; }
+.fd-card.is-still .fd-step { display: inline-block; }
+.fd-card.is-still .fd-caption { font-size: 18px; max-width: 260px; }
+ol.fd-how { margin-top: 64px; }
+.fd-note { max-width: 760px; margin: 40px auto 0; text-align: center; font-size: 14px; line-height: 1.55; color: var(--graphite); }
+@media (max-width: 600px) {
+  .fd-card { padding: 22px 16px 20px; border-radius: var(--radius-card); }
+  .fd-tab { padding: 9px 4px 10px; }
+  .fd-tab-name { font-size: 14px; }
+  .fd-detail { font-size: 14px; }
+  ol.fd-how { margin-top: 48px; }
+}
+/* page turner: a generic two-pedal Bluetooth page turner (our own drawing, no brand) above the keys it sends */
+.pedal-card { width: 100%; max-width: 440px; padding: 30px 28px 28px; border-radius: var(--radius-card); background: var(--card); border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.pedal-art { display: block; width: 100%; height: auto; filter: drop-shadow(0 14px 18px rgba(20,20,20,0.18)); }
+.pc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 22px; }
+.pc-cols .kc-head { font-size: 12px; margin-bottom: 10px; transition: color .2s; }
+.pc-cols .kc-keys { gap: 6px; }
+.pedal-card kbd {
+  min-width: 38px; height: 38px; padding: 0 10px; display: inline-flex; align-items: center; justify-content: center;
+  font: 500 14px/1 var(--font-text); color: var(--ink); background: var(--manuscript);
+  border: 1px solid var(--staff-line); border-bottom-width: 3px; border-radius: 9px;
+}
+.pa-top { transform-box: view-box; }
+.pa-glow, .pa-led { opacity: 0; }
+/* 6 s: next, next, back — the same rhythm a player uses */
+.pa-r .pa-top { animation: pa-press-r 6s ease-in-out infinite; }
+.pa-l .pa-top { animation: pa-press-l 6s ease-in-out infinite; }
+.pa-r .pa-glow { animation: pa-glow-r 6s ease-out infinite; }
+.pa-l .pa-glow { animation: pa-glow-l 6s ease-out infinite; }
+.pa-led { animation: pa-led 6s ease-out infinite; }
+.pc-next .kc-head { animation: pa-head-r 6s ease-out infinite; }
+.pc-prev .kc-head { animation: pa-head-l 6s ease-out infinite; }
+.pc-next kbd:first-child { animation: pa-key-r 6s ease-out infinite; }
+.pc-prev kbd:first-child { animation: pa-key-l 6s ease-out infinite; }
+@keyframes pa-press-r { 0%, 12%, 21%, 38%, 47%, 100% { transform: translateY(0); } 14%, 19%, 40%, 45% { transform: translateY(5px); } }
+@keyframes pa-press-l { 0%, 66%, 75%, 100% { transform: translateY(0); } 68%, 73% { transform: translateY(5px); } }
+@keyframes pa-glow-r { 0%, 12%, 30%, 38%, 56%, 100% { opacity: 0; } 14%, 40% { opacity: .7; } }
+@keyframes pa-glow-l { 0%, 66%, 84%, 100% { opacity: 0; } 68% { opacity: .7; } }
+@keyframes pa-led { 0%, 12%, 22%, 38%, 48%, 66%, 76%, 100% { opacity: 0; } 14%, 40%, 68% { opacity: 1; } }
+@keyframes pa-head-r { 0%, 12%, 30%, 38%, 56%, 100% { color: var(--graphite); } 14%, 40% { color: var(--deep-amber); } }
+@keyframes pa-head-l { 0%, 66%, 84%, 100% { color: var(--graphite); } 68% { color: var(--deep-amber); } }
+@keyframes pa-key-r { 0%, 12%, 30%, 38%, 56%, 100% { color: var(--ink); border-color: var(--staff-line); } 14%, 40% { color: var(--deep-amber); border-color: rgba(224,113,47,0.55); } }
+@keyframes pa-key-l { 0%, 66%, 84%, 100% { color: var(--ink); border-color: var(--staff-line); } 68% { color: var(--deep-amber); border-color: rgba(224,113,47,0.55); } }
+@media (prefers-reduced-motion: reduce) {
+  .pa-top, .pa-glow, .pa-led, .pc-cols .kc-head, .pc-cols kbd:first-child { animation: none !important; }
+}
+@media (max-width: 600px) { .pedal-card { padding: 22px 18px 20px; } .pc-cols { gap: 14px; } }
+
+/* ---------- Round 5: comparisons, cropped screens, compact capability grids ---------- */
+/* hero panel with less side padding, so a landscape iPad shows a little larger */
+.lp-visual.snug { padding-left: 16px; padding-right: 16px; }
+/* a row whose screenshot needs more room than its words (the chart editor) */
+.row-feature.wide-visual { grid-template-columns: 5fr 7fr; }
+.row-feature.wide-visual.flip { grid-template-columns: 7fr 5fr; }
+.row-feature.wide-visual .rf-visual { padding-left: 24px; padding-right: 24px; }
+.rf-visual.bleed { align-items: flex-start; min-height: 0; padding-bottom: 0; overflow: hidden; }
+.rf-visual.bleed .device.tablet { width: min(420px, 100%); margin-bottom: calc(min(420px, 100%) * -0.36); }
+/* two real screens side by side (before / after, light / dark) */
+.shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: 100%; max-width: 580px; margin: 0; }
+.shot-pair figure, .shot-stack figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.rf-visual .shot-pair .device.tablet, .shot-pair .device.tablet { width: 100%; max-width: none; }
+.shot-pair figcaption, .shot-stack figcaption { font-size: 13.5px; line-height: 1.35; color: var(--graphite); text-align: center; max-width: 30ch; }
+.shot-pair figcaption b, .shot-stack figcaption b { display: block; color: var(--ink); font-weight: 600; }
+/* two real screens one above the other */
+.shot-stack { display: grid; gap: 22px; width: 100%; max-width: 500px; margin: 0; }
+.rf-visual .shot-stack .device.tablet.landscape { width: 100%; max-width: none; }
+/* part of a real screen, cropped deliberately and shown as a card */
+.shot-crop { display: block; width: 100%; margin: 0; border-radius: var(--radius-card); overflow: hidden; background: #fff; border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.shot-crop img { display: block; width: 100%; height: auto; }
+.rf-visual > .shot-crop { max-width: 440px; }
+/* compact list of smaller capabilities */
+.mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 48px; margin: 0; padding: 0; list-style: none; }
+.mini-grid li { padding: 22px 0 24px; border-top: 1px solid var(--staff-line); }
+.mini-grid h3 { font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--ink); margin: 0 0 6px; }
+.mini-grid p { font-size: 15px; line-height: 1.5; color: var(--graphite); margin: 0; }
+.mini-grid a { color: var(--deep-amber); font-weight: 500; text-decoration: none; }
+.mini-grid a:hover { text-decoration: underline; }
+.display-options { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: center; margin-bottom: 72px; }
+@media (max-width: 960px) { .mini-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 860px) {
+  .row-feature.wide-visual, .row-feature.wide-visual.flip { grid-template-columns: 1fr; }
+  .display-options { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+}
+@media (max-width: 560px) {
+  .mini-grid { grid-template-columns: 1fr; }
+  .shot-pair { gap: 12px; }
+  .shot-pair figcaption { font-size: 12.5px; }
+}
+/* a mid-page call to action on a feature page (Home's band card, without the faces) */
+.section.band-cta.mid { padding: 0 0 var(--section-gap); }
+.band-cta.mid .bc-copy .heading { margin-top: 0; }
+.bc-sub { font-size: 17px; line-height: 1.5; color: var(--graphite); margin: 14px 0 0; max-width: 560px; }
+
+/* ---------- Page Links demo: tap the link, jump to the coda, tap Back (one 8 s loop) ----------
+   Two real captures of the same screen cross-fade; .ld-tap is a touch mark (no app UI).
+   Positions are fractions of the 900 × 1200 capture: link (559, 398), Back (450, 1143). */
+.link-demo .screen { position: relative; }
+.link-demo .ld-after { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0; opacity: 0;
+  animation: ld-after 8s ease-in-out infinite; }
+.link-demo .ld-tap { position: absolute; left: 62.1%; top: 33.2%; width: 7.5%; aspect-ratio: 1; margin: -3.75% 0 0 -3.75%;
+  border-radius: 50%; background: rgba(20,20,20,0.22); box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 4px 14px rgba(0,0,0,0.25);
+  opacity: 0; pointer-events: none; animation: ld-tap 8s ease-in-out infinite; }
+.link-demo .ld-tap::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid rgba(224,113,47,0.85);
+  opacity: 0; animation: ld-ripple 8s ease-out infinite; }
+@keyframes ld-after {
+  0%, 22% { opacity: 0; }
+  25%, 68% { opacity: 1; }
+  71%, 100% { opacity: 0; }
+}
+@keyframes ld-tap {
+  0%, 9% { opacity: 0; left: 62.1%; top: 33.2%; transform: scale(1.25); }
+  14% { opacity: 1; transform: scale(1); }
+  19% { opacity: 1; transform: scale(0.82); }
+  22% { opacity: 1; transform: scale(1); }
+  28% { opacity: 0; left: 62.1%; top: 33.2%; transform: scale(1); }
+  29%, 52% { opacity: 0; left: 50%; top: 95.25%; transform: scale(1.25); }
+  57% { opacity: 1; left: 50%; top: 95.25%; transform: scale(1); }
+  63% { opacity: 1; transform: scale(0.82); }
+  66% { opacity: 1; transform: scale(1); }
+  72%, 100% { opacity: 0; left: 50%; top: 95.25%; transform: scale(1); }
+}
+@keyframes ld-ripple {
+  0%, 19% { opacity: 0; transform: scale(1); }
+  20% { opacity: 1; transform: scale(1); }
+  27% { opacity: 0; transform: scale(2.2); }
+  28%, 63% { opacity: 0; transform: scale(1); }
+  64% { opacity: 1; transform: scale(1); }
+  71% { opacity: 0; transform: scale(2.2); }
+  72%, 100% { opacity: 0; }
+}
+/* where the jump lands: one soft ripple out of the coda's ring (coda at 139, 978) */
+.link-demo .ld-land { position: absolute; left: 15.45%; top: 81.5%; width: 5.4%; aspect-ratio: 1; margin: -2.7% 0 0 -2.7%;
+  border-radius: 50%; border: 2px solid rgba(224,113,47,0.9); opacity: 0; pointer-events: none; animation: ld-land 8s ease-out infinite; }
+@keyframes ld-land {
+  0%, 23% { opacity: 0; transform: scale(1); }
+  25% { opacity: 0.9; transform: scale(1); }
+  34% { opacity: 0; transform: scale(3); }
+  35%, 100% { opacity: 0; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .link-demo .ld-after { animation: none; opacity: 1; }
+  .link-demo .ld-tap, .link-demo .ld-land { display: none; }
+}
+/* Set lists › "One book": the sections picker beside the set, a little larger, whole device */
+.rf-visual.sections-demo .device.tablet { width: min(460px, 100%); max-width: 460px; }
+/* Organizer hero: the iPad at the panel's width, the whole device shown (owner, 2026-11-10) */
+.lp-visual.large { padding: 40px 28px; }
+.lp-visual.large .device.tablet { width: 100%; max-width: 470px; }
+@media (max-width: 960px) { .lp-visual.large { padding: 28px 18px; } }
