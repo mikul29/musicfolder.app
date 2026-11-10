@@ -9,7 +9,7 @@ export const PLAIN_APP_STORE_URL = `https://apps.apple.com/app/id${APP_ID}`;
 // Every App Store button on the site, as <page>-<position>. A new button needs a line here,
 // or its taps count as "other" (tools/check-measurement.py fails until it's added).
 // Positions: nav (header button), menu (phone menu), hero (first badge), band (home's band
-// call to action), plan-free / plan-premium (pricing table), final (closing badge).
+// call to action, and the reader page's mid-page one), plan-free / plan-premium (pricing table), final (closing badge).
 export const BUTTONS = {
   "home": ["nav", "menu", "hero", "band", "final"],
   "pricing": ["nav", "menu", "plan-free", "plan-premium", "final"],
@@ -26,7 +26,7 @@ export const BUTTONS = {
   "features-free-sheet-music": ["nav", "menu", "hero", "final"],
   "features-toolkit": ["nav", "menu", "hero", "final"],
   "features-sheet-music-organizer": ["nav", "menu", "hero", "final"],
-  "features-sheet-music-reader": ["nav", "menu", "hero", "final"],
+  "features-sheet-music-reader": ["nav", "menu", "hero", "band", "final"],
   "features-chord-charts": ["nav", "menu", "hero", "final"],
   "for-bands": ["nav", "menu", "hero", "final"],
   "for-worship-teams": ["nav", "menu", "hero", "final"],

@@ -91,15 +91,33 @@ def build(spec: dict) -> str:
         points = "".join(f"<li>{CHECK}<span>{p}</span></li>" for p in r["points"])
         flip = " flip" if i % 2 else ""
         visual = r.get("visual_html") or device(r["img"])
-        rows.append(f'<div class="row-feature{flip}">\n      <div class="rf-text"><h2 class="heading-sm">{r["h2"]}</h2>'
-                    f'<p>{r["p"]}</p><ul class="rf-points">{points}</ul></div>\n'
-                    f'      <div class="rf-visual">{visual}</div>\n    </div>')
+        rcls = (" " + r["row_class"]) if r.get("row_class") else ""
+        vcls = (" " + r["visual_class"]) if r.get("visual_class") else ""
+        more_link = f'<p class="rf-more">{r["more"]}</p>' if r.get("more") else ""
+        rows.append(f'<div class="row-feature{flip}{rcls}">\n      <div class="rf-text"><h2 class="heading-sm">{r["h2"]}</h2>'
+                    f'<p>{r["p"]}</p><ul class="rf-points">{points}</ul>{more_link}</div>\n'
+                    f'      <div class="rf-visual{vcls}">{visual}</div>\n    </div>')
     how = "".join(f"<li><h3>{h}</h3><p>{p}</p></li>" for h, p in spec["how"])
     faq = "\n".join(f'<details><summary>{esc(q)}<span class="plus" aria-hidden="true"></span></summary>'
                     f'<div class="answer"><p>{a}</p></div></details>' for q, a in spec["faq"])
     more = "".join(f'<a class="more-card" href="{h}"><h3>{n}</h3><p>{p}</p><span class="more-link" aria-hidden="true">Explore</span></a>'
                    for h, n, p in spec["more"])
     extra = spec.get("extra_section", "")
+    if spec.get("band_cta"):  # a mid-page call to action, styled like Home's band (position "band")
+        b = spec["band_cta"]
+        extra += f"""
+<section class="section band-cta mid" aria-labelledby="bandCtaTitle">
+  <div class="wrap">
+    <div class="bc-panel">
+      <div class="bc-copy"><h2 class="heading" id="bandCtaTitle">{b['h2']}</h2><p class="bc-sub">{b['p']}</p></div>
+      <div class="bc-actions">
+        <div class="cta-row">{BADGE.format(src=page + '-band', lazy=' loading="lazy"')}</div>
+        <a class="bc-link" href="{b['link_href']}">{b['link_text']} <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+"""
     main = f"""<main>
 
 <section class="lp-hero">
@@ -110,7 +128,7 @@ def build(spec: dict) -> str:
       <p class="lede">{spec['lede']}</p>
       <div class="cta-row">{BADGE.format(src=page + '-hero', lazy='')}</div>
     </div>
-    <div class="lp-visual">{device(spec['hero_img'], lazy=False)}</div>
+    <div class="lp-visual{(' ' + spec['hero_class']) if spec.get('hero_class') else ''}">{device(spec['hero_img'], lazy=False)}</div>
   </div>
 </section>
 

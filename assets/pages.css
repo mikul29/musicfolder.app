@@ -23,6 +23,10 @@
 .lp-visual .device.tablet { width: min(400px, 100%); aspect-ratio: 0.7029; }
 .lp-visual .cutout { width: min(250px, 70%); height: auto; filter: drop-shadow(0 24px 30px rgba(20,20,20,0.18)); }
 .lp-visual .share-card { max-width: 400px; }
+/* A deliberate crop: the iPad grows to the panel's width and its empty lower part runs off
+   the panel's bottom edge (the device is never scaled out of proportion). */
+.lp-visual.bleed { align-items: flex-start; min-height: 0; padding: 40px 32px 0; overflow: hidden; }
+.lp-visual.bleed .device.tablet { width: 100%; max-width: 470px; margin-bottom: calc(min(470px, 100%) * -0.37); }
 @media (max-width: 960px) {
   .lp-hero { padding: 112px 0 var(--section-gap); }
   .lp-hero-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -448,3 +452,48 @@ ol.fd-how { margin-top: 64px; }
   .pa-top, .pa-glow, .pa-led, .pc-cols .kc-head, .pc-cols kbd:first-child { animation: none !important; }
 }
 @media (max-width: 600px) { .pedal-card { padding: 22px 18px 20px; } .pc-cols { gap: 14px; } }
+
+/* ---------- Round 5: comparisons, cropped screens, compact capability grids ---------- */
+/* hero panel with less side padding, so a landscape iPad shows a little larger */
+.lp-visual.snug { padding-left: 16px; padding-right: 16px; }
+/* a row whose screenshot needs more room than its words (the chart editor) */
+.row-feature.wide-visual { grid-template-columns: 5fr 7fr; }
+.row-feature.wide-visual.flip { grid-template-columns: 7fr 5fr; }
+.row-feature.wide-visual .rf-visual { padding-left: 24px; padding-right: 24px; }
+.rf-visual.bleed { align-items: flex-start; min-height: 0; padding-bottom: 0; overflow: hidden; }
+.rf-visual.bleed .device.tablet { width: min(420px, 100%); margin-bottom: calc(min(420px, 100%) * -0.36); }
+/* two real screens side by side (before / after, light / dark) */
+.shot-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: 100%; max-width: 580px; margin: 0; }
+.shot-pair figure, .shot-stack figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.rf-visual .shot-pair .device.tablet, .shot-pair .device.tablet { width: 100%; max-width: none; }
+.shot-pair figcaption, .shot-stack figcaption { font-size: 13.5px; line-height: 1.35; color: var(--graphite); text-align: center; max-width: 30ch; }
+.shot-pair figcaption b, .shot-stack figcaption b { display: block; color: var(--ink); font-weight: 600; }
+/* two real screens one above the other */
+.shot-stack { display: grid; gap: 22px; width: 100%; max-width: 500px; margin: 0; }
+.rf-visual .shot-stack .device.tablet.landscape { width: 100%; max-width: none; }
+/* part of a real screen, cropped deliberately and shown as a card */
+.shot-crop { display: block; width: 100%; margin: 0; border-radius: var(--radius-card); overflow: hidden; background: #fff; border: 1px solid var(--staff-line); box-shadow: var(--shadow-card); }
+.shot-crop img { display: block; width: 100%; height: auto; }
+.rf-visual > .shot-crop { max-width: 440px; }
+/* compact list of smaller capabilities */
+.mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 48px; margin: 0; padding: 0; list-style: none; }
+.mini-grid li { padding: 22px 0 24px; border-top: 1px solid var(--staff-line); }
+.mini-grid h3 { font-size: 17px; font-weight: 600; line-height: 1.3; color: var(--ink); margin: 0 0 6px; }
+.mini-grid p { font-size: 15px; line-height: 1.5; color: var(--graphite); margin: 0; }
+.mini-grid a { color: var(--deep-amber); font-weight: 500; text-decoration: none; }
+.mini-grid a:hover { text-decoration: underline; }
+.display-options { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: center; margin-bottom: 72px; }
+@media (max-width: 960px) { .mini-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 860px) {
+  .row-feature.wide-visual, .row-feature.wide-visual.flip { grid-template-columns: 1fr; }
+  .display-options { grid-template-columns: 1fr; gap: 32px; margin-bottom: 48px; }
+}
+@media (max-width: 560px) {
+  .mini-grid { grid-template-columns: 1fr; }
+  .shot-pair { gap: 12px; }
+  .shot-pair figcaption { font-size: 12.5px; }
+}
+/* a mid-page call to action on a feature page (Home's band card, without the faces) */
+.section.band-cta.mid { padding: 0 0 var(--section-gap); }
+.band-cta.mid .bc-copy .heading { margin-top: 0; }
+.bc-sub { font-size: 17px; line-height: 1.5; color: var(--graphite); margin: 14px 0 0; max-width: 560px; }
