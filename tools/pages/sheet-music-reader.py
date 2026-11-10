@@ -34,6 +34,17 @@ TOOLBAR = ('<figure class="shot-crop"><img src="/assets/reader-toolbar-edit.jpg?
            'Music Folder on iPad while customizing the toolbar: each tool shows a minus to remove it and a green plus '
            'adds more" width="1000" height="864" loading="lazy"></figure>')
 
+# Page Links, animated from two real captures of the same screen (before / after the
+# jump): a tap lands on the orange link, the coda is circled and Back appears; a tap on
+# Back returns. The tap mark and the landing ripple are the only drawn elements. Reduced motion: the after frame.
+LINK_DEMO = ('<div class="device tablet fit link-demo"><div class="screen shot">'
+             '<img src="/assets/reader-page-links-before-ipad.jpg?v=1" alt="Fauré\'s Sicilienne in Music Folder on iPad: '
+             'a tap on the orange Page Link beside the To Coda sign jumps to the coda, which is circled, and a Back to p. 1 '
+             'button appears at the bottom; a tap on Back returns" width="900" height="1200" loading="lazy">'
+             '<img class="ld-after" src="/assets/reader-page-links-ipad.jpg?v=1" alt="" aria-hidden="true" width="900" height="1200" loading="lazy">'
+             '<span class="ld-land" aria-hidden="true"></span><span class="ld-tap" aria-hidden="true"></span>'
+             '</div></div>')
+
 MORE_WAYS = """
 <section class="section" style="padding-top:0">
   <div class="wrap">
@@ -81,8 +92,7 @@ PAGE = {
         {"h2": "From D.S. to coda, <em>in one tap.</em>",
          "p": "Signs like D.S. (go back to the sign) and To Coda (skip ahead to the ending) usually mean hunting for the right page mid-performance. Link each sign to where it goes once, and from then on one tap takes you there.",
          "points": ["Set up once per piece, in a short guided flow", "Tap Back to return to exactly where you were", "Links stay in place when you edit the pages"],
-         "img": {"src": "reader-page-links-ipad.jpg?v=1", "device": "tablet",
-                 "alt": "Fauré's Sicilienne in Music Folder on iPad just after a Page Link jump: the coda sign is circled and a Back to p. 1 button waits at the bottom"}},
+         "visual_html": LINK_DEMO},
         {"h2": "Read across <em>the page break.</em>",
          "p": "With Half-Page Turns, the first press brings in the top of the next page while the end of the current one stays in view, so you can keep reading through the turn. The second press finishes it.",
          "points": ["Works with a tap, a swipe or a pedal", "Back works the same way, one step at a time", "For pianists, accompanists and long parts"],
