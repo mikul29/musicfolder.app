@@ -19,7 +19,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Metronome playback, the tuner's reference tones and the piano are part of Premium; recordings are free."
+   "text": "Playing the metronome, reference tones and the piano requires Music Folder Premium. Recordings play without it."
   }
  ],
  "related": [

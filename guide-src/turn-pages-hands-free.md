@@ -22,11 +22,11 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Bluetooth pedals are free. Setting up and trying Face Gestures is free; using them with your music needs Premium."
+   "text": "Bluetooth page turners work without Premium. Turning pages with Face Gestures requires Music Folder Premium; setting them up and trying them is free."
   },
   {
    "kind": "device",
-   "text": "Face Gestures need an iPhone or iPad whose front camera can track a face. They aren't available on Mac."
+   "text": "Face Gestures require an iPhone or iPad with a front camera that can track a face. They aren't available on Mac."
   }
  ],
  "related": [

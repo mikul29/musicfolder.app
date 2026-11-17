@@ -22,7 +22,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Shared folders and set lists need Premium for everyone taking part."
+   "text": "Requires Music Folder Premium for everyone taking part."
   }
  ],
  "related": [

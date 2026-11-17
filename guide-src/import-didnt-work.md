@@ -21,7 +21,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "The free version holds up to 15 pieces and 5 sections; Premium has no limit."
+   "text": "Without Music Folder Premium, your library can hold up to 15 pieces and 5 sections."
   }
  ],
  "related": [

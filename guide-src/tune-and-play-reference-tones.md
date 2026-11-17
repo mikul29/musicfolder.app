@@ -22,7 +22,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "The tuner and reference tones need Premium."
+   "text": "Requires Music Folder Premium."
   }
  ],
  "related": [

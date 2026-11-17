@@ -20,7 +20,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "The piano needs Premium."
+   "text": "Requires Music Folder Premium."
   }
  ],
  "related": [

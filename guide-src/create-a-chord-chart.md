@@ -21,7 +21,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Each chord chart counts as one piece toward Free's 15-piece limit; Premium has no limit."
+   "text": "Without Music Folder Premium, your library can hold up to 15 pieces, and each chord chart counts as one."
   }
  ],
  "related": [

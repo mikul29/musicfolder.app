@@ -20,7 +20,7 @@
  "availability": [
   {
    "kind": "requires",
-   "text": "Needs an internet connection to browse and download."
+   "text": "Browsing and downloading scores requires an internet connection."
   }
  ],
  "related": [

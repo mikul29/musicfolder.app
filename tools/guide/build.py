@@ -26,7 +26,7 @@ OUT_DIR = ROOT / "guide"
 IMG_DIR = ROOT / "assets" / "guide"
 SITE = "https://musicfolder.app"
 SITE_CSS = "61"          # keep in step with the other pages' site.css?v=
-GUIDE_CSS = "2"
+GUIDE_CSS = "3"
 GUIDE_JS = "2"
 SITE_JS = "6"
 DRAFT = "--draft" in sys.argv
@@ -410,7 +410,6 @@ def sidebar(inv, current_slug):
     return "\n".join(parts)
 
 
-AVAIL_LABEL = {"premium": "Premium", "device": "Device", "requires": "Requires", "version": "Version"}
 
 
 def article_page(g, meta, body_html, renderer, inv, order, header, footer, by_slug):
@@ -440,9 +439,9 @@ def article_page(g, meta, body_html, renderer, inv, order, header, footer, by_sl
     out.append(f'<h1 class="guide-title">{html.escape(g["title"])}</h1>')
     av = meta.get("availability") or []
     if av:
-        out.append('<ul class="availability">' + "".join(
-            f'<li class="av av-{html.escape(a["kind"])}"><span class="av-label">{AVAIL_LABEL.get(a["kind"], "Note")}</span> {renderer.inline(a["text"])}</li>'
-            for a in av) + "</ul>")
+        # Plain-text requirements under the title (Premium, device, OS, version): no badges or colour
+        out.append('<div class="availability" role="note" aria-label="Requirements">' + "".join(
+            f'<p data-kind="{html.escape(a["kind"])}">{renderer.inline(a["text"])}</p>' for a in av) + "</div>")
     h2s = [h for h in renderer.headings if h[0] == 2]
     if len(h2s) >= 3:
         cols = " on-page-cols" if len(h2s) >= 6 else ""

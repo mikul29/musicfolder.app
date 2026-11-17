@@ -22,7 +22,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Choosing another key or a capo needs Premium. Every chart shows in its saved key for free."
+   "text": "Changing the key or capo requires Music Folder Premium. You can view chord charts in their saved key for free."
   }
  ],
  "related": [

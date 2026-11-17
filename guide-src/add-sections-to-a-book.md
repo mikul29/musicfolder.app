@@ -27,11 +27,11 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Free includes 5 sections across your library; Premium has no limit."
+   "text": "Without Music Folder Premium, your library can hold up to 5 sections."
   },
   {
    "kind": "requires",
-   "text": "Find Pieces Automatically needs Apple Intelligence (iOS 26 or later)."
+   "text": "Find Pieces Automatically requires Apple Intelligence and iOS 26 or iPadOS 26 or later."
   }
  ],
  "related": [

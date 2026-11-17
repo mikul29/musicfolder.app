@@ -20,15 +20,11 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Joining and opening shared folders and set lists needs Premium. Leaving doesn't."
+   "text": "Joining and opening shared folders and set lists requires Music Folder Premium. You can leave one without it."
   },
   {
    "kind": "version",
-   "text": "Needs Music Folder 4.3 or later."
-  },
-  {
-   "kind": "requires",
-   "text": "Needs an iCloud account."
+   "text": "Requires Music Folder 4.3 or later and an iCloud account."
   }
  ],
  "related": [

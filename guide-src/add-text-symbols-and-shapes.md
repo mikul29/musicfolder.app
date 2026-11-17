@@ -23,7 +23,7 @@
  "availability": [
   {
    "kind": "requires",
-   "text": "Add Text, Add Symbol and Add Shape need iOS 18 or iPadOS 18 or later."
+   "text": "Add Text, Add Symbol and Add Shape require iOS 18 or iPadOS 18 or later."
   }
  ],
  "related": [

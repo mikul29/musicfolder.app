@@ -21,7 +21,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Free includes 1 folder; Premium has no limit."
+   "text": "Without Music Folder Premium, your library can hold 1 folder."
   }
  ],
  "related": [

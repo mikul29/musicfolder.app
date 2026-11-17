@@ -19,7 +19,7 @@
  "availability": [
   {
    "kind": "requires",
-   "text": "Needs an iCloud account, signed in on each device with the same Apple Account."
+   "text": "Requires an iCloud account, signed in with the same Apple Account on each device."
   }
  ],
  "related": [

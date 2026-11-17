@@ -19,7 +19,7 @@
  "availability": [
   {
    "kind": "requires",
-   "text": "Sync needs an iCloud account on every device."
+   "text": "Sync requires an iCloud account on every device."
   }
  ],
  "related": [

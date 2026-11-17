@@ -17,7 +17,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Free includes up to 15 pieces; Premium has no limit."
+   "text": "Without Music Folder Premium, your library can hold up to 15 pieces."
   }
  ],
  "related": [

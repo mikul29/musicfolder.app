@@ -23,15 +23,11 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Sharing needs Premium, for you and for everyone you invite."
-  },
-  {
-   "kind": "version",
-   "text": "Everyone you invite needs Music Folder 4.3 or later."
+   "text": "Sharing requires Music Folder Premium and Music Folder 4.3 or later, for you and for everyone you invite."
   },
   {
    "kind": "requires",
-   "text": "Needs an iCloud account and an internet connection to start sharing."
+   "text": "Starting to share also requires an iCloud account and an internet connection."
   }
  ],
  "related": [

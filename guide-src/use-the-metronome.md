@@ -21,7 +21,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Playing the metronome needs Premium."
+   "text": "Playing the metronome requires Music Folder Premium."
   }
  ],
  "related": [

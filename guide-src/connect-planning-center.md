@@ -20,11 +20,7 @@
  "availability": [
   {
    "kind": "premium",
-   "text": "Connecting Planning Center needs Premium."
-  },
-  {
-   "kind": "requires",
-   "text": "Needs a Planning Center Services account."
+   "text": "Requires Music Folder Premium and a Planning Center Services account."
   }
  ],
  "related": [

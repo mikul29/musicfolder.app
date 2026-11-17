@@ -20,7 +20,7 @@
  "availability": [
   {
    "kind": "device",
-   "text": "Needs a Mac with Apple silicon. Music Folder runs there as its iPad app."
+   "text": "Requires a Mac with Apple silicon, where Music Folder runs as its iPad app."
   }
  ],
  "related": [
