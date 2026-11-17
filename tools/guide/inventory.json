@@ -1,0 +1,321 @@
+{
+ "chapters": [
+  {
+   "slug": "get-started",
+   "title": "Get Started",
+   "summary": "The basics: what Music Folder does, adding your first music, Premium, and the Mac.",
+   "guides": [
+    {
+     "slug": "welcome-to-music-folder",
+     "title": "Welcome to Music Folder",
+     "covers": "What it does; the four tabs (Home, Library, Tools, Browse); the two samples (Examples)"
+    },
+    {
+     "slug": "add-your-first-music",
+     "title": "Add your first music",
+     "covers": "The fastest path: + › Files, then open it"
+    },
+    {
+     "slug": "free-and-premium",
+     "title": "Free and Premium",
+     "covers": "Free limits (15 pieces, 5 sections, 1 folder), what Premium adds, the trial, restoring purchases, pre-3.0 buyers"
+    },
+    {
+     "slug": "use-music-folder-on-a-mac",
+     "title": "Use Music Folder on a Mac",
+     "covers": "Apple silicon, the menu bar, drag PDFs from Finder, window sizes, all keyboard shortcuts"
+    }
+   ]
+  },
+  {
+   "slug": "build-your-library",
+   "title": "Build Your Library",
+   "summary": "Import, organize and find your music.",
+   "guides": [
+    {
+     "slug": "import-music",
+     "title": "Import music",
+     "covers": "Files, Photos, Folder, Scan Sheet Music, AirDrop and the share sheet, drag and drop, many at once"
+    },
+    {
+     "slug": "get-free-sheet-music",
+     "title": "Get free sheet music",
+     "covers": "Browse the public-domain catalog, add a piece"
+    },
+    {
+     "slug": "add-sections-to-a-book",
+     "title": "Add sections to a book",
+     "covers": "Add Sections, Find Pieces Automatically, Display as Book, editing sections, section details; Bookmarks is the old name; not the same as chord-chart verses/choruses"
+    },
+    {
+     "slug": "edit-or-delete-a-piece",
+     "title": "Edit or delete a piece",
+     "covers": "Title, composer, key, tempo, time signature, duration, tags; what deleting removes and which set lists it affects"
+    },
+    {
+     "slug": "organize-rotate-and-crop-pages",
+     "title": "Organize, rotate and crop pages",
+     "covers": "Organize Pages: reorder, rotate, duplicate, remove, add pages, blank and staff paper, pages from another piece; Crop Margins"
+    },
+    {
+     "slug": "organize-music-in-folders",
+     "title": "Organize music in folders",
+     "covers": "Create, colour, add and remove pieces, delete a folder"
+    },
+    {
+     "slug": "find-music-with-search-and-filters",
+     "title": "Find music with search and filters",
+     "covers": "Search, the Filter button, filter tokens"
+    }
+   ]
+  },
+  {
+   "slug": "read-and-play",
+   "title": "Read and Play",
+   "summary": "Reading, turning pages and performing from your music.",
+   "guides": [
+    {
+     "slug": "the-reader-at-a-glance",
+     "title": "The reader at a glance",
+     "covers": "Toolbar, ⋯ menu, sections list, title menu, iPhone bottom bar, Customize Toolbar"
+    },
+    {
+     "slug": "turn-pages",
+     "title": "Turn pages",
+     "covers": "Swipe, Half-Page Turns, keyboard"
+    },
+    {
+     "slug": "turn-pages-hands-free",
+     "title": "Turn pages hands-free",
+     "covers": "Bluetooth page turners (test, Swap); Face Gestures (setup, gestures, sensitivity, supported devices)"
+    },
+    {
+     "slug": "change-the-page-view",
+     "title": "Change the page view",
+     "covers": "Vertical Scrolling, Two-Page View, Dark Background"
+    },
+    {
+     "slug": "use-performance-mode",
+     "title": "Use Performance Mode",
+     "covers": "What hides, tap zones, leaving, settings"
+    },
+    {
+     "slug": "jump-to-repeats-with-page-links",
+     "title": "Jump to repeats with Page Links",
+     "covers": "Set up a link, use it, the Back button"
+    },
+    {
+     "slug": "keep-notes-on-a-piece",
+     "title": "Keep notes on a piece",
+     "covers": "The notes panel, dated reminder lines, previous version"
+    }
+   ]
+  },
+  {
+   "slug": "annotate",
+   "title": "Annotate",
+   "summary": "Marking up music with Apple Pencil or your finger.",
+   "guides": [
+    {
+     "slug": "mark-up-music-with-apple-pencil",
+     "title": "Mark up music with Apple Pencil",
+     "covers": "Start and finish, pens, highlighter, eraser, drawing with a finger"
+    },
+    {
+     "slug": "use-annotation-layers",
+     "title": "Use annotation layers",
+     "covers": "Add, hide, rename, delete; which layer you're drawing on"
+    },
+    {
+     "slug": "add-text-symbols-and-shapes",
+     "title": "Add text, symbols and shapes",
+     "covers": "Add Text, Add Symbol, Add Shape; move and resize"
+    }
+   ]
+  },
+  {
+   "slug": "chord-charts",
+   "title": "Chord Charts",
+   "summary": "Writing, transposing and formatting chord charts.",
+   "guides": [
+    {
+     "slug": "create-a-chord-chart",
+     "title": "Create a chord chart",
+     "covers": "New Chord Chart, ChordPro or chords above lyrics, preview, importing .cho / .chordpro / .pro / .crd / .txt files"
+    },
+    {
+     "slug": "transpose-capo-and-numbers",
+     "title": "Transpose, capo and numbers",
+     "covers": "The Key control, capo, Nashville numbers, text size; your view never changes the chart"
+    },
+    {
+     "slug": "set-the-song-order",
+     "title": "Set the song order",
+     "covers": "Sections (V1, C1), Sequence, Follow Sequence"
+    },
+    {
+     "slug": "format-a-chord-chart",
+     "title": "Format a chord chart",
+     "covers": "Columns, fonts, page size, defaults"
+    },
+    {
+     "slug": "turn-a-pdf-into-a-chord-chart",
+     "title": "Turn a PDF into a chord chart",
+     "covers": "Convert to Chord Chart, checking flagged lines, switching between chart and PDF"
+    }
+   ]
+  },
+  {
+   "slug": "set-lists",
+   "title": "Set Lists",
+   "summary": "Building, timing and playing set lists.",
+   "guides": [
+    {
+     "slug": "create-and-edit-a-set-list",
+     "title": "Create and edit a set list",
+     "covers": "New Set List, add whole pieces or sections, drag to reorder, remove; Add to Set List from anywhere"
+    },
+    {
+     "slug": "add-pages-and-timing-to-a-set-list",
+     "title": "Add pages and timing to a set list",
+     "covers": "Intermission, announcement and note pages; durations, set totals, page countdowns"
+    },
+    {
+     "slug": "play-a-set-list",
+     "title": "Play a set list",
+     "covers": "Perform Set, \"3 of 8\", repeats, Open Whole Document"
+    }
+   ]
+  },
+  {
+   "slug": "practice-tools",
+   "title": "Practice Tools",
+   "summary": "Metronome, tuner, piano, recordings and practice tracking.",
+   "guides": [
+    {
+     "slug": "use-the-metronome",
+     "title": "Use the metronome",
+     "covers": "Tempo, tap tempo, subdivisions, per-piece and section tempos"
+    },
+    {
+     "slug": "tune-and-play-reference-tones",
+     "title": "Tune and play reference tones",
+     "covers": "Tuner, A4 calibration, tones and drones"
+    },
+    {
+     "slug": "play-the-piano",
+     "title": "Play the piano",
+     "covers": "Keyboard, sounds, full keyboard in landscape"
+    },
+    {
+     "slug": "play-along-with-recordings",
+     "title": "Play along with recordings",
+     "covers": "Attach (record, file, Music library), change tempo and key, record yourself in the reader"
+    },
+    {
+     "slug": "track-your-practice",
+     "title": "Track your practice",
+     "covers": "Daily goal, reminders, the Practice screen"
+    }
+   ]
+  },
+  {
+   "slug": "share-and-collaborate",
+   "title": "Share and Collaborate",
+   "summary": "Sending copies and sharing folders and set lists with other musicians.",
+   "guides": [
+    {
+     "slug": "send-a-copy-or-print",
+     "title": "Send a copy or print",
+     "covers": "A piece, folder or set list as a Music Folder file or PDF; which markings go with it; opening one you receive"
+    },
+    {
+     "slug": "share-a-folder-or-set-list",
+     "title": "Share a folder or set list",
+     "covers": "Collaborate vs Send Copy, start sharing, invite, Owner / Can Edit / View Only, Premium for everyone, version compatibility, moving 4.2 shares to the new sharing, re-inviting, stop sharing"
+    },
+    {
+     "slug": "join-a-shared-folder-or-set-list",
+     "title": "Join a shared folder or set list",
+     "covers": "Accept an invitation, Premium, what you can do, private annotations/notes/recordings, Save to My Library, Leave"
+    },
+    {
+     "slug": "work-together-in-a-shared-folder-or-set-list",
+     "title": "Work together in a shared folder or set list",
+     "covers": "Edits for everyone, changes while you read or perform, offline, Recently Removed, Previous Version, edits that couldn't be sent"
+    }
+   ]
+  },
+  {
+   "slug": "planning-center",
+   "title": "Planning Center",
+   "summary": "Using Planning Center Services with Music Folder.",
+   "guides": [
+    {
+     "slug": "connect-planning-center",
+     "title": "Connect Planning Center",
+     "covers": "Connect, what appears, disconnect"
+    },
+    {
+     "slug": "play-a-service-plan",
+     "title": "Play a service plan",
+     "covers": "Plans in Set Lists, play-through, attachments, Planning Center chord charts in the plan key, Save to My Library"
+    }
+   ]
+  },
+  {
+   "slug": "sync-backup-and-account",
+   "title": "Sync, Backup and Account",
+   "summary": "iCloud sync, backups and your subscription.",
+   "guides": [
+    {
+     "slug": "sync-with-icloud",
+     "title": "Sync with iCloud",
+     "covers": "How sync works, turning it on, the first sync"
+    },
+    {
+     "slug": "back-up-and-restore-your-library",
+     "title": "Back up and restore your library",
+     "covers": "Backup files, automatic backups, Add Missing vs. Replace Library"
+    },
+    {
+     "slug": "manage-your-subscription",
+     "title": "Manage your subscription",
+     "covers": "Subscribe, restore purchases, cancel (through Apple)"
+    }
+   ]
+  },
+  {
+   "slug": "troubleshooting",
+   "title": "Troubleshooting",
+   "summary": "Fixes for common problems, in the order most likely to help.",
+   "guides": [
+    {
+     "slug": "music-isnt-syncing",
+     "title": "My music isn't syncing",
+     "covers": "Checklist in order of likelihood, ending with Contact us"
+    },
+    {
+     "slug": "library-looks-empty-after-reinstalling",
+     "title": "My library looks empty after reinstalling",
+     "covers": "Restoring from iCloud overlay, backups, checklist"
+    },
+    {
+     "slug": "cant-hear-the-metronome-or-a-recording",
+     "title": "I can't hear the metronome or a recording",
+     "covers": "Silent switch, volume, audio route, Bluetooth, other apps"
+    },
+    {
+     "slug": "page-turner-isnt-turning-pages",
+     "title": "My page turner isn't turning pages",
+     "covers": "Pairing, the Page Turner test, Swap, modes that block turns, media-key mode"
+    },
+    {
+     "slug": "import-didnt-work",
+     "title": "An import didn't work",
+     "covers": "File types, free limits, iCloud downloads, damaged PDFs"
+    }
+   ]
+  }
+ ]
+}

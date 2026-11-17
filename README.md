@@ -35,6 +35,21 @@ The folder is laid out at a fixed 450×600 (rig coordinates) and scaled as a who
 
 With `prefers-reduced-motion`, the hero is static.
 
+## User Guide (/guide)
+
+48 task guides in 11 chapters, a hub at `/guide` and a What's New archive at `/guide/whats-new`. Pages are generated, never edited by hand:
+
+- `guide-src/<slug>.md` — one source file per guide: JSON front matter (SEO title, description, availability notices, related guides, the app files it documents, screenshots) and a small Markdown body. The rules for writing and verifying one are in `tools/guide/WRITING.md`; the inventory (chapters, slugs, titles) is `tools/guide/inventory.json`.
+- `python3 tools/guide/build.py` writes `guide.html`, `guide/*.html`, `assets/guide-search.json`, the guide lines of `sitemap.xml` and the guide placements in `worker/tap.js`, and fails on anything missing (images, icons, unknown links, duplicate titles or descriptions, em dashes). `--draft` builds what exists.
+- `python3 tools/guide/crosslinks.py` keeps the "Step-by-step guides" lists under the feature, audience and pricing pages' FAQs and the footer's User Guide link.
+- `python3 tools/guide/check.py` validates the built pages (titles, canonicals, one H1, headings, links, sitemap, structured data, image sizes and alt text, writing-style checks).
+- Screenshots and clips live in `assets/guide/` (`<id>.jpg` + `<id>.webp`, clips `<id>.mp4` + poster `<id>.jpg`), named after the `shots` ids in the source files. They're real captures from the demo library on the fixed simulators.
+- Inline interface icons are drawn in `tools/guide/icons.json`, keyed by the SF Symbol name the app uses for the control (the build lists the ones in use in `tools/guide/icons-used.txt`).
+
+**After an app release:** every guide records the app commit it was checked against (`verified`) and the files and rules it describes (`documents`). `python3 tools/guide/affected.py <old-commit> <new-commit>` lists the guides whose documented files changed between two app commits; re-check those against the app, update `verified`, rebuild. Add the release to `tools/guide/whats-new.md`.
+
+**Measurement:** guide pages use the same `/hit` landing count and `/get?from=guide-<slug>-<position>` App Store placements as the rest of the site. `assets/guide.js` also reports a few anonymous guide events to `/ev` (dataset `musicfolder_guide_events`): a search someone settled on and how many guides matched, a search with no match, an opened result, a guide link to a feature page or Contact us, and a guide read to the end. Same rules as `/hit`: no cookies, no identifiers, owner's devices and crawlers skipped.
+
 ## Device images
 
 `assets/home-ipad.webp`, `assets/home-iphone.webp` and `assets/home-mac.webp` (home dark band; iPad and iPhone also on Students) are rendered by `tools/home-band.py` from the same seeded 4.2 captures as the hero (iPad portrait, iPhone top of Home, and iPad landscape with the sidebar for the Mac, which runs this same iPad UI). The iMac is `tools/imac-base.png` (the iMac, its wallpaper and an empty menu bar) with the 4.2 menu bar set in the system font and an app window: the real Mac title bar (`tools/mac-titlebar@2x.png`, cut from the owner's 4.2 Mac screenshot) over the landscape capture below its status bar, with iPadOS's window-resize handle patched out. The general recipe: an HTML page with the bezel and the screenshot, rendered with headless Chrome at 2×:
@@ -52,6 +67,7 @@ With `prefers-reduced-motion`, the hero is static.
 - **Where visits come from** (cookieless, nothing stored on visitors' devices; the end of `assets/site.js`): on a visit's first page the script sends one landing count to `/hit` (dataset `musicfolder_landings`: page, channel, utm_source/medium/campaign, referring host) and adds the same source to every `/get` link. One page later the campaign tags are still known (the previous page's address); further in, the source is `unknown`. Channel rules in `worker/source.js` are a copy of the dashboard's `config/channels.yaml` (the check script compares them).
 - **Tag the links you post**, e.g. `https://musicfolder.app/?utm_source=reddit&utm_medium=social&utm_campaign=churchmusic-nov` (lower case, letters, digits, `.` `_` `-`, up to 40 characters; anything else is dropped). App browsers (Reddit, Instagram…) often hide the referring site, so untagged visits from them look "direct".
 - **The owner's devices:** marked with `mf-owner=1` in their own browser storage (set 2026-10-29 by a temporary `/me` page, removed the same day at the owner's request; it's in git history — `git show 7f39fd6:me.html` — if a device ever needs marking again after its website data is cleared). On a marked device the site sends no landing counts and marks taps `o=1` (not counted). Cloudflare Web Analytics can't skip a device, so its visit count still includes the owner.
+- **User Guide events** (`/ev`, dataset `musicfolder_guide_events`): see the User Guide section above. `worker/guide-event.js` allow-lists the event types and cleans the values.
 - **A new App Store button** needs its placement in `worker/tap.js` (`BUTTONS`). Check with `python3 tools/check-measurement.py` (add `--release` before merging to `main`: it also wants the App Store provider token). Locally `/get` 404s like the pretty URLs; it only works on Cloudflare.
 - The privacy page's "This website" section describes all of this; change it with any change here. The private intelligence platform archives both datasets daily (Cloudflare keeps taps 3 months, unsampled visits 7 days).
 
