@@ -555,3 +555,14 @@ ol.fd-how { margin-top: 64px; }
 .lp-visual.large { padding: 40px 28px; }
 .lp-visual.large .device.tablet { width: 100%; max-width: 470px; }
 @media (max-width: 960px) { .lp-visual.large { padding: 28px 18px; } }
+
+/* User Guide links under a page's FAQ (tools/guide/crosslinks.py) */
+.lp-faq-grid > .lp-guides { grid-column: 2; margin-top: -32px; max-width: 820px; }
+.lp-guides h3 { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--graphite); margin: 0 0 10px; }
+.lp-guides ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 32px; }
+.lp-guides li a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--staff-line); color: var(--ink); text-decoration: none; font-size: 16px; line-height: 1.35; }
+.lp-guides li a::after { content: ""; flex: none; width: 7px; height: 7px; border-right: 1.5px solid var(--deep-amber); border-top: 1.5px solid var(--deep-amber); transform: rotate(45deg); }
+.lp-guides li a:hover { color: var(--deep-amber); }
+.lp-guides-all { margin: 14px 0 0; font-size: 15px; }
+.lp-guides-all a { color: var(--deep-amber); font-weight: 500; }
+@media (max-width: 860px) { .lp-faq-grid > .lp-guides { grid-column: auto; margin-top: 8px; } .lp-guides ul { grid-template-columns: 1fr; } }

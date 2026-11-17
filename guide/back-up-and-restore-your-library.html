@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Back Up and Restore Your Music Library | Music Folder</title>
+<link rel="canonical" href="https://musicfolder.app/guide/back-up-and-restore-your-library">
+<meta name="description" content="Make a backup of your Music Folder library, set up automatic backups, and restore music, folders and set lists with Add Missing Items or Replace Library.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://musicfolder.app/guide/back-up-and-restore-your-library">
+<meta property="og:title" content="Back Up and Restore Your Music Library | Music Folder">
+<meta property="og:description" content="Make a backup of your Music Folder library, set up automatic backups, and restore music, folders and set lists with Add Missing Items or Replace Library.">
+<meta property="og:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Back Up and Restore Your Music Library | Music Folder">
+<meta name="twitter:description" content="Make a backup of your Music Folder library, set up automatic backups, and restore music, folders and set lists with Add Missing Items or Replace Library.">
+<meta name="twitter:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta name="apple-itunes-app" content="app-id=1611824311">
+<meta name="theme-color" content="#FBFAF8">
+<meta name="color-scheme" content="light only">
+<link rel="icon" type="image/png" href="/assets/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Music Folder",
+      "item": "https://musicfolder.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "User Guide",
+      "item": "https://musicfolder.app/guide"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Sync, Backup and Account",
+      "item": "https://musicfolder.app/guide#sync-backup-and-account"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Back up and restore your library",
+      "item": "https://musicfolder.app/guide/back-up-and-restore-your-library"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="stylesheet" href="/assets/guide.css?v=4">
+</head>
+<body class="guide-page">
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Music Folder home">
+      <img src="/assets/app-icon.png" alt="" width="28" height="28">
+      Music Folder
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-features">
+          <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
+            <li><a href="/features/set-lists"><b>Set lists</b></a></li>
+            <li><a href="/features/page-turner"><b>Page turner</b></a></li>
+            <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
+            <li><a href="/features/sharing"><b>Sharing</b></a></li>
+            <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
+            <li><a href="/planning-center"><b>Planning Center</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-who">Who it's for <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-who">
+          <ul>
+            <li><a href="/for/bands"><b>Bands</b></a></li>
+            <li><a href="/for/worship-teams"><b>Worship teams</b></a></li>
+            <li><a href="/for/orchestras-choirs"><b>Orchestras &amp; choirs</b></a></li>
+            <li><a href="/for/students"><b>Students &amp; soloists</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <div class="nav-group is-current">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-support">Support <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-support">
+          <ul>
+            <li><a href="/guide"><b>User Guide</b></a></li>
+            <li><a href="/support"><b>Help &amp; FAQ</b></a></li>
+            <li><a href="/contact"><b>Contact Support</b></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="/get?from=guide-back-up-and-restore-your-library-nav">Download</a>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
+      </summary>
+      <div class="menu-panel">
+        <div class="menu-group" role="group" aria-labelledby="menu-features">
+          <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
+          <a href="/features/set-lists">Set lists</a>
+          <a href="/features/page-turner">Page turner</a>
+          <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
+          <a href="/features/sharing">Sharing</a>
+          <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
+          <a href="/planning-center">Planning Center</a>
+        </div>
+        <div class="menu-group" role="group" aria-labelledby="menu-who">
+          <span class="menu-label" id="menu-who">Who it's for</span>
+          <a href="/for/bands">Bands</a>
+          <a href="/for/worship-teams">Worship teams</a>
+          <a href="/for/orchestras-choirs">Orchestras &amp; choirs</a>
+          <a href="/for/students">Students &amp; soloists</a>
+        </div>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About</a>
+        <div class="menu-group" role="group" aria-labelledby="menu-support">
+          <span class="menu-label" id="menu-support">Support</span>
+          <a href="/guide">User Guide</a>
+          <a href="/support">Help &amp; FAQ</a>
+          <a href="/contact">Contact Support</a>
+        </div>
+        <a href="/get?from=guide-back-up-and-restore-your-library-menu">Download on the App Store</a>
+      </div>
+    </details>
+  </div>
+</header>
+<main id="main">
+<div class="wrap guide-layout">
+<aside class="guide-aside"><form class="guide-search compact" role="search" action="/guide" method="get" data-guide-search>
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+  <label class="sr-only" for="guideSearchSide">Search the User Guide</label>
+  <input id="guideSearchSide" name="q" type="search" placeholder="Search the guide" autocomplete="off" spellcheck="false" aria-controls="guideSearchSide-results" aria-autocomplete="list">
+  <div class="guide-results" id="guideSearchSide-results" role="listbox" aria-label="Search results" hidden></div>
+</form><nav class="guide-nav" aria-label="User Guide">
+<a class="guide-nav-home" href="/guide">User Guide</a>
+<details class="guide-nav-ch"><summary>Get Started</summary><ul>
+<li><a href="/guide/welcome-to-music-folder">Welcome to Music Folder</a></li>
+<li><a href="/guide/add-your-first-music">Add your first music</a></li>
+<li><a href="/guide/free-and-premium">Free and Premium</a></li>
+<li><a href="/guide/use-music-folder-on-a-mac">Use Music Folder on a Mac</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Build Your Library</summary><ul>
+<li><a href="/guide/import-music">Import music</a></li>
+<li><a href="/guide/get-free-sheet-music">Get free sheet music</a></li>
+<li><a href="/guide/add-sections-to-a-book">Add sections to a book</a></li>
+<li><a href="/guide/edit-or-delete-a-piece">Edit or delete a piece</a></li>
+<li><a href="/guide/organize-rotate-and-crop-pages">Organize, rotate and crop pages</a></li>
+<li><a href="/guide/organize-music-in-folders">Organize music in folders</a></li>
+<li><a href="/guide/find-music-with-search-and-filters">Find music with search and filters</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Read and Play</summary><ul>
+<li><a href="/guide/the-reader-at-a-glance">The reader at a glance</a></li>
+<li><a href="/guide/turn-pages">Turn pages</a></li>
+<li><a href="/guide/turn-pages-hands-free">Turn pages hands-free</a></li>
+<li><a href="/guide/change-the-page-view">Change the page view</a></li>
+<li><a href="/guide/use-performance-mode">Use Performance Mode</a></li>
+<li><a href="/guide/jump-to-repeats-with-page-links">Jump to repeats with Page Links</a></li>
+<li><a href="/guide/keep-notes-on-a-piece">Keep notes on a piece</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Annotate</summary><ul>
+<li><a href="/guide/mark-up-music-with-apple-pencil">Mark up music with Apple Pencil</a></li>
+<li><a href="/guide/use-annotation-layers">Use annotation layers</a></li>
+<li><a href="/guide/add-text-symbols-and-shapes">Add text, symbols and shapes</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Chord Charts</summary><ul>
+<li><a href="/guide/create-a-chord-chart">Create a chord chart</a></li>
+<li><a href="/guide/transpose-capo-and-numbers">Transpose, capo and numbers</a></li>
+<li><a href="/guide/set-the-song-order">Set the song order</a></li>
+<li><a href="/guide/format-a-chord-chart">Format a chord chart</a></li>
+<li><a href="/guide/turn-a-pdf-into-a-chord-chart">Turn a PDF into a chord chart</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Set Lists</summary><ul>
+<li><a href="/guide/create-and-edit-a-set-list">Create and edit a set list</a></li>
+<li><a href="/guide/add-pages-and-timing-to-a-set-list">Add pages and timing to a set list</a></li>
+<li><a href="/guide/play-a-set-list">Play a set list</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Practice Tools</summary><ul>
+<li><a href="/guide/use-the-metronome">Use the metronome</a></li>
+<li><a href="/guide/tune-and-play-reference-tones">Tune and play reference tones</a></li>
+<li><a href="/guide/play-the-piano">Play the piano</a></li>
+<li><a href="/guide/play-along-with-recordings">Play along with recordings</a></li>
+<li><a href="/guide/track-your-practice">Track your practice</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Share and Collaborate</summary><ul>
+<li><a href="/guide/send-a-copy-or-print">Send a copy or print</a></li>
+<li><a href="/guide/share-a-folder-or-set-list">Share a folder or set list</a></li>
+<li><a href="/guide/join-a-shared-folder-or-set-list">Join a shared folder or set list</a></li>
+<li><a href="/guide/work-together-in-a-shared-folder-or-set-list">Work together in a shared folder or set list</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Planning Center</summary><ul>
+<li><a href="/guide/connect-planning-center">Connect Planning Center</a></li>
+<li><a href="/guide/play-a-service-plan">Play a service plan</a></li>
+</ul></details>
+<details class="guide-nav-ch" open><summary>Sync, Backup and Account</summary><ul>
+<li><a href="/guide/sync-with-icloud">Sync with iCloud</a></li>
+<li><a href="/guide/back-up-and-restore-your-library" aria-current="page">Back up and restore your library</a></li>
+<li><a href="/guide/manage-your-subscription">Manage your subscription</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Troubleshooting</summary><ul>
+<li><a href="/guide/music-isnt-syncing">My music isn&#x27;t syncing</a></li>
+<li><a href="/guide/library-looks-empty-after-reinstalling">My library looks empty after reinstalling</a></li>
+<li><a href="/guide/cant-hear-the-metronome-or-a-recording">I can&#x27;t hear the metronome or a recording</a></li>
+<li><a href="/guide/page-turner-isnt-turning-pages">My page turner isn&#x27;t turning pages</a></li>
+<li><a href="/guide/import-didnt-work">An import didn&#x27;t work</a></li>
+</ul></details>
+<a class="guide-nav-extra" href="/guide/whats-new">What&#39;s New</a>
+<a class="guide-nav-extra" href="/contact" data-ev="contact">Contact support</a>
+</nav></aside>
+<article class="guide-article">
+<nav class="crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/guide">User Guide</a></li>
+  <li><a href="/guide#sync-backup-and-account">Sync, Backup and Account</a></li>
+  <li aria-current="page">Back up and restore your library</li>
+</ol></nav>
+<details class="guide-topics-mobile"><summary>Sync, Backup and Account: all guides</summary><ul><li><a href="/guide/sync-with-icloud">Sync with iCloud</a></li><li><a href="/guide/back-up-and-restore-your-library" aria-current="page">Back up and restore your library</a></li><li><a href="/guide/manage-your-subscription">Manage your subscription</a></li><li><a href="/guide">All chapters</a></li></ul></details>
+<h1 class="guide-title">Back up and restore your library</h1>
+<nav class="on-page on-page-cols" aria-label="On this page"><details open data-on-page><summary class="on-page-title">On this page</summary><ul><li><a href="#back-up-now">Back up now</a></li><li><a href="#what-a-backup-holds">What a backup holds</a></li><li><a href="#automatic-backups">Automatic backups</a></li><li><a href="#where-backups-are-saved">Where backups are saved</a></li><li><a href="#restore-from-a-backup">Restore from a backup</a></li><li><a href="#restoring-with-the-free-version">Restoring with the free version</a></li><li><a href="#restoring-with-more-than-one-device">Restoring with more than one device</a></li></ul></details></nav>
+<div class="guide-body">
+<p>A backup is a single file that holds your whole library, so you can get your music back if you delete something by mistake, change devices or have a problem with iCloud. iCloud sync isn't a backup: it copies deletions to every device too. Backups are free.</p>
+<figure class="shot shot-crop shot-ipad shot-portrait"><a class="shot-zoom" href="/assets/guide/backup-restore-screen.jpg" data-zoom data-w="920" data-h="1017"><picture><source srcset="/assets/guide/backup-restore-screen.webp" type="image/webp"><img src="/assets/guide/backup-restore-screen.jpg" alt="Backup &amp; Restore with Back Up Now, the time of the last backup, the automatic backup settings and the list of backups." width="920" height="1017" loading="lazy" decoding="async"></picture><span class="zoom-hint" aria-hidden="true"></span><span class="sr-only"> (opens the full-size image)</span></a></figure>
+<h2 id="back-up-now">Back up now</h2>
+<ol class="steps"><li>Open Account: tap your picture or initials at the top of Home, or, where the app shows a sidebar, your name or <b>Account</b> at the bottom of it.</li><li>Under <b>Library &amp; Sync</b>, tap <b>Backup &amp; Restore</b>.</li><li>Tap <b>Back Up Now</b>.</li></ol>
+<p>The line under the button shows when the last backup was made, how many pieces it holds and its size. If you sync with iCloud, it can name another of your devices, because one automatic backup covers the library for all of them.</p>
+<div class="callout callout-device"><p><span class="callout-label">On Mac</span> choose <b>File › Back Up Library Now</b> in the menu bar.</p></div>
+<h2 id="what-a-backup-holds">What a backup holds</h2>
+<ul><li>Your music and its PDFs, chord charts, sections and details</li><li>Folders and set lists</li><li>Notes and annotations</li><li>Recordings attached to your pieces (always in a backup you make with Back Up Now; optional for automatic backups)</li><li>Practice history</li><li>Your settings, such as tuner, metronome, reader and chart preferences</li><li>Shared folders and set lists you own, and your notes and markings on shared pieces</li></ul>
+<p>Folders and set lists that other people share with you aren't included; iCloud brings those back. A shared piece that hasn't downloaded to the device is left out, and the app names it when the backup finishes. The same goes for recordings that are still only in iCloud: open those pieces' audio once on the device, then back up again.</p>
+<h2 id="automatic-backups">Automatic backups</h2>
+<p><b>Back Up Automatically</b> is on unless you turn it off. With it on, you can choose:</p>
+<ul><li><b>Frequency</b>: <b>Daily</b> or <b>Weekly</b>.</li><li><b>Include Audio</b>: whether recordings go into automatic backups.</li><li><b>Keep</b>: <b>3</b>, <b>5</b> or <b>10</b> backups. Older automatic backups are removed once there are more than this. Backups you make with Back Up Now are never removed automatically.</li></ul>
+<p>An automatic backup runs shortly after you open the app when one is due, and in the background while the device is charging. It's skipped when nothing has changed since the last backup, and never runs on an empty library. If your library suddenly has less than half the pieces of the last backup, automatic backups pause until you confirm with <b>Back Up Now</b> that this is the library you want to keep.</p>
+<h2 id="where-backups-are-saved">Where backups are saved</h2>
+<p><b>Location</b> shows where backups go. With iCloud Drive on, they're in the Files app under <b>iCloud Drive › Music Folder › Backups</b>, so they survive losing the device. Without iCloud Drive they're under <b>On This Device › Music Folder › Backups</b>, and they're deleted if you delete the app. To keep one somewhere else, open it and tap <b>Save to Files…</b>.</p>
+<h2 id="restore-from-a-backup">Restore from a backup</h2>
+<ol class="steps"><li>In <b>Backup &amp; Restore</b>, tap a backup under <b>Backups</b>. For a backup file saved elsewhere, tap <b>Restore from File…</b> and choose it. You can also open a backup file from the Files app or AirDrop, and Music Folder opens it here.</li><li>Check what it holds: the device it came from and the number of pieces, folders and set lists.</li><li>If you also want the backup's settings, turn on <b>Also Restore Settings</b>.</li><li>Choose how to restore (see below).</li></ol>
+<h3 id="add-missing-items">Add Missing Items</h3>
+<p><b>Add Missing Items</b> adds the pieces, folders and set lists the backup has and your library doesn't. Nothing already in your library is changed. The note under the button says what will be added, and if your library already has everything, the button is dimmed. This is the safe choice for getting back something you deleted.</p>
+<h3 id="replace-library">Replace Library</h3>
+<p><b>Replace Library…</b> makes your library match the backup: it adds, updates and removes pieces, folders and set lists as needed. The note under it lists those changes before you confirm. Before anything changes, the app saves a safety backup of your current library, listed with the kind <b>Before Restore</b>. With iCloud sync on, the result reaches all your devices. Shared folders and set lists are left as they are.</p>
+<h3 id="shared-folders-and-set-lists">Shared folders and set lists</h3>
+<p>Your notes and markings on shared pieces are added back by either kind of restore. A shared folder or set list you owned comes back only if it no longer exists, and then as your own folder or set list that isn't shared. To work on it with others again, share it again.</p>
+<h2 id="restoring-with-the-free-version">Restoring with the free version</h2>
+<p>If you've never had Premium, a restore brings back up to the free version's 15 pieces. The rest stay in the backup, and <b>Upgrade to Restore Everything</b> appears above the restore buttons. If you've had Premium before with the same Apple Account, everything is restored.</p>
+<h2 id="restoring-with-more-than-one-device">Restoring with more than one device</h2>
+<p>With iCloud sync on, restore on one device only. If you open a backup on another device while a restore is running, it says which device is restoring and the restore buttons are dimmed. Your other devices update through iCloud when the restore finishes.</p>
+</div>
+<section class="related" aria-labelledby="related-title" data-read-marker><h2 id="related-title">Related</h2><ul>
+<li><a href="/guide/sync-with-icloud"><span class="rel-ch">Sync, Backup and Account</span>Sync with iCloud</a></li>
+<li><a href="/guide/library-looks-empty-after-reinstalling"><span class="rel-ch">Troubleshooting</span>My library looks empty after reinstalling</a></li>
+<li><a href="/guide/free-and-premium"><span class="rel-ch">Get Started</span>Free and Premium</a></li>
+<li><a href="/guide/use-music-folder-on-a-mac"><span class="rel-ch">Get Started</span>Use Music Folder on a Mac</a></li>
+</ul>
+</section>
+<nav class="pager" aria-label="Previous and next guide">
+<a class="pager-prev" href="/guide/sync-with-icloud" rel="prev"><span>Previous</span>Sync with iCloud</a>
+<a class="pager-next" href="/guide/manage-your-subscription" rel="next"><span>Next</span>Manage your subscription</a>
+</nav>
+<div class="guide-help">
+  <div><h2>Still need help?</h2><p>Tell us what you were trying to do and what happened. Every message is read by the people who make Music Folder.</p></div>
+  <a class="btn btn-primary" href="/contact" data-ev="contact">Contact us</a>
+</div>
+</article></div>
+
+<section class="section final guide-final">
+  <div class="wrap">
+    <h2 class="heading">A better <em>home</em> for your sheet music.</h2>
+    <p>Made by musicians, for musicians.</p>
+    <div class="cta-row">
+      <a class="badge-link" href="/get?from=guide-back-up-and-restore-your-library-final">
+        <picture>
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+        </picture>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-mark" aria-hidden="true">Music Folder</div>
+    <div class="footer-grid">
+      <div class="f-about">
+        <p>Keep your sheet music, set lists, and practice tools together in one app.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#toolkit">Toolkit</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Features</h4>
+        <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
+          <li><a href="/features/set-lists">Set lists</a></li>
+          <li><a href="/features/page-turner">Page turner</a></li>
+          <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
+          <li><a href="/features/sharing">Sharing</a></li>
+          <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
+          <li><a href="/planning-center">Planning Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Who it's for</h4>
+        <ul>
+          <li><a href="/for/bands">Bands</a></li>
+          <li><a href="/for/worship-teams">Worship teams</a></li>
+          <li><a href="/for/orchestras-choirs">Orchestras &amp; choirs</a></li>
+          <li><a href="/for/students">Students &amp; soloists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/guide">User Guide</a></li>
+          <li><a href="/support">Help &amp; FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="mailto:support@musicfolder.app">Email support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Music Folder</span>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const menu = document.querySelector('.menu');
+  menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+})();
+</script>
+<script src="/assets/site.js?v=6" defer></script>
+<script src="/assets/guide.js?v=2" defer></script>
+</body>
+</html>

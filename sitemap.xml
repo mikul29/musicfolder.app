@@ -20,4 +20,56 @@
   <url><loc>https://musicfolder.app/support</loc></url>
   <url><loc>https://musicfolder.app/contact</loc></url>
   <url><loc>https://musicfolder.app/privacy</loc></url>
+  <!-- guide:start -->
+  <url><loc>https://musicfolder.app/guide</loc></url>
+  <url><loc>https://musicfolder.app/guide/whats-new</loc></url>
+  <url><loc>https://musicfolder.app/guide/welcome-to-music-folder</loc></url>
+  <url><loc>https://musicfolder.app/guide/add-your-first-music</loc></url>
+  <url><loc>https://musicfolder.app/guide/free-and-premium</loc></url>
+  <url><loc>https://musicfolder.app/guide/use-music-folder-on-a-mac</loc></url>
+  <url><loc>https://musicfolder.app/guide/import-music</loc></url>
+  <url><loc>https://musicfolder.app/guide/get-free-sheet-music</loc></url>
+  <url><loc>https://musicfolder.app/guide/add-sections-to-a-book</loc></url>
+  <url><loc>https://musicfolder.app/guide/edit-or-delete-a-piece</loc></url>
+  <url><loc>https://musicfolder.app/guide/organize-rotate-and-crop-pages</loc></url>
+  <url><loc>https://musicfolder.app/guide/organize-music-in-folders</loc></url>
+  <url><loc>https://musicfolder.app/guide/find-music-with-search-and-filters</loc></url>
+  <url><loc>https://musicfolder.app/guide/the-reader-at-a-glance</loc></url>
+  <url><loc>https://musicfolder.app/guide/turn-pages</loc></url>
+  <url><loc>https://musicfolder.app/guide/turn-pages-hands-free</loc></url>
+  <url><loc>https://musicfolder.app/guide/change-the-page-view</loc></url>
+  <url><loc>https://musicfolder.app/guide/use-performance-mode</loc></url>
+  <url><loc>https://musicfolder.app/guide/jump-to-repeats-with-page-links</loc></url>
+  <url><loc>https://musicfolder.app/guide/keep-notes-on-a-piece</loc></url>
+  <url><loc>https://musicfolder.app/guide/mark-up-music-with-apple-pencil</loc></url>
+  <url><loc>https://musicfolder.app/guide/use-annotation-layers</loc></url>
+  <url><loc>https://musicfolder.app/guide/add-text-symbols-and-shapes</loc></url>
+  <url><loc>https://musicfolder.app/guide/create-a-chord-chart</loc></url>
+  <url><loc>https://musicfolder.app/guide/transpose-capo-and-numbers</loc></url>
+  <url><loc>https://musicfolder.app/guide/set-the-song-order</loc></url>
+  <url><loc>https://musicfolder.app/guide/format-a-chord-chart</loc></url>
+  <url><loc>https://musicfolder.app/guide/turn-a-pdf-into-a-chord-chart</loc></url>
+  <url><loc>https://musicfolder.app/guide/create-and-edit-a-set-list</loc></url>
+  <url><loc>https://musicfolder.app/guide/add-pages-and-timing-to-a-set-list</loc></url>
+  <url><loc>https://musicfolder.app/guide/play-a-set-list</loc></url>
+  <url><loc>https://musicfolder.app/guide/use-the-metronome</loc></url>
+  <url><loc>https://musicfolder.app/guide/tune-and-play-reference-tones</loc></url>
+  <url><loc>https://musicfolder.app/guide/play-the-piano</loc></url>
+  <url><loc>https://musicfolder.app/guide/play-along-with-recordings</loc></url>
+  <url><loc>https://musicfolder.app/guide/track-your-practice</loc></url>
+  <url><loc>https://musicfolder.app/guide/send-a-copy-or-print</loc></url>
+  <url><loc>https://musicfolder.app/guide/share-a-folder-or-set-list</loc></url>
+  <url><loc>https://musicfolder.app/guide/join-a-shared-folder-or-set-list</loc></url>
+  <url><loc>https://musicfolder.app/guide/work-together-in-a-shared-folder-or-set-list</loc></url>
+  <url><loc>https://musicfolder.app/guide/connect-planning-center</loc></url>
+  <url><loc>https://musicfolder.app/guide/play-a-service-plan</loc></url>
+  <url><loc>https://musicfolder.app/guide/sync-with-icloud</loc></url>
+  <url><loc>https://musicfolder.app/guide/back-up-and-restore-your-library</loc></url>
+  <url><loc>https://musicfolder.app/guide/manage-your-subscription</loc></url>
+  <url><loc>https://musicfolder.app/guide/music-isnt-syncing</loc></url>
+  <url><loc>https://musicfolder.app/guide/library-looks-empty-after-reinstalling</loc></url>
+  <url><loc>https://musicfolder.app/guide/cant-hear-the-metronome-or-a-recording</loc></url>
+  <url><loc>https://musicfolder.app/guide/page-turner-isnt-turning-pages</loc></url>
+  <url><loc>https://musicfolder.app/guide/import-didnt-work</loc></url>
+  <!-- guide:end -->
 </urlset>

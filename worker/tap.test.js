@@ -3,6 +3,7 @@
 // (tools/check-measurement.py runs this too.)
 
 import { CAMPAIGN_MAX, PLACEMENTS, PLAIN_APP_STORE_URL, looksAutomated, tapRedirect } from "./tap.js";
+import { guideEvent } from "./guide-event.js";
 import { CHANNELS, appleCampaign, channelOf, cleanHost, cleanPath, cleanTag, sourceFrom } from "./source.js";
 
 // JavaScriptCore has no URLSearchParams: a stand-in with .get()
@@ -52,12 +53,25 @@ check("unknown placement → other", tapRedirect("<script>", "123456").placement
 check("unknown keeps no input", tapRedirect("evil-value", "123456").location.includes("evil"), false);
 check("a crafted campaign can't inject", tapRedirect("home-hero", "1", sourceFrom(params({ uc: "x&ct=evil" }))).location.includes("evil"), false);
 check("missing from → other", tapRedirect(null, "1").page, "other");
-check("80 buttons", PLACEMENTS.size, 80);
+const guidePlacements = [...PLACEMENTS.keys()].filter((k) => k.startsWith("guide-") || k.startsWith("guide")).length;
+check("80 site buttons + 3 per User Guide page", [PLACEMENTS.size - guidePlacements, guidePlacements % 3, guidePlacements >= 150], [80, 0, true]);
 check("reader mid-page CTA is known", PLACEMENTS.has("features-sheet-music-reader-band"), true);
 check("new feature pages are known", ["features-sheet-music-organizer-hero", "features-sheet-music-reader-final", "features-chord-charts-nav"].every((p) => PLACEMENTS.has(p)), true);
 check("Safari counts", looksAutomated("Mozilla/5.0 (iPhone; CPU iPhone OS 18_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.6 Mobile/15E148 Safari/604.1"), false);
 check("Googlebot doesn't", looksAutomated("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"), true);
 check("empty UA doesn't", looksAutomated(""), true);
+
+// guide-event.js
+check("guide search kept, lower-cased, cleaned", guideEvent(params({ t: "search", p: "/guide", v: "Bookmarks <b>!", n: "3" })),
+  { type: "search", page: "/guide", value: "bookmarks b", count: 3 });
+check("unknown event type dropped", guideEvent(params({ t: "hack", p: "/guide" })), null);
+check("non-guide page dropped", guideEvent(params({ t: "read", p: "/pricing" })), null);
+check("read carries no value", guideEvent(params({ t: "read", p: "/guide/turn-pages", v: "x" })),
+  { type: "read", page: "/guide/turn-pages", value: "", count: 0 });
+check("nav must be a site path", [guideEvent(params({ t: "nav", p: "/guide/turn-pages", v: "/features/page-turner" })).value,
+  guideEvent(params({ t: "nav", p: "/guide/turn-pages", v: "https://evil.example" }))], ["/features/page-turner", null]);
+check("query cut to 60", guideEvent(params({ t: "noresult", p: "/guide", v: "a".repeat(80) })).value.length, 60);
+check("bad count → 0", guideEvent(params({ t: "search", p: "/guide", v: "pedal", n: "9999" })).count, 0);
 
 print(failures === 0 ? `ok: worker/tap.js (${PLACEMENTS.size} placements)` : `${failures} failure(s)`);
 if (failures) throw new Error("tap.test.js failed");

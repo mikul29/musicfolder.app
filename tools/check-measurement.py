@@ -82,8 +82,8 @@ def main() -> int:
         problems.append(f"worker/tap.js: {placement} is listed but no page uses it")
 
     wrangler = (ROOT / "wrangler.jsonc").read_text(encoding="utf-8")
-    for needed in ('"main": "worker/index.js"', '"run_worker_first": ["/get", "/hit"]', '"binding": "TAPS"',
-                   '"binding": "LANDINGS"'):
+    for needed in ('"main": "worker/index.js"', '"run_worker_first": ["/get", "/hit", "/ev"]', '"binding": "TAPS"',
+                   '"binding": "LANDINGS"', '"binding": "GUIDE"'):
         if needed not in wrangler:
             problems.append(f"wrangler.jsonc: missing {needed}")
     if release and re.search(r'"APP_STORE_PROVIDER_TOKEN":\s*""', wrangler):
@@ -93,8 +93,13 @@ def main() -> int:
         if needed not in site_js:
             problems.append(f"assets/site.js: missing {needed} (where-visits-come-from script)")
     problems += channel_drift()
-    if "Disallow: /get" not in (ROOT / "robots.txt").read_text(encoding="utf-8"):
-        problems.append("robots.txt: crawlers should skip /get")
+    robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    for path in ("/get", "/ev", "/guide?"):
+        if f"Disallow: {path}" not in robots:
+            problems.append(f"robots.txt: crawlers should skip {path}")
+    guide_js = ROOT / "assets/guide.js"
+    if guide_js.exists() and "mf-owner" not in guide_js.read_text(encoding="utf-8"):
+        problems.append("assets/guide.js: must skip the owner's devices (mf-owner)")
 
     if JSC.exists():
         result = subprocess.run([str(JSC), "-m", "worker/tap.test.js"], cwd=ROOT, capture_output=True, text=True)

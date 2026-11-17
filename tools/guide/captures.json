@@ -1,0 +1,167 @@
+{
+ "welcome-home": {
+  "src": "welcome-home.png"
+ },
+ "welcome-library": {
+  "src": "welcome-library.png"
+ },
+ "welcome-reader": {
+  "src": "welcome-reader.png"
+ },
+ "browse-landing": {
+  "src": "browse-landing.png"
+ },
+ "setlist-ipad-panel": {
+  "src": "setlist-ipad-panel.png"
+ },
+ "chart-editor": {
+  "src": "chart-editor.png"
+ },
+ "conversion-review": {
+  "src": "conversion-review.png"
+ },
+ "annotate-session": {
+  "src": "annotate-session.png"
+ },
+ "add-sections-grid": {
+  "src": "add-sections-grid.png",
+  "box": [
+   96,
+   192,
+   1968,
+   1280
+  ]
+ },
+ "organize-pages": {
+  "src": "organize-pages.png",
+  "box": [
+   389,
+   240,
+   1669,
+   1680
+  ]
+ },
+ "add-first-music-menu": {
+  "src": "add-first-music-menu.png",
+  "box": [
+   1474,
+   0,
+   2752,
+   590
+  ]
+ },
+ "filter-menu": {
+  "src": "filter-menu.png",
+  "box": [
+   1651,
+   0,
+   2752,
+   1061
+  ]
+ },
+ "share-folder-menu": {
+  "src": "share-folder-menu.png",
+  "box": [
+   0,
+   236,
+   1100,
+   1000
+  ]
+ },
+ "key-control": {
+  "src": "key-control.png",
+  "box": [
+   1376,
+   0,
+   2752,
+   1219
+  ]
+ },
+ "formatting-panel": {
+  "src": "formatting-panel.png",
+  "box": [
+   1297,
+   0,
+   2752,
+   1494
+  ]
+ },
+ "send-copy-format-picker": {
+  "src": "send-copy-format-picker.png",
+  "box": [
+   1494,
+   0,
+   2752,
+   511
+  ]
+ },
+ "notes-panel-ipad": {
+  "src": "notes-panel-ipad.png",
+  "box": [
+   1960,
+   150,
+   2752,
+   620
+  ]
+ },
+ "layers-popover": {
+  "src": "layers-popover.png",
+  "box": [
+   1415,
+   0,
+   2752,
+   845
+  ]
+ },
+ "symbol-palette": {
+  "src": "symbol-palette.png",
+  "box": [
+   1140,
+   983,
+   2201,
+   2064
+  ]
+ },
+ "edit-music-form": {
+  "src": "edit-music-form.png",
+  "box": [
+   389,
+   240,
+   1669,
+   2507
+  ]
+ },
+ "backup-restore-screen": {
+  "src": "backup-restore-screen.png",
+  "box": [
+   453,
+   736,
+   1611,
+   2016
+  ]
+ },
+ "setlist-stats-iphone": {
+  "src": "setlist-stats-iphone.png",
+  "box": [
+   0,
+   150,
+   1206,
+   1450
+  ]
+ },
+ "page-turner-settings": {
+  "src": "page-turner-settings.png",
+  "box": [
+   0,
+   180,
+   1206,
+   1480
+  ]
+ },
+ "reader-iphone": {
+  "src": "reader-iphone.png"
+ },
+ "tuner-in-reader": {
+  "src": "tuner-in-reader.png"
+ }
+}

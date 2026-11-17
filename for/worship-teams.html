@@ -129,7 +129,7 @@
 }
 </script>
 <link rel="stylesheet" href="/assets/site.css?v=61">
-<link rel="stylesheet" href="/assets/pages.css?v=50">
+<link rel="stylesheet" href="/assets/pages.css?v=51">
 </head>
 <body>
 
@@ -170,7 +170,16 @@
       </div>
       <a href="/pricing">Pricing</a>
       <a href="/about">About</a>
-      <a href="/support">Support</a>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-support">Support <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-support">
+          <ul>
+            <li><a href="/guide"><b>User Guide</b></a></li>
+            <li><a href="/support"><b>Help &amp; FAQ</b></a></li>
+            <li><a href="/contact"><b>Contact Support</b></a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
     <a class="btn btn-primary btn-sm" href="/get?from=for-worship-teams-nav">Download</a>
     <details class="menu">
@@ -200,7 +209,12 @@
         </div>
         <a href="/pricing">Pricing</a>
         <a href="/about">About</a>
-        <a href="/support">Support</a>
+        <div class="menu-group" role="group" aria-labelledby="menu-support">
+          <span class="menu-label" id="menu-support">Support</span>
+          <a href="/guide">User Guide</a>
+          <a href="/support">Help &amp; FAQ</a>
+          <a href="/contact">Contact Support</a>
+        </div>
         <a href="/get?from=for-worship-teams-menu">Download on the App Store</a>
       </div>
     </details>
@@ -269,6 +283,7 @@
 <details><summary>Can the whole team use it?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Yes. Share a set list or a folder of your charts with your musicians and singers who use Music Folder, and choose who can edit. Live collaboration is part of Premium for every participant. Each musician can also connect their own Planning Center account.</p></div></details>
 <details><summary>Does it work if the church Wi-Fi drops?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Your own music works completely offline. Planning Center charts you've opened are saved on the device, so open the service once before Sunday.</p></div></details>
 <details><summary>How much does it cost?<span class="plus" aria-hidden="true"></span></summary><div class="answer"><p>Free for up to 15 pieces, 5 sections and 1 folder, with chord charts, backups and iCloud sync. Premium unlocks unlimited music, the complete toolkit, chord transposition, collaboration and Planning Center: $19.99 a year with a 7-day free trial, $2.99 a month, or $49.99 once for lifetime access. Prices are in US dollars and may vary by region.</p></div></details></div>
+    <!-- guides:start --><div class="lp-guides"><h3>Step-by-step guides</h3><ul><li><a href="/guide/connect-planning-center">Connect Planning Center</a></li><li><a href="/guide/play-a-service-plan">Play a service plan</a></li><li><a href="/guide/transpose-capo-and-numbers">Transpose, capo and numbers</a></li><li><a href="/guide/share-a-folder-or-set-list">Share a folder or set list</a></li></ul><p class="lp-guides-all"><a href="/guide">Browse the User Guide</a></p></div><!-- guides:end -->
   </div>
 </section>
 
@@ -335,6 +350,7 @@
       <div>
         <h4>Support</h4>
         <ul>
+          <li><a href="/guide">User Guide</a></li>
           <li><a href="/support">Help &amp; FAQ</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="mailto:support@musicfolder.app">Email support</a></li>
