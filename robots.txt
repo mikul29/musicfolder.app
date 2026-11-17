@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /get
+Disallow: /ev
+Disallow: /guide?
 Sitemap: https://musicfolder.app/sitemap.xml

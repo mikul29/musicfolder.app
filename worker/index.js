@@ -5,11 +5,15 @@
 // and the visit's source (channel, utm_source/medium/campaign, referring host, how the source was
 // known), then a 302 to the App Store.
 // /hit: one point per landing (LANDINGS): the page and the same source fields. 204, nothing else.
+// /ev: one point per User Guide event (GUIDE, assets/guide.js): a search someone settled on and how
+// many guides matched, a search with no match, an opened result, a guide link to a feature page or
+// Contact us, a guide read to the end. Allow-listed types, cleaned values. 204, nothing else.
 // No IP address, User-Agent, cookie or any other identifier is stored. Crawlers (User-Agent test)
 // and the owner's own devices (o=1: marked mf-owner in their own storage) aren't counted.
 
 import { cleanPath, sourceFrom } from "./source.js";
 import { looksAutomated, tapRedirect } from "./tap.js";
+import { guideEvent } from "./guide-event.js";
 
 function counted(request, url) {
   return !looksAutomated(request.headers.get("User-Agent")) && url.searchParams.get("o") !== "1";
@@ -33,6 +37,14 @@ export default {
         const s = sourceFrom(url.searchParams);
         write(env.LANDINGS, { indexes: [s.channel], doubles: [1],
                               blobs: [path, s.channel, s.utmSource, s.utmMedium, s.utmCampaign, s.ref] });
+      }
+      return new Response(null, { status: 204, headers: { "Cache-Control": "no-store" } });
+    }
+
+    if (url.pathname === "/ev") {
+      const e = guideEvent(url.searchParams);
+      if (e && counted(request, url)) {
+        write(env.GUIDE, { indexes: [e.type], doubles: [1, e.count], blobs: [e.type, e.page, e.value] });
       }
       return new Response(null, { status: 204, headers: { "Cache-Control": "no-store" } });
     }
