@@ -295,7 +295,12 @@ def chrome():
 
 
 def page_header(header: str, page: str) -> str:
-    h = header.replace('href="/get?from=support-nav"', f'href="/get?from={page}-nav"')
+    # support.html marks its own link as the current page; guide pages are in the Support section
+    # (the group stays is-current), and only the hub is the User Guide page itself.
+    h = header.replace('<a href="/support" aria-current="page">', '<a href="/support">')
+    if page == "guide":
+        h = h.replace('<a href="/guide">', '<a href="/guide" aria-current="page">')
+    h = h.replace('href="/get?from=support-nav"', f'href="/get?from={page}-nav"')
     h = h.replace('href="/get?from=support-menu"', f'href="/get?from={page}-menu"')
     h = h.replace('src="assets/', 'src="/assets/')
     return h
