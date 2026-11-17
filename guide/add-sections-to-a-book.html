@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Split a PDF Songbook or Hymnal Into Sections | Music Folder</title>
+<link rel="canonical" href="https://musicfolder.app/guide/add-sections-to-a-book">
+<meta name="description" content="Mark where each hymn, tune or movement starts in a PDF songbook, give each section its own key and tempo, and find your old bookmarks.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://musicfolder.app/guide/add-sections-to-a-book">
+<meta property="og:title" content="Add sections to a book | Music Folder User Guide">
+<meta property="og:description" content="Mark where each hymn, tune or movement starts in a PDF songbook, give each section its own key and tempo, and find your old bookmarks.">
+<meta property="og:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meet Music Folder: a black music folder with silver corners">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Add sections to a book | Music Folder User Guide">
+<meta name="twitter:description" content="Mark where each hymn, tune or movement starts in a PDF songbook, give each section its own key and tempo, and find your old bookmarks.">
+<meta name="twitter:image" content="https://musicfolder.app/assets/og-image.jpg">
+<meta name="apple-itunes-app" content="app-id=1611824311">
+<meta name="theme-color" content="#FBFAF8">
+<meta name="color-scheme" content="light only">
+<link rel="icon" type="image/png" href="/assets/favicon.png?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Music Folder",
+      "item": "https://musicfolder.app/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "User Guide",
+      "item": "https://musicfolder.app/guide"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Build Your Library",
+      "item": "https://musicfolder.app/guide#build-your-library"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Add sections to a book",
+      "item": "https://musicfolder.app/guide/add-sections-to-a-book"
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/site.css?v=61">
+<link rel="stylesheet" href="/assets/guide.css?v=1">
+</head>
+<body class="guide-page">
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Music Folder home">
+      <img src="/assets/app-icon.png" alt="" width="28" height="28">
+      Music Folder
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-features">Features <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-features">
+          <ul>
+            <li><a href="/features/sheet-music-organizer"><b>Organizer</b></a></li>
+            <li><a href="/features/sheet-music-reader"><b>Reader</b></a></li>
+            <li><a href="/features/set-lists"><b>Set lists</b></a></li>
+            <li><a href="/features/page-turner"><b>Page turner</b></a></li>
+            <li><a href="/features/annotation"><b>Annotation</b></a></li>
+            <li><a href="/features/chord-charts"><b>Chord charts</b></a></li>
+            <li><a href="/features/sharing"><b>Sharing</b></a></li>
+            <li><a href="/features/toolkit"><b>Toolkit</b></a></li>
+            <li><a href="/features/free-sheet-music"><b>Free sheet music</b></a></li>
+            <li><a href="/planning-center"><b>Planning Center</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="nav-who">Who it's for <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3.75l3 3 3-3"/></svg></button>
+        <div class="nav-pop" id="nav-who">
+          <ul>
+            <li><a href="/for/bands"><b>Bands</b></a></li>
+            <li><a href="/for/worship-teams"><b>Worship teams</b></a></li>
+            <li><a href="/for/orchestras-choirs"><b>Orchestras &amp; choirs</b></a></li>
+            <li><a href="/for/students"><b>Students &amp; soloists</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="/pricing">Pricing</a>
+      <a href="/about">About</a>
+      <a href="/support" aria-current="page">Support</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="/get?from=guide-add-sections-to-a-book-nav">Download</a>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
+      </summary>
+      <div class="menu-panel">
+        <div class="menu-group" role="group" aria-labelledby="menu-features">
+          <span class="menu-label" id="menu-features">Features</span>
+          <a href="/features/sheet-music-organizer">Organizer</a>
+          <a href="/features/sheet-music-reader">Reader</a>
+          <a href="/features/set-lists">Set lists</a>
+          <a href="/features/page-turner">Page turner</a>
+          <a href="/features/annotation">Annotation</a>
+          <a href="/features/chord-charts">Chord charts</a>
+          <a href="/features/sharing">Sharing</a>
+          <a href="/features/toolkit">Toolkit</a>
+          <a href="/features/free-sheet-music">Free sheet music</a>
+          <a href="/planning-center">Planning Center</a>
+        </div>
+        <div class="menu-group" role="group" aria-labelledby="menu-who">
+          <span class="menu-label" id="menu-who">Who it's for</span>
+          <a href="/for/bands">Bands</a>
+          <a href="/for/worship-teams">Worship teams</a>
+          <a href="/for/orchestras-choirs">Orchestras &amp; choirs</a>
+          <a href="/for/students">Students &amp; soloists</a>
+        </div>
+        <a href="/pricing">Pricing</a>
+        <a href="/about">About</a>
+        <a href="/support" aria-current="page">Support</a>
+        <a href="/get?from=guide-add-sections-to-a-book-menu">Download on the App Store</a>
+      </div>
+    </details>
+  </div>
+</header>
+<main id="main">
+<div class="wrap guide-layout">
+<aside class="guide-aside"><form class="guide-search compact" role="search" action="/guide" method="get" data-guide-search>
+  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg>
+  <label class="sr-only" for="guideSearchSide">Search the User Guide</label>
+  <input id="guideSearchSide" name="q" type="search" placeholder="Search the guide" autocomplete="off" spellcheck="false" aria-controls="guideSearchSide-results" aria-autocomplete="list">
+  <div class="guide-results" id="guideSearchSide-results" role="listbox" aria-label="Search results" hidden></div>
+</form><nav class="guide-nav" aria-label="User Guide">
+<a class="guide-nav-home" href="/guide">User Guide</a>
+<details class="guide-nav-ch"><summary>Get Started</summary><ul>
+<li><a href="/guide/welcome-to-music-folder">Welcome to Music Folder</a></li>
+<li><a href="/guide/add-your-first-music">Add your first music</a></li>
+<li><a href="/guide/free-and-premium">Free and Premium</a></li>
+<li><a href="/guide/use-music-folder-on-a-mac">Use Music Folder on a Mac</a></li>
+</ul></details>
+<details class="guide-nav-ch" open><summary>Build Your Library</summary><ul>
+<li><a href="/guide/import-music">Import music</a></li>
+<li><a href="/guide/get-free-sheet-music">Get free sheet music</a></li>
+<li><a href="/guide/add-sections-to-a-book" aria-current="page">Add sections to a book</a></li>
+<li><a href="/guide/edit-or-delete-a-piece">Edit or delete a piece</a></li>
+<li><a href="/guide/organize-rotate-and-crop-pages">Organize, rotate and crop pages</a></li>
+<li><a href="/guide/organize-music-in-folders">Organize music in folders</a></li>
+<li><a href="/guide/find-music-with-search-and-filters">Find music with search and filters</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Read and Play</summary><ul>
+<li><a href="/guide/the-reader-at-a-glance">The reader at a glance</a></li>
+<li><a href="/guide/turn-pages">Turn pages</a></li>
+<li><a href="/guide/turn-pages-hands-free">Turn pages hands-free</a></li>
+<li><a href="/guide/change-the-page-view">Change the page view</a></li>
+<li><a href="/guide/use-performance-mode">Use Performance Mode</a></li>
+<li><a href="/guide/jump-to-repeats-with-page-links">Jump to repeats with Page Links</a></li>
+<li><a href="/guide/keep-notes-on-a-piece">Keep notes on a piece</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Annotate</summary><ul>
+<li><a href="/guide/mark-up-music-with-apple-pencil">Mark up music with Apple Pencil</a></li>
+<li><a href="/guide/use-annotation-layers">Use annotation layers</a></li>
+<li><a href="/guide/add-text-symbols-and-shapes">Add text, symbols and shapes</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Chord Charts</summary><ul>
+<li><a href="/guide/create-a-chord-chart">Create a chord chart</a></li>
+<li><a href="/guide/transpose-capo-and-numbers">Transpose, capo and numbers</a></li>
+<li><a href="/guide/set-the-song-order">Set the song order</a></li>
+<li><a href="/guide/format-a-chord-chart">Format a chord chart</a></li>
+<li><a href="/guide/turn-a-pdf-into-a-chord-chart">Turn a PDF into a chord chart</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Set Lists</summary><ul>
+<li><a href="/guide/create-and-edit-a-set-list">Create and edit a set list</a></li>
+<li><a href="/guide/add-pages-and-timing-to-a-set-list">Add pages and timing to a set list</a></li>
+<li><a href="/guide/play-a-set-list">Play a set list</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Practice Tools</summary><ul>
+<li><a href="/guide/use-the-metronome">Use the metronome</a></li>
+<li><a href="/guide/tune-and-play-reference-tones">Tune and play reference tones</a></li>
+<li><a href="/guide/play-the-piano">Play the piano</a></li>
+<li><a href="/guide/play-along-with-recordings">Play along with recordings</a></li>
+<li><a href="/guide/track-your-practice">Track your practice</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Share and Collaborate</summary><ul>
+<li><a href="/guide/send-a-copy-or-print">Send a copy or print</a></li>
+<li><a href="/guide/share-a-folder-or-set-list">Share a folder or set list</a></li>
+<li><a href="/guide/join-a-shared-folder-or-set-list">Join a shared folder or set list</a></li>
+<li><a href="/guide/work-together-in-a-shared-folder-or-set-list">Work together in a shared folder or set list</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Planning Center</summary><ul>
+<li><a href="/guide/connect-planning-center">Connect Planning Center</a></li>
+<li><a href="/guide/play-a-service-plan">Play a service plan</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Sync, Backup and Account</summary><ul>
+<li><a href="/guide/sync-with-icloud">Sync with iCloud</a></li>
+<li><a href="/guide/back-up-and-restore-your-library">Back up and restore your library</a></li>
+<li><a href="/guide/manage-your-subscription">Manage your subscription</a></li>
+</ul></details>
+<details class="guide-nav-ch"><summary>Troubleshooting</summary><ul>
+<li><a href="/guide/music-isnt-syncing">My music isn&#x27;t syncing</a></li>
+<li><a href="/guide/library-looks-empty-after-reinstalling">My library looks empty after reinstalling</a></li>
+<li><a href="/guide/cant-hear-the-metronome-or-a-recording">I can&#x27;t hear the metronome or a recording</a></li>
+<li><a href="/guide/page-turner-isnt-turning-pages">My page turner isn&#x27;t turning pages</a></li>
+<li><a href="/guide/import-didnt-work">An import didn&#x27;t work</a></li>
+</ul></details>
+<a class="guide-nav-extra" href="/guide/whats-new">What&#39;s New</a>
+<a class="guide-nav-extra" href="/contact" data-ev="contact">Contact support</a>
+</nav></aside>
+<article class="guide-article">
+<nav class="crumbs" aria-label="Breadcrumb"><ol>
+  <li><a href="/guide">User Guide</a></li>
+  <li><a href="/guide#build-your-library">Build Your Library</a></li>
+  <li aria-current="page">Add sections to a book</li>
+</ol></nav>
+<details class="guide-topics-mobile"><summary>Build Your Library: all guides</summary><ul><li><a href="/guide/import-music">Import music</a></li><li><a href="/guide/get-free-sheet-music">Get free sheet music</a></li><li><a href="/guide/add-sections-to-a-book" aria-current="page">Add sections to a book</a></li><li><a href="/guide/edit-or-delete-a-piece">Edit or delete a piece</a></li><li><a href="/guide/organize-rotate-and-crop-pages">Organize, rotate and crop pages</a></li><li><a href="/guide/organize-music-in-folders">Organize music in folders</a></li><li><a href="/guide/find-music-with-search-and-filters">Find music with search and filters</a></li><li><a href="/guide">All chapters</a></li></ul></details>
+<h1 class="guide-title">Add sections to a book</h1>
+<ul class="availability"><li class="av av-premium"><span class="av-label">Premium</span> Free includes 5 sections across your library; Premium has no limit.</li><li class="av av-requires"><span class="av-label">Requires</span> Find Pieces Automatically needs Apple Intelligence (iOS 26 or later).</li></ul>
+<nav class="on-page" aria-label="On this page"><p class="on-page-title">On this page</p><ul><li><a href="#bookmarks-are-now-sections">Bookmarks are now sections</a></li><li><a href="#when-the-app-suggests-sections">When the app suggests sections</a></li><li><a href="#mark-sections-by-hand">Mark sections by hand</a></li><li><a href="#find-pieces-automatically">Find pieces automatically</a></li><li><a href="#set-a-section-s-details">Set a section's details</a></li><li><a href="#use-sections-in-the-reader">Use sections in the reader</a></li><li><a href="#change-or-remove-sections-later">Change or remove sections later</a></li><li><a href="#put-a-section-in-a-set-list">Put a section in a set list</a></li><li><a href="#display-as-book">Display as Book</a></li><li><a href="#the-free-allowance">The free allowance</a></li></ul></nav>
+<div class="guide-body">
+<p>Sections mark where each piece or movement starts and ends inside a larger PDF, such as a hymn in a hymnal, a tune in a fake book or a movement of a sonata. Each section can have its own key, tempo, time signature, duration and composer, and you can put a section in a set list on its own.</p>
+<h2 id="bookmarks-are-now-sections">Bookmarks are now sections</h2>
+<p>Sections were called bookmarks before Music Folder 4.2. They were renamed because they now stand for the individual pieces or movements inside a PDF, not just saved page positions. Bookmarks you made in an earlier version are your sections now. There's no separate Bookmarks menu: in the reader, tap <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="5" cy="7" r="1.3" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="5" cy="17" r="1.3" fill="currentColor" stroke="none"/><path d="M9.5 7H20M9.5 12H20M9.5 17H20"/></svg> <b>Sections</b> next to the back button to see them and jump to one.</p>
+<p>Sections aren't the verses, choruses and bridges of a chord chart (V1, C1, B) or a chart's song order, which belong to the chart itself. See <a href="/guide/set-the-song-order">Set the song order</a>.</p>
+<h2 id="when-the-app-suggests-sections">When the app suggests sections</h2>
+<p>Many publishers' PDFs carry their own table of contents, the outline a PDF viewer shows in its sidebar. When you import such a PDF, or open <b>Edit Details</b> for one without sections, the app reads that outline. If it lists at least two pieces on different pages, the <b>Sections</b> part of the form shows a card such as "12 sections found." Nothing has been created yet:</p>
+<ol class="steps"><li>Tap <b>Review</b>. <b>Review Sections</b> lists each entry with its pages. Contents pages, indexes and part headings start unchecked.</li><li>Keep checked only the entries that are pieces. Tap a row to change its title or pages.</li><li>Tap <b>Use 12 Sections</b>, then tap the checkmark on the form to save.</li></ol>
+<p>Music you scan with the document scanner can show "4 possible pieces found" instead, read from the titles at the top of the scanned pages.</p>
+<p>Until a piece has sections, the reader's <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="5" cy="7" r="1.3" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="5" cy="17" r="1.3" fill="currentColor" stroke="none"/><path d="M9.5 7H20M9.5 12H20M9.5 17H20"/></svg> <b>Sections</b> list also shows the PDF's own outline under <b>Table of Contents</b>. Those entries only take you to a page: they have no details and can't go into a set list. To turn one into a section, swipe left on it, tap <b>Edit</b> and save it. Once the piece has sections, the list shows only them.</p>
+<h2 id="mark-sections-by-hand">Mark sections by hand</h2>
+<figure class="shot shot-screen shot-ipad shot-portrait"><picture><source srcset="/assets/guide/add-sections-grid.webp" type="image/webp"><img src="/assets/guide/add-sections-grid.jpg" alt="The Add Sections grid for an eight-page Mozart quartet, with pages 1, 4 and 7 marked as the starts of three movements, Find Pieces Automatically above the pages, and Review 3 Sections at the top." width="1040" height="604" loading="eager" decoding="async" fetchpriority="high"></picture><figcaption>Tap the page where each piece starts.</figcaption></figure>
+<ol class="steps"><li>Touch and hold the piece in your library and choose <b>Edit Details</b>, or start from the Add Music form while importing.</li><li>Under <b>Sections</b>, tap <b>Add Sections</b>. The row appears for music with two or more pages.</li><li>Tap the page where each piece starts. Marks are numbered in page order; tap a marked page again to remove its mark.</li><li>Tap <b>Review Sections</b> (for example, <b>Review 12 Sections</b>).</li><li>Tap each section to name it in <b>Edit Section</b>, then tap the checkmark. Until you rename them, sections are called Untitled 1, Untitled 2 and so on.</li><li>Tap <b>Use 12 Sections</b>, then the checkmark on the form.</li></ol>
+<p>Each section ends one page before the next one starts, so you only need to mark the starts.</p>
+<div class="callout callout-device"><p><span class="callout-label">On iPad</span> in a wide window, the list of sections and the section you're editing sit side by side, and your edits apply as you make them.</p></div>
+<h2 id="find-pieces-automatically">Find pieces automatically</h2>
+<p>With Apple Intelligence turned on, the Add Sections screen has a <b>Find Pieces Automatically</b> card above the pages. Tap it and the app looks for the pieces using the PDF's outline, its contents page and the titles on its pages. When it finishes, <b>Review Sections</b> opens with what it found, plus any pages you'd already marked. You can tap <b>Cancel</b> while it works and <b>Resume</b> to start again; if it finds nothing, mark the pages by hand.</p>
+<p>Check the titles and start pages before you tap <b>Use</b>, especially in books whose printed page numbers don't match the PDF's pages.</p>
+<h2 id="set-a-section-s-details">Set a section's details</h2>
+<p><b>Edit Section</b> has the section's title, a strip of the PDF's pages (tap one to move the start) and these settings:</p>
+<ul><li><b>Starts on page</b>.</li><li><b>Follow Next Section</b>: on by default, so the section ends just before the next one starts. Turn it off to set <b>Ends on page</b> yourself, for example when blank pages separate the pieces.</li><li><b>Details</b>: <b>Composer</b>, <b>Tempo</b>, <b>Time Signature</b>, <b>Key</b> and <b>Duration</b>. The composer is the book's ("From document") until you type another. Key, tempo, time signature and duration are never taken from the book, so leave them empty if they don't apply.</li></ul>
+<p>A section played from a set list uses its own tempo and time signature. In the reader, the metronome changes to a section's tempo when you reach its pages; after you change the tempo yourself, choose <b>⋯ › Follow Section Tempos</b> to follow them again. See <a href="/guide/use-the-metronome">Use the metronome</a>.</p>
+<h2 id="use-sections-in-the-reader">Use sections in the reader</h2>
+<p>Tap <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="5" cy="7" r="1.3" fill="currentColor" stroke="none"/><circle cx="5" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="5" cy="17" r="1.3" fill="currentColor" stroke="none"/><path d="M9.5 7H20M9.5 12H20M9.5 17H20"/></svg> <b>Sections</b> and tap a section to jump to its first page. The section you jumped to has a checkmark while you're on its pages. Nothing stops you at the end of a section.</p>
+<p>To add a section while you read, go to its first page, open <b>Sections</b> and tap <b>Add Section Here</b> (or <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>). To rename a section or change its pages, swipe left on it and tap <b>Edit</b>. Tap <b>Delete</b> to remove it.</p>
+<h2 id="change-or-remove-sections-later">Change or remove sections later</h2>
+<ol class="steps"><li>Touch and hold the piece and choose <b>Edit Details</b>.</li><li>Under <b>Sections</b>, tap a section, <b>Edit Sections</b>, or <b>All 12 Sections</b> in a long list.</li><li>Tap a section to edit it, swipe left and tap <b>Remove</b> to remove it, or tap <b>Add Section</b>.</li><li>Tap <b>Done</b>, then the checkmark on the form.</li></ol>
+<p>If a section you remove is in a set list, the app names the set list first and removes only that entry; everything else in the set list stays in order. <b>Remove All Sections</b> turns the book back into one regular piece. Adding or removing sections never changes the PDF; to reorder or remove pages, use <a href="/guide/organize-rotate-and-crop-pages">Organize Pages</a>.</p>
+<h2 id="put-a-section-in-a-set-list">Put a section in a set list</h2>
+<p>When you add music to a set list, a piece with sections shows how many it has. Open its sections and choose the ones you want instead of the whole document; each one plays only its own pages. See <a href="/guide/create-and-edit-a-set-list">Create and edit a set list</a>.</p>
+<h2 id="display-as-book">Display as Book</h2>
+<p><b>Display as Book</b>, in the form's <b>Details</b>, shows a piece as a book in your library lists and in the <b>Books</b> filter. It changes only how the piece looks; sections work the same either way. <b>Review Sections</b> offers the same choice, <b>Show as Book</b>, when you review six or more titled sections.</p>
+<h2 id="the-free-allowance">The free allowance</h2>
+<p>The free version includes 5 sections across your library. If tapping <b>Use</b> or <b>Add Section Here</b> would take you past 5, the Premium offer appears and your unsaved work stays open behind it. Editing, renaming and removing sections is always allowed, <b>Display as Book</b> is free, and sections in shared folders and set lists don't count. See <a href="/guide/free-and-premium">Free and Premium</a>.</p>
+</div>
+<section class="related" aria-labelledby="related-title" data-read-marker><h2 id="related-title">Related</h2><ul>
+<li><a href="/guide/import-music"><span class="rel-ch">Build Your Library</span>Import music</a></li>
+<li><a href="/guide/create-and-edit-a-set-list"><span class="rel-ch">Set Lists</span>Create and edit a set list</a></li>
+<li><a href="/guide/set-the-song-order"><span class="rel-ch">Chord Charts</span>Set the song order</a></li>
+<li><a href="/guide/use-the-metronome"><span class="rel-ch">Practice Tools</span>Use the metronome</a></li>
+</ul>
+<p class="feature-link">See what else this can do on <a href="/features/sheet-music-organizer" data-ev="nav">the Sheet Music Organizer</a>.</p>
+</section>
+<nav class="pager" aria-label="Previous and next guide">
+<a class="pager-prev" href="/guide/get-free-sheet-music" rel="prev"><span>Previous</span>Get free sheet music</a>
+<a class="pager-next" href="/guide/edit-or-delete-a-piece" rel="next"><span>Next</span>Edit or delete a piece</a>
+</nav>
+<div class="guide-help">
+  <div><h2>Still need help?</h2><p>Tell us what you were trying to do and what happened. Every message is read by the people who make Music Folder.</p></div>
+  <a class="btn btn-primary" href="/contact" data-ev="contact">Contact us</a>
+</div>
+</article></div>
+
+<section class="section final guide-final">
+  <div class="wrap">
+    <h2 class="heading">A better <em>home</em> for your sheet music.</h2>
+    <p>Made by musicians, for musicians.</p>
+    <div class="cta-row">
+      <a class="badge-link" href="/get?from=guide-add-sections-to-a-book-final">
+        <picture>
+          <img src="https://toolbox.marketingtools.apple.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" width="144" height="48" loading="lazy">
+        </picture>
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-mark" aria-hidden="true">Music Folder</div>
+    <div class="footer-grid">
+      <div class="f-about">
+        <p>Keep your sheet music, set lists, and practice tools together in one app.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#toolkit">Toolkit</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Features</h4>
+        <ul>
+          <li><a href="/features/sheet-music-organizer">Organizer</a></li>
+          <li><a href="/features/sheet-music-reader">Reader</a></li>
+          <li><a href="/features/set-lists">Set lists</a></li>
+          <li><a href="/features/page-turner">Page turner</a></li>
+          <li><a href="/features/annotation">Annotation</a></li>
+          <li><a href="/features/chord-charts">Chord charts</a></li>
+          <li><a href="/features/sharing">Sharing</a></li>
+          <li><a href="/features/toolkit">Toolkit</a></li>
+          <li><a href="/features/free-sheet-music">Free sheet music</a></li>
+          <li><a href="/planning-center">Planning Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Who it's for</h4>
+        <ul>
+          <li><a href="/for/bands">Bands</a></li>
+          <li><a href="/for/worship-teams">Worship teams</a></li>
+          <li><a href="/for/orchestras-choirs">Orchestras &amp; choirs</a></li>
+          <li><a href="/for/students">Students &amp; soloists</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="/guide">User Guide</a></li>
+          <li><a href="/support">Help &amp; FAQ</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="mailto:support@musicfolder.app">Email support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Music Folder</span>
+    </div>
+  </div>
+</footer>
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const header = document.querySelector('.site-header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+  const menu = document.querySelector('.menu');
+  menu && menu.addEventListener('click', e => { if (e.target.tagName === 'A') menu.removeAttribute('open'); });
+})();
+</script>
+<script src="/assets/site.js?v=6" defer></script>
+<script src="/assets/guide.js?v=1" defer></script>
+</body>
+</html>
