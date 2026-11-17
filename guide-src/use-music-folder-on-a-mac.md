@@ -52,8 +52,7 @@
  "shots": [],
  "open_questions": [
   "Minimum macOS: the project sets no LSMinimumSystemVersion; IPHONEOS_DEPLOYMENT_TARGET is 17.0 (pbxproj). For iPad apps on Mac that normally means macOS 14 Sonoma or later. Please confirm in App Store Connect (Mac availability) before we state a version; the article currently names none. (MyBandProject.xcodeproj/project.pbxproj)",
-  "Sidebar on Mac: the iPad sidebar shell needs iOS 18 APIs (MainTabBarController+Pad.swift). Does a Mac on macOS 14 get the bottom tab bar instead of the sidebar? The article describes the layout as matching the iPad without naming macOS versions. (App/MainTabBarController+Pad.swift)",
-  "Is Mac availability turned on for Music Folder in App Store Connect (Designed for iPad apps on Mac), so it's found in the Mac App Store? The article says to find it there. (App Store Connect)"
+  "Sidebar on Mac: the iPad sidebar shell needs iOS 18 APIs (MainTabBarController+Pad.swift). Does a Mac on macOS 14 get the bottom tab bar instead of the sidebar? The article describes the layout as matching the iPad without naming macOS versions. (App/MainTabBarController+Pad.swift)"
  ]
 }
 ---

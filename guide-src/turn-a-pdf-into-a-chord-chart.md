@@ -52,9 +52,7 @@
    "reuse": null
   }
  ],
- "open_questions": [
-  "SongPDFView.swift / ReaderToolbarCustomization.swift: Convert to Chord Chart can be placed on the song reader's toolbar (ReaderTool.convert, symbol wand.and.rays; verified in code). The guide mentions it in one sentence; keep it, or leave optional toolbar tools out of this guide?"
- ]
+ "open_questions": []
 }
 ---
 If you have a chord chart as a PDF, such as a chart you downloaded or a scanned song sheet with chords over the lyrics, Music Folder can read it and turn it into an editable chord chart that you can transpose, play with a capo or read as numbers. The PDF stays with the piece, and you can switch between the two whenever you like.

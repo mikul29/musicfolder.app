@@ -47,10 +47,7 @@
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],
- "open_questions": [
-  "Prices are taken from pricing.html and match Configuration.storekit ($2.99 a month, $19.99 a year with a 7-day free trial, $49.99 lifetime). Confirm App Store Connect still matches before publishing. (Configuration.storekit, pricing.html)",
-  "Pre-3.0 buyers: the code grandfathers the original one-time Premium upgrade (product PremiumVersion), shown in Account as Lifetime, 'Original unlock'. pricing.html says 'If you bought Music Folder before version 3.0'. Is 'bought the original Premium upgrade' the right wording, or was the app itself ever paid? (Premium/PremiumStore.swift)"
- ]
+ "open_questions": []
 }
 ---
 Music Folder is free to use with a small library, and the free version has no time limit. Premium removes the limits on pieces, sections and folders, and adds the practice tools, chord chart transposition, collaboration and Planning Center.

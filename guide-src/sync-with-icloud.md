@@ -44,8 +44,7 @@
  "differs_from_4_2": null,
  "shots": [],
  "open_questions": [
-  "The Important note says that turning iCloud off for Music Folder, or signing out of iCloud, removes the synced library from that device and that changes not yet uploaded can be lost. This comes from the 2026-07 support investigation (NSPersistentCloudKitContainer purges its store when the account goes away), not from app code. Please confirm the wording before publishing. (App/AppDelegate.swift)",
-  "First launch without iCloud: the store gets CloudKit only if an iCloud account is signed in at first launch; the next launch attaches it because the store file exists. The article tells people whose iCloud Sync row says Off to quit and reopen the app. Confirm that's the right advice. (App/AppDelegate.swift)"
+  "The Important note says that turning iCloud off for Music Folder, or signing out of iCloud, removes the synced library from that device and that changes not yet uploaded can be lost. This comes from the 2026-07 support investigation (NSPersistentCloudKitContainer purges its store when the account goes away), not from app code. Please confirm the wording before publishing. (App/AppDelegate.swift)"
  ]
 }
 ---

@@ -169,11 +169,15 @@
 .shot video { width: 100%; }
 .shot-iphone img, .shot-iphone video { border-radius: 26px; }
 .shot-crop img { border-radius: 12px; }
-.zoom-hint { position: absolute; right: 10px; bottom: 10px; width: 30px; height: 30px; border-radius: 50%;
-  background: rgba(20,20,20,.62) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M14 4h6v6M20 4l-6.5 6.5M10 20H4v-6M4 20l6.5-6.5'/%3E%3C/svg%3E") center / 15px no-repeat;
+/* The enlarge cue sits just below the image's bottom-right corner, never on the screenshot:
+   shown on hover / keyboard focus where there is a pointer, faintly always on touch screens. */
+.shot-zoom { margin-bottom: 22px; }
+.zoom-hint { position: absolute; right: 0; top: calc(100% + 3px); width: 18px; height: 18px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236E6A60' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M14 4h6v6M20 4l-6.5 6.5M10 20H4v-6M4 20l6.5-6.5'/%3E%3C/svg%3E") center / 14px no-repeat;
   opacity: 0; transition: opacity .15s; }
 .shot-zoom:hover .zoom-hint, .shot-zoom:focus-visible .zoom-hint { opacity: 1; }
-@media (hover: none) { .zoom-hint { opacity: .6; width: 24px; height: 24px; right: 8px; bottom: 8px; background-size: 12px; } }
+@media (hover: none) { .zoom-hint { opacity: .7; } }
+.shot-zoom + figcaption { margin-top: -14px; }
 .shot-zoom:focus-visible { outline: 2px solid var(--ribbon); outline-offset: 3px; }
 .shot figcaption { margin-top: 8px; font-size: 14px; line-height: 1.45; color: var(--graphite); max-width: 560px; }
 .zoom-view { border: 0; padding: 0; margin: auto; max-width: 96vw; max-height: 94vh; background: transparent; overflow: visible; }

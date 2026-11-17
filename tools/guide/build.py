@@ -26,7 +26,7 @@ OUT_DIR = ROOT / "guide"
 IMG_DIR = ROOT / "assets" / "guide"
 SITE = "https://musicfolder.app"
 SITE_CSS = "61"          # keep in step with the other pages' site.css?v=
-GUIDE_CSS = "3"
+GUIDE_CSS = "4"
 GUIDE_JS = "2"
 SITE_JS = "6"
 DRAFT = "--draft" in sys.argv

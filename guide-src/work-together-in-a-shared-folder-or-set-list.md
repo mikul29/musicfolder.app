@@ -2,7 +2,7 @@
 {
  "slug": "work-together-in-a-shared-folder-or-set-list",
  "h1": "Work together in a shared folder or set list",
- "seo_title": "Work Together in a Shared Folder | Music Folder",
+ "seo_title": "Work Together in Shared Folders and Set Lists | Music Folder",
  "description": "How edits reach everyone in a Shared Folder or Set List, what happens while you perform or are offline, and how to restore removed music.",
  "intent": "existing",
  "intent_note": "A member or owner of a Shared Folder or Shared Set List who wants to know when changes arrive, whether the music works offline at a gig, and how to undo a removal or a replaced PDF.",
