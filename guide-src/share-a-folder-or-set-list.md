@@ -2,7 +2,7 @@
 {
  "slug": "share-a-folder-or-set-list",
  "h1": "Share a folder or set list",
- "seo_title": "Share a Folder or Set List With Your Band | Music Folder",
+ "seo_title": "Share Sheet Music and Set Lists | Music Folder",
  "description": "Turn a folder or set list into a Shared Folder or Shared Set List, invite members, choose who can edit, and stop sharing when you're done.",
  "intent": "existing",
  "intent_note": "A band leader, music director or teacher who wants everyone working from the same music and set order, and wants to know what sharing does to their own library.",

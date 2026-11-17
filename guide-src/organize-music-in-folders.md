@@ -2,15 +2,51 @@
 {
  "slug": "organize-music-in-folders",
  "h1": "Organize music in folders",
- "seo_title": "Organize Sheet Music Into Folders | Music Folder",
+ "seo_title": "Organize Sheet Music into Folders | Music Folder",
  "description": "Create folders for ensembles, concerts or students, choose a cover color, add and remove pieces, and delete a folder with or without its pieces.",
  "intent": "existing",
  "intent_note": "Musicians sorting a growing library by ensemble, concert, season or student.",
- "searches": ["groups", "group", "folder", "categories", "playlist", "organize library", "collection", "folder colour", "folder color", "delete folder"],
- "availability": [{"kind": "premium", "text": "Free includes 1 folder; Premium has no limit."}],
- "related": ["import-music", "find-music-with-search-and-filters", "share-a-folder-or-set-list", "create-and-edit-a-set-list"],
- "feature_link": {"href": "/features/sheet-music-organizer", "text": "the Sheet Music Organizer"},
- "documents": ["Groups/FolderEditorSheet.swift", "Services/FolderCoverColor.swift", "Groups/Groups View/GroupsView.swift (context menu, confirmDeleteGroup, addGroupTapped, groupsEmptyState)", "Groups/Songs View/GroupsViewSongs.swift (Add Existing Pieces, Remove from Folder, Delete Piece)", "Shared UI/MusicPickerViewController.swift", "Shared UI/SongListViewController.swift (makeAddToGroupMenu)", "Services/GroupLibraryService.swift (deleteGroupKeepingSongs, deleteGroupAndSongs)", "Discover/StarterGroup.swift", "Sharing/NewSharedCreation.swift", "R6", "R126"],
+ "searches": [
+  "groups",
+  "group",
+  "folder",
+  "categories",
+  "playlist",
+  "organize library",
+  "collection",
+  "folder colour",
+  "folder color",
+  "delete folder"
+ ],
+ "availability": [
+  {
+   "kind": "premium",
+   "text": "Free includes 1 folder; Premium has no limit."
+  }
+ ],
+ "related": [
+  "import-music",
+  "find-music-with-search-and-filters",
+  "share-a-folder-or-set-list",
+  "create-and-edit-a-set-list"
+ ],
+ "feature_link": {
+  "href": "/features/sheet-music-organizer",
+  "text": "the Sheet Music Organizer"
+ },
+ "documents": [
+  "Groups/FolderEditorSheet.swift",
+  "Services/FolderCoverColor.swift",
+  "Groups/Groups View/GroupsView.swift (context menu, confirmDeleteGroup, addGroupTapped, groupsEmptyState)",
+  "Groups/Songs View/GroupsViewSongs.swift (Add Existing Pieces, Remove from Folder, Delete Piece)",
+  "Shared UI/MusicPickerViewController.swift",
+  "Shared UI/SongListViewController.swift (makeAddToGroupMenu)",
+  "Services/GroupLibraryService.swift (deleteGroupKeepingSongs, deleteGroupAndSongs)",
+  "Discover/StarterGroup.swift",
+  "Sharing/NewSharedCreation.swift",
+  "R6",
+  "R126"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": "New Folder has a Shared Folder switch in 4.3 (4.2 had a Collaborate row in the folder sheet). Sharing an existing folder is now in its Share Folder menu.",
  "shots": [],

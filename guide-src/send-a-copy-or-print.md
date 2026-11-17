@@ -2,7 +2,7 @@
 {
  "slug": "send-a-copy-or-print",
  "h1": "Send a copy or print",
- "seo_title": "Send or Print Sheet Music and Set Lists | Music Folder",
+ "seo_title": "Send a Copy of Your Music or Print It | Music Folder",
  "description": "Send a piece, folder or set list as a Music Folder file or a PDF, choose which markings go with it, print it, and open a copy someone sends you.",
  "intent": "existing",
  "intent_note": "A musician who wants to send music to a bandmate, email a set list as a PDF, or print a part, and needs to know what the other person receives.",

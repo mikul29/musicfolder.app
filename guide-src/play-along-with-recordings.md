@@ -2,19 +2,61 @@
 {
  "slug": "play-along-with-recordings",
  "h1": "Play along with recordings",
- "seo_title": "Slow Down a Recording or Change Its Key | Music Folder",
+ "seo_title": "Play Along with a Recording at Any Tempo | Music Folder",
  "description": "Attach a recording to a piece, play along in the reader, slow it down or change its key without changing the file, and record yourself over the score.",
  "intent": "general",
  "intent_note": "Musicians learning a part by ear who want a backing track or reference recording next to the score, slowed down or transposed, and players who want to record a practice take.",
- "searches": ["backing track", "audio", "mp3", "slow down", "change pitch", "transpose audio", "practice track", "record myself", "voice memo", "speed", "tempo"],
+ "searches": [
+  "backing track",
+  "audio",
+  "mp3",
+  "slow down",
+  "change pitch",
+  "transpose audio",
+  "practice track",
+  "record myself",
+  "voice memo",
+  "speed",
+  "tempo"
+ ],
  "availability": [],
- "related": ["edit-or-delete-a-piece", "use-the-metronome", "track-your-practice", "cant-hear-the-metronome-or-a-recording"],
- "feature_link": {"href": "/features/toolkit", "text": "the musician's toolkit"},
- "documents": ["Tools/AudioAttachmentAdder.swift", "Shared UI/AddSongFormViewController.swift", "Tools/ReaderAudioBar.swift", "Tools/PlaybackAdjustmentViewController.swift", "Tools/PlaybackAdjustment.swift", "Tools/RecordingTempo.swift", "Tools/ReaderRecorderCard.swift", "Tools/RecordingTake.swift", "Services/SetTiming.swift", "R38", "R40", "R44"],
+ "related": [
+  "edit-or-delete-a-piece",
+  "use-the-metronome",
+  "track-your-practice",
+  "cant-hear-the-metronome-or-a-recording"
+ ],
+ "feature_link": {
+  "href": "/features/toolkit",
+  "text": "the musician's toolkit"
+ },
+ "documents": [
+  "Tools/AudioAttachmentAdder.swift",
+  "Shared UI/AddSongFormViewController.swift",
+  "Tools/ReaderAudioBar.swift",
+  "Tools/PlaybackAdjustmentViewController.swift",
+  "Tools/PlaybackAdjustment.swift",
+  "Tools/RecordingTempo.swift",
+  "Tools/ReaderRecorderCard.swift",
+  "Tools/RecordingTake.swift",
+  "Services/SetTiming.swift",
+  "R38",
+  "R40",
+  "R44"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [
-  {"id": "tempo-and-key", "kind": "crop", "device": "iphone", "orientation": "portrait", "state": "A chord chart open in the reader on iPhone with its recording playing; the audio player under the toolbar shows 72 BPM · D on its Tempo & Key button, and the Tempo & Key sheet is open: TEMPO card at 72 BPM (Original 88 BPM) with the slider and its marks, KEY card at D (+2 from C) with the key strip.", "alt": "The Tempo and Key sheet: a tempo card reading 72 BPM with a slider, and a key card reading D with a row of keys from C to E below it.", "caption": null, "reuse": "tempo-key-iphone.jpg"}
+  {
+   "id": "tempo-and-key",
+   "kind": "crop",
+   "device": "iphone",
+   "orientation": "portrait",
+   "state": "A chord chart open in the reader on iPhone with its recording playing; the audio player under the toolbar shows 72 BPM · D on its Tempo & Key button, and the Tempo & Key sheet is open: TEMPO card at 72 BPM (Original 88 BPM) with the slider and its marks, KEY card at D (+2 from C) with the key strip.",
+   "alt": "The Tempo and Key sheet: a tempo card reading 72 BPM with a slider, and a key card reading D with a row of keys from C to E below it.",
+   "caption": null,
+   "reuse": "tempo-key-iphone.jpg"
+  }
  ],
  "open_questions": []
 }

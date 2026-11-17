@@ -2,7 +2,7 @@
 {
  "slug": "edit-or-delete-a-piece",
  "h1": "Edit or delete a piece",
- "seo_title": "Edit Piece Details or Delete a Piece | Music Folder",
+ "seo_title": "Edit or Delete a Piece of Music | Music Folder",
  "description": "Change a piece's title, composer, key, tempo, time signature, duration, folders and tags in Music Folder, or delete it and see which set lists it leaves.",
  "intent": "existing",
  "intent_note": "Existing users who want to fix a title, add a key or tempo, tag music, or remove a piece safely.",

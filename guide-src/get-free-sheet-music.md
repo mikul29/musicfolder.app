@@ -2,7 +2,7 @@
 {
  "slug": "get-free-sheet-music",
  "h1": "Get free sheet music",
- "seo_title": "Download Free Public-Domain Sheet Music | Music Folder",
+ "seo_title": "Find Free Public-Domain Sheet Music | Music Folder",
  "description": "Browse and search a catalog of free public-domain classical scores in Music Folder, preview a score's pages, and add it to your library.",
  "intent": "general",
  "intent_note": "Musicians looking for free classical sheet music, and new users who want something to open right away.",

@@ -2,7 +2,7 @@
 {
  "slug": "jump-to-repeats-with-page-links",
  "h1": "Jump to repeats with Page Links",
- "seo_title": "Page Links: Jump to Repeats, D.S. and Coda | Music Folder",
+ "seo_title": "Jump to Repeats and Codas with Page Links | Music Folder",
  "description": "Create Page Links in Music Folder to jump from a D.S., D.C. or repeat sign straight to the segno, coda or earlier page, then tap Back to return.",
  "intent": "general",
  "intent_note": "Musicians frustrated by flipping back for repeats, D.S. al Coda or D.C. in a PDF, and users looking for how to set up or remove a link.",

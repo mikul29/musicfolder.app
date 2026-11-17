@@ -2,7 +2,7 @@
 {
  "slug": "organize-rotate-and-crop-pages",
  "h1": "Organize, rotate and crop pages",
- "seo_title": "Reorder, Rotate and Crop Sheet Music Pages | Music Folder",
+ "seo_title": "Reorder, Rotate and Crop PDF Pages | Music Folder",
  "description": "Reorder, rotate, duplicate and remove the pages of a piece, add blank or staff paper and pages from another piece, and crop away wide margins.",
  "intent": "existing",
  "intent_note": "Musicians fixing a scan (sideways pages, wrong order, extra pages) or trimming margins so the music fills the screen.",

@@ -2,7 +2,7 @@
 {
  "slug": "play-a-set-list",
  "h1": "Play a set list",
- "seo_title": "Play Through a Set List on Stage | Music Folder",
+ "seo_title": "Play a Set List from Start to Finish | Music Folder",
  "description": "Play a set list from the first piece or any piece, turn straight from one piece to the next, use Perform Set for the stage, and open a section's whole book.",
  "intent": "existing",
  "intent_note": "Musicians on stage or in rehearsal who want to play through a set list without stopping between pieces, and users looking for Perform Set or Open Whole Document.",

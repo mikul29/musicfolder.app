@@ -2,23 +2,52 @@
 {
  "slug": "use-performance-mode",
  "h1": "Use Performance Mode",
- "seo_title": "Performance Mode for Playing Sheet Music Live | Music Folder",
+ "seo_title": "Use Performance Mode on Stage | Music Folder",
  "description": "Use Performance Mode on stage: the toolbars hide, taps and pedals only turn pages, and nothing on the page can be changed by accident until you leave.",
  "intent": "existing",
  "intent_note": "A performer who wants a distraction-free, accident-proof reader for a gig or service, or who is stuck in Performance Mode and wants to leave.",
- "searches": ["stage mode", "gig mode", "full screen", "lock screen", "hide toolbar", "accidental page turn", "exit performance mode", "perform set", "double turn"],
+ "searches": [
+  "stage mode",
+  "gig mode",
+  "full screen",
+  "lock screen",
+  "hide toolbar",
+  "accidental page turn",
+  "exit performance mode",
+  "perform set",
+  "double turn"
+ ],
  "availability": [],
- "related": ["play-a-set-list", "turn-pages", "turn-pages-hands-free", "keep-notes-on-a-piece"],
- "feature_link": {"href": "/features/sheet-music-reader", "text": "the Sheet Music Reader"},
- "documents": ["PDF Reader/PerformanceMode.swift", "PDF Reader/PerformanceModeController.swift", "App/PerformanceModeSettingsView.swift", "Set Lists/Songs View/SetListSummaryPanel.swift", "R41"],
+ "related": [
+  "play-a-set-list",
+  "turn-pages",
+  "turn-pages-hands-free",
+  "keep-notes-on-a-piece"
+ ],
+ "feature_link": {
+  "href": "/features/sheet-music-reader",
+  "text": "the Sheet Music Reader"
+ },
+ "documents": [
+  "PDF Reader/PerformanceMode.swift",
+  "PDF Reader/PerformanceModeController.swift",
+  "App/PerformanceModeSettingsView.swift",
+  "Set Lists/Songs View/SetListSummaryPanel.swift",
+  "R41"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [
-  {"id": "performance-mode-ipad", "kind": "screen", "device": "ipad", "orientation": "portrait",
+  {
+   "id": "performance-mode-ipad",
+   "kind": "screen",
+   "device": "ipad",
+   "orientation": "portrait",
    "state": "Sicilienne (Fauré) open in Performance Mode: no navigation bar or status bar, the page filling the screen, and the capsule at the top right with Notes, the Metronome cell showing 50, Play and Done. A Page Link marker may be visible on the page.",
    "alt": "A page of sheet music filling an iPad screen with no toolbar, and a small capsule in the top-right corner holding Notes, Metronome, Play and Done buttons.",
    "caption": null,
-   "reuse": "reader-perform-ipad.jpg"}
+   "reuse": "reader-perform-ipad.jpg"
+  }
  ],
  "open_questions": []
 }

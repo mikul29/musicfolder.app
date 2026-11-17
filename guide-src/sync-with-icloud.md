@@ -6,11 +6,40 @@
  "description": "How Music Folder keeps your library the same on iPhone, iPad and Mac with iCloud: turning sync on, the first sync, and what stays on each device.",
  "intent": "existing",
  "intent_note": "Users with more than one device who want the same music everywhere, or who just got a new iPad and want their library on it.",
- "searches": ["icloud sync", "cloudkit", "sync devices", "new ipad", "second device", "transfer library", "move music to new device", "offline"],
- "availability": [{"kind": "requires", "text": "Needs an iCloud account, signed in on each device with the same Apple Account."}],
- "related": ["music-isnt-syncing", "back-up-and-restore-your-library", "library-looks-empty-after-reinstalling", "use-music-folder-on-a-mac"],
+ "searches": [
+  "icloud sync",
+  "cloudkit",
+  "sync devices",
+  "new ipad",
+  "second device",
+  "transfer library",
+  "move music to new device",
+  "offline"
+ ],
+ "availability": [
+  {
+   "kind": "requires",
+   "text": "Needs an iCloud account, signed in on each device with the same Apple Account."
+  }
+ ],
+ "related": [
+  "music-isnt-syncing",
+  "back-up-and-restore-your-library",
+  "library-looks-empty-after-reinstalling",
+  "use-music-folder-on-a-mac"
+ ],
  "feature_link": null,
- "documents": ["App/AppDelegate.swift", "App/AccountView.swift", "Data/CloudKitImportMonitor.swift", "App/EmptyStateView.swift", "Data/SongMetadataStore.swift", "Data/SongAudioStore.swift", "Data/BackupStore.swift", "Planning Center/PCOKeychain.swift", "Data/SampleLibrary.swift"],
+ "documents": [
+  "App/AppDelegate.swift",
+  "App/AccountView.swift",
+  "Data/CloudKitImportMonitor.swift",
+  "App/EmptyStateView.swift",
+  "Data/SongMetadataStore.swift",
+  "Data/SongAudioStore.swift",
+  "Data/BackupStore.swift",
+  "Planning Center/PCOKeychain.swift",
+  "Data/SampleLibrary.swift"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

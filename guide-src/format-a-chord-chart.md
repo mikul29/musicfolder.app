@@ -2,7 +2,7 @@
 {
  "slug": "format-a-chord-chart",
  "h1": "Format a chord chart",
- "seo_title": "Change Chord Chart Fonts and Page Size | Music Folder",
+ "seo_title": "Change a Chord Chart's Font and Page Size | Music Folder",
  "description": "Change a chord chart's font, text size, chord color, columns, page size, orientation and margins, for one chart or as the default for all your charts.",
  "intent": "existing",
  "intent_note": "Users who want bigger text, one or two columns, A4 or Letter pages, or a different look for their chord charts, for one chart or all of them.",

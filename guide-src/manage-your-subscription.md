@@ -2,15 +2,40 @@
 {
  "slug": "manage-your-subscription",
  "h1": "Manage your subscription",
- "seo_title": "Subscribe, Restore or Cancel Premium | Music Folder",
+ "seo_title": "Manage Your Music Folder Premium Subscription",
  "description": "Subscribe to Music Folder Premium, restore a purchase on a new device, switch plans, redeem an offer code, or cancel your subscription through Apple.",
  "intent": "existing",
  "intent_note": "Subscribers and would-be subscribers looking for how to buy, restore, change or cancel Premium; often arriving from a search like 'cancel Music Folder subscription'.",
- "searches": ["cancel", "cancel subscription", "restore purchases", "refund", "billing", "renewal", "change plan", "upgrade", "offer code", "promo code", "lifetime"],
+ "searches": [
+  "cancel",
+  "cancel subscription",
+  "restore purchases",
+  "refund",
+  "billing",
+  "renewal",
+  "change plan",
+  "upgrade",
+  "offer code",
+  "promo code",
+  "lifetime"
+ ],
  "availability": [],
- "related": ["free-and-premium", "use-music-folder-on-a-mac", "sync-with-icloud"],
- "feature_link": {"href": "/pricing", "text": "Pricing"},
- "documents": ["Premium/PremiumPaywallView.swift", "Premium/PremiumPlanView.swift", "Premium/PremiumPlanStatus.swift", "Premium/PremiumStore.swift", "App/AccountView.swift"],
+ "related": [
+  "free-and-premium",
+  "use-music-folder-on-a-mac",
+  "sync-with-icloud"
+ ],
+ "feature_link": {
+  "href": "/pricing",
+  "text": "Pricing"
+ },
+ "documents": [
+  "Premium/PremiumPaywallView.swift",
+  "Premium/PremiumPlanView.swift",
+  "Premium/PremiumPlanStatus.swift",
+  "Premium/PremiumStore.swift",
+  "App/AccountView.swift"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

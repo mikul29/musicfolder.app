@@ -2,7 +2,7 @@
 {
  "slug": "keep-notes-on-a-piece",
  "h1": "Keep notes on a piece",
- "seo_title": "Add Practice and Performance Notes to Music | Music Folder",
+ "seo_title": "Keep Practice Notes on a Piece | Music Folder",
  "description": "Write notes on a piece in Music Folder, flag cues to show on the score, add dated reminders for one rehearsal, and restore an earlier version.",
  "intent": "existing",
  "intent_note": "A musician who wants to keep reminders, rehearsal instructions or practice notes with a piece and see them while playing.",

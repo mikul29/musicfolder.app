@@ -61,6 +61,50 @@
     }), { threshold: 0.5 }).observe(v);
   });
 
+  /* ---------- screenshots: tap to see the full image ---------- */
+  let viewer = null;
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('a[data-zoom]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || !window.HTMLDialogElement) return;
+    e.preventDefault();
+    if (!viewer) {
+      viewer = document.createElement('dialog');
+      viewer.className = 'zoom-view';
+      viewer.innerHTML = '<img alt=""><button class="zoom-close" type="button" aria-label="Close"></button>';
+      viewer.addEventListener('click', ev => { if (ev.target === viewer || ev.target.classList.contains('zoom-close')) viewer.close(); });
+      document.body.appendChild(viewer);
+    }
+    const src = a.querySelector('img');
+    const big = viewer.querySelector('img');
+    big.src = a.getAttribute('href');
+    big.alt = src ? src.alt : '';
+    big.width = +a.dataset.w || 0; big.height = +a.dataset.h || 0;
+    viewer.setAttribute('aria-label', src ? src.alt : 'Screenshot');
+    viewer.showModal();
+    viewer.querySelector('.zoom-close').focus();
+  });
+
+  /* ---------- "On this page": folded on phones, open elsewhere ---------- */
+  const toc = document.querySelector('details[data-on-page]');
+  if (toc && window.matchMedia('(max-width: 640px)').matches) toc.open = false;
+  if (toc) toc.addEventListener('click', e => { if (e.target.closest('a') && window.matchMedia('(max-width: 640px)').matches) toc.open = false; });
+
+  /* ---------- sidebar keeps its place between guides ---------- */
+  const aside = document.querySelector('.guide-aside');
+  if (aside && getComputedStyle(aside).position === 'sticky') {
+    let saved = null;
+    try { saved = sessionStorage.getItem('guide-aside'); } catch (e) { /* storage blocked */ }
+    const cur = aside.querySelector('[aria-current="page"]');
+    if (saved !== null) aside.scrollTop = +saved;
+    if (cur) {
+      const a = aside.getBoundingClientRect(), c = cur.getBoundingClientRect();
+      if (c.top < a.top || c.bottom > a.bottom) aside.scrollTop += c.top - a.top - a.height / 3;
+    }
+    aside.addEventListener('click', e => {
+      if (e.target.closest('a')) { try { sessionStorage.setItem('guide-aside', String(aside.scrollTop)); } catch (err) { /* ignore */ } }
+    });
+  }
+
   /* ---------- search ---------- */
   const forms = [...document.querySelectorAll('[data-guide-search]')];
   if (!forms.length) return;

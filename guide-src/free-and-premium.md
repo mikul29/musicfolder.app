@@ -2,15 +2,48 @@
 {
  "slug": "free-and-premium",
  "h1": "Free and Premium",
- "seo_title": "Free vs. Premium: Limits, Prices and Trial | Music Folder",
+ "seo_title": "Music Folder Free and Premium: Limits and Prices",
  "description": "What the free version of Music Folder includes, its limits of 15 pieces, 5 sections and 1 folder, what Premium adds, the free trial, and earlier purchases.",
  "intent": "general",
  "intent_note": "People deciding whether the free version is enough, or hitting a limit and wanting to know what Premium changes.",
- "searches": ["price", "cost", "subscription", "free trial", "upgrade", "limit", "15 songs", "lifetime", "paywall", "unlock"],
+ "searches": [
+  "price",
+  "cost",
+  "subscription",
+  "free trial",
+  "upgrade",
+  "limit",
+  "15 songs",
+  "lifetime",
+  "paywall",
+  "unlock"
+ ],
  "availability": [],
- "related": ["manage-your-subscription", "add-your-first-music", "share-a-folder-or-set-list", "back-up-and-restore-your-library"],
- "feature_link": {"href": "/pricing", "text": "Pricing"},
- "documents": ["Premium/PremiumGate.swift", "Premium/PremiumPaywallView.swift", "Premium/PremiumStore.swift", "Premium/PremiumPlanStatus.swift", "Premium/CollaborationAccess.swift", "Groups/Groups View/GroupsView.swift", "Configuration.storekit", "App/ExamplesView.swift", "R5", "R53", "R58", "R68", "R69"],
+ "related": [
+  "manage-your-subscription",
+  "add-your-first-music",
+  "share-a-folder-or-set-list",
+  "back-up-and-restore-your-library"
+ ],
+ "feature_link": {
+  "href": "/pricing",
+  "text": "Pricing"
+ },
+ "documents": [
+  "Premium/PremiumGate.swift",
+  "Premium/PremiumPaywallView.swift",
+  "Premium/PremiumStore.swift",
+  "Premium/PremiumPlanStatus.swift",
+  "Premium/CollaborationAccess.swift",
+  "Groups/Groups View/GroupsView.swift",
+  "Configuration.storekit",
+  "App/ExamplesView.swift",
+  "R5",
+  "R53",
+  "R58",
+  "R68",
+  "R69"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

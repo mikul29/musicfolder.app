@@ -2,7 +2,7 @@
 {
  "slug": "add-sections-to-a-book",
  "h1": "Add sections to a book",
- "seo_title": "Split a PDF Songbook or Hymnal Into Sections | Music Folder",
+ "seo_title": "Organize Multiple Songs in One PDF | Music Folder",
  "description": "Mark where each hymn, tune or movement starts in a PDF songbook, give each section its own key and tempo, and find your old bookmarks.",
  "intent": "existing",
  "intent_note": "Musicians with hymnals, fake books, method books or multi-movement scores in one PDF, including 4.2 upgraders looking for bookmarks.",

@@ -2,15 +2,51 @@
 {
  "slug": "use-music-folder-on-a-mac",
  "h1": "Use Music Folder on a Mac",
- "seo_title": "Sheet Music App on Mac: Menus and Shortcuts | Music Folder",
+ "seo_title": "Use Music Folder on a Mac",
  "description": "Run Music Folder on a Mac with Apple silicon: install it, use the menu bar, drag PDFs from the Finder, resize the window, and learn every keyboard shortcut.",
  "intent": "existing",
  "intent_note": "Musicians with a Mac (often a laptop on a music stand or a desktop for preparing parts) who want to know whether the app runs there and how to drive it with a keyboard.",
- "searches": ["macbook", "macos", "desktop", "keyboard shortcuts", "hotkeys", "menu bar", "finder", "apple silicon", "m1"],
- "availability": [{"kind": "device", "text": "Needs a Mac with Apple silicon. Music Folder runs there as its iPad app."}],
- "related": ["sync-with-icloud", "import-music", "turn-pages", "transpose-capo-and-numbers"],
+ "searches": [
+  "macbook",
+  "macos",
+  "desktop",
+  "keyboard shortcuts",
+  "hotkeys",
+  "menu bar",
+  "finder",
+  "apple silicon",
+  "m1"
+ ],
+ "availability": [
+  {
+   "kind": "device",
+   "text": "Needs a Mac with Apple silicon. Music Folder runs there as its iPad app."
+  }
+ ],
+ "related": [
+  "sync-with-icloud",
+  "import-music",
+  "turn-pages",
+  "transpose-capo-and-numbers"
+ ],
  "feature_link": null,
- "documents": ["App/MainMenu.swift", "App/SceneDelegate.swift", "Shared UI/SongListViewController.swift", "PDF Reader/PDFReaderToolbar.swift", "PDF Reader/PageTurnerKeys.swift", "PDF Reader/ScoreLinkNavigator.swift", "Chords/ChordKeyControl.swift", "Chords/ChartEditorViewController.swift", "Notes/NotesPanelViewController.swift", "Groups/FolderEditorSheet.swift", "Set Lists/Songs View/SetListViewSongs.swift", "PDF Reader/FaceTurnSettings.swift", "Premium/PremiumPlanView.swift", "R23", "R50"],
+ "documents": [
+  "App/MainMenu.swift",
+  "App/SceneDelegate.swift",
+  "Shared UI/SongListViewController.swift",
+  "PDF Reader/PDFReaderToolbar.swift",
+  "PDF Reader/PageTurnerKeys.swift",
+  "PDF Reader/ScoreLinkNavigator.swift",
+  "Chords/ChordKeyControl.swift",
+  "Chords/ChartEditorViewController.swift",
+  "Notes/NotesPanelViewController.swift",
+  "Groups/FolderEditorSheet.swift",
+  "Set Lists/Songs View/SetListViewSongs.swift",
+  "PDF Reader/FaceTurnSettings.swift",
+  "Premium/PremiumPlanView.swift",
+  "R23",
+  "R50"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": "4.3 needs iOS 17 or later, which raises the oldest macOS that can run the app (see open questions).",
  "shots": [],

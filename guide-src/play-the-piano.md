@@ -2,15 +2,43 @@
 {
  "slug": "play-the-piano",
  "h1": "Play the piano",
- "seo_title": "Play an 88-Key Piano Next to Your Music | Music Folder",
+ "seo_title": "Play the 88-Key Piano | Music Folder",
  "description": "Play Music Folder's 88-key piano over your sheet music or full screen: find a starting pitch, check a chord, change the sound, and use sustain.",
  "intent": "general",
  "intent_note": "Singers, choir members and instrumentalists who want a keyboard beside the score to find starting notes, check intervals or plunk out a line.",
- "searches": ["keyboard", "starting pitch", "starting note", "pitch for choir", "virtual piano", "sustain pedal", "note names", "electric piano", "organ"],
- "availability": [{"kind": "premium", "text": "The piano needs Premium."}],
- "related": ["tune-and-play-reference-tones", "use-the-metronome", "the-reader-at-a-glance"],
- "feature_link": {"href": "/features/toolkit", "text": "the musician's toolkit"},
- "documents": ["Tools/PianoTool.swift", "Tools/PianoDock.swift", "Tools/PianoEngine.swift", "App/ToolsView.swift", "PDF Reader/ReaderToolbarCustomization.swift"],
+ "searches": [
+  "keyboard",
+  "starting pitch",
+  "starting note",
+  "pitch for choir",
+  "virtual piano",
+  "sustain pedal",
+  "note names",
+  "electric piano",
+  "organ"
+ ],
+ "availability": [
+  {
+   "kind": "premium",
+   "text": "The piano needs Premium."
+  }
+ ],
+ "related": [
+  "tune-and-play-reference-tones",
+  "use-the-metronome",
+  "the-reader-at-a-glance"
+ ],
+ "feature_link": {
+  "href": "/features/toolkit",
+  "text": "the musician's toolkit"
+ },
+ "documents": [
+  "Tools/PianoTool.swift",
+  "Tools/PianoDock.swift",
+  "Tools/PianoEngine.swift",
+  "App/ToolsView.swift",
+  "PDF Reader/ReaderToolbarCustomization.swift"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

@@ -2,19 +2,63 @@
 {
  "slug": "use-the-metronome",
  "h1": "Use the metronome",
- "seo_title": "Use the Metronome With Your Sheet Music | Music Folder",
+ "seo_title": "Use the Metronome with Your Music | Music Folder",
  "description": "Use Music Folder's metronome: set the tempo with the dial or tap tempo, choose a time signature, subdivisions and accents, and follow each piece's tempo.",
  "intent": "general",
  "intent_note": "Musicians looking for a metronome app that sits on top of their sheet music, and users who want to know how tempo, tap tempo, accents and section tempos work.",
- "searches": ["click track", "bpm", "tap tempo", "time signature", "subdivision", "accent", "downbeat", "tempo marking", "click sound", "metronome volume"],
- "availability": [{"kind": "premium", "text": "Playing the metronome needs Premium."}],
- "related": ["tune-and-play-reference-tones", "play-a-set-list", "add-sections-to-a-book", "cant-hear-the-metronome-or-a-recording"],
- "feature_link": {"href": "/features/toolkit", "text": "the musician's toolkit"},
- "documents": ["Tools/Metronome.swift", "Tools/MetronomeController.swift", "Tools/MetronomeEngine.swift", "Tools/MetronomeTypes.swift", "PDF Reader/PDFReaderToolbar.swift", "PDF Reader/SectionTempoFollower.swift", "App/ToolsView.swift", "Tools/AudioSessionCoordinator.swift", "R66", "R67"],
+ "searches": [
+  "click track",
+  "bpm",
+  "tap tempo",
+  "time signature",
+  "subdivision",
+  "accent",
+  "downbeat",
+  "tempo marking",
+  "click sound",
+  "metronome volume"
+ ],
+ "availability": [
+  {
+   "kind": "premium",
+   "text": "Playing the metronome needs Premium."
+  }
+ ],
+ "related": [
+  "tune-and-play-reference-tones",
+  "play-a-set-list",
+  "add-sections-to-a-book",
+  "cant-hear-the-metronome-or-a-recording"
+ ],
+ "feature_link": {
+  "href": "/features/toolkit",
+  "text": "the musician's toolkit"
+ },
+ "documents": [
+  "Tools/Metronome.swift",
+  "Tools/MetronomeController.swift",
+  "Tools/MetronomeEngine.swift",
+  "Tools/MetronomeTypes.swift",
+  "PDF Reader/PDFReaderToolbar.swift",
+  "PDF Reader/SectionTempoFollower.swift",
+  "App/ToolsView.swift",
+  "Tools/AudioSessionCoordinator.swift",
+  "R66",
+  "R67"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [
-  {"id": "metronome-dial", "kind": "crop", "device": "iphone", "orientation": "portrait", "state": "The metronome opened from the Tools tab on iPhone, stopped, at 60 BPM (Larghetto) in 4/4 with quarter-note subdivision: beat bars at the top, the BPM readout, the dial with the play button and the ‹ › arrows, and the TIME SIG, SUB DIV and TAP tiles at the bottom.", "alt": "The metronome showing 60 BPM, a row of four beat bars above it, a round dial with a play button in the middle, and tiles for time signature, subdivision and tap tempo.", "caption": null, "reuse": "tool-metronome.jpg"}
+  {
+   "id": "metronome-dial",
+   "kind": "crop",
+   "device": "iphone",
+   "orientation": "portrait",
+   "state": "The metronome opened from the Tools tab on iPhone, stopped, at 60 BPM (Larghetto) in 4/4 with quarter-note subdivision: beat bars at the top, the BPM readout, the dial with the play button and the ‹ › arrows, and the TIME SIG, SUB DIV and TAP tiles at the bottom.",
+   "alt": "The metronome showing 60 BPM, a row of four beat bars above it, a round dial with a play button in the middle, and tiles for time signature, subdivision and tap tempo.",
+   "caption": null,
+   "reuse": "tool-metronome.jpg"
+  }
  ],
  "open_questions": []
 }

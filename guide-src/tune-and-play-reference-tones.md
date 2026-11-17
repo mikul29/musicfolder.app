@@ -2,7 +2,7 @@
 {
  "slug": "tune-and-play-reference-tones",
  "h1": "Tune and play reference tones",
- "seo_title": "Chromatic Tuner, Reference Tones and Drones | Music Folder",
+ "seo_title": "Tune Your Instrument and Play Drones | Music Folder",
  "description": "Tune any instrument with Music Folder's chromatic tuner, tune a guitar string by string, set A4 calibration, and play reference pitches and drones.",
  "intent": "general",
  "intent_note": "Musicians who want a tuner, a pitch pipe or a drone next to their sheet music, including brass and wind players who read in B-flat, E-flat or F.",

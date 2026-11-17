@@ -2,19 +2,57 @@
 {
  "slug": "track-your-practice",
  "h1": "Track your practice",
- "seo_title": "Track Practice Time, Goals and Streaks | Music Folder",
+ "seo_title": "Track Practice Time and Daily Goals | Music Folder",
  "description": "See how Music Folder counts practice time, set a daily practice goal and reminder, and review your week, month and year and your most practiced pieces.",
  "intent": "general",
  "intent_note": "Students, teachers and adult learners who want a practice log and daily goal without a separate app, and users wondering how practice minutes are counted.",
- "searches": ["practice log", "practice timer", "practice goal", "daily goal", "streak", "reminder", "notification", "practice history", "minutes practiced", "most practiced"],
+ "searches": [
+  "practice log",
+  "practice timer",
+  "practice goal",
+  "daily goal",
+  "streak",
+  "reminder",
+  "notification",
+  "practice history",
+  "minutes practiced",
+  "most practiced"
+ ],
  "availability": [],
- "related": ["use-the-metronome", "play-along-with-recordings", "back-up-and-restore-your-library"],
- "feature_link": {"href": "/for/students", "text": "Music Folder for students"},
- "documents": ["App/GoalsView.swift", "App/PracticeInsightsViews.swift", "App/HomePracticeCard.swift", "App/GoalAdjustSheet.swift", "App/GoalOffer.swift", "App/AccountView.swift", "Data/PracticeSessionTracker.swift", "Services/PracticePeriodSummary.swift", "Services/PracticeInsights.swift", "R48"],
+ "related": [
+  "use-the-metronome",
+  "play-along-with-recordings",
+  "back-up-and-restore-your-library"
+ ],
+ "feature_link": {
+  "href": "/for/students",
+  "text": "Music Folder for students"
+ },
+ "documents": [
+  "App/GoalsView.swift",
+  "App/PracticeInsightsViews.swift",
+  "App/HomePracticeCard.swift",
+  "App/GoalAdjustSheet.swift",
+  "App/GoalOffer.swift",
+  "App/AccountView.swift",
+  "Data/PracticeSessionTracker.swift",
+  "Services/PracticePeriodSummary.swift",
+  "Services/PracticeInsights.swift",
+  "R48"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [
-  {"id": "practice-screen", "kind": "screen", "device": "ipad", "orientation": "portrait", "state": "The Practice screen on iPad in portrait, opened from Home's Practice card: the Today card with Change Goal (29 min of 30, 14-day streak), Week selected, this week's card with the total, the comparison line, the bar chart with the dotted goal line, Average per practice day and Goal reached, and Most Practiced with four pieces and See All.", "alt": "The Practice screen: today's minutes against a 30-minute goal, a weekly bar chart with a dotted goal line, and a Most Practiced list of four pieces.", "caption": null, "reuse": "practice-ipad.jpg"}
+  {
+   "id": "practice-screen",
+   "kind": "screen",
+   "device": "ipad",
+   "orientation": "portrait",
+   "state": "The Practice screen on iPad in portrait, opened from Home's Practice card: the Today card with Change Goal (29 min of 30, 14-day streak), Week selected, this week's card with the total, the comparison line, the bar chart with the dotted goal line, Average per practice day and Goal reached, and Most Practiced with four pieces and See All.",
+   "alt": "The Practice screen: today's minutes against a 30-minute goal, a weekly bar chart with a dotted goal line, and a Most Practiced list of four pieces.",
+   "caption": null,
+   "reuse": "practice-ipad.jpg"
+  }
  ],
  "open_questions": []
 }

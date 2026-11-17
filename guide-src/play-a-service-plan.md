@@ -2,7 +2,7 @@
 {
  "slug": "play-a-service-plan",
  "h1": "Play a service plan",
- "seo_title": "Play a Planning Center Service on iPad | Music Folder",
+ "seo_title": "Play a Planning Center Service Plan | Music Folder",
  "description": "Open a Planning Center service in Music Folder, play through its songs in order, pick the right chart or PDF, and transpose chord charts from the plan key.",
  "intent": "existing",
  "intent_note": "A worship musician who connected Planning Center and wants to lead or play Sunday's service from an iPad, with the right charts in the right keys.",

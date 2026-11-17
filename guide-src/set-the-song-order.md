@@ -2,22 +2,54 @@
 {
  "slug": "set-the-song-order",
  "h1": "Set the song order",
- "seo_title": "Set a Song's Section Order and Sequence | Music Folder",
+ "seo_title": "Set the Song Order of a Chord Chart | Music Folder",
  "description": "Name a chord chart's verses and choruses, build the song's sequence (V1, C1, V2, Bridge), and use Follow Sequence to read the chart in the order you play it.",
  "intent": "existing",
  "intent_note": "Band and worship musicians who want a chart's arrangement (verse, chorus, bridge, repeats) written once and read in play order, as in Planning Center.",
- "searches": ["sequence", "arrangement", "song structure", "song map", "verse chorus order", "repeat chorus", "roadmap", "follow sequence", "section labels", "v1 c1"],
+ "searches": [
+  "sequence",
+  "arrangement",
+  "song structure",
+  "song map",
+  "verse chorus order",
+  "repeat chorus",
+  "roadmap",
+  "follow sequence",
+  "section labels",
+  "v1 c1"
+ ],
  "availability": [],
- "related": ["create-a-chord-chart", "format-a-chord-chart", "play-a-service-plan", "add-sections-to-a-book"],
- "feature_link": {"href": "/features/chord-charts", "text": "chord charts in Music Folder"},
- "documents": ["Chords/ChartSequenceEditorViewController.swift", "Chords/ChartSequence.swift", "Chords/ChartEditorViewController.swift (Edit Sequence)", "Songs/Song View/SongPDFView.swift (chartMenuElements)", "Chords/CHORD_SPEC.md §6, §8", "R24"],
+ "related": [
+  "create-a-chord-chart",
+  "format-a-chord-chart",
+  "play-a-service-plan",
+  "add-sections-to-a-book"
+ ],
+ "feature_link": {
+  "href": "/features/chord-charts",
+  "text": "chord charts in Music Folder"
+ },
+ "documents": [
+  "Chords/ChartSequenceEditorViewController.swift",
+  "Chords/ChartSequence.swift",
+  "Chords/ChartEditorViewController.swift (Edit Sequence)",
+  "Songs/Song View/SongPDFView.swift (chartMenuElements)",
+  "Chords/CHORD_SPEC.md §6, §8",
+  "R24"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [
-  {"id": "sequence-editor", "kind": "crop", "device": "ipad", "orientation": "landscape",
+  {
+   "id": "sequence-editor",
+   "kind": "crop",
+   "device": "ipad",
+   "orientation": "landscape",
    "state": "The Edit Sequence sheet for a chart with one Verse 1 and one Chorus: the sequence list on the left holding 1 Verse 1 and 2 Chorus, and the labels on the right: Verse with a filled 1 and an outlined 2, Chorus the same, Bridge with an outlined 1, then Intro, Outro, Ending, Instrumental, Interlude and Tag with outlined 1s.",
    "alt": "The Edit Sequence screen, with the song's sequence listed on the left and buttons for verses, choruses, bridge and other section labels on the right.",
-   "caption": null, "reuse": "chart-sequence.jpg"}
+   "caption": null,
+   "reuse": "chart-sequence.jpg"
+  }
  ],
  "open_questions": []
 }

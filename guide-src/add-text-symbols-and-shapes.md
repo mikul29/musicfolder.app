@@ -2,7 +2,7 @@
 {
  "slug": "add-text-symbols-and-shapes",
  "h1": "Add text, symbols and shapes",
- "seo_title": "Add Text and Music Symbols to a Score | Music Folder",
+ "seo_title": "Add Text, Music Symbols and Shapes | Music Folder",
  "description": "Add typed text, music symbols like dynamics and fermatas, and shapes like hairpins, slurs and staves to your sheet music, then move, resize or delete them.",
  "intent": "existing",
  "intent_note": "Musicians who want neat dynamics, articulations, rehearsal marks or typed notes on a PDF instead of handwriting, and users looking for the + in the tool palette.",

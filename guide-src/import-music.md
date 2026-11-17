@@ -2,15 +2,53 @@
 {
  "slug": "import-music",
  "h1": "Import music",
- "seo_title": "Import Sheet Music PDFs, Photos and Scans | Music Folder",
+ "seo_title": "Import Sheet Music PDFs into Music Folder",
  "description": "Import sheet music PDFs into Music Folder from Files, Photos, a folder, the document scanner, AirDrop or drag and drop, one piece at a time or many at once.",
  "intent": "existing",
  "intent_note": "A musician with PDFs, photos or paper scores who wants them in the app, often many files at once.",
- "searches": ["add pdf", "upload sheet music", "airdrop", "open in", "scan", "photos", "bulk import", "drag and drop", "import folder", "add music"],
- "availability": [{"kind": "premium", "text": "Free includes 15 pieces; Premium has no limit."}],
- "related": ["add-sections-to-a-book", "organize-music-in-folders", "import-didnt-work", "get-free-sheet-music"],
- "feature_link": {"href": "/features/sheet-music-organizer", "text": "the Sheet Music Organizer"},
- "documents": ["Shared UI/SongListViewController.swift (addToLibrarySections, routeImported, drop interaction)", "Sharing/ReviewImportViewController.swift", "Sharing/OrganizePagesViewController.swift", "Sharing/ImportSourceConverter.swift", "Sharing/ScanImport.swift", "Sharing/SongMetadataAnalyzer.swift", "Songs/Song View/SongListScreen.swift (handleReceivedFiles)", "App/SceneDelegate.swift (classifyIncoming)", "Shared UI/AddSongFormViewController.swift", "Premium/PremiumGate.swift (FreeTier)", "R5", "R62", "R68"],
+ "searches": [
+  "add pdf",
+  "upload sheet music",
+  "airdrop",
+  "open in",
+  "scan",
+  "photos",
+  "bulk import",
+  "drag and drop",
+  "import folder",
+  "add music"
+ ],
+ "availability": [
+  {
+   "kind": "premium",
+   "text": "Free includes 15 pieces; Premium has no limit."
+  }
+ ],
+ "related": [
+  "add-sections-to-a-book",
+  "organize-music-in-folders",
+  "import-didnt-work",
+  "get-free-sheet-music"
+ ],
+ "feature_link": {
+  "href": "/features/sheet-music-organizer",
+  "text": "the Sheet Music Organizer"
+ },
+ "documents": [
+  "Shared UI/SongListViewController.swift (addToLibrarySections, routeImported, drop interaction)",
+  "Sharing/ReviewImportViewController.swift",
+  "Sharing/OrganizePagesViewController.swift",
+  "Sharing/ImportSourceConverter.swift",
+  "Sharing/ScanImport.swift",
+  "Sharing/SongMetadataAnalyzer.swift",
+  "Songs/Song View/SongListScreen.swift (handleReceivedFiles)",
+  "App/SceneDelegate.swift (classifyIncoming)",
+  "Shared UI/AddSongFormViewController.swift",
+  "Premium/PremiumGate.swift (FreeTier)",
+  "R5",
+  "R62",
+  "R68"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

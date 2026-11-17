@@ -2,15 +2,46 @@
 {
  "slug": "page-turner-isnt-turning-pages",
  "h1": "My page turner isn't turning pages",
- "seo_title": "Bluetooth Page Turner Pedal Not Working | Music Folder",
+ "seo_title": "Fix a Page Turner Pedal That Won't Turn Pages | Music Folder",
  "description": "Bluetooth page turner pedal not turning pages in Music Folder? Test the pedal, set the right mode, swap directions and find what's pausing turns.",
  "intent": "troubleshooting",
  "intent_note": "Musicians with an AirTurn, PageFlip, Donner or similar pedal that doesn't turn pages in the app.",
- "searches": ["pedal not working", "airturn", "pageflip", "donner pedal", "bluetooth pedal", "foot pedal", "page turn pedal", "pedal turns wrong way", "media mode"],
+ "searches": [
+  "pedal not working",
+  "airturn",
+  "pageflip",
+  "donner pedal",
+  "bluetooth pedal",
+  "foot pedal",
+  "page turn pedal",
+  "pedal turns wrong way",
+  "media mode"
+ ],
  "availability": [],
- "related": ["turn-pages-hands-free", "turn-pages", "use-performance-mode", "the-reader-at-a-glance"],
- "feature_link": {"href": "/features/page-turner", "text": "page turning in Music Folder"},
- "documents": ["PDF Reader/PageTurnerKeys.swift (key map, acceptsTurn, reclaimPageTurnerFocus, PageTurnerTestReading)", "App/PageTurnerSettingsView.swift", "App/AccountView.swift (Preferences › Page Turner)", "PDF Reader/PerformanceMode.swift (TurnDebouncer, Prevent Double Turns)", "App/PerformanceModeSettingsView.swift", "PDF Reader/HalfPageTurn.swift", "PDF Reader/PDFReaderToolbar.swift (Half-Page Turns menu item)", "PDF Reader/PDFAnnotationSession.swift (Done Annotating)", "Tools/CompactToolSheetPresenter.swift", "R50", "R41", "R39"],
+ "related": [
+  "turn-pages-hands-free",
+  "turn-pages",
+  "use-performance-mode",
+  "the-reader-at-a-glance"
+ ],
+ "feature_link": {
+  "href": "/features/page-turner",
+  "text": "page turning in Music Folder"
+ },
+ "documents": [
+  "PDF Reader/PageTurnerKeys.swift (key map, acceptsTurn, reclaimPageTurnerFocus, PageTurnerTestReading)",
+  "App/PageTurnerSettingsView.swift",
+  "App/AccountView.swift (Preferences › Page Turner)",
+  "PDF Reader/PerformanceMode.swift (TurnDebouncer, Prevent Double Turns)",
+  "App/PerformanceModeSettingsView.swift",
+  "PDF Reader/HalfPageTurn.swift",
+  "PDF Reader/PDFReaderToolbar.swift (Half-Page Turns menu item)",
+  "PDF Reader/PDFAnnotationSession.swift (Done Annotating)",
+  "Tools/CompactToolSheetPresenter.swift",
+  "R50",
+  "R41",
+  "R39"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

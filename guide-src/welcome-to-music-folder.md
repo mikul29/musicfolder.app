@@ -2,8 +2,8 @@
 {
  "slug": "welcome-to-music-folder",
  "h1": "Welcome to Music Folder",
- "seo_title": "Get Started With the Sheet Music App | Music Folder",
- "description": "A tour of Music Folder: what the Home, Library, Tools and Search tabs do, where Account is, and how to open the two example pieces to try things out.",
+ "seo_title": "Welcome to Music Folder",
+ "description": "An introduction to the main areas of Music Folder (Home, Library, Tools and Search), where to find Account, and how to try the two included examples.",
  "intent": "existing",
  "intent_note": "New users (and people deciding whether to download) who want to know how the app is laid out and where to start.",
  "searches": [
@@ -63,7 +63,7 @@
    "orientation": "landscape",
    "state": "iPad landscape, sidebar open, Music selected, the Music list beside it.",
    "alt": "The iPad sidebar with the Library section open and the Music list beside it, showing pieces from the library.",
-   "caption": "On iPad, the Library lives in the sidebar.",
+   "caption": "On iPad with iPadOS 18 or later, the Library is in the sidebar.",
    "reuse": null
   },
   {
@@ -80,7 +80,7 @@
  "open_questions": []
 }
 ---
-Music Folder keeps your sheet music, chord charts and set lists in one library on iPhone, iPad and Mac, and opens them in a reader you can play from. Here's how the app is laid out, and where to try it out with two example pieces before you add your own music.
+Music Folder lets you organize sheet music, chord charts, and set lists on your iPhone, iPad, or Mac. This guide introduces the main areas of the app and shows you how to try the included examples before adding your own music.
 
 ## The first time you open the app
 

@@ -2,7 +2,7 @@
 {
  "slug": "find-music-with-search-and-filters",
  "h1": "Find music with search and filters",
- "seo_title": "Search and Filter Your Sheet Music Library | Music Folder",
+ "seo_title": "Search and Filter Your Music Library | Music Folder",
  "description": "Search your sheet music by title, composer or chart lyrics, and narrow the list with filters for folder, key, tag, composer and books in Music Folder.",
  "intent": "existing",
  "intent_note": "Musicians with a large library who need to find a piece quickly, by key, tag or composer.",

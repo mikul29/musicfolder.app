@@ -2,7 +2,7 @@
 {
  "slug": "create-a-chord-chart",
  "h1": "Create a chord chart",
- "seo_title": "Write a Chord Chart in ChordPro | Music Folder",
+ "seo_title": "Create Chord Charts on iPad and iPhone | Music Folder",
  "description": "Write a chord chart in Music Folder: type chords in brackets or above the lyrics, preview the pages as you go, and import ChordPro and text chart files.",
  "intent": "general",
  "intent_note": "Guitarists, worship and band musicians looking for a way to write chords over lyrics on iPad or iPhone, plus users who want to bring in .cho or .txt chord files.",

@@ -2,7 +2,7 @@
 {
  "slug": "turn-pages-hands-free",
  "h1": "Turn pages hands-free",
- "seo_title": "Turn Sheet Music Pages Hands-Free on iPad | Music Folder",
+ "seo_title": "Turn Sheet Music Pages Hands-Free | Music Folder",
  "description": "Use a Bluetooth page turner pedal, or a head turn, wink or mouth movement with Face Gestures, to turn sheet music pages without using your hands.",
  "intent": "general",
  "intent_note": "Musicians looking for a page turner pedal setup or a hands-free way to turn pages while playing; also users testing a new pedal.",

@@ -2,7 +2,7 @@
 {
  "slug": "the-reader-at-a-glance",
  "h1": "The reader at a glance",
- "seo_title": "Sheet Music Reader Toolbar and Menu | Music Folder",
+ "seo_title": "The Sheet Music Reader at a Glance | Music Folder",
  "description": "A tour of the Music Folder reader: the toolbar, the ⋯ menu, the Sections list, the title menu, the iPhone bottom bar and how to customize the toolbar.",
  "intent": "existing",
  "intent_note": "A user who has opened a piece and wants to know what the buttons do, where a command went, or how to rearrange the toolbar.",

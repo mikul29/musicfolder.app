@@ -2,15 +2,44 @@
 {
  "slug": "change-the-page-view",
  "h1": "Change the page view",
- "seo_title": "Scroll, Two-Page View and Dark Sheet Music | Music Folder",
+ "seo_title": "Two-Page View, Scrolling and Dark Background | Music Folder",
  "description": "How to scroll through sheet music vertically, show two pages side by side on iPad and Mac, or read light notation on a dark background.",
  "intent": "existing",
  "intent_note": "A user who wants continuous scrolling, a two-page spread like an open book, or a dark page for low-light stages.",
- "searches": ["vertical scroll", "continuous scroll", "two page", "side by side", "spread", "book view", "dark mode", "night mode", "invert colors", "black background", "landscape"],
+ "searches": [
+  "vertical scroll",
+  "continuous scroll",
+  "two page",
+  "side by side",
+  "spread",
+  "book view",
+  "dark mode",
+  "night mode",
+  "invert colors",
+  "black background",
+  "landscape"
+ ],
  "availability": [],
- "related": ["turn-pages", "organize-rotate-and-crop-pages", "the-reader-at-a-glance", "use-performance-mode"],
- "feature_link": {"href": "/features/sheet-music-reader", "text": "the Sheet Music Reader"},
- "documents": ["PDF Reader/PDFReaderToolbar.swift", "PDF Reader/TwoPageSpread.swift", "PDF Reader/SheetMusicAppearance.swift", "Songs/Song View/SongPDFView.swift", "Set Lists/Songs View/PDFViewInSetList.swift", "Planning Center/PCOPDFViewController.swift", "R45", "R52"],
+ "related": [
+  "turn-pages",
+  "organize-rotate-and-crop-pages",
+  "the-reader-at-a-glance",
+  "use-performance-mode"
+ ],
+ "feature_link": {
+  "href": "/features/sheet-music-reader",
+  "text": "the Sheet Music Reader"
+ },
+ "documents": [
+  "PDF Reader/PDFReaderToolbar.swift",
+  "PDF Reader/TwoPageSpread.swift",
+  "PDF Reader/SheetMusicAppearance.swift",
+  "Songs/Song View/SongPDFView.swift",
+  "Set Lists/Songs View/PDFViewInSetList.swift",
+  "Planning Center/PCOPDFViewController.swift",
+  "R45",
+  "R52"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

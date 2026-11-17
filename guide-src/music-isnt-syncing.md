@@ -2,15 +2,44 @@
 {
  "slug": "music-isnt-syncing",
  "h1": "My music isn't syncing",
- "seo_title": "Music Not Syncing Between iPad and iPhone | Music Folder",
+ "seo_title": "Fix Music Not Syncing Between Devices | Music Folder",
  "description": "Music Folder not syncing between your iPad, iPhone or Mac? Work through these iCloud checks in order, from the sync status to storage and Apple Accounts.",
  "intent": "troubleshooting",
  "intent_note": "Existing users whose music, folders or set lists added on one device don't appear on another.",
- "searches": ["icloud sync", "not syncing", "sync not working", "missing on ipad", "missing on iphone", "sync paused", "icloud storage full", "devices not matching"],
- "availability": [{"kind": "requires", "text": "Sync needs an iCloud account on every device."}],
- "related": ["sync-with-icloud", "library-looks-empty-after-reinstalling", "back-up-and-restore-your-library", "work-together-in-a-shared-folder-or-set-list"],
+ "searches": [
+  "icloud sync",
+  "not syncing",
+  "sync not working",
+  "missing on ipad",
+  "missing on iphone",
+  "sync paused",
+  "icloud storage full",
+  "devices not matching"
+ ],
+ "availability": [
+  {
+   "kind": "requires",
+   "text": "Sync needs an iCloud account on every device."
+  }
+ ],
+ "related": [
+  "sync-with-icloud",
+  "library-looks-empty-after-reinstalling",
+  "back-up-and-restore-your-library",
+  "work-together-in-a-shared-folder-or-set-list"
+ ],
  "feature_link": null,
- "documents": ["App/AppDelegate.swift (CloudKit attachment gate)", "Data/CoreDataStack.swift (isCloudKitSyncAttached)", "App/AccountView.swift (AccountSyncStatus, iCloud Sync row)", "Data/CloudKitImportMonitor.swift", "App/EmptyStateView.swift", "Data/SongAudioStore.swift", "Data/BackupStore.swift", "Sharing/SharedCollectionStatus.swift", "memory: offline-icloud-support-ticket"],
+ "documents": [
+  "App/AppDelegate.swift (CloudKit attachment gate)",
+  "Data/CoreDataStack.swift (isCloudKitSyncAttached)",
+  "App/AccountView.swift (AccountSyncStatus, iCloud Sync row)",
+  "Data/CloudKitImportMonitor.swift",
+  "App/EmptyStateView.swift",
+  "Data/SongAudioStore.swift",
+  "Data/BackupStore.swift",
+  "Sharing/SharedCollectionStatus.swift",
+  "memory: offline-icloud-support-ticket"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

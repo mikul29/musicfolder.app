@@ -2,15 +2,47 @@
 {
  "slug": "import-didnt-work",
  "h1": "An import didn't work",
- "seo_title": "Sheet Music PDF Won't Import? Fixes | Music Folder",
+ "seo_title": "Fix a Sheet Music PDF That Won't Import | Music Folder",
  "description": "A PDF or scan won't import into Music Folder? Check the file type, the free limit, files still in iCloud Drive, password-protected PDFs and duplicate names.",
  "intent": "troubleshooting",
  "intent_note": "Musicians whose PDF, photo, folder or scan didn't arrive in the library, or arrived without its pages.",
- "searches": ["can't import pdf", "pdf won't open", "import failed", "file greyed out", "file dimmed", "no sheet music found", "15 piece limit", "password protected pdf", "already taken", "scan not working"],
- "availability": [{"kind": "premium", "text": "The free version holds up to 15 pieces and 5 sections; Premium has no limit."}],
- "related": ["import-music", "free-and-premium", "create-a-chord-chart", "add-sections-to-a-book"],
+ "searches": [
+  "can't import pdf",
+  "pdf won't open",
+  "import failed",
+  "file greyed out",
+  "file dimmed",
+  "no sheet music found",
+  "15 piece limit",
+  "password protected pdf",
+  "already taken",
+  "scan not working"
+ ],
+ "availability": [
+  {
+   "kind": "premium",
+   "text": "The free version holds up to 15 pieces and 5 sections; Premium has no limit."
+  }
+ ],
+ "related": [
+  "import-music",
+  "free-and-premium",
+  "create-a-chord-chart",
+  "add-sections-to-a-book"
+ ],
  "feature_link": null,
- "documents": ["Shared UI/SongListViewController.swift (Add to Library menu, attachFiles PDF-only picker, addFromPhotos, importFolder, scanSheetMusic, canScanDocuments, No Sheet Music Found)", "Sharing/ImportSourceConverter.swift (image extensions, folder scan)", "Services/SongLibraryService.swift (importedPDF rejects locked PDFs, LibraryError)", "Shared UI/AddSongFormViewController.swift (consumePendingImportFile, name already taken)", "Sharing/ReviewImportViewController.swift (batch free-tier check, swipe to delete)", "Premium/PremiumGate.swift (FreeTier.songLimit 15, sectionAllowance 5, messages)", "Chords/ChartImport.swift", "Info.plist (document types)", "R5", "R68"],
+ "documents": [
+  "Shared UI/SongListViewController.swift (Add to Library menu, attachFiles PDF-only picker, addFromPhotos, importFolder, scanSheetMusic, canScanDocuments, No Sheet Music Found)",
+  "Sharing/ImportSourceConverter.swift (image extensions, folder scan)",
+  "Services/SongLibraryService.swift (importedPDF rejects locked PDFs, LibraryError)",
+  "Shared UI/AddSongFormViewController.swift (consumePendingImportFile, name already taken)",
+  "Sharing/ReviewImportViewController.swift (batch free-tier check, swipe to delete)",
+  "Premium/PremiumGate.swift (FreeTier.songLimit 15, sectionAllowance 5, messages)",
+  "Chords/ChartImport.swift",
+  "Info.plist (document types)",
+  "R5",
+  "R68"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

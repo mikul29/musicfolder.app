@@ -2,15 +2,45 @@
 {
  "slug": "cant-hear-the-metronome-or-a-recording",
  "h1": "I can't hear the metronome or a recording",
- "seo_title": "No Sound From the Metronome or a Recording | Music Folder",
+ "seo_title": "Fix No Sound from the Metronome or a Recording | Music Folder",
  "description": "No sound from the metronome or a recording in Music Folder? Check Premium, volume, the metronome's own volume, Bluetooth and recordings still downloading.",
  "intent": "troubleshooting",
  "intent_note": "Existing users who start the metronome, a tone or an attached recording and hear nothing.",
- "searches": ["no sound", "metronome silent", "metronome not working", "recording won't play", "audio not playing", "silent mode", "bluetooth headphones", "volume"],
- "availability": [{"kind": "premium", "text": "Metronome playback, the tuner's reference tones and the piano are part of Premium; recordings are free."}],
- "related": ["use-the-metronome", "play-along-with-recordings", "tune-and-play-reference-tones", "free-and-premium"],
+ "searches": [
+  "no sound",
+  "metronome silent",
+  "metronome not working",
+  "recording won't play",
+  "audio not playing",
+  "silent mode",
+  "bluetooth headphones",
+  "volume"
+ ],
+ "availability": [
+  {
+   "kind": "premium",
+   "text": "Metronome playback, the tuner's reference tones and the piano are part of Premium; recordings are free."
+  }
+ ],
+ "related": [
+  "use-the-metronome",
+  "play-along-with-recordings",
+  "tune-and-play-reference-tones",
+  "free-and-premium"
+ ],
  "feature_link": null,
- "documents": ["Tools/AudioSessionCoordinator.swift (.playback / .playAndRecord, mixWithOthers vs exclusivePlayback)", "Tools/Metronome.swift (DialTickSound, paywall, Metronome Settings: Accent Volume, Master Volume, beat bar mute)", "Tools/MetronomeController.swift", "Songs/Song View/SongPDFView.swift (metronomeTapped paywall, firstPlayableAudio)", "Data/SongAudioStore.swift (iCloud Drive audio, ensureDownloaded)", "Tools/SongAudioListViewController.swift", "Tools/ReaderRecorderCard.swift", "Tools/AudioRecordViewController.swift", "Premium/PremiumPaywallView.swift (compareRow)", "PDF Reader/ReaderToolbarCustomization.swift (ReaderTool titles/symbols)"],
+ "documents": [
+  "Tools/AudioSessionCoordinator.swift (.playback / .playAndRecord, mixWithOthers vs exclusivePlayback)",
+  "Tools/Metronome.swift (DialTickSound, paywall, Metronome Settings: Accent Volume, Master Volume, beat bar mute)",
+  "Tools/MetronomeController.swift",
+  "Songs/Song View/SongPDFView.swift (metronomeTapped paywall, firstPlayableAudio)",
+  "Data/SongAudioStore.swift (iCloud Drive audio, ensureDownloaded)",
+  "Tools/SongAudioListViewController.swift",
+  "Tools/ReaderRecorderCard.swift",
+  "Tools/AudioRecordViewController.swift",
+  "Premium/PremiumPaywallView.swift (compareRow)",
+  "PDF Reader/ReaderToolbarCustomization.swift (ReaderTool titles/symbols)"
+ ],
  "verified": "76048e78",
  "differs_from_4_2": null,
  "shots": [],

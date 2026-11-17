@@ -2,7 +2,7 @@
 {
  "slug": "use-annotation-layers",
  "h1": "Use annotation layers",
- "seo_title": "Use Annotation Layers on Sheet Music | Music Folder",
+ "seo_title": "Use Annotation Layers | Music Folder",
  "description": "Keep different sets of markings on the same score with annotation layers: add, hide, rename, reorder and delete layers, and choose which one you draw on.",
  "intent": "existing",
  "intent_note": "Musicians who want separate markings for a teacher, a conductor or different performances on one PDF, and users who can't find or change a layer.",

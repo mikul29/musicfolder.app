@@ -2,7 +2,7 @@
 {
  "slug": "transpose-capo-and-numbers",
  "h1": "Transpose, capo and numbers",
- "seo_title": "Transpose Chords, Capo and Nashville Numbers | Music Folder",
+ "seo_title": "Transpose Chords and Use a Capo | Music Folder",
  "description": "Change a chord chart's key, show capo chord shapes, switch to Nashville numbers or lyrics only, and change the text size, without changing the chart itself.",
  "intent": "general",
  "intent_note": "Guitarists, keyboard players and worship leaders who need to transpose chords to a singer's key, play with a capo, or read the number system; existing users looking for the Key control.",

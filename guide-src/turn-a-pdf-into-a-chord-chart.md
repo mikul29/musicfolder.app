@@ -2,7 +2,7 @@
 {
  "slug": "turn-a-pdf-into-a-chord-chart",
  "h1": "Turn a PDF into a chord chart",
- "seo_title": "Convert a PDF Chord Chart to Editable Text | Music Folder",
+ "seo_title": "Convert a PDF into an Editable Chord Chart | Music Folder",
  "description": "Convert a PDF or scanned chord chart into an editable chart you can transpose: check the flagged lines, confirm the key, and switch back to the PDF.",
  "intent": "general",
  "intent_note": "Musicians with chord charts as PDFs or scans (downloaded charts, church song sheets) who want to transpose them, and users wondering why sheet music can't be transposed.",

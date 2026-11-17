@@ -2,7 +2,7 @@
 {
  "slug": "back-up-and-restore-your-library",
  "h1": "Back up and restore your library",
- "seo_title": "Back Up and Restore Your Sheet Music Library | Music Folder",
+ "seo_title": "Back Up and Restore Your Music Library | Music Folder",
  "description": "Make a backup of your Music Folder library, set up automatic backups, and restore music, folders and set lists with Add Missing Items or Replace Library.",
  "intent": "existing",
  "intent_note": "Users who want a safety copy of their library, or who lost music (deleted by mistake, new device, reinstall) and want it back.",

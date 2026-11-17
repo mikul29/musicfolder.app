@@ -26,8 +26,8 @@ OUT_DIR = ROOT / "guide"
 IMG_DIR = ROOT / "assets" / "guide"
 SITE = "https://musicfolder.app"
 SITE_CSS = "61"          # keep in step with the other pages' site.css?v=
-GUIDE_CSS = "1"
-GUIDE_JS = "1"
+GUIDE_CSS = "2"
+GUIDE_JS = "2"
 SITE_JS = "6"
 DRAFT = "--draft" in sys.argv
 
@@ -181,9 +181,12 @@ class Renderer:
         w, h = image_size(jpg)
         source = f'<source srcset="/assets/guide/{shot_id}.webp" type="image/webp">' if webp.exists() else ""
         fetch = ' fetchpriority="high"' if lazy == "eager" else ""
-        return (f'<figure class="{cls}"><picture>{source}<img src="/assets/guide/{shot_id}.jpg" '
+        # The link opens the full image (guide.js shows it in a viewer; without JavaScript the browser opens it)
+        return (f'<figure class="{cls}"><a class="shot-zoom" href="/assets/guide/{shot_id}.jpg" '
+                f'data-zoom data-w="{w}" data-h="{h}"><picture>{source}<img src="/assets/guide/{shot_id}.jpg" '
                 f'alt="{html.escape(alt)}" width="{w}" height="{h}" loading="{lazy}" decoding="async"{fetch}>'
-                f'</picture>{figcap}</figure>')
+                f'</picture><span class="zoom-hint" aria-hidden="true"></span>'
+                f'<span class="sr-only"> (opens the full-size image)</span></a>{figcap}</figure>')
 
     def pending(self, shot_id, s, cls, figcap):
         if not DRAFT:
@@ -417,7 +420,7 @@ def article_page(g, meta, body_html, renderer, inv, order, header, footer, by_sl
     url = f"{SITE}/guide/{slug}"
     crumbs = [("Music Folder", f"{SITE}/"), ("User Guide", f"{SITE}/guide"),
               (ch["title"], f"{SITE}/guide#{ch['slug']}"), (g["title"], url)]
-    out = [head(meta["seo_title"], meta["description"], url, g["title"] + " | Music Folder User Guide",
+    out = [head(meta["seo_title"], meta["description"], url, meta["seo_title"],
                 meta["description"], breadcrumb_ld(crumbs))]
     out.append(page_header(header, page))
     out.append('<main id="main">')
@@ -442,8 +445,11 @@ def article_page(g, meta, body_html, renderer, inv, order, header, footer, by_sl
             for a in av) + "</ul>")
     h2s = [h for h in renderer.headings if h[0] == 2]
     if len(h2s) >= 3:
-        out.append('<nav class="on-page" aria-label="On this page"><p class="on-page-title">On this page</p><ul>'
-                   + "".join(f'<li><a href="#{hid}">{renderer.inline(t)}</a></li>' for _, hid, t in h2s) + "</ul></nav>")
+        cols = " on-page-cols" if len(h2s) >= 6 else ""
+        out.append(f'<nav class="on-page{cols}" aria-label="On this page"><details open data-on-page>'
+                   '<summary class="on-page-title">On this page</summary><ul>'
+                   + "".join(f'<li><a href="#{hid}">{renderer.inline(t)}</a></li>' for _, hid, t in h2s)
+                   + "</ul></details></nav>")
     out.append(f'<div class="guide-body">\n{body_html}\n</div>')
     related = [by_slug[r] for r in meta.get("related") or [] if r in by_slug]
     fl = meta.get("feature_link")
@@ -582,8 +588,10 @@ def main() -> int:
         if meta.get("h1") != g["title"]:
             problems.append(f"{g['slug']}: h1 {meta.get('h1')!r} differs from the inventory title {g['title']!r}")
         st, de = meta.get("seo_title", ""), meta.get("description", "")
-        if not st.endswith(" | Music Folder") or len(st) > 65:
-            problems.append(f"{g['slug']}: seo_title should end with ' | Music Folder' and be ≤ 65 chars ({len(st)})")
+        # "<Task> | Music Folder", or a title that already names Music Folder naturally (no suffix then)
+        if "Music Folder" not in st or st.count("Music Folder") > 1 or "User Guide" in st or len(st) > 65:
+            problems.append(f"{g['slug']}: seo_title must name Music Folder once (suffix ' | Music Folder' unless it's"
+                            f" already in the title), no 'User Guide', ≤ 65 chars ({len(st)})")
         if not 100 <= len(de) <= 165:
             problems.append(f"{g['slug']}: description is {len(de)} chars (aim for 120–158)")
         if st in seen_titles:

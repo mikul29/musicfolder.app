@@ -2,7 +2,7 @@
 {
  "slug": "connect-planning-center",
  "h1": "Connect Planning Center",
- "seo_title": "Connect Planning Center Services | Music Folder",
+ "seo_title": "Connect Planning Center to Music Folder",
  "description": "Sign in with Planning Center to see your church's song library as a folder and your services as set lists in Music Folder, and disconnect any time.",
  "intent": "general",
  "intent_note": "A worship leader or church musician who uses Planning Center Services and wants its songs, charts and service plans on an iPad or iPhone music stand.",
